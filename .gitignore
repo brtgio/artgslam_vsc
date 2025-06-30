@@ -1,0 +1,25 @@
+# Archivos de compilación
+build/
+devel/
+*.o
+*.out
+*.so
+*.a
+*.log
+
+# Archivos de sistema
+.DS_Store
+*.swp
+*~
+
+# ROS
+log/
+*.pyc
+*.pyo
+*.pcd
+
+# Archivos de configuración
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
