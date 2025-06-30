@@ -4,65 +4,57 @@
 #include <ros/ros.h>
 #include <ros/package.h>
 
-ViewController::ViewController(sf::RenderWindow& win, float metersPerCell_, float pixelsPerMeter_,sf::View& view)
-    : window(win), metersPerCell(metersPerCell_), pixelsPerMeter(pixelsPerMeter_) ,view(view)
+ViewController::ViewController(sf::RenderWindow& win, float metersPerCell_, float pixelsPerMeter_, sf::View& view)
+    : window(win), metersPerCell(metersPerCell_), pixelsPerMeter(pixelsPerMeter_), view(view)
 {
-   defaultView = window.getDefaultView();
+    defaultView = window.getDefaultView();
 
-    
-   
+    // Iniciamos la vista con zoom 3 (más cercana)
     view = defaultView;
     view.setCenter(0.f, 0.f);
-    view.setSize(defaultView.getSize());
-    customDefaultView=view;
-// Obtener ruta del paquete
+    view.setSize(defaultView.getSize() / 3.f);  // tamaño más pequeño → todo se ve más grande
+    customDefaultView = view;
+
+    // Obtener ruta del paquete y cargar fuente
     std::string package_path = ros::package::getPath("artgslam_vsc");
     std::string fontPath = package_path + "/assets/NotoSansMath-Regular.ttf";
 
-    // Cargar fuente
-    if (!font.loadFromFile(fontPath)) {
+    fontLoaded = font.loadFromFile(fontPath);
+    if (!fontLoaded) {
         std::cerr << "❌ Error: No se pudo cargar la fuente en ViewController desde: " << fontPath << std::endl;
     } else {
         std::cout << "✅ Fuente cargada correctamente desde: " << fontPath << std::endl;
     }
-
-    fontLoaded = font.loadFromFile(fontPath);
-
-if (!fontLoaded) {
-    std::cerr << "❌ Error: No se pudo cargar la fuente en ViewController desde: " << fontPath << std::endl;
-} else {
-    std::cout << "✅ Fuente cargada correctamente desde: " << fontPath << std::endl;
-}
-
-       
 }
 
 void ViewController::handleEvent(const sf::Event& event) {
     if (event.type == sf::Event::MouseWheelScrolled) {
         zoomControler(event);
-        
-    } else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+    }
+    else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
         dragging = true;
         dragStart = sf::Mouse::getPosition(window);
-    } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+    }
+    else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
         dragging = false;
-    } else if (event.type == sf::Event::MouseMoved && dragging) {
+    }
+    else if (event.type == sf::Event::MouseMoved && dragging) {
         sf::Vector2i now = sf::Mouse::getPosition(window);
         sf::Vector2f delta = window.mapPixelToCoords(dragStart) - window.mapPixelToCoords(now);
         view.move(delta);
         dragStart = now;
-    } else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+    }
+    else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
         reset();
-    } else if(event.type == sf::Event::MouseMoved){
+    }
+    else if (event.type == sf::Event::MouseMoved) {
         sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
-        std::cout << "Mouse moved. Pixel: (" << pixelPos.x << ", " << pixelPos.y << ")\n";
+        //std::cout << "Mouse moved. Pixel: (" << pixelPos.x << ", " << pixelPos.y << ")\n";
         sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, view);
 
-        // Guarda para consulta externa
         mousePosition_G = pixelPos;
         mousePosition_W = worldPos;
     }
-
 }
 
 void ViewController::applyView() {
@@ -70,20 +62,20 @@ void ViewController::applyView() {
 }
 
 void ViewController::reset() {
-    view=customDefaultView;
+    view = customDefaultView;
 }
 
 sf::View ViewController::getView() const {
     return view;
 }
 
-float ViewController::getZoom() const
-{
-        return defaultView.getSize().x / view.getSize().x;
+float ViewController::getZoom() const {
+    // Zoom: cuánto está acercada la vista respecto a la vista por defecto
+        return view.getSize().x / defaultView.getSize().x;
 }
 
 void ViewController::drawGrid(sf::RenderTarget& target) {
-    float zoom = defaultView.getSize().x / view.getSize().x;
+    float zoom = defaultView.getSize().x / view.getSize().x;  // inverso de getZoom()
     float cellSize = metersPerCell * pixelsPerMeter * zoom;
     float halfWidth = (mapSizeCells / 2) * cellSize;
 
@@ -99,15 +91,16 @@ void ViewController::drawGrid(sf::RenderTarget& target) {
 
     target.draw(lines);
 }
+
 void ViewController::drawAxes(sf::RenderTarget& target) {
     if (!fontLoaded) return;
 
-    float zoom = defaultView.getSize().x / view.getSize().x;
+    float zoom = getZoom();
     float cellSize = metersPerCell * pixelsPerMeter * zoom;
 
     sf::View originalView = target.getView();
 
-    // Dibujar ejes en coordenadas del mundo (usando la vista activa)
+    // Dibujar ejes en coordenadas del mundo
     target.setView(view);
 
     float halfWidth = (mapSizeCells / 2) * cellSize;
@@ -118,20 +111,19 @@ void ViewController::drawAxes(sf::RenderTarget& target) {
     axes.append(sf::Vertex({halfWidth, 0.f}, sf::Color::Green));
     target.draw(axes);
 
-    // Ahora dibujar etiquetas fijas en pantalla pero representando la celda correspondiente
-    target.setView(defaultView);  // Vista fija en pantalla
+    // Dibujar etiquetas en vista fija (pantalla)
+    target.setView(defaultView);
 
     sf::Text label;
     label.setFont(font);
     label.setFillColor(sf::Color::Yellow);
     label.setCharacterSize(14);
 
-    // Etiquetas en eje X: parte superior de la pantalla
+    // Etiquetas eje X (arriba)
     int step = static_cast<int>(cellSize * 5);
     if (step < 1) step = 1;
 
     for (int screenX = 0; screenX < static_cast<int>(window.getSize().x); screenX += step) {
-        // Convertimos desde pantalla (screenX, 0) a coordenada del mundo
         sf::Vector2f worldCoords = window.mapPixelToCoords({screenX, 0}, view);
         int cellIndex = static_cast<int>(std::round(worldCoords.x / cellSize));
 
@@ -142,7 +134,7 @@ void ViewController::drawAxes(sf::RenderTarget& target) {
         target.draw(label);
     }
 
-    // Etiquetas en eje Y: parte izquierda de la pantalla
+    // Etiquetas eje Y (izquierda)
     for (int screenY = 0; screenY < static_cast<int>(window.getSize().y); screenY += step) {
         sf::Vector2f worldCoords = window.mapPixelToCoords({0, screenY}, view);
         int cellIndex = static_cast<int>(std::round(worldCoords.y / cellSize));
@@ -157,16 +149,15 @@ void ViewController::drawAxes(sf::RenderTarget& target) {
     target.setView(originalView);
 }
 
-
-void ViewController::zoomControler(const sf::Event& event)
-{
-    float factor = (event.mouseWheelScroll.delta > 0) ? 1.f / 1.1f : 1.1f;
+void ViewController::zoomControler(const sf::Event& event) {
+    float factor = (event.mouseWheelScroll.delta > 0) ? (1.f / 1.1f) : 1.1f;
 
     float currentZoom = getZoom();
-    float newZoom = currentZoom * (1.f / factor);  // ajustar porque el tamaño cambia inversamente
+    float newZoom = currentZoom * factor;
 
-    const float minZoom = 0.5f;  // zoom más alejado → vista 2×
-    const float maxZoom = 2.0f;  // zoom más cercano → vista 0.5×
+    const float minZoom = 0.05f;  // vista más pequeña (zoom más cerca)
+    const float maxZoom = .50f;  // vista más grande (zoom más lejos)
+            std::cout<<"newZoom"<< newZoom<<std::endl;
 
     if (newZoom < minZoom || newZoom > maxZoom) {
         std::cout << "Zoom fuera de rango [" << minZoom << ", " << maxZoom << "], operación cancelada\n";
@@ -175,6 +166,10 @@ void ViewController::zoomControler(const sf::Event& event)
 
     view.zoom(factor);
 }
+
+
+
+
 
 
 
