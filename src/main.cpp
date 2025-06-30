@@ -1,24 +1,37 @@
+#include <ros/ros.h>
 #include <SFML/Graphics.hpp>
 #include "artgslam_vsc/MapViewer.hpp"
 #include "artgslam_vsc/GridMap.hpp"
 
-int main()
+int main(int argc, char** argv)
 {
+    // Inicializar ROS
+    ros::init(argc, argv, "artgslam_vsc_node");
+
     // Crear ventana SFML
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Test MapViewer");
-    
+    sf::RenderWindow window(sf::VideoMode(1024, 768), "ARTG SLAM Visualizer");
+    window.setFramerateLimit(60);  // Limitar FPS para estabilidad
+
     // Crear objeto GridMap
-    GridMap grid;           
-    
-    // Crear objeto MapViewer, pasando la referencia al mismo GridMap
+    GridMap grid;
+
+    // Crear MapViewer (con ROS manejado internamente si RosHandler es parte de MapViewer)
     MapViewer mapViewer(window, grid);
 
-    // Loop principal
-    while (mapViewer.isRunning())
+    // Bucle principal
+    while (ros::ok() && mapViewer.isRunning())
     {
-        mapViewer.processEvent();  // Procesar eventos
-        mapViewer.update();        // Actualizaciones lógicas
-        mapViewer.render();        // Renderizar todo
+        // Procesar eventos de la ventana (mouse, teclado, etc.)
+        mapViewer.processEvent();
+
+        // Actualizar lógica interna
+        mapViewer.update();
+
+        // Renderizar contenido gráfico
+        mapViewer.render();
+
+        // Procesar callbacks de ROS (joy, sonar, etc.)
+        ros::spinOnce();
     }
 
     return 0;

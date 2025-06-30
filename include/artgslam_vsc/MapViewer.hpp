@@ -3,9 +3,11 @@
 #include "MenuBar.hpp"
 #include "FileManager.hpp"
 #include "GridMap.hpp"
+#include "RosHandler.hpp"
 #include "ViewController.hpp"
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
+
 
 class MapViewer {
 private:
@@ -15,6 +17,7 @@ private:
 
     MenuBar menu;
     FileManager manager;
+    RosHandler roshandler;
     ViewController controller;
      GridMap& map;
     bool running = true;
