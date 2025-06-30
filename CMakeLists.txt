@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   rosaria
   joy
+  roslib
 )
 
 ## Encuentra SFML

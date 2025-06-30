@@ -1,6 +1,8 @@
 #include "ViewController.hpp"
 #include <cmath>
 #include <iostream>
+#include <ros/ros.h>
+#include <ros/package.h>
 
 ViewController::ViewController(sf::RenderWindow& win, float metersPerCell_, float pixelsPerMeter_,sf::View& view)
     : window(win), metersPerCell(metersPerCell_), pixelsPerMeter(pixelsPerMeter_) ,view(view)
@@ -13,12 +15,25 @@ ViewController::ViewController(sf::RenderWindow& win, float metersPerCell_, floa
     view.setCenter(0.f, 0.f);
     view.setSize(defaultView.getSize());
     customDefaultView=view;
+// Obtener ruta del paquete
+    std::string package_path = ros::package::getPath("artgslam_vsc");
+    std::string fontPath = package_path + "/assets/NotoSansMath-Regular.ttf";
 
-    fontLoaded = font.loadFromFile("NotoSansMath-Regular.ttf");
-    if (!fontLoaded){
-         std::cerr << "No se pudo cargar la fuente para ViewController\n";
-        
+    // Cargar fuente
+    if (!font.loadFromFile(fontPath)) {
+        std::cerr << "❌ Error: No se pudo cargar la fuente en ViewController desde: " << fontPath << std::endl;
+    } else {
+        std::cout << "✅ Fuente cargada correctamente desde: " << fontPath << std::endl;
     }
+
+    fontLoaded = font.loadFromFile(fontPath);
+
+if (!fontLoaded) {
+    std::cerr << "❌ Error: No se pudo cargar la fuente en ViewController desde: " << fontPath << std::endl;
+} else {
+    std::cout << "✅ Fuente cargada correctamente desde: " << fontPath << std::endl;
+}
+
        
 }
 
