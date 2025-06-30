@@ -1,4 +1,4 @@
-#include "ViewController.hpp"
+#include <include/ViewController.hpp>
 #include <cmath>
 #include <iostream>
 #include <ros/ros.h>
@@ -95,59 +95,108 @@ void ViewController::drawGrid(sf::RenderTarget& target) {
 void ViewController::drawAxes(sf::RenderTarget& target) {
     if (!fontLoaded) return;
 
-    float zoom = getZoom();
+    float zoom = defaultView.getSize().x / view.getSize().x;
     float cellSize = metersPerCell * pixelsPerMeter * zoom;
 
     sf::View originalView = target.getView();
 
-    // Dibujar ejes en coordenadas del mundo
+    // === Dibujar Ejes ===
     target.setView(view);
 
-    float halfWidth = (mapSizeCells / 2) * cellSize;
     sf::VertexArray axes(sf::Lines);
-    axes.append(sf::Vertex({0.f, -halfWidth}, sf::Color::Red));
-    axes.append(sf::Vertex({0.f, halfWidth}, sf::Color::Red));
-    axes.append(sf::Vertex({-halfWidth, 0.f}, sf::Color::Green));
-    axes.append(sf::Vertex({halfWidth, 0.f}, sf::Color::Green));
+
+    sf::Vector2f viewCenter = view.getCenter();
+    sf::Vector2f viewSize = view.getSize();
+
+    float left = viewCenter.x - viewSize.x / 2.f;
+    float right = viewCenter.x + viewSize.x / 2.f;
+    float top = viewCenter.y - viewSize.y / 2.f;
+    float bottom = viewCenter.y + viewSize.y / 2.f;
+
+    // Eje X (rojo)
+    axes.append(sf::Vertex(sf::Vector2f(left, 0), sf::Color::Red));
+    axes.append(sf::Vertex(sf::Vector2f(right, 0), sf::Color::Red));
+
+    // Eje Y (verde)
+    axes.append(sf::Vertex(sf::Vector2f(0, top), sf::Color::Green));
+    axes.append(sf::Vertex(sf::Vector2f(0, bottom), sf::Color::Green));
+
     target.draw(axes);
 
-    // Dibujar etiquetas en vista fija (pantalla)
+    // === Dibujar Etiquetas ===
     target.setView(defaultView);
 
     sf::Text label;
     label.setFont(font);
+    label.setCharacterSize(16);
     label.setFillColor(sf::Color::Yellow);
-    label.setCharacterSize(14);
 
-    // Etiquetas eje X (arriba)
-    int step = static_cast<int>(cellSize * 5);
-    if (step < 1) step = 1;
+    // Obtener límites visibles en coordenadas del mundo
+    sf::Vector2f topLeft = window.mapPixelToCoords({0, 0}, view);
+    sf::Vector2f bottomRight = window.mapPixelToCoords(
+        sf::Vector2i(window.getSize().x, window.getSize().y), view);
 
-    for (int screenX = 0; screenX < static_cast<int>(window.getSize().x); screenX += step) {
-        sf::Vector2f worldCoords = window.mapPixelToCoords({screenX, 0}, view);
-        int cellIndex = static_cast<int>(std::round(worldCoords.x / cellSize));
+    // Calcular los índices mínimos y máximos visibles
+    int minX = static_cast<int>(std::floor(topLeft.x / (metersPerCell)));
+    int maxX = static_cast<int>(std::ceil(bottomRight.x / (metersPerCell)));
 
-        label.setString(std::to_string(cellIndex));
+    int minY = static_cast<int>(std::floor(topLeft.y / (metersPerCell)));
+    int maxY = static_cast<int>(std::ceil(bottomRight.y / (metersPerCell)));
+
+    // Decidir cada cuántas líneas numerar (para no saturar)
+    int skip = 1;
+    if (cellSize < 50) skip = 2;
+    if (cellSize < 25) skip = 5;
+    if (cellSize < 12) skip = 10;
+
+    // === Etiquetas Eje X ===
+    for (int i = minX; i <= maxX; ++i) {
+        if (i % skip != 0) continue;
+
+        sf::Vector2f worldPos(i * metersPerCell, 0.f);
+        sf::Vector2i screenPos = window.mapCoordsToPixel(worldPos, view);
+
+        label.setString(std::to_string(i));
         sf::FloatRect bounds = label.getLocalBounds();
+
         label.setOrigin(bounds.width / 2.f, 0.f);
-        label.setPosition(static_cast<float>(screenX), 2.f);
+        label.setPosition(static_cast<float>(screenPos.x),
+                           static_cast<float>(window.getSize().y) - bounds.height - 4.f);
+
+        if (label.getPosition().x < 0 || label.getPosition().x > window.getSize().x) continue;
+
         target.draw(label);
     }
 
-    // Etiquetas eje Y (izquierda)
-    for (int screenY = 0; screenY < static_cast<int>(window.getSize().y); screenY += step) {
-        sf::Vector2f worldCoords = window.mapPixelToCoords({0, screenY}, view);
-        int cellIndex = static_cast<int>(std::round(worldCoords.y / cellSize));
+    // === Etiquetas Eje Y ===
+    for (int i = minY; i <= maxY; ++i) {
+        if (i % skip != 0) continue;
 
-        label.setString(std::to_string(cellIndex));
+        sf::Vector2f worldPos(0.f, i * metersPerCell);
+        sf::Vector2i screenPos = window.mapCoordsToPixel(worldPos, view);
+
+        label.setString(std::to_string(i));
         sf::FloatRect bounds = label.getLocalBounds();
-        label.setOrigin(bounds.width + 2.f, bounds.height / 2.f);
-        label.setPosition(14.f, static_cast<float>(screenY));
+
+        label.setOrigin(0.f, bounds.height / 2.f);
+        label.setPosition(4.f, static_cast<float>(screenPos.y));
+
+        if (label.getPosition().y < 0 || label.getPosition().y > window.getSize().y) continue;
+
         target.draw(label);
     }
 
     target.setView(originalView);
 }
+
+
+
+
+
+
+
+
+
 
 void ViewController::zoomControler(const sf::Event& event) {
     float factor = (event.mouseWheelScroll.delta > 0) ? (1.f / 1.1f) : 1.1f;

@@ -1,4 +1,4 @@
-#include "MapViewer.hpp"
+#include "include/MapViewer.hpp"
 
 MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
     : window(win)

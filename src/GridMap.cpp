@@ -1,4 +1,4 @@
-#include "GridMap.hpp"
+#include "include/GridMap.hpp"
 
 GridMap::GridMap(int size, double resolution)
     : gridSize(size), gridResolution(resolution)
