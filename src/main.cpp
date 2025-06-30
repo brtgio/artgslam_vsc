@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "include/MapViewer.hpp"
-#include "include/GridMap.hpp"  // Incluye si MapViewer.hpp no lo incluye
+#include "artgslam_vsc/MapViewer.hpp"
+#include "artgslam_vsc/GridMap.hpp"
 
 int main()
 {

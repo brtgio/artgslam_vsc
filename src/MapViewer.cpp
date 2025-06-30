@@ -1,4 +1,4 @@
-#include "include/MapViewer.hpp"
+#include "artgslam_vsc/MapViewer.hpp"
 
 MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
     : window(win)

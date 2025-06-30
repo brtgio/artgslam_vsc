@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(artgslam_vsc)
 
-## C++ moderno (RECOMENDADO)
+## Habilitar C++ moderno (recomendado)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-## Encuentra ROS
+## Encuentra ROS y dependencias
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
@@ -23,21 +23,22 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 ## Encuentra TGUI
 find_package(TGUI REQUIRED)
 
-## tinyfiledialogs
+## tinyfiledialogs (archivo C puro)
 set(TINYFILEDIALOG_SRC src/tinyfiledialogs.c)
 
 ## Configura Catkin
 catkin_package(
   CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs tf rosaria joy
   DEPENDS SFML TGUI
+  INCLUDE_DIRS include
 )
 
 ## Incluye directorios
 include_directories(
+  include  # <- Aquí es más limpio y correcto
   ${catkin_INCLUDE_DIRS}
   ${SFML_INCLUDE_DIRS}
-  ${TGUI_INCLUDE_DIRS}  # <-- Esto te faltaba
-  ${CMAKE_CURRENT_SOURCE_DIR}/src  # Incluye los headers de tu proyecto
+  ${TGUI_INCLUDE_DIRS}
 )
 
 ## Lista de archivos fuente
@@ -46,8 +47,9 @@ set(SOURCES
   src/MenuBar.cpp
   src/MapViewer.cpp
   src/FileManager.cpp
-  src/GridMap.cpp          # <-- Faltaba
-  src/ViewController.cpp   # <-- Faltaba
+  src/GridMap.cpp
+  src/ViewController.cpp
+  src/RosHandler.cpp
   ${TINYFILEDIALOG_SRC}
 )
 
@@ -61,4 +63,14 @@ target_link_libraries(${PROJECT_NAME}_node
   sfml-window
   sfml-system
   TGUI::TGUI
+)
+
+## Instalar ejecutable (opcional pero recomendado)
+install(TARGETS ${PROJECT_NAME}_node
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+## Instalar headers (opcional pero recomendado si compartes el paquete)
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )

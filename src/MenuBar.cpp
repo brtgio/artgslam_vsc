@@ -1,4 +1,4 @@
-#include "include/MenuBar.hpp"
+#include "artgslam_vsc/MenuBar.hpp"
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include <iostream>
 #include <fstream>

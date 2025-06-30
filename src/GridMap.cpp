@@ -1,4 +1,4 @@
-#include "include/GridMap.hpp"
+#include "artgslam_vsc/GridMap.hpp"
 
 GridMap::GridMap(int size, double resolution)
     : gridSize(size), gridResolution(resolution)
