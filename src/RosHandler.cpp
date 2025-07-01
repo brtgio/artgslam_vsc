@@ -32,6 +32,9 @@ void RosHandler::joyCallback(const sensor_msgs::Joy::ConstPtr &joy)
     geometry_msgs::Twist twist;
     twist.angular.z = a_scale * joy->axes[angular];
     twist.linear.x = l_scale * joy->axes[linear];
+    
+    current_linear_velocity = twist.linear.x;
+    current_angular_velocity = twist.angular.z;
 
     vel_pub.publish(twist);
 

@@ -1,5 +1,6 @@
 #include "artgslam_vsc/MapViewer.hpp"
 
+
 MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
     : window(win)
     , gui(win)
@@ -45,6 +46,7 @@ float worldY_m = worldPos.y / controller.getPixelsPerMeter();
 
     menu.updateCoordinates(oss.str());  // ✅ Esto actualiza el texto en pantalla
 }
+
 
 void MapViewer::processEvent()
 {
