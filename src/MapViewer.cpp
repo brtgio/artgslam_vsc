@@ -5,7 +5,7 @@ MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
     : window(win)
     , gui(win)
     , view(view)                     
-    , controller(win, 0.5f, 2.0f, view)              
+    , controller(win, 0.1f, 50.0f, view)              
     , manager(sharedMap, controller)                
     , map(sharedMap)
     , menu(gui)
@@ -19,7 +19,9 @@ MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
         [this]() { /* handleSaveImage */ },
         [this]() { running = false; window.close(); },
         [this]() { controller.reset(); },    // Delegamos a ViewController
-        [this]() { map.clearGridMap(); } // si implementas
+        [this]() { map.clearGridMap(); }, // si implementas
+        [this](){ RobotCreator creator;
+        creator.run(); }
     );
 }
 

@@ -4,15 +4,17 @@
 #include <fstream>
 #include <iomanip>
 
+// Constructor
 MenuBar::MenuBar(tgui::Gui& gui)
 {
+    // Crear la barra de menú
     menuBar = tgui::MenuBar::create();
     menuBar->setSize("100%", 20);
     menuBar->setPosition(0, "100% - 20");
     menuBar->setInvertedMenuDirection(true); // Abre hacia arriba
     gui.add(menuBar);
 
-    // Label de coordenadas
+    // Crear label para coordenadas
     coordLabel = tgui::Label::create("Grid: -, Real: -");
     coordLabel->setTextSize(14);
     coordLabel->setPosition("100% - 320", "100% - 20");
@@ -23,6 +25,7 @@ MenuBar::MenuBar(tgui::Gui& gui)
     setupMenu();
 }
 
+// Configura los menús y submenús
 void MenuBar::setupMenu()
 {
     menuBar->addMenu("File");
@@ -34,15 +37,20 @@ void MenuBar::setupMenu()
     menuBar->addMenu("View");
     menuBar->addMenuItem("View", "ResetView");
     menuBar->addMenuItem("View", "ClearView");
+
+    menuBar->addMenu("Create object");
+    menuBar->addMenuItem("Create object", "WMR");
 }
 
+// Asigna los callbacks a cada item del menú
 void MenuBar::setCallbacks(
     std::function<void()> onOpen,
     std::function<void()> onSave,
     std::function<void()> onSaveImage,
     std::function<void()> onClose,
     std::function<void()> onResetView,
-    std::function<void()> onClearView)
+    std::function<void()> onClearView,
+    std::function<void()> onCreateRobot)
 {
     menuBar->connectMenuItem("File", "Open", [onOpen]() {
         if (onOpen) onOpen();
@@ -67,8 +75,13 @@ void MenuBar::setCallbacks(
     menuBar->connectMenuItem("View", "ClearView", [onClearView]() {
         if (onClearView) onClearView();
     });
+
+    menuBar->connectMenuItem("Create object", "WMR", [onCreateRobot]() {
+        if (onCreateRobot) onCreateRobot();
+    });
 }
 
+// Actualiza el label de coordenadas
 void MenuBar::updateCoordinates(const std::string& text)
 {
     if (coordLabel) {

@@ -50,6 +50,7 @@ set(SOURCES
   src/GridMap.cpp
   src/ViewController.cpp
   src/RosHandler.cpp
+  src/RobotCreator.cpp
   ${TINYFILEDIALOG_SRC}
 )
 

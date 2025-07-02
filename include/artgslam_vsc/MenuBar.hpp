@@ -14,7 +14,8 @@ class MenuBar{
         std::function<void()> onSaveImage,
         std::function<void()> onClose,
         std::function<void()> onResetView,
-        std::function<void()> onClearView
+        std::function<void()> onClearView,
+        std::function<void()> onCreateRobot
     );
 
     void updateCoordinates(const std::string& text);

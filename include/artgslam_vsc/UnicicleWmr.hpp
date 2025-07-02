@@ -4,7 +4,7 @@
 class UnicicleWmr{
 
     public:
-        UnicicleWmr(float width_m = 0.28f, float length_m = 0.33f);
+        UnicicleWmr(float width_m = 0.28f, float length_m = 0.33f, float pixelsPerMeter = 50.0f);
 
         void update(float dt);
         void draw(sf::RenderWindow& window);
@@ -19,8 +19,11 @@ class UnicicleWmr{
         float getWidth() const { return width; }
         float getLength() const { return length; }
 
+        void setPose(float x,float y,float theta);
+
     private:
 
+        float pixelsPerMeter;
         //Dimenciones
         float width;
         float length;

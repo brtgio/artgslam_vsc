@@ -17,7 +17,7 @@ ViewController::ViewController(sf::RenderWindow& win, float metersPerCell_, floa
 
     // Obtener ruta del paquete y cargar fuente
     std::string package_path = ros::package::getPath("artgslam_vsc");
-    std::string fontPath = package_path + "/assets/NotoSansMath-Regular.ttf";
+    std::string fontPath = package_path + "/assets/fonts/NotoSansMath-Regular.ttf";
 
     fontLoaded = font.loadFromFile(fontPath);
     if (!fontLoaded) {

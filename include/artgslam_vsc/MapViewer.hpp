@@ -5,6 +5,7 @@
 #include "GridMap.hpp"
 #include "RosHandler.hpp"
 #include "ViewController.hpp"
+#include "artgslam_vsc/RobotCreator.hpp"
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 
