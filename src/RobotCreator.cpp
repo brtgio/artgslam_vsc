@@ -2,9 +2,9 @@
 #include <ros/package.h>
 #include <iostream>
 
-RobotCreator::RobotCreator()
+RobotCreator::RobotCreator(UnicicleWmr& wmrRef)
 : window(sf::VideoMode(400, 250), "Robot Creator"),
-  gui(window)
+  gui(window), wmr(wmrRef)
 {
     std::string package_path = ros::package::getPath("artgslam_vsc");
     std::string formPath = package_path + "/assets/forms/createRobot.txt";
@@ -51,7 +51,7 @@ void RobotCreator::render() {
 
 void RobotCreator::setupWidgets()
 {
-    withBox = gui.get<tgui::EditBox>("withBox");
+    widthBox = gui.get<tgui::EditBox>("widthBox");
     heightBox = gui.get<tgui::EditBox>("heightBox");
     colorBox = gui.get<tgui::EditBox>("colorBox");
 
@@ -59,45 +59,69 @@ void RobotCreator::setupWidgets()
     createButton = gui.get<tgui::Button>("Button2");
 
     // Validar floats con signo y decimal
-    withBox->setInputValidator("^-?\\d*\\.?\\d*$");
+    widthBox->setInputValidator("^-?\\d*\\.?\\d*$");
     heightBox->setInputValidator("^-?\\d*\\.?\\d*$");
 }
 
-
 void RobotCreator::setupCallbacks()
 {
+    // Reset Button
     resetButton->onPress([this]() {
-        withBox->setText("");
+        widthBox->setText("");
         heightBox->setText("");
         colorBox->setText("");
     });
 
+    // Create Button
     createButton->onPress([this]() {
-        std::string widthStr = withBox->getText().toStdString();
+        std::string widthStr = widthBox->getText().toStdString();
         std::string heightStr = heightBox->getText().toStdString();
         std::string colorStr = colorBox->getText().toStdString();
 
         bool valid = true;
 
-       
+        // Validación de números flotantes
+        if (!isValidFloat(widthStr)) {
+            widthBox->setText("");
+            valid = false;
+        }
+
+        if (!isValidFloat(heightStr)) {
+            heightBox->setText("");
+            valid = false;
+        }
+
+        // Validación de color en formato HEX (#RRGGBB o #RGB)
         if (!isValidHexColor(colorStr)) {
             colorBox->setText("");
             valid = false;
         }
 
-        if (valid) {
-            float width = std::stof(widthStr);
-            float height = std::stof(heightStr);
-            sf::Color color = hexToColor(colorStr);
-
-            std::cout << "Robot creado con:" << std::endl;
-            std::cout << "Width: " << width << ", Height: " << height << std::endl;
-            std::cout << "Color RGB: (" << (int)color.r << ", " << (int)color.g << ", " << (int)color.b << ")" << std::endl;
-
-            window.close(); // Cierra la ventana si quieres
+        if (!valid) {
+            std::cout << "Error: Datos inválidos. Verifica los campos." << std::endl;
+            return;
         }
+
+        // Convertir datos
+        float width = std::stof(widthStr);
+        float height = std::stof(heightStr);
+        sf::Color color = hexToColor(colorStr);
+
+        // Asignar al robot
+        wmr.setDimentions(width,height);
+        wmr.setColor(color);
+
+        std::cout << "Robot creado con:" << std::endl;
+        std::cout << "Width: " << width << ", Height: " << height << std::endl;
+        std::cout << "Color RGB: (" 
+                  << static_cast<int>(color.r) << ", "
+                  << static_cast<int>(color.g) << ", "
+                  << static_cast<int>(color.b) << ")" << std::endl;
+
+        window.close();
     });
 }
+
 
 bool RobotCreator::isRunning() const
 {

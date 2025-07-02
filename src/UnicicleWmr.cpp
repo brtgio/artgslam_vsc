@@ -1,4 +1,5 @@
-#include "UnicicleWmr.hpp"
+#include "artgslam_vsc/UnicicleWmr.hpp"
+
 
 UnicicleWmr::UnicicleWmr(float width_m, float length_m, float pixelsPerMeter)
 : width(width_m), length(length_m), pixelsPerMeter(pixelsPerMeter),
@@ -18,6 +19,7 @@ void UnicicleWmr::draw(sf::RenderWindow &window)
 {
     robotShape.setPosition(x,y);
     robotShape.setRotation(theta * 180.f / static_cast<float>(PI)); // Radianes → grados
+    robotShape.setFillColor(robotcolor);
     window.draw(robotShape);
 }
 
@@ -39,4 +41,14 @@ void UnicicleWmr::setPose(float x, float y, float theta)
     this->x = x;
     this->y = y;
     this->theta = theta;
+}
+
+void UnicicleWmr::setColor(sf::Color color){
+
+    robotcolor = color;
+}
+
+void UnicicleWmr::setDimentions(float width, float height)
+{
+    robotShape.setSize(sf::Vector2f(width, height));
 }

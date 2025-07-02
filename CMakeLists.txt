@@ -51,6 +51,7 @@ set(SOURCES
   src/ViewController.cpp
   src/RosHandler.cpp
   src/RobotCreator.cpp
+  src/UnicicleWmr.cpp
   ${TINYFILEDIALOG_SRC}
 )
 

@@ -8,28 +8,28 @@
 #include <regex>
 #include <cctype>
 
+#include "artgslam_vsc/UnicicleWmr.hpp"
+
 class RobotCreator{
 
     public:
-        RobotCreator();
+        RobotCreator(UnicicleWmr& wmrRef);
         void run();
         void update();
         void processEvents();
         void render();
         void setupWidgets();
         void setupCallbacks();
-
-        
-
         bool isRunning() const;
 
     private:
 
         sf::RenderWindow window;
         tgui::Gui gui;
+        UnicicleWmr &wmr;
 
         //Variables para cargar componentes del form
-        tgui::EditBox::Ptr withBox;
+        tgui::EditBox::Ptr widthBox;
         tgui::EditBox::Ptr heightBox;
         tgui::EditBox::Ptr colorBox;
 

@@ -20,6 +20,8 @@ class UnicicleWmr{
         float getLength() const { return length; }
 
         void setPose(float x,float y,float theta);
+        void setColor(sf::Color color);
+        void setDimentions(float width,float height);
 
     private:
 
@@ -37,5 +39,6 @@ class UnicicleWmr{
 
         //Grafico del carro
         sf::RectangleShape robotShape;
+        sf::Color robotcolor;
 
 };

@@ -6,6 +6,7 @@
 #include "RosHandler.hpp"
 #include "ViewController.hpp"
 #include "artgslam_vsc/RobotCreator.hpp"
+#include "artgslam_vsc/UnicicleWmr.hpp"
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 
@@ -21,6 +22,7 @@ private:
     RosHandler roshandler;
     ViewController controller;
      GridMap& map;
+     UnicicleWmr wmr;
     bool running = true;
 
 public:

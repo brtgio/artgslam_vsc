@@ -20,7 +20,7 @@ MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
         [this]() { running = false; window.close(); },
         [this]() { controller.reset(); },    // Delegamos a ViewController
         [this]() { map.clearGridMap(); }, // si implementas
-        [this](){ RobotCreator creator;
+        [this](){ RobotCreator creator(wmr);;
         creator.run(); }
     );
 }
