@@ -5,6 +5,8 @@ project(artgslam_vsc)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 ## Encuentra ROS y dependencias
 find_package(catkin REQUIRED COMPONENTS
   roscpp

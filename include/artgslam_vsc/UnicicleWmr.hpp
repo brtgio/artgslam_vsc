@@ -24,7 +24,7 @@ class UnicicleWmr{
         void setDimentions(float width,float height);
 
     private:
-
+        
         float pixelsPerMeter;
         //Dimenciones
         float width;

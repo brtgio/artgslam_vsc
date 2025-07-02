@@ -1,27 +1,31 @@
 #include "artgslam_vsc/MapViewer.hpp"
 
-
 MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
     : window(win)
     , gui(win)
-    , view(view)                     
-    , controller(win, 0.1f, 50.0f, view)              
-    , manager(sharedMap, controller)                
+    , view(window.getDefaultView())
+    , controller(win, 0.1f, 50.0f, view)
+    , manager(sharedMap, controller)
     , map(sharedMap)
     , menu(gui)
-{
 
+{
     window.setFramerateLimit(60);
 
     menu.setCallbacks(
         [this]() { manager.loadDialog(); },
-        [this]() { manager.saveDialog(); },  // o manager.saveData()
+        [this]() { manager.saveDialog(); },
         [this]() { /* handleSaveImage */ },
-        [this]() { running = false; window.close(); },
-        [this]() { controller.reset(); },    // Delegamos a ViewController
-        [this]() { map.clearGridMap(); }, // si implementas
-        [this](){ RobotCreator creator(wmr);;
-        creator.run(); }
+        [this]() { 
+            running = false; 
+            window.close(); 
+        },
+        [this]() { controller.reset(); },
+        [this]() { map.clearGridMap(); },
+        [this]() { 
+            RobotCreator creator(wmr);  // Objeto local
+            creator.run();              // Bloquea hasta que se cierra
+        }
     );
 }
 
@@ -35,28 +39,29 @@ void MapViewer::update()
 
     int cellX = static_cast<int>(std::floor(worldPos.x / (metersPerCell * pixelsPerMeter)));
     int cellY = static_cast<int>(std::floor(worldPos.y / (metersPerCell * pixelsPerMeter)));
-    float worldX_m = worldPos.x / controller.getPixelsPerMeter();
-float worldY_m = worldPos.y / controller.getPixelsPerMeter();
+
+    float worldX_m = worldPos.x / pixelsPerMeter;
+    float worldY_m = worldPos.y / pixelsPerMeter;
 
     int i = map.getCellIndexY(worldY_m);  // fila
     int j = map.getCellIndexX(worldX_m);  // columna
+
     std::ostringstream oss;
-    oss << std::fixed << std::setprecision(2);
-    oss << "Grid: (" << cellX << ", " << cellY << "), Real: ("
-    << worldX_m << ", " << worldY_m << "), Index: [" << i << ", " << j << "]";
+    oss << std::fixed << std::setprecision(2)
+        << "Grid: (" << cellX << ", " << cellY << "), Real: ("
+        << worldX_m << ", " << worldY_m << "), Index: ["
+        << i << ", " << j << "]";
 
-
-    menu.updateCoordinates(oss.str());  // ✅ Esto actualiza el texto en pantalla
+    menu.updateCoordinates(oss.str());
 }
-
 
 void MapViewer::processEvent()
 {
     sf::Event event;
     while (window.pollEvent(event))
     {
-        gui.handleEvent(event);         // Eventos de GUI
-        controller.handleEvent(event);  // Paneo, zoom, reset
+        gui.handleEvent(event);         
+        controller.handleEvent(event);  
 
         if (event.type == sf::Event::Closed)
         {
@@ -80,15 +85,12 @@ void MapViewer::render()
         return;
     }
 
-    // Obtener dimensiones
     int rows = static_cast<int>(gridMap.size());
     int cols = static_cast<int>(gridMap[0].size());
 
-    // Obtener parámetros de escala
     float zoom = controller.getZoom();
-    float cellSize = 0.1f * 200.f * zoom;  // metersPerCell * pixelsPerMeter * zoom
+    float cellSize = 0.1f * 200.f * zoom;
 
-    // Centro del mapa en (0,0)
     float mapWidth = cols * cellSize;
     float mapHeight = rows * cellSize;
     float offsetX = -mapWidth / 2.f;
@@ -117,11 +119,7 @@ void MapViewer::render()
     window.display();
 }
 
-
-
-
 bool MapViewer::isRunning() const
 {
     return running && window.isOpen();
 }
-

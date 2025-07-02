@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -10,36 +11,42 @@
 
 #include "artgslam_vsc/UnicicleWmr.hpp"
 
-class RobotCreator{
+class RobotCreator
+{
+public:
+    // Constructor explícito para evitar conversiones accidentales
+    explicit RobotCreator(UnicicleWmr& wmrRef);
 
-    public:
-        RobotCreator(UnicicleWmr& wmrRef);
-        void run();
-        void update();
-        void processEvents();
-        void render();
-        void setupWidgets();
-        void setupCallbacks();
-        bool isRunning() const;
+    // Desactivar constructor por defecto
+    RobotCreator() = delete;
 
-    private:
+    // Desactivar copia (sf::RenderWindow y tgui::Gui son no copiables)
+    RobotCreator(const RobotCreator&) = delete;
+    RobotCreator& operator=(const RobotCreator&) = delete;
 
-        sf::RenderWindow window;
-        tgui::Gui gui;
-        UnicicleWmr &wmr;
+    void run();
+    void update();
+    void processEvents();
+    void render();
+    void setupWidgets();
+    void setupCallbacks();
+    bool isRunning() const;
 
-        //Variables para cargar componentes del form
-        tgui::EditBox::Ptr widthBox;
-        tgui::EditBox::Ptr heightBox;
-        tgui::EditBox::Ptr colorBox;
+private:
+    sf::RenderWindow windowRobotCreator;
+    tgui::Gui gui;
+    UnicicleWmr& wmr;
 
-        tgui::Button::Ptr resetButton;
-        tgui::Button::Ptr createButton;
+    // Widgets del formulario
+    tgui::EditBox::Ptr widthBox;
+    tgui::EditBox::Ptr heightBox;
+    tgui::EditBox::Ptr colorBox;
 
-        //variables de verificacion
-        // Funciones auxiliares
-        bool isValidFloat(const std::string& str);
-        bool isValidHexColor(const std::string& str);
-        sf::Color hexToColor(const std::string& hex);
+    tgui::Button::Ptr resetButton;
+    tgui::Button::Ptr createButton;
 
+    // Funciones auxiliares
+    bool isValidFloat(const std::string& str);
+    bool isValidHexColor(const std::string& str);
+    sf::Color hexToColor(const std::string& hex);
 };

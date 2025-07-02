@@ -21,8 +21,8 @@ private:
     FileManager manager;
     RosHandler roshandler;
     ViewController controller;
-     GridMap& map;
-     UnicicleWmr wmr;
+    GridMap& map;
+    UnicicleWmr wmr;
     bool running = true;
 
 public:
