@@ -25,12 +25,14 @@ MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
         [this]() { 
             RobotCreator creator(wmr);  // Objeto local
             creator.run();              // Bloquea hasta que se cierra
-        }
+        },
+        [this](){}
     );
 }
 
 void MapViewer::update()
 {
+    // 1. Coordenadas del mouse para el label
     sf::Vector2i pixelPos = controller.getMousePixelPosition();
     sf::Vector2f worldPos = controller.getMouseWorldPosition();
 
@@ -53,6 +55,38 @@ void MapViewer::update()
         << i << ", " << j << "]";
 
     menu.updateCoordinates(oss.str());
+
+    // 2. Modo Live
+    if (menu.getLiveMode())
+    {
+        // A. Limpiar mapa
+        map.clearPoints();
+        map.clearGridMap();
+
+        // B. Actualizar velocidad del robot desde ROS
+        double v = rosHandler.getLinearVelocity();
+        double w = rosHandler.getAngularVelocity();
+        wmr.setVelocity(v, w);
+
+        // C. Procesar puntos del sonar (siempre, incluso sin robot)
+        const auto& sonar = rosHandler.getSonarPoints();
+        std::vector<double> xs, ys;
+
+        for (const auto& p : sonar) {
+            xs.push_back(p.x);
+            ys.push_back(p.y);
+            map.addPoints(p.x, p.y); // Almacenar para dibujarlos
+        }
+
+        // D. Convertir a grid y llenar mapa
+        std::vector<int> xGrid, yGrid;
+        map.xy2Grid(xs, ys, xGrid, yGrid);
+        map.fillGrid(xGrid, yGrid);
+    }
+
+    // 3. Actualizar lógica del robot (siempre, incluso si está inactivo)
+        
+     wmr.update(rosHandler.getlast_dt());
 }
 
 void MapViewer::processEvent()
@@ -113,7 +147,7 @@ void MapViewer::render()
 
     controller.drawGrid(window);
     controller.drawAxes(window);
-
+    wmr.draw(window);
     window.setView(window.getDefaultView());
     gui.draw();
     window.display();

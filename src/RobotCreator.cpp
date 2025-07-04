@@ -71,8 +71,8 @@ void RobotCreator::setupWidgets()
     }
 
     // Validadores de números flotantes (positivos o negativos)
-    widthBox->setInputValidator(R"(^-?\d*\.?\d+$)");
-    heightBox->setInputValidator(R"(^-?\d*\.?\d+$)");
+   // widthBox->setInputValidator(R"(^-?\d*\.?\d+$)");
+    //heightBox->setInputValidator(R"(^-?\d*\.?\d+$)");
 }
 
 void RobotCreator::setupCallbacks()
@@ -118,8 +118,9 @@ void RobotCreator::setupCallbacks()
         sf::Color color = hexToColor(colorStr);
 
         // Aplicar parámetros al robot
-        wmr.setDimentions(width, height);
+        wmr.setDimensions(width, height);
         wmr.setColor(color);
+        wmr.setRobotActive(true);
 
         std::cout << "Robot creado:\n";
         std::cout << "Width: " << width << ", Height: " << height << "\n";

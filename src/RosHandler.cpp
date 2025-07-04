@@ -18,6 +18,7 @@ RosHandler::RosHandler()
 
     // Suscriptor al sonar
     sonar_sub = nh.subscribe("sonarRawdata_bag", 1000, &RosHandler::sonarPointReceiver, this);
+    last_joy_time = ros::Time::now();
 }
 
 // Getter para los puntos del sonar
@@ -29,6 +30,10 @@ const std::vector<geometry_msgs::Point32>& RosHandler::getSonarPoints() const
 // Callback del joystick
 void RosHandler::joyCallback(const sensor_msgs::Joy::ConstPtr &joy)
 {
+    ros::Time now = ros::Time::now();
+    ros::Duration delta = now - last_joy_time;
+    last_joy_time = now;
+    last_dt = delta.toSec();
     geometry_msgs::Twist twist;
     twist.angular.z = a_scale * joy->axes[angular];
     twist.linear.x = l_scale * joy->axes[linear];

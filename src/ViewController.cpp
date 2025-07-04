@@ -205,7 +205,7 @@ void ViewController::zoomControler(const sf::Event& event) {
     float newZoom = currentZoom * factor;
 
     const float minZoom = 0.05f;  // vista más pequeña (zoom más cerca)
-    const float maxZoom = .50f;  // vista más grande (zoom más lejos)
+    const float maxZoom = 0.70f;  // vista más grande (zoom más lejos)
             std::cout<<"newZoom"<< newZoom<<std::endl;
 
     if (newZoom < minZoom || newZoom > maxZoom) {

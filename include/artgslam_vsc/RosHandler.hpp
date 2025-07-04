@@ -19,7 +19,7 @@ class RosHandler{
         const std::vector<geometry_msgs::Point32>& getSonarPoints() const;
         double getLinearVelocity() const { return current_linear_velocity; }
         double getAngularVelocity() const { return current_angular_velocity; }
-
+        float getlast_dt() const{return last_dt;};
 
 
     private:
@@ -31,6 +31,8 @@ class RosHandler{
         std::vector<geometry_msgs::Point32> sonarPoints;
         double current_linear_velocity = 0.0;
         double current_angular_velocity = 0.0;
+        float last_dt = 0.0;
+        ros::Time last_joy_time;
         
 
         //subs and pubs 

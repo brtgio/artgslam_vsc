@@ -1,10 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "MyConstants.hpp"
+#include <math.h>
 class UnicicleWmr{
 
     public:
-        UnicicleWmr(float width_m = 0.28f, float length_m = 0.33f, float pixelsPerMeter = 50.0f);
+        UnicicleWmr(float width_m = 0.28f, float height_m = 0.33f, float pixelsPerMeter = 50.0f);
 
         void update(float dt);
         void draw(sf::RenderWindow& window);
@@ -17,18 +18,20 @@ class UnicicleWmr{
         float getTheta() const { return theta; }
 
         float getWidth() const { return width; }
-        float getLength() const { return length; }
+        float getheight() const { return height; }
+        void setRobotActive(bool active) { isRobotActive = active; }
+        bool getRobotActive() const {return isRobotActive;};
 
         void setPose(float x,float y,float theta);
         void setColor(sf::Color color);
-        void setDimentions(float width,float height);
+        void setDimensions(float width, float height);
 
     private:
         
         float pixelsPerMeter;
         //Dimenciones
         float width;
-        float length;
+        float height;
 
         //Pose
         float x,y,theta;
@@ -40,5 +43,8 @@ class UnicicleWmr{
         //Grafico del carro
         sf::RectangleShape robotShape;
         sf::Color robotcolor;
+
+        //robot activity
+        bool isRobotActive = false;
 
 };
