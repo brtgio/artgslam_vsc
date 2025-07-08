@@ -100,7 +100,7 @@ void GridMap::draw(sf::RenderTarget& target, float pixelsPerMeter) const
 
     float cellSize = gridResolution * pixelsPerMeter;
 
-    float zoom = controller->getZoom();  // Se asume que `controller` es un puntero válido a ViewController
+    float zoom = controller.getZoom();  // Se asume que `controller` es un puntero válido a ViewController
 
     // Offset centrado, escalado con zoom
     float offsetX = - (static_cast<float>(cols) / 2.f) * (cellSize / zoom);
