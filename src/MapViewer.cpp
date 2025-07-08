@@ -1,14 +1,18 @@
 #include "artgslam_vsc/MapViewer.hpp"
+#include <sstream>
+#include <iomanip>
 
-MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
+MapViewer::MapViewer(sf::RenderWindow& win)
     : window(win)
-    , gui(win)
     , view(window.getDefaultView())
+    , gui(win)
     , controller(win, 0.1f, 50.0f, view)
-    , manager(sharedMap, controller)
-    , map(sharedMap)
+    , map(100, 0.1, controller)
+    , manager(map, controller)
     , menu(gui)
-
+    , roshandler()
+    , wmr()
+    , livemap(100, 0.1, controller)
 {
     window.setFramerateLimit(60);
 
@@ -16,23 +20,19 @@ MapViewer::MapViewer(sf::RenderWindow& win, GridMap& sharedMap)
         [this]() { manager.loadDialog(); },
         [this]() { manager.saveDialog(); },
         [this]() { /* handleSaveImage */ },
-        [this]() { 
-            running = false; 
-            window.close(); 
-        },
+        [this]() { running = false; window.close(); },
         [this]() { controller.reset(); },
         [this]() { map.clearGridMap(); },
-        [this]() { 
-            RobotCreator creator(wmr);  // Objeto local
-            creator.run();              // Bloquea hasta que se cierra
+        [this]() {
+            RobotCreator creator(wmr);
+            creator.run();
         },
-        [this](){}
+        [this]() {}
     );
 }
 
 void MapViewer::update()
 {
-    // 1. Coordenadas del mouse para el label
     sf::Vector2i pixelPos = controller.getMousePixelPosition();
     sf::Vector2f worldPos = controller.getMouseWorldPosition();
 
@@ -45,8 +45,8 @@ void MapViewer::update()
     float worldX_m = worldPos.x / pixelsPerMeter;
     float worldY_m = worldPos.y / pixelsPerMeter;
 
-    int i = map.getCellIndexY(worldY_m);  // fila
-    int j = map.getCellIndexX(worldX_m);  // columna
+    int i = map.getCellIndexY(worldY_m);
+    int j = map.getCellIndexX(worldX_m);
 
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2)
@@ -56,49 +56,33 @@ void MapViewer::update()
 
     menu.updateCoordinates(oss.str());
 
-    // 2. Modo Live
-    if (menu.getLiveMode())
-    {
-        // A. Limpiar mapa
-        map.clearPoints();
-        map.clearGridMap();
+    if (menu.getLiveMode()) {
+        livemap.clearPoints();
+        livemap.clearGrid();
 
-        // B. Actualizar velocidad del robot desde ROS
-        double v = rosHandler.getLinearVelocity();
-        double w = rosHandler.getAngularVelocity();
+        double v = roshandler.getLinearVelocity();
+        double w = roshandler.getAngularVelocity();
         wmr.setVelocity(v, w);
 
-        // C. Procesar puntos del sonar (siempre, incluso sin robot)
-        const auto& sonar = rosHandler.getSonarPoints();
-        std::vector<double> xs, ys;
-
+        const auto& sonar = roshandler.getSonarPoints();
         for (const auto& p : sonar) {
-            xs.push_back(p.x);
-            ys.push_back(p.y);
-            map.addPoints(p.x, p.y); // Almacenar para dibujarlos
+            livemap.addPoint(p.x, p.y);
         }
 
-        // D. Convertir a grid y llenar mapa
-        std::vector<int> xGrid, yGrid;
-        map.xy2Grid(xs, ys, xGrid, yGrid);
-        map.fillGrid(xGrid, yGrid);
+        livemap.updateGridFromPoints();
     }
 
-    // 3. Actualizar lógica del robot (siempre, incluso si está inactivo)
-        
-     wmr.update(rosHandler.getlast_dt());
+    wmr.update(roshandler.getlast_dt());
 }
 
 void MapViewer::processEvent()
 {
     sf::Event event;
-    while (window.pollEvent(event))
-    {
-        gui.handleEvent(event);         
-        controller.handleEvent(event);  
+    while (window.pollEvent(event)) {
+        gui.handleEvent(event);
+        controller.handleEvent(event);
 
-        if (event.type == sf::Event::Closed)
-        {
+        if (event.type == sf::Event::Closed) {
             running = false;
             window.close();
         }
@@ -108,52 +92,41 @@ void MapViewer::processEvent()
 void MapViewer::render()
 {
     window.clear(sf::Color::Black);
-    controller.applyView();
+    controller.applyView();  // Aplica vista con zoom y pan
 
-    const auto& gridMap = map.getGrid();
-    if (gridMap.empty() || gridMap[0].empty()) {
-        std::cout << "Grid map is empty!" << std::endl;
-        window.setView(window.getDefaultView());
-        gui.draw();
-        window.display();
-        return;
-    }
+    controller.drawGrid(window);   // Dibuja rejilla primero
+    controller.drawAxes(window);   // Dibuja ejes
 
-    int rows = static_cast<int>(gridMap.size());
-    int cols = static_cast<int>(gridMap[0].size());
-
-    float zoom = controller.getZoom();
-    float cellSize = 0.1f * 200.f * zoom;
-
-    float mapWidth = cols * cellSize;
-    float mapHeight = rows * cellSize;
-    float offsetX = -mapWidth / 2.f;
-    float offsetY = -mapHeight / 2.f;
-
-    sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));
-    cellShape.setFillColor(sf::Color::Yellow);
-
-    for (int row = 0; row < rows; ++row) {
-        for (int col = 0; col < cols; ++col) {
-            if (gridMap[row][col] == 1) {
-                float x = offsetX + col * cellSize;
-                float y = offsetY + row * cellSize;
-
-                cellShape.setPosition(x, y);
-                window.draw(cellShape);
-            }
+    if (menu.getLiveMode()) {
+        const auto& gridLive = livemap.getGrid();
+        if (gridLive.empty() || gridLive[0].empty()) {
+            std::cout << "Live grid is empty!" << std::endl;
+            window.setView(window.getDefaultView());
+            gui.draw();
+            window.display();
+            return;
         }
+        livemap.drawLiveMap(window);  // Dibuja mapa sobre la rejilla
+    } else {
+        const auto& gridMap = map.getGrid();
+        if (gridMap.empty() || gridMap[0].empty()) {
+            std::cout << "Grid map is empty!" << std::endl;
+            window.setView(window.getDefaultView());
+            gui.draw();
+            window.display();
+            return;
+        }
+        map.draw(window, controller.getPixelsPerMeter());  // Igual
     }
 
-    controller.drawGrid(window);
-    controller.drawAxes(window);
     wmr.draw(window);
+
     window.setView(window.getDefaultView());
     gui.draw();
     window.display();
 }
 
-bool MapViewer::isRunning() const
-{
+
+bool MapViewer::isRunning() const {
     return running && window.isOpen();
 }

@@ -17,6 +17,8 @@ public:
     float getPixelsPerMeter() const{return pixelsPerMeter;};
     sf::Vector2i getMousePixelPosition() const { return mousePosition_G; }
     sf::Vector2f getMouseWorldPosition() const { return mousePosition_W; }
+    sf::View getDefaultView() const {    return defaultView;};
+    int getMapSizeCells() const { return mapSizeCells; }
     
     sf::View getView() const;
     float getZoom() const;

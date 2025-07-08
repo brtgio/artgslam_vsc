@@ -1,7 +1,8 @@
 #include "artgslam_vsc/GridMap.hpp"
 
-GridMap::GridMap(int size, double resolution)
-    : gridSize(size), gridResolution(resolution)
+
+GridMap::GridMap(int size, double resolution,ViewController& controller)
+    : gridSize(size), gridResolution(resolution),controller(controller)
 {
     // Inicializamos el grid vacío de una vez
     grid.assign(gridSize, std::vector<int>(gridSize, 0));
@@ -89,3 +90,37 @@ void GridMap::clearGridMap()
 {
     grid.assign(gridSize, std::vector<int>(gridSize, 0));
 }
+
+void GridMap::draw(sf::RenderTarget& target, float pixelsPerMeter) const
+{
+    if (grid.empty() || grid[0].empty()) return;
+
+    int rows = static_cast<int>(grid.size());
+    int cols = static_cast<int>(grid[0].size());
+
+    float cellSize = gridResolution * pixelsPerMeter;
+
+    float zoom = controller->getZoom();  // Se asume que `controller` es un puntero válido a ViewController
+
+    // Offset centrado, escalado con zoom
+    float offsetX = - (static_cast<float>(cols) / 2.f) * (cellSize / zoom);
+    float offsetY = - (static_cast<float>(rows) / 2.f) * (cellSize / zoom);
+
+    sf::RectangleShape cellShape;
+    cellShape.setFillColor(sf::Color::Yellow);
+    cellShape.setSize(sf::Vector2f(cellSize / zoom, cellSize / zoom)); // Ajustar tamaño al zoom
+
+    for (int row = 0; row < rows; ++row) {
+        for (int col = 0; col < cols; ++col) {
+            if (grid[row][col] == 1) {
+                float x = offsetX + col * (cellSize / zoom);
+                float y = offsetY + row * (cellSize / zoom);
+
+                cellShape.setPosition(x, y);
+                target.draw(cellShape);
+            }
+        }
+    }
+}
+
+

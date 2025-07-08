@@ -17,7 +17,7 @@ RosHandler::RosHandler()
     joy_sub = nh.subscribe<sensor_msgs::Joy>("joy", 10, &RosHandler::joyCallback, this);
 
     // Suscriptor al sonar
-    sonar_sub = nh.subscribe("sonarRawdata_bag", 1000, &RosHandler::sonarPointReceiver, this);
+    sonar_sub = nh.subscribe("sonarFilterdata_bag", 1000, &RosHandler::sonarPointReceiver, this);
     last_joy_time = ros::Time::now();
 }
 

@@ -1,6 +1,9 @@
 #pragma once
 #include <vector>
 #include <cmath>
+#include <SFML/Graphics.hpp>
+#include "artgslam_vsc/ViewController.hpp"
+
 
 class GridMap
 {
@@ -10,8 +13,10 @@ private:
     std::vector<double> posX, posY;
     std::vector<std::vector<int>> grid;
 
+    ViewController& controller;
+
 public:
-    GridMap(int size = 100, double resolution = 0.1);  // Constructor configurable
+    GridMap(int size , double resolution ,ViewController& controller);  // Constructor configurable
 
     const std::vector<double>& getRealX() const{ return posX;}
     const std::vector<double>& getRealY() const{ return posY;}
@@ -29,5 +34,6 @@ public:
     const std::vector<std::vector<int>>& getGrid() const;
 
     void clearGridMap();
+    void draw(sf::RenderTarget& target, float pixelsPerMeter) const;
 };
 

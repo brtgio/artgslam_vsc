@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <SFML/Graphics.hpp>
 #include "artgslam_vsc/MapViewer.hpp"
-#include "artgslam_vsc/GridMap.hpp"
+
 
 int main(int argc, char** argv)
 {
@@ -13,10 +13,10 @@ int main(int argc, char** argv)
     window.setFramerateLimit(60);  // Limitar FPS para estabilidad
 
     // Crear objeto GridMap
-    GridMap grid;
+    
 
     // Crear MapViewer (con ROS manejado internamente si RosHandler es parte de MapViewer)
-    MapViewer mapViewer(window, grid);
+    MapViewer mapViewer(window);
 
     // Bucle principal
     while (ros::ok() && mapViewer.isRunning())

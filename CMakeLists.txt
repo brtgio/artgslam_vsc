@@ -54,6 +54,7 @@ set(SOURCES
   src/RosHandler.cpp
   src/RobotCreator.cpp
   src/UnicicleWmr.cpp
+  src/LiveMap.cpp
   ${TINYFILEDIALOG_SRC}
 )
 

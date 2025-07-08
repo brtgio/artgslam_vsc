@@ -8,6 +8,8 @@
 #include "artgslam_vsc/RobotCreator.hpp"
 #include "artgslam_vsc/UnicicleWmr.hpp"
 #include "artgslam_vsc/RosHandler.hpp"
+#include "artgslam_vsc/LiveMap.hpp"
+#include "artgslam_vsc/GridMap.hpp"
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 
@@ -15,6 +17,7 @@
 class MapViewer {
 private:
     sf::RenderWindow& window;
+    
     sf::View view;
     tgui::Gui gui;
 
@@ -22,14 +25,15 @@ private:
     FileManager manager;
     RosHandler roshandler;
     ViewController controller;
-    GridMap& map;
+    GridMap map;
     UnicicleWmr wmr;
-    RosHandler rosHandler;
+    LiveMap livemap;
+
     bool running = true;
 
 public:
     // Constructor necesario
-    MapViewer(sf::RenderWindow& win, GridMap& sharedMap);
+    MapViewer(sf::RenderWindow& win);
 
     void update();
     void processEvent();

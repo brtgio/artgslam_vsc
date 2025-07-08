@@ -20,7 +20,6 @@ public:
     // Desactivar constructor por defecto
     RobotCreator() = delete;
 
-    // Desactivar copia (sf::RenderWindow y tgui::Gui son no copiables)
     RobotCreator(const RobotCreator&) = delete;
     RobotCreator& operator=(const RobotCreator&) = delete;
 
