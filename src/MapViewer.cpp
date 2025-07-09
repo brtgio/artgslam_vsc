@@ -13,8 +13,9 @@ MapViewer::MapViewer(sf::RenderWindow& win)
     , roshandler()
     , wmr()
     , livemap(100, 0.1, controller)
+    ,r_menu(gui)
 {
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(120);
 
     menu.setCallbacks(
         [this]() { manager.loadDialog(); },
@@ -78,6 +79,8 @@ void MapViewer::update()
 void MapViewer::processEvent()
 {
     sf::Event event;
+    sf::Vector2i mousePosition;
+    mousePosition = sf::Mouse::getPosition(window);
     while (window.pollEvent(event)) {
         gui.handleEvent(event);
         controller.handleEvent(event);
@@ -86,12 +89,22 @@ void MapViewer::processEvent()
             running = false;
             window.close();
         }
+        if (event.type == sf::Event::MouseButtonPressed){
+
+            if (event.mouseButton.button == sf::Mouse::Right) {
+                r_menu.show(mousePosition.x,mousePosition.y);
+                r_menu.setVisible(true);
+            }
+            else{
+                r_menu.setVisible(false);
+            }
+        }
     }
 }
 
 void MapViewer::render()
 {
-    window.clear(sf::Color::Black);
+    window.clear(sf::Color(0,0,0,255));
     controller.applyView();  // Aplica vista con zoom y pan
 
     controller.drawGrid(window);   // Dibuja rejilla primero

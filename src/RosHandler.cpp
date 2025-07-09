@@ -19,6 +19,11 @@ RosHandler::RosHandler()
     // Suscriptor al sonar
     sonar_sub = nh.subscribe("sonarFilterdata_bag", 1000, &RosHandler::sonarPointReceiver, this);
     last_joy_time = ros::Time::now();
+
+    //Monitoreo de RAM
+    ram_pub = nh.advertise<std_msgs::Int32>("ram_usage_kb", 10);
+    ram_timer = nh.createTimer(ros::Duration(1.0), &RosHandler::publishMemoryUsage, this);
+
 }
 
 // Getter para los puntos del sonar
@@ -55,4 +60,23 @@ void RosHandler::sonarPointReceiver(const geometry_msgs::Point32::ConstPtr &msg)
     ROS_INFO_STREAM("[SONAR] Punto recibido -> X: " << msg->x
                     << " | Y: " << msg->y
                     << " | Z: " << msg->z);
+}
+
+inline long RosHandler::getMemoryUsageKB() {
+    std::ifstream status("/proc/self/status");
+    std::string line;
+    while (std::getline(status, line)) {
+        if (line.rfind("VmRSS:", 0) == 0) {
+            long kb;
+            sscanf(line.c_str(), "VmRSS: %ld kB", &kb);
+            return kb;
+        }
+    }
+    return -1;
+}
+
+inline void RosHandler::publishMemoryUsage(const ros::TimerEvent&) {
+    std_msgs::Int32 msg;
+    msg.data = static_cast<int>(getMemoryUsageKB());
+    ram_pub.publish(msg);
 }

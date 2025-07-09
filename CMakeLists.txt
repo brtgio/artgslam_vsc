@@ -55,6 +55,7 @@ set(SOURCES
   src/RobotCreator.cpp
   src/UnicicleWmr.cpp
   src/LiveMap.cpp
+  src/RightClickMapMenu.cpp
   ${TINYFILEDIALOG_SRC}
 )
 
