@@ -4,6 +4,7 @@
 #include <ros/ros.h>
 #include <ros/package.h>
 
+
 ViewController::ViewController(sf::RenderWindow& win, float metersPerCell_, float pixelsPerMeter_, sf::View& view)
     : window(win), metersPerCell(metersPerCell_), pixelsPerMeter(pixelsPerMeter_), view(view)
 {
@@ -69,9 +70,32 @@ float ViewController::getZoom() const {
     return view.getSize().x / defaultView.getSize().x;
 }
 
+sf::Vector2i ViewController::getHoveredCell(int gridSize) const
+{
+    // 1. Convertir a metros reales
+    float worldX = mousePosition_W.x / pixelsPerMeter;
+    float worldY = mousePosition_W.y / pixelsPerMeter;
+
+    // 2. Compensar por el origen centrado
+    float offset = (gridSize * metersPerCell) / 2.0f;
+
+    // 3. Obtener índice de celda
+    int col = static_cast<int>(std::floor((worldX + offset) / metersPerCell));
+    int row = static_cast<int>(std::floor((worldY + offset) / metersPerCell));
+
+    // 4. Validación
+    if (col < 0 || col >= gridSize || row < 0 || row >= gridSize)
+        return {-1, -1};
+
+    return {col, row};
+}
+
+
+
+
 void ViewController::drawGrid(sf::RenderTarget& target) {
     float zoom = defaultView.getSize().x / view.getSize().x;
-    float cellSize = metersPerCell * pixelsPerMeter * zoom;
+    float cellSize = metersPerCell * pixelsPerMeter ;
     float halfWidth = (mapSizeCells / 2) * cellSize;
 
     sf::VertexArray lines(sf::Lines);
@@ -87,98 +111,110 @@ void ViewController::drawGrid(sf::RenderTarget& target) {
     target.draw(lines);
 }
 
-void ViewController::drawAxes(sf::RenderTarget& target) {
+
+void ViewController::drawAxes(sf::RenderTarget& target)
+{
     if (!fontLoaded) return;
 
+    // --------------------------------------------------------------------
+    // 1) Dibujar las líneas de los ejes en coordenadas‑mundo
+    // --------------------------------------------------------------------
     sf::View originalView = target.getView();
-    target.setView(view);
+    target.setView(view);                       // ← Usa la vista actual
 
-    // === Dibujar ejes X y Y ===
-    sf::VertexArray axes(sf::Lines);
-    sf::Vector2f viewCenter = view.getCenter();
-    sf::Vector2f viewSize = view.getSize();
+    sf::VertexArray axes(sf::Lines, 4);
+    sf::Vector2f center = view.getCenter();
+    sf::Vector2f size   = view.getSize();
 
-    float left = viewCenter.x - viewSize.x / 2.f;
-    float right = viewCenter.x + viewSize.x / 2.f;
-    float top = viewCenter.y - viewSize.y / 2.f;
-    float bottom = viewCenter.y + viewSize.y / 2.f;
+    float left   = center.x - size.x * 0.5f;
+    float right  = center.x + size.x * 0.5f;
+    float top    = center.y - size.y * 0.5f;
+    float bottom = center.y + size.y * 0.5f;
 
-    axes.append(sf::Vertex(sf::Vector2f(left, 0), sf::Color::Red));
-    axes.append(sf::Vertex(sf::Vector2f(right, 0), sf::Color::Red));
-    axes.append(sf::Vertex(sf::Vector2f(0, top), sf::Color::Blue));
-    axes.append(sf::Vertex(sf::Vector2f(0, bottom), sf::Color::Blue));
+    axes[0] = sf::Vertex({left , 0.f},  sf::Color::Red);   // Eje X
+    axes[1] = sf::Vertex({right, 0.f},  sf::Color::Red);
+    axes[2] = sf::Vertex({0.f , top },  sf::Color::Blue);  // Eje Y
+    axes[3] = sf::Vertex({0.f , bottom},sf::Color::Blue);
 
     target.draw(axes);
 
-    // === Etiquetas ===
+    // --------------------------------------------------------------------
+    // 2) Dibujar las etiquetas en la HUD (defaultView)                    –
+    //    * El tamaño de celda en mundo es fijo: metersPerCell·pixelsPerMeter
+    //    * Sólo escalamos el texto en función del zoom.
+    // --------------------------------------------------------------------
     target.setView(defaultView);
 
-    float zoomLevel = defaultView.getSize().x / view.getSize().x;
-    float scaledCellSize = metersPerCell * pixelsPerMeter * zoomLevel;
-    const unsigned int baseFontSize = 12;
+    const float cellSizeWorld = metersPerCell * pixelsPerMeter;   // ✅ fijo
+    const float zoomLevel     = defaultView.getSize().x / view.getSize().x;
 
-    float textScale = std::min(zoomLevel, 1.5f);  // Limitar tamaño máximo
-    if (textScale < 0.5f)
-        textScale = 0.5f;  // No permitir texto demasiado pequeño
+    float textScale = std::clamp(zoomLevel, 0.5f, 1.5f);          // C++17
+    const unsigned baseFontSize = 12;
 
-    sf::Vector2f topLeft = window.mapPixelToCoords({0, 0}, view);
+    // Rectángulo visible en mundo
+    sf::Vector2f topLeft = window.mapPixelToCoords({0,0}, view);
     sf::Vector2f bottomRight = window.mapPixelToCoords(
-        {static_cast<int>(window.getSize().x), static_cast<int>(window.getSize().y)}, view
-    );
+        {static_cast<int>(window.getSize().x),
+         static_cast<int>(window.getSize().y)}, view);
 
-    int firstVisibleCellX = static_cast<int>(std::floor(topLeft.x / scaledCellSize));
-    int firstVisibleCellY = static_cast<int>(std::floor(topLeft.y / scaledCellSize));
-    int visibleCols = static_cast<int>((bottomRight.x - topLeft.x) / scaledCellSize) + 2;
-    int visibleRows = static_cast<int>((bottomRight.y - topLeft.y) / scaledCellSize) + 2;
+    int firstCellX = static_cast<int>(std::floor(topLeft.x / cellSizeWorld));
+    int firstCellY = static_cast<int>(std::floor(topLeft.y / cellSizeWorld));
+    int numCols = static_cast<int>((bottomRight.x - topLeft.x) / cellSizeWorld) + 2;
+    int numRows = static_cast<int>((bottomRight.y - topLeft.y) / cellSizeWorld) + 2;
 
-    // Eje X
-    for (int i = 0; i <= visibleCols; ++i) {
-        int cellX = firstVisibleCellX + i;
-        if (cellX % 5 != 0) continue;
+    // ---------- Etiquetas sobre el eje X ----------
+    for (int i = 0; i <= numCols; ++i) {
+        int cellX = firstCellX + i;
+        if (cellX % 5 != 0) continue;                       // solo cada 5
 
-        float xpos = cellX * scaledCellSize;
-        sf::Vector2i screenPos = window.mapCoordsToPixel({xpos, 0.f}, view);
-        sf::Vector2f textPos(static_cast<float>(screenPos.x + 2), 4.f);
+        float worldX = cellX * cellSizeWorld;
+        sf::Vector2i scr = window.mapCoordsToPixel({worldX, 0.f}, view);
+        sf::Vector2f pos(static_cast<float>(scr.x) + 2.f, 4.f);
 
-        sf::Text label(std::to_string(cellX), font, baseFontSize);
-        label.setFillColor(sf::Color::Yellow);
-        label.setScale(textScale, textScale);
-        label.setPosition(textPos);
+        sf::Text txt(std::to_string(cellX), font, baseFontSize);
+        txt.setFillColor(sf::Color::Yellow);
+        txt.setScale(textScale, textScale);
+        txt.setPosition(pos);
 
-        sf::FloatRect textRect = label.getLocalBounds();
-        sf::RectangleShape bgRect({textRect.width * textScale, textRect.height * textScale});
-        bgRect.setPosition(textPos);
-        bgRect.setFillColor(sf::Color(0, 0, 0, 180));
+        sf::FloatRect b = txt.getLocalBounds();
+        sf::RectangleShape bg({b.width * textScale, b.height * textScale});
+        bg.setPosition(pos);
+        bg.setFillColor(sf::Color(0,0,0,180));
 
-        target.draw(bgRect);
-        target.draw(label);
+        target.draw(bg);
+        target.draw(txt);
     }
 
-    // Eje Y
-    for (int i = 0; i <= visibleRows; ++i) {
-        int cellY = firstVisibleCellY + i;
+    // ---------- Etiquetas sobre el eje Y ----------
+    for (int i = 0; i <= numRows; ++i) {
+        int cellY = firstCellY + i;
         if (cellY % 5 != 0) continue;
 
-        float ypos = cellY * scaledCellSize;
-        sf::Vector2i screenPos = window.mapCoordsToPixel({0.f, ypos}, view);
-        sf::Vector2f textPos(4.f, static_cast<float>(screenPos.y + 2));
+        float worldY = cellY * cellSizeWorld;
+        sf::Vector2i scr = window.mapCoordsToPixel({0.f, worldY}, view);
+        sf::Vector2f pos(4.f, static_cast<float>(scr.y) + 2.f);
 
-        sf::Text label(std::to_string(cellY), font, baseFontSize);
-        label.setFillColor(sf::Color::Yellow);
-        label.setScale(textScale, textScale);
-        label.setPosition(textPos);
+        sf::Text txt(std::to_string(cellY), font, baseFontSize);
+        txt.setFillColor(sf::Color::Yellow);
+        txt.setScale(textScale, textScale);
+        txt.setPosition(pos);
 
-        sf::FloatRect textRect = label.getLocalBounds();
-        sf::RectangleShape bgRect({textRect.width * textScale, textRect.height * textScale});
-        bgRect.setPosition(textPos);
-        bgRect.setFillColor(sf::Color(0, 0, 0, 180));
+        sf::FloatRect b = txt.getLocalBounds();
+        sf::RectangleShape bg({b.width * textScale, b.height * textScale});
+        bg.setPosition(pos);
+        bg.setFillColor(sf::Color(0,0,0,180));
 
-        target.draw(bgRect);
-        target.draw(label);
+        target.draw(bg);
+        target.draw(txt);
     }
 
+    // --------------------------------------------------------------------
+    // 3) Restaurar la vista original
+    // --------------------------------------------------------------------
     target.setView(originalView);
 }
+
+
 
 
 
@@ -190,8 +226,8 @@ void ViewController::zoomControler(const sf::Event& event) {
     float currentZoom = getZoom();
     float newZoom = currentZoom * factor;
 
-    const float minZoom = 0.3f;
-    const float maxZoom = 0.8f;
+    const float minZoom = 0.1f;
+    const float maxZoom = 1.0f;
     std::cout << "newZoom" << newZoom << std::endl;
 
     if (newZoom < minZoom || newZoom > maxZoom) {

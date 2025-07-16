@@ -25,7 +25,10 @@ int main(int argc, char** argv)
         mapViewer.processEvent();
 
         // Actualizar lógica interna
-        mapViewer.update();
+
+            mapViewer.update();
+
+        
 
         // Renderizar contenido gráfico
         mapViewer.render();

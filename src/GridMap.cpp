@@ -1,4 +1,6 @@
 #include "artgslam_vsc/GridMap.hpp"
+#include <iostream>
+
 
 
 GridMap::GridMap(int size, double resolution,ViewController& controller)
@@ -44,11 +46,32 @@ void GridMap::clearPoints()
     posY.clear();
 }
 
-void GridMap::xy2Grid(const std::vector<double>& x, const std::vector<double>& y,
-                      std::vector<int>& xGrid, std::vector<int>& yGrid)
+void GridMap::setStart(int col, int row)
 {
-const double resolution = 0.1;
-    const int gridSize = 1000; // Mapa de 1000x1000 celdas
+     std::cout << "[setStart] col=" << col << " row=" << row << '\n';
+    if (grid[row][col]==0){
+        grid[row][col] = 's';//g value in ascii
+    }
+    else{
+        std::cout<<"[setStart] Cell full."<<std::endl;
+    }
+}
+
+void GridMap::setGoal(int col, int row)
+{
+    std::cout << "[setGoal] col=" << col << " row=" << row << '\n';
+    if (grid[row][col]==0){
+        grid[row][col] = 'g';//g value in ascii
+    }
+    else{
+        std::cout<<"[setGoal] Cell full."<<std::endl;
+    }
+    
+}
+void GridMap::xy2Grid(const std::vector<double> &x, const std::vector<double> &y,
+                      std::vector<int> &xGrid, std::vector<int> &yGrid)
+{
+    
     const int halfGrid = gridSize / 2;
 
     size_t n = std::min(x.size(), y.size());
@@ -56,8 +79,8 @@ const double resolution = 0.1;
     yGrid.resize(n);
 
     for (size_t i = 0; i < n; ++i) {
-        int gx = static_cast<int>(std::round(x[i] / resolution));
-        int gy = static_cast<int>(std::round(y[i] / resolution));
+        int gx = static_cast<int>(std::round(x[i] / gridResolution));
+        int gy = static_cast<int>(std::round(y[i] / gridResolution));
 
         // Centrar el origen en el medio del grid
         xGrid[i] = gx + halfGrid;
@@ -67,7 +90,7 @@ const double resolution = 0.1;
 
 void GridMap::fillGrid(const std::vector<int>& xGrid, const std::vector<int>& yGrid)
 {
-        const int gridSize = 1000;
+        
 
     grid.assign(gridSize, std::vector<int>(gridSize, 0));
 
@@ -91,34 +114,54 @@ void GridMap::clearGridMap()
     grid.assign(gridSize, std::vector<int>(gridSize, 0));
 }
 
-void GridMap::draw(sf::RenderTarget& target, float pixelsPerMeter) const
+void GridMap::clearSetPoints(sf::Vector2i cellIndex)
+{
+   
+    if (cellIndex.x >= 0 && cellIndex.y >= 0 &&
+        cellIndex.y < gridSize && cellIndex.x < gridSize) {
+        grid[cellIndex.y][cellIndex.x] = 0;
+    }
+
+
+}
+
+void GridMap::draw(sf::RenderTarget &target, float pixelsPerMeter) const
 {
     if (grid.empty() || grid[0].empty()) return;
 
-    int rows = static_cast<int>(grid.size());
-    int cols = static_cast<int>(grid[0].size());
+    const int rows = static_cast<int>(grid.size());
+    const int cols = static_cast<int>(grid[0].size());
 
-    float cellSize = gridResolution * pixelsPerMeter;
+    const float cellSize = gridResolution * pixelsPerMeter;
 
-    float zoom = controller.getZoom();  // Se asume que `controller` es un puntero válido a ViewController
+    // Centrado en (0,0): desplazamiento hacia la esquina superior izquierda
+    const float offsetX = -(cols / 2.f) * cellSize;
+    const float offsetY = -(rows / 2.f) * cellSize;
 
-    // Offset centrado, escalado con zoom
-    float offsetX = - (static_cast<float>(cols) / 2.f) * (cellSize / zoom);
-    float offsetY = - (static_cast<float>(rows) / 2.f) * (cellSize / zoom);
+    sf::RectangleShape cellShape({cellSize, cellSize});
 
-    sf::RectangleShape cellShape;
-    cellShape.setFillColor(sf::Color::Yellow);
-    cellShape.setSize(sf::Vector2f(cellSize / zoom, cellSize / zoom)); // Ajustar tamaño al zoom
+    for (int row = 0; row < rows; ++row)
+    {
+        for (int col = 0; col < cols; ++col)
+        {
+            const int val = grid[row][col];
 
-    for (int row = 0; row < rows; ++row) {
-        for (int col = 0; col < cols; ++col) {
-            if (grid[row][col] == 1) {
-                float x = offsetX + col * (cellSize / zoom);
-                float y = offsetY + row * (cellSize / zoom);
+            // Solo celdas marcadas
+            if (val == 1)
+                cellShape.setFillColor(sf::Color::Yellow);
+            else if (val == 's')
+                cellShape.setFillColor(sf::Color::Red);
+            else if (val == 'g')
+                cellShape.setFillColor(sf::Color::Green);
+            else
+                continue;
 
-                cellShape.setPosition(x, y);
-                target.draw(cellShape);
-            }
+            // Posición en mundo
+            const float x = offsetX + col * cellSize;
+            const float y = offsetY + row * cellSize;
+
+            cellShape.setPosition(x, y);
+            target.draw(cellShape);
         }
     }
 }

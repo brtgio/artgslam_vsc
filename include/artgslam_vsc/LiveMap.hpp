@@ -20,6 +20,12 @@ public:
     void updateGridFromPoints();
 
     void drawLiveMap(sf::RenderTarget& target) const;
+    void setActive(bool isActive){isLivemodeActive=true;};
+    bool getIsActive() const{return isLivemodeActive;};
+
+    void setStart(int i,int j);
+    void setGoal(int i,int j);
+    
 
 private:
     ViewController& controller;
@@ -31,7 +37,7 @@ private:
 
     bool originSet = false;
     double originX = 0.0, originY = 0.0;
-
+    bool isLivemodeActive=false;
    
 };
 

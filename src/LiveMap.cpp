@@ -126,4 +126,14 @@ void LiveMap::drawLiveMap(sf::RenderTarget& target) const
     }
 }
 
+void LiveMap::setGoal(int i,int j){
+
+    grid[i][j]=103;
+
+}
+void LiveMap::setStart(int i,int j){
+
+    grid[i][j]=115;
+}
+
 

@@ -22,6 +22,8 @@ public:
     
     sf::View getView() const;
     float getZoom() const;
+   
+    sf::Vector2i getHoveredCell(int gridSize) const;
 private:
     sf::RenderWindow& window;
     sf::View& view;
@@ -36,10 +38,13 @@ private:
 
     float metersPerCell;
     float pixelsPerMeter;
-    const int mapSizeCells = 1000; // Mapa fijo de 100x100
+    const int mapSizeCells = 1000; 
 
     sf::Font font;
     bool fontLoaded = false;
+
+    std::vector<std::vector<sf::Vector2f>> cellTopLeft_;  // [y][x]
+    bool cellCoordsValid_ = false;
     
 };
 

@@ -29,8 +29,12 @@ private:
     UnicicleWmr wmr;
     LiveMap livemap;
     RightClickMapMenu r_menu;
+    
 
     bool running = true;
+    sf::Vector2f worldXY;
+    sf::Vector2i gridIndex;
+    sf::Vector2i gridIndex2copy;
 
 public:
     // Constructor necesario

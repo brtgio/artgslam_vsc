@@ -8,7 +8,7 @@
 class GridMap
 {
 private:
-    int gridSize;               // e.g., 100
+    int gridSize;               
     double gridResolution;      // e.g., 0.1 m por celda
     std::vector<double> posX, posY;
     std::vector<std::vector<int>> grid;
@@ -27,6 +27,10 @@ public:
     void setPoints(const std::vector<double>& newX, const std::vector<double>& newY);
     void clearPoints();
 
+    void setStart(int i,int j);
+    void setGoal(int i,int j);
+    
+
     void xy2Grid(const std::vector<double>& x, const std::vector<double>& y,
                  std::vector<int>& xGrid, std::vector<int>& yGrid);
 
@@ -34,6 +38,8 @@ public:
     const std::vector<std::vector<int>>& getGrid() const;
 
     void clearGridMap();
+    void clearSetPoints(sf::Vector2i cellIndex);
     void draw(sf::RenderTarget& target, float pixelsPerMeter) const;
+    int getMapSize() const { return gridSize; }
 };
 

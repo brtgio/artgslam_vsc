@@ -1,20 +1,22 @@
 #include "artgslam_vsc/MapViewer.hpp"
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 MapViewer::MapViewer(sf::RenderWindow& win)
     : window(win)
     , view(window.getDefaultView())
     , gui(win)
     , controller(win, 0.1f, 50.0f, view)
-    , map(100, 0.1, controller)
+    , map(1000, 0.1, controller)
     , manager(map, controller)
     , menu(gui)
     , roshandler()
     , wmr()
-    , livemap(100, 0.1, controller)
-    ,r_menu(gui)
+    , livemap(1000, 0.1, controller)
+    ,r_menu(gui,map,livemap)
 {
+    r_menu.connectSignals();
     window.setFramerateLimit(120);
 
     menu.setCallbacks(
@@ -30,33 +32,32 @@ MapViewer::MapViewer(sf::RenderWindow& win)
         },
         [this]() {}
     );
+    
 }
 
 void MapViewer::update()
 {
-    sf::Vector2i pixelPos = controller.getMousePixelPosition();
+    int gridSize = map.getMapSize();
+    // 1. Obtener índice de celda bajo el mouse (columna, fila)
+    sf::Vector2i gridIndex = controller.getHoveredCell(gridSize);
+
+    // 2. Posición del mouse en el mundo (metros, no píxeles)
     sf::Vector2f worldPos = controller.getMouseWorldPosition();
 
-    float metersPerCell = controller.getMetersPerCell();
-    float pixelsPerMeter = controller.getPixelsPerMeter();
-
-    int cellX = static_cast<int>(std::floor(worldPos.x / (metersPerCell * pixelsPerMeter)));
-    int cellY = static_cast<int>(std::floor(worldPos.y / (metersPerCell * pixelsPerMeter)));
-
-    float worldX_m = worldPos.x / pixelsPerMeter;
-    float worldY_m = worldPos.y / pixelsPerMeter;
-
-    int i = map.getCellIndexY(worldY_m);
-    int j = map.getCellIndexX(worldX_m);
-
+    // 3. Mostrar info (solo si está dentro del mapa)
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2)
-        << "Grid: (" << cellX << ", " << cellY << "), Real: ("
-        << worldX_m << ", " << worldY_m << "), Index: ["
-        << i << ", " << j << "]";
+        << "Mouse: (" << worldPos.x << ", " << worldPos.y << ") m";
+    
+    if (gridIndex.x != -1 && gridIndex.y != -1) {
+        oss << " | Grid: (" << gridIndex.x << ", " << gridIndex.y << ")";
+    } else {
+        oss << " | Fuera del mapa";
+    }
 
     menu.updateCoordinates(oss.str());
 
+    // -----------------------------------------------
     if (menu.getLiveMode()) {
         livemap.clearPoints();
         livemap.clearGrid();
@@ -76,12 +77,12 @@ void MapViewer::update()
     wmr.update(roshandler.getlast_dt());
 }
 
+
 void MapViewer::processEvent()
 {
     sf::Event event;
-    sf::Vector2i mousePosition;
-    mousePosition = sf::Mouse::getPosition(window);
-    while (window.pollEvent(event)) {
+    while (window.pollEvent(event))
+    {
         gui.handleEvent(event);
         controller.handleEvent(event);
 
@@ -89,18 +90,33 @@ void MapViewer::processEvent()
             running = false;
             window.close();
         }
-        if (event.type == sf::Event::MouseButtonPressed){
+
+        if (event.type == sf::Event::MouseButtonPressed)
+        {
+            // 1) Refresca el índice AQUÍ, en el momento del clic
+            const int gridSize = map.getMapSize();            // o map.cols()
+            const sf::Vector2i cell = controller.getHoveredCell(gridSize);
+
+            const sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
+            const sf::Vector2f pixelPosF(pixelPos);
 
             if (event.mouseButton.button == sf::Mouse::Right) {
-                r_menu.show(mousePosition.x,mousePosition.y);
+                // 2) Pasa el índice recién obtenido, no el de update()
+                r_menu.show(static_cast<float>(pixelPos.x),
+                            static_cast<float>(pixelPos.y),
+                            cell);
                 r_menu.setVisible(true);
             }
-            else{
-                r_menu.setVisible(false);
+            else if (event.mouseButton.button == sf::Mouse::Left) {
+                if (r_menu.isVisible() && !r_menu.containsPoint(pixelPosF)) {
+                    r_menu.setVisible(false);
+                }
             }
         }
     }
 }
+
+
 
 void MapViewer::render()
 {
@@ -133,9 +149,9 @@ void MapViewer::render()
     }
 
     wmr.draw(window);
-
     window.setView(window.getDefaultView());
     gui.draw();
+    
     window.display();
 }
 
