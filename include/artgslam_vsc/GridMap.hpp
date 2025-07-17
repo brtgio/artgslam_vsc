@@ -29,6 +29,7 @@ public:
 
     void setStart(int i,int j);
     void setGoal(int i,int j);
+    bool isOccupied(int i,int j) const{ return grid[j][i];}
     
 
     void xy2Grid(const std::vector<double>& x, const std::vector<double>& y,
