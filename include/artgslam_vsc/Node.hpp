@@ -7,6 +7,7 @@ class Node{
 
 
     public:
+        Node() : x(-1), y(-1), parentX(-1), parentY(-1), gCost(0), hCost(0) {}
         Node(int x,int y): x(x), y(y), parentX(-1), parentY(-1), gCost(0), hCost(0){
 
             parent = sf::Vector2i(parentX, parentY);

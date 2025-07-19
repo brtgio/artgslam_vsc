@@ -25,6 +25,7 @@ public:
 
     // Nuevo método para saber si un punto está dentro del panel
     bool containsPoint(const sf::Vector2f& point) const;
+    bool isSet() const{return isGoalActive && isStartActive;};
 
 private:
     // Referencia a la GUI de TGUI

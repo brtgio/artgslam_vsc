@@ -56,6 +56,7 @@ set(SOURCES
   src/UnicicleWmr.cpp
   src/LiveMap.cpp
   src/RightClickMapMenu.cpp
+  src/Astar.cpp
   ${TINYFILEDIALOG_SRC}
 )
 

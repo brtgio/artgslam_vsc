@@ -14,7 +14,8 @@ MapViewer::MapViewer(sf::RenderWindow& win)
     , roshandler()
     , wmr()
     , livemap(1000, 0.1, controller)
-    ,r_menu(gui,map,livemap)
+    , r_menu(gui, map, livemap)
+    , aStarsim(map)
 {
     r_menu.connectSignals();
     window.setFramerateLimit(120);
@@ -30,25 +31,29 @@ MapViewer::MapViewer(sf::RenderWindow& win)
             RobotCreator creator(wmr);
             creator.run();
         },
-        [this]() {}
+        [this]() {
+            aStarsim.updatemap();   // Actualiza índices start/goal desde el grid
+            aStarsim.start();       // Inicia animación de A*
+            astarAnimating = true;
+        }
     );
-    
 }
 
 void MapViewer::update()
 {
     int gridSize = map.getMapSize();
-    // 1. Obtener índice de celda bajo el mouse (columna, fila)
+
+    // 1. Obtener índice de celda bajo el mouse
     sf::Vector2i gridIndex = controller.getHoveredCell(gridSize);
 
-    // 2. Posición del mouse en el mundo (metros, no píxeles)
+    // 2. Obtener posición del mouse en el mundo (en metros)
     sf::Vector2f worldPos = controller.getMouseWorldPosition();
 
-    // 3. Mostrar info (solo si está dentro del mapa)
+    // 3. Mostrar información de coordenadas
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2)
         << "Mouse: (" << worldPos.x << ", " << worldPos.y << ") m";
-    
+
     if (gridIndex.x != -1 && gridIndex.y != -1) {
         oss << " | Grid: (" << gridIndex.x << ", " << gridIndex.y << ")";
     } else {
@@ -58,6 +63,7 @@ void MapViewer::update()
     menu.updateCoordinates(oss.str());
 
     // -----------------------------------------------
+    // Modo en vivo (Live Mode)
     if (menu.getLiveMode()) {
         livemap.clearPoints();
         livemap.clearGrid();
@@ -74,15 +80,26 @@ void MapViewer::update()
         livemap.updateGridFromPoints();
     }
 
+    // Animación paso a paso del algoritmo A*
+    if (astarAnimating) {
+        if (!aStarsim.isFinished()) {
+            bool continueAnimation = aStarsim.step();
+            if (!continueAnimation) {
+                astarAnimating = false;
+            }
+        } else {
+            astarAnimating = false;
+        }
+    }
+
+    // Actualizar posición del robot
     wmr.update(roshandler.getlast_dt());
 }
-
 
 void MapViewer::processEvent()
 {
     sf::Event event;
-    while (window.pollEvent(event))
-    {
+    while (window.pollEvent(event)) {
         gui.handleEvent(event);
         controller.handleEvent(event);
 
@@ -91,23 +108,19 @@ void MapViewer::processEvent()
             window.close();
         }
 
-        if (event.type == sf::Event::MouseButtonPressed)
-        {
-            // 1) Refresca el índice AQUÍ, en el momento del clic
-            const int gridSize = map.getMapSize();            // o map.cols()
+        if (event.type == sf::Event::MouseButtonPressed) {
+            const int gridSize = map.getMapSize();
             const sf::Vector2i cell = controller.getHoveredCell(gridSize);
-
             const sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
             const sf::Vector2f pixelPosF(pixelPos);
 
             if (event.mouseButton.button == sf::Mouse::Right) {
-                // 2) Pasa el índice recién obtenido, no el de update()
+                // Mostrar menú contextual en la posición del clic
                 r_menu.show(static_cast<float>(pixelPos.x),
                             static_cast<float>(pixelPos.y),
                             cell);
                 r_menu.setVisible(true);
-            }
-            else if (event.mouseButton.button == sf::Mouse::Left) {
+            } else if (event.mouseButton.button == sf::Mouse::Left) {
                 if (r_menu.isVisible() && !r_menu.containsPoint(pixelPosF)) {
                     r_menu.setVisible(false);
                 }
@@ -116,15 +129,13 @@ void MapViewer::processEvent()
     }
 }
 
-
-
 void MapViewer::render()
 {
-    window.clear(sf::Color(0,0,0,255));
+    window.clear(sf::Color::Black);
     controller.applyView();  // Aplica vista con zoom y pan
 
-    controller.drawGrid(window);   // Dibuja rejilla primero
-    controller.drawAxes(window);   // Dibuja ejes
+    controller.drawGrid(window);   // Dibuja la rejilla
+    controller.drawAxes(window);  // Dibuja los ejes
 
     if (menu.getLiveMode()) {
         const auto& gridLive = livemap.getGrid();
@@ -135,7 +146,7 @@ void MapViewer::render()
             window.display();
             return;
         }
-        livemap.drawLiveMap(window);  // Dibuja mapa sobre la rejilla
+        livemap.drawLiveMap(window);
     } else {
         const auto& gridMap = map.getGrid();
         if (gridMap.empty() || gridMap[0].empty()) {
@@ -145,16 +156,21 @@ void MapViewer::render()
             window.display();
             return;
         }
-        map.draw(window, controller.getPixelsPerMeter());  // Igual
+        map.draw(window, controller.getPixelsPerMeter());
     }
 
+    // Dibujar A* si está activo
+    
+    if (astarAnimating) {
+        aStarsim.draw(window, 50.0f, controller.getMetersPerCell());
+    }
+    
+    aStarsim.drawFoundPath(window,50.0f,controller.getMetersPerCell());
     wmr.draw(window);
     window.setView(window.getDefaultView());
     gui.draw();
-    
     window.display();
 }
-
 
 bool MapViewer::isRunning() const {
     return running && window.isOpen();

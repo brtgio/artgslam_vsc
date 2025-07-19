@@ -9,6 +9,7 @@
 #include "artgslam_vsc/UnicicleWmr.hpp"
 #include "artgslam_vsc/LiveMap.hpp"
 #include "artgslam_vsc/RightClickMapMenu.hpp"
+#include "artgslam_vsc/AStar.hpp"
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 
@@ -29,12 +30,17 @@ private:
     UnicicleWmr wmr;
     LiveMap livemap;
     RightClickMapMenu r_menu;
+    AStar aStarsim;
+    
     
 
     bool running = true;
     sf::Vector2f worldXY;
     sf::Vector2i gridIndex;
     sf::Vector2i gridIndex2copy;
+
+    bool astarAnimating = false;
+    bool astarCompleted = false;
 
 public:
     // Constructor necesario

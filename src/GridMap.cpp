@@ -1,10 +1,10 @@
 #include "artgslam_vsc/GridMap.hpp"
+#include "artgslam_vsc/AStar.hpp" 
 #include <iostream>
 
 
-
-GridMap::GridMap(int size, double resolution,ViewController& controller)
-    : gridSize(size), gridResolution(resolution),controller(controller)
+GridMap::GridMap(int size, double resolution, ViewController& controller)
+    : gridSize(size), gridResolution(resolution), controller(controller)
 {
     // Inicializamos el grid vacío de una vez
     grid.assign(gridSize, std::vector<int>(gridSize, 0));
@@ -34,7 +34,7 @@ void GridMap::addPoints(double x, double y)
     posY.push_back(y);
 }
 
-void GridMap::setPoints(const std::vector<double> &newX, const std::vector<double> &newY)
+void GridMap::setPoints(const std::vector<double>& newX, const std::vector<double>& newY)
 {
     posX = newX;
     posY = newY;
@@ -48,32 +48,50 @@ void GridMap::clearPoints()
 
 void GridMap::setStart(int col, int row)
 {
-     std::cout << "[setStart] col=" << col << " row=" << row << '\n';
-    if (grid[row][col]==0){
-        grid[row][col] = 's';//g value in ascii
+    std::cout << "[setStart] col=" << col << " row=" << row << '\n';
+    if (grid[row][col] == 0){
+        grid[row][col] = 's'; // valor ASCII para start
+        std::cout << "Se guardó el valor de " << grid[row][col] << std::endl;
     }
     else{
-        std::cout<<"[setStart] Cell full."<<std::endl;
+        std::cout << "[setStart] Celda ocupada." << std::endl;
     }
 }
 
 void GridMap::setGoal(int col, int row)
 {
     std::cout << "[setGoal] col=" << col << " row=" << row << '\n';
-    if (grid[row][col]==0){
-        grid[row][col] = 'g';//g value in ascii
+    if (grid[row][col] == 0){
+        grid[row][col] = 'g'; // valor ASCII para goal
+        std::cout << "Se guardó el valor de " << grid[row][col] << std::endl;
     }
     else{
-        std::cout<<"[setGoal] Cell full."<<std::endl;
+        std::cout << "[setGoal] Celda ocupada." << std::endl;
     }
-    
+}
+
+int GridMap::isOccupied(int i, int j) const
+{
+    if(grid[j][i]==1){
+        return 1;
+    }
+    if(grid[j][i]==0){
+        return 0;
+    }
+    if(grid[j][i]=='s'){
+        return 's';
+    }
+    if(grid[j][i]=='g'){
+        return 'g';
+    }
+    else{
+        return 1;
+    }
 }
 void GridMap::xy2Grid(const std::vector<double> &x, const std::vector<double> &y,
                       std::vector<int> &xGrid, std::vector<int> &yGrid)
 {
-    
     const int halfGrid = gridSize / 2;
-
     size_t n = std::min(x.size(), y.size());
     xGrid.resize(n);
     yGrid.resize(n);
@@ -90,8 +108,6 @@ void GridMap::xy2Grid(const std::vector<double> &x, const std::vector<double> &y
 
 void GridMap::fillGrid(const std::vector<int>& xGrid, const std::vector<int>& yGrid)
 {
-        
-
     grid.assign(gridSize, std::vector<int>(gridSize, 0));
 
     for (size_t i = 0; i < xGrid.size(); ++i) {
@@ -116,13 +132,10 @@ void GridMap::clearGridMap()
 
 void GridMap::clearSetPoints(sf::Vector2i cellIndex)
 {
-   
     if (cellIndex.x >= 0 && cellIndex.y >= 0 &&
         cellIndex.y < gridSize && cellIndex.x < gridSize) {
         grid[cellIndex.y][cellIndex.x] = 0;
     }
-
-
 }
 
 void GridMap::draw(sf::RenderTarget &target, float pixelsPerMeter) const
@@ -165,5 +178,3 @@ void GridMap::draw(sf::RenderTarget &target, float pixelsPerMeter) const
         }
     }
 }
-
-

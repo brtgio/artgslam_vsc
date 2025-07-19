@@ -1,129 +1,255 @@
 #include "artgslam_vsc/AStar.hpp"
-#include "AStar.hpp"
+#include <iostream>
+#include <cmath>
+#include <algorithm> // std::reverse
+#include <limits>
 
-AStar::AStar(GridMap &mapRef)
+
+AStar::AStar(GridMap& mapRef)
     : map(mapRef)
 {
     width = map.getMapSize();
     height = width;
 
-    const auto& grid = map.getGrid();
-    stateMap.resize(height, std::vector<State>(width));
-
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            int cell = grid[y][x];
-
-            if (cell == 1) {
-                stateMap[y][x] = State::cObstacle;
-            } else if (cell == 's') {
-                stateMap[y][x] = State::cStart;
-                startIndex = {x, y};
-            } else if (cell == 'g') {
-                stateMap[y][x] = State::cGoal;
-                goalIndex = {x, y};
-            } else {
-                stateMap[y][x] = State::cEmpty;
-            }
-        }
-    }
-
-    // Inicializamos la lista cerrada como falsa (sin explorar)
+    stateMap.resize(height, std::vector<State>(width, State::cEmpty));
     closedList.resize(height, std::vector<bool>(width, false));
+    parentMap.resize(height, std::vector<sf::Vector2i>(width, {-1, -1}));
+    gScore.resize(height, std::vector<float>(width, std::numeric_limits<float>::infinity()));
+
+    startIndex = {-1, -1};
+    goalIndex = {-1, -1};
+
+    pathFound = false;
+    finished = false;
+    finalPath.clear();
 }
 
-std::vector<sf::Vector2i> AStar::getNeighbors(const Node& node) const
-{
-    std::vector<sf::Vector2i> neighbors;
-
-    // Direcciones de movimiento (8 vecinos, incluyendo diagonales)
+std::vector<sf::Vector2i> AStar::getNeighbors(const Node& node) const {
     static const std::vector<sf::Vector2i> directions = {
-        { 0, -1}, // arriba
-        { 1, -1}, // arriba-derecha
-        { 1,  0}, // derecha
-        { 1,  1}, // abajo-derecha
-        { 0,  1}, // abajo
-        {-1,  1}, // abajo-izquierda
-        {-1,  0}, // izquierda
-        {-1, -1}  // arriba-izquierda
+        { 0, -1}, { 1, -1}, { 1,  0}, { 1,  1},
+        { 0,  1}, {-1,  1}, {-1,  0}, {-1, -1}
     };
 
-    // Revisamos qué vecinos son válidos
+    std::vector<sf::Vector2i> neighbors;
     for (const auto& dir : directions) {
-        int newX = node.x + dir.x;
-        int newY = node.y + dir.y;
-
-        if (isValidCell(newX, newY)) {
-            neighbors.emplace_back(newX, newY);
+        int nx = node.x + dir.x;
+        int ny = node.y + dir.y;
+        if (isValidCell(nx, ny)) {
+            neighbors.emplace_back(nx, ny);
         }
     }
-
     return neighbors;
 }
 
-std::vector<sf::Vector2i> AStar::findPath(sf::Vector2i start, sf::Vector2i goal)
-{
-    // Limpiamos el mapa y las listas de estado
+void AStar::start() {
+    if (startIndex.x == -1 || goalIndex.x == -1) {
+        std::cerr << "Start or Goal not set properly.\n";
+        finished = true;
+        return;
+    }
+
+    // Inicializar estructuras para nueva búsqueda
     stateMap.assign(height, std::vector<State>(width, State::cEmpty));
     closedList.assign(height, std::vector<bool>(width, false));
+    parentMap.assign(height, std::vector<sf::Vector2i>(width, {-1, -1}));
+    gScore.assign(height, std::vector<float>(width, std::numeric_limits<float>::infinity()));
     openList = {};
 
-    stateMap[start.y][start.x] = State::cStart;
-    stateMap[goal.y][goal.x] = State::cGoal;
+    stateMap[startIndex.y][startIndex.x] = State::cStart;
+    stateMap[goalIndex.y][goalIndex.x] = State::cGoal;
 
-    // Inicializamos el nodo inicial
-    Node startNode(start.x, start.y);
+    // Nodo inicial
+    Node startNode(startIndex.x, startIndex.y);
     startNode.gCost = 0;
-    startNode.hCost = octileHeuristic(start.x, start.y, goal.x, goal.y);
+    startNode.hCost = octileHeuristic(startIndex.x, startIndex.y, goalIndex.x, goalIndex.y);
+
     openList.push(startNode);
+    gScore[startIndex.y][startIndex.x] = 0.0f;
 
-    // Bucle principal del algoritmo
-    while (!openList.empty()) {
-        Node current = openList.top();
-        openList.pop();
+    pathFound = false;
+    finished = false;
+}
 
-        // Si ya fue procesado, lo ignoramos
-        if (closedList[current.y][current.x]) continue;
+bool AStar::step() {
+    if (finished) {
+        std::cout << "[DEBUG] finished == true, saliendo de step().\n";
+        return false;
+    }
 
-        // Marcamos el nodo como cerrado
-        closedList[current.y][current.x] = true;
-        stateMap[current.y][current.x] = State::cClose;
+    if (openList.empty()) {
+        finished = true;
+        pathFound = false;
+        std::cout << "[DEBUG] openList vacío, no se encontró camino. finished = true.\n";
+        return false;
+    }
 
-        // Si llegamos a la meta, reconstruimos el camino
-        if (current.x == goal.x && current.y == goal.y) {
-            return reconstructPath(current);
+    currentNode = openList.top();
+    openList.pop();
+
+    std::cout << "[DEBUG] Procesando nodo (" << currentNode.x << ", " << currentNode.y << ") con gCost: " 
+              << currentNode.gCost << ", hCost: " << currentNode.hCost << ", fCost: " << currentNode.fCost() << "\n";
+
+    if (closedList[currentNode.y][currentNode.x]) {
+        std::cout << "[DEBUG] Nodo ya cerrado (" << currentNode.x << ", " << currentNode.y << "), saltando.\n";
+        return true;
+    }
+
+    closedList[currentNode.y][currentNode.x] = true;
+    stateMap[currentNode.y][currentNode.x] = State::cClose;
+
+    // Llegamos al objetivo
+    if (currentNode.x == goalIndex.x && currentNode.y == goalIndex.y) {
+        finished = true;
+        pathFound = true;
+        goalNode = currentNode;
+
+        std::cout << "[DEBUG] Nodo objetivo alcanzado (" << currentNode.x << ", " << currentNode.y << ").\n";
+
+        // Marcar camino en el mapa
+        for (auto& pos : reconstructPath(goalNode)) {
+            if (pos != startIndex && pos != goalIndex) {
+                stateMap[pos.y][pos.x] = State::cPath;
+                std::cout << "[DEBUG] Marcando camino en (" << pos.x << ", " << pos.y << ").\n";
+            }
+        }
+        finalPath = reconstructPath(goalNode);
+        std::cout << "Path to goal reached\n";
+        return false;
+    }
+
+    // Procesar vecinos
+    for (const auto& neighborPos : getNeighbors(currentNode)) {
+        int nx = neighborPos.x;
+        int ny = neighborPos.y;
+
+        int occupancy = map.isOccupied(nx, ny);
+
+        std::cout << "[DEBUG] Vecino (" << nx << ", " << ny << "), ocupación: " << occupancy 
+                  << ", cerrado: " << closedList[ny][nx] << ", gScore actual: " << gScore[ny][nx] << "\n";
+
+        // Permitir pasar por 's' y 'g', solo descartar si está ocupado (==1) o ya cerrado
+        if (closedList[ny][nx] || occupancy == 1) {
+            std::cout << "[DEBUG] Vecino (" << nx << ", " << ny << ") descartado.\n";
+            continue;
         }
 
-        // Revisamos los vecinos del nodo actual
-        for (const sf::Vector2i& dir : getNeighbors(current)) {
-            int neighborX = dir.x;
-            int neighborY = dir.y;
+        float tentativeG = currentNode.gCost + octileHeuristic(currentNode.x, currentNode.y, nx, ny);
 
-            // Saltamos vecinos inválidos, cerrados o con obstáculos
-            if (!isValidCell(neighborX, neighborY) ||
-                closedList[neighborY][neighborX] ||
-                map.isOccupied(neighborX, neighborY)) {
-                continue;
-            }
+        std::cout << "[DEBUG] tentativeG para (" << nx << ", " << ny << "): " << tentativeG << "\n";
 
-            float gCost = current.gCost + octileHeuristic(current.x, current.y, neighborX, neighborY);
-            float hCost = octileHeuristic(neighborX, neighborY, goal.x, goal.y);
+        if (tentativeG < gScore[ny][nx]) {
+            std::cout << "[DEBUG] Actualizando gScore y padre para (" << nx << ", " << ny << ").\n";
+            gScore[ny][nx] = tentativeG;
+            parentMap[ny][nx] = {currentNode.x, currentNode.y};
 
-            // Creamos el nodo vecino
-            Node neighbor(neighborX, neighborY);
-            neighbor.gCost = gCost;
-            neighbor.hCost = hCost;
-            neighbor.parentX = current.x;
-            neighbor.parentY = current.y;
-            neighbor.parent = sf::Vector2i(current.x, current.y);
+            Node neighbor(nx, ny);
+            neighbor.gCost = tentativeG;
+            neighbor.hCost = octileHeuristic(nx, ny, goalIndex.x, goalIndex.y);
 
-            // Agregamos a la lista abierta
             openList.push(neighbor);
+            std::cout << "[DEBUG] Nodo (" << nx << ", " << ny << ") añadido a openList con gCost: " 
+                      << neighbor.gCost << ", hCost: " << neighbor.hCost << "\n";
         }
     }
 
-    // Si no hay camino, devolvemos lista vacía
-    return {};
+    return true;
 }
 
+
+
+std::vector<sf::Vector2i> AStar::findPath() {
+    start();
+    while (!finished) {
+        if (!step()) break;
+    }
+    return pathFound ? reconstructPath(goalNode) : std::vector<sf::Vector2i>{};
+}
+
+void AStar::updatemap() {
+    startIndex = {-1, -1};
+    goalIndex = {-1, -1};
+
+    const auto& grid = map.getGrid();
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            int cell = grid[y][x];
+            if (cell == 's') {
+                startIndex = {x, y};
+                std::cout << "Updated startIndex: " << x << ", " << y << "\n";
+            } else if (cell == 'g') {
+                goalIndex = {x, y};
+                std::cout << "Updated goalIndex: " << x << ", " << y << "\n";
+            }
+        }
+    }
+}
+
+std::vector<sf::Vector2i> AStar::reconstructPath(const Node& endNode) const {
+    std::vector<sf::Vector2i> path;
+    sf::Vector2i current = {endNode.x, endNode.y};
+
+    while (current != sf::Vector2i(-1, -1)) {
+        path.push_back(current);
+        current = parentMap[current.y][current.x];
+    }
+
+    std::reverse(path.begin(), path.end());
+    return path;
+}
+
+void AStar::draw(sf::RenderTarget& target, float pixelsPerMeter, float metersPerCell) const {
+    float cellSize = metersPerCell * pixelsPerMeter;
+    float offsetX = -(width / 2.f) * cellSize;
+    float offsetY = -(height / 2.f) * cellSize;
+
+    sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));
+    cellShape.setOutlineThickness(0);
+
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            switch (stateMap[y][x]) {
+                case State::cStart:
+                    cellShape.setFillColor(sf::Color::Red); break;
+                case State::cEmpty:
+                    continue;
+                case State::cObstacle:
+                    cellShape.setFillColor(sf::Color::Black); break;
+                case State::cClose:
+                    cellShape.setFillColor(sf::Color(100, 149, 237, 180)); break;
+                case State::cPath:
+                    cellShape.setFillColor(sf::Color::Yellow); break;
+                case State::cGoal:
+                    cellShape.setFillColor(sf::Color::Green); break;
+                default:
+                    continue;
+            }
+
+            cellShape.setPosition(offsetX + x * cellSize, offsetY + y * cellSize);
+            target.draw(cellShape);
+        }
+    }
+}
+
+void AStar::drawFoundPath(sf::RenderTarget &target, float pixelsPerMeter, float metersPerCell) const
+{
+    if (finalPath.empty()) return; // No hay camino para dibujar
+
+    float cellSize = metersPerCell * pixelsPerMeter;
+    float offsetX = -(width / 2.f) * cellSize;
+    float offsetY = -(height / 2.f) * cellSize;
+
+    sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));
+    cellShape.setFillColor(sf::Color::Yellow); // Color para el camino
+
+    for (const auto& pos : finalPath) {
+        // No dibujar start ni goal
+        if (pos == startIndex || pos == goalIndex) continue;
+
+        float x = offsetX + pos.x * cellSize;
+        float y = offsetY + pos.y * cellSize;
+        cellShape.setPosition(x, y);
+
+        target.draw(cellShape);
+    }
+}
 
