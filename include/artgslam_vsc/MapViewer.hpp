@@ -24,7 +24,7 @@ private:
     sf::View view;                   // 2D camera handler (zoom and pan functionality)
     tgui::Gui gui;                   // TGUI main object for managing GUI widgets
 
-    MenuBar menu;                    // Top menu bar (File, View, etc.)
+    MenuBar menu;                    // Down menu bar (File, View, etc.)
     FileManager manager;             // Handles saving/loading data to/from files
     RosHandler roshandler;           // Handles ROS communication and callbacks
     ViewController controller;       // Controls the view (camera movement and zoom)
