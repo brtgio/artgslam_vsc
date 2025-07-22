@@ -11,7 +11,6 @@ class FileManager
 {
 private:
     GridMap& map;
-    ViewController& controller;
     std::string loadedFilename;  // Guarda el archivo seleccionado
 public:
     FileManager(GridMap& mapRef, ViewController& controllerRef);
