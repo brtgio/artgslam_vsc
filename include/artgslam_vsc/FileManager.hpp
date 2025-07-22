@@ -13,7 +13,7 @@ private:
     GridMap& map;
     std::string loadedFilename;  // Guarda el archivo seleccionado
 public:
-    FileManager(GridMap& mapRef, ViewController& controllerRef);
+    FileManager(GridMap& mapRef);
     void loadDialog();
     void saveDialog();
     void dataLoad(const std::string& filename, std::vector<double>& x, std::vector<double>& y);
