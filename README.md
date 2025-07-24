@@ -42,4 +42,20 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
 catkin_make
 
-### Instalation
+```
+
+### Building
+
+```bash
+
+# Clone the repo inside your /src folder inside catkin workspace
+
+git clone https://github.com/brtgio/artgslam_vsc.git
+
+# go back to catkin main directory
+
+cd ~/catkin_ws
+
+#make the workspace
+
+catkin_make
