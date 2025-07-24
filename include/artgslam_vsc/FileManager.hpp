@@ -10,7 +10,6 @@
 #include "tinyfiledialogs.h"
 
 /**
- * @class FileManager
  * @brief Manages file input/output operations for grid map visualization.
  * 
  * This class handles loading data from files to populate the map,
@@ -20,11 +19,12 @@ class FileManager
 {
 private:
     GridMap& map;                 ///< Reference to the grid map object
-    std::string loadedFilename;   ///< Path of the last loaded or saved file
+    std::string loadedFilename;  ///< Path of the last loaded or saved file
 
 public:
     /**
      * @brief Constructor.
+     * 
      * @param mapRef Reference to the GridMap to work with
      */
     FileManager(GridMap& mapRef);

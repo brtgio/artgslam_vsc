@@ -49,31 +49,21 @@ public:
 
     /// \brief Draws the current algorithm state to the given SFML render target.
     /// Can be used for animated A* visualizations.
-    /// \param target SFML render target to draw on
-    /// \param pixelsPerMeter Scale factor for rendering
-    /// \param metersPerCell Size of each cell in meters
     void draw(sf::RenderTarget& target, float pixelsPerMeter, float metersPerCell) const;
 
     /// \brief Draws the final path, if found.
-    /// \param target SFML render target to draw on
-    /// \param pixelsPerMeter Scale factor for rendering
-    /// \param metersPerCell Size of each cell in meters
     void drawFoundPath(sf::RenderTarget& target, float pixelsPerMeter, float metersPerCell) const;
 
     /// \brief Returns whether the algorithm has finished executing.
-    /// \return true if finished, false otherwise
     bool isFinished() const { return finished; }
 
     /// \brief Returns whether a path was found from start to goal.
-    /// \return true if path found, false otherwise
     bool isPathFound() const { return pathFound; }
 
     /// \brief Returns the current node being evaluated (useful for debugging or animation).
-    /// \return Reference to the current Node
     const Node& getCurrentNode() const { return currentNode; }
 
     /// \brief Returns the current internal state map used for visualization.
-    /// \return 2D vector of State enums representing the grid visualization
     const std::vector<std::vector<State>>& getStateMap() const { return stateMap; }
 
 private:
@@ -102,19 +92,9 @@ private:
     // --- Heuristic functions ---
 
     /// \brief Euclidean distance heuristic.
-    /// \param x1 X coordinate of first point
-    /// \param y1 Y coordinate of first point
-    /// \param x2 X coordinate of second point
-    /// \param y2 Y coordinate of second point
-    /// \return Euclidean distance between points
     double euclideanHeuristic(int x1, int y1, int x2, int y2);
 
     /// \brief Octile distance heuristic (better suited for 8-connected grids).
-    /// \param x1 X coordinate of first point
-    /// \param y1 Y coordinate of first point
-    /// \param x2 X coordinate of second point
-    /// \param y2 Y coordinate of second point
-    /// \return Octile distance between points
     double octileHeuristic(int x1, int y1, int x2, int y2) {
         int dx = std::abs(x2 - x1);
         int dy = std::abs(y2 - y1);
@@ -122,20 +102,13 @@ private:
     }
 
     /// \brief Checks if the given cell coordinates are within the grid bounds.
-    /// \param x X coordinate of the cell
-    /// \param y Y coordinate of the cell
-    /// \return true if valid, false if out of bounds
     bool isValidCell(int x, int y) const {
         return x >= 0 && x < width && y >= 0 && y < height;
     }
 
     /// \brief Returns the valid neighbor cells of a given node.
-    /// \param node Node to get neighbors for
-    /// \return Vector of valid neighbor cell coordinates
     std::vector<sf::Vector2i> getNeighbors(const Node& node) const;
 
     /// \brief Reconstructs the final path from the goal node by tracing the parent map.
-    /// \param endNode Goal node to start reconstruction from
-    /// \return Vector of grid coordinates representing the path
     std::vector<sf::Vector2i> reconstructPath(const Node& endNode) const;
 };

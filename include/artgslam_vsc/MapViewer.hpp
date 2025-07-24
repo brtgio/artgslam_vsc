@@ -15,9 +15,8 @@
 
 /**
  * @class MapViewer
- * @brief Main class managing rendering, input processing, UI menus, and simulation logic for SLAM/navigation visualization.
- * 
- * Coordinates GUI integration, handles keyboard/mouse input, and updates simulation components.
+ * @brief This is the main class. It manages mouse/keyboard events and GUI integration.
+ * It also coordinates the rendering and simulation components of the application.
  */
 class MapViewer {
 private:
@@ -32,9 +31,9 @@ private:
     ViewController controller;     ///< Manages zoom, panning, grid drawing, and coordinate conversions
     GridMap map;                   ///< Represents and stores the occupancy grid
     UnicicleWmr wmr;               ///< Simulated unicycle WMR (Wheeled Mobile Robot)
-    LiveMap livemap;               ///< Handles live mapping mode based on ROS data
-    RightClickMapMenu r_menu;      ///< Context menu for selecting start and goal positions
-    AStar aStarsim;                ///< A* algorithm instance for path planning and animation
+    LiveMap livemap;              ///< Handles live mapping mode based on ROS data
+    RightClickMapMenu r_menu;     ///< Context menu for selecting start and goal positions
+    AStar aStarsim;               ///< A* algorithm instance for path planning and animation
 
     bool running = true;               ///< Indicates whether the main loop is running
     sf::Vector2f worldXY;              ///< World coordinates (floating point)
@@ -42,33 +41,32 @@ private:
     sf::Vector2i gridIndex2copy;       ///< Temporary copy of a selected grid index
 
     bool astarAnimating = false;       ///< Indicates whether the A* animation is currently running
-    bool astarCompleted = false;       ///< Indicates whether the A* pathfinding has finished
 
 public:
     /**
-     * @brief Constructor.
+     * @brief Constructor
      * @param win Reference to the SFML render window
      */
     MapViewer(sf::RenderWindow& win);
 
     /**
-     * @brief Updates simulation state and handles internal logic.
+     * @brief Manages logic updates and user interaction
      */
     void update();
 
     /**
-     * @brief Processes keyboard, mouse, and GUI events.
+     * @brief Handles input events (mouse and keyboard)
      */
     void processEvent();
 
     /**
-     * @brief Renders all GUI and simulation elements on screen.
+     * @brief Renders all visual components to the screen
      */
     void render();
 
     /**
-     * @brief Checks whether the viewer main loop should continue running.
-     * @return True if running, false otherwise.
+     * @brief Returns whether the viewer should keep running
+     * @return True if running, false otherwise
      */
     [[nodiscard]] bool isRunning() const;
 };
