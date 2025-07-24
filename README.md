@@ -34,7 +34,7 @@ Optional – required **only** for integration with Adept MobileRobots (e.g., Am
 - [Aria](https://github.com/cinvesrob/Aria) (tested on ubuntu 20.04 and debian 10)
 - [RosAria](https://github.com/amor-ros-pkg/rosaria) (tested on ubuntu 20.04 and debian 10)
 
-> 🧠 **Note**: The ROS topics for receiving sonar data are hardcoded by default. Dynamic configuration is being considered for future versions.
+> 🧠 **Note**: The ROS topics for receiving sonar data are hardcoded by default, see RosHandler(https://brtgio.github.io/artgslam_vsc/html/classRosHandler.html) API documentation. Dynamic configuration is being considered for future versions.
 
 
 ### 🛠️ Set Up ROS Workspace
