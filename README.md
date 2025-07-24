@@ -76,3 +76,16 @@ roscore
 rosrun artgslam_vsc artgslam_vsc_node
 ```
 
+## 📚 Licenses
+
+### Third-Party
+
+This project uses the following open-source libraries. Please refer to their respective licenses:
+
+- **SFML** – [zlib/libpng License](https://www.sfml-dev.org/license.php)
+- **TGUI** – [zlib/libpng License](https://tgui.eu/license/)
+- **TinyFileDialogs** – [WTFPL or MIT License](https://sourceforge.net/projects/tinyfiledialogs/)
+- **ROS** – [BSD License](https://www.ros.org/reps/rep-0003.html)
+
+All credit goes to the respective authors and maintainers of these libraries.
+
