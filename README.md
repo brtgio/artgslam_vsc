@@ -56,5 +56,14 @@ cd ~/catkin_ws
 catkin_make
 
 ```
-## 5. 🧪 **Usage**
+## 🧪 **Usage**
 
+To run the application from terminal
+
+```bash
+
+# Run Roscore
+roscore
+#run artgslam_vsc package
+rosrun artgslam_vsc artgslam_vsc_node
+```
