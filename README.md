@@ -49,13 +49,12 @@ catkin_make
 ```bash
 
 # Clone the repo inside your /src folder inside catkin workspace
-
 git clone https://github.com/brtgio/artgslam_vsc.git
-
 # go back to catkin main directory
-
 cd ~/catkin_ws
-
 #make the workspace
-
 catkin_make
+
+```
+## 5. 🧪 **Usage**
+
