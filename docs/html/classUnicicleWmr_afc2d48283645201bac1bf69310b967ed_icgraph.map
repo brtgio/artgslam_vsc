@@ -1,0 +1,4 @@
+<map id="UnicicleWmr::setPose" name="UnicicleWmr::setPose">
+<area shape="rect" id="node1" title="Sets the robot&#39;s pose." alt="" coords="200,5,364,32"/>
+<area shape="rect" id="node2" href="$classUnicicleWmr.html#ad52cf9b69d1a46b8f492546d8ebdbdc2" title="Resets the robot pose and velocities." alt="" coords="5,5,152,32"/>
+</map>

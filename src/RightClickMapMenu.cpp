@@ -2,14 +2,30 @@
 #include <ros/package.h>
 #include <iostream>
 
-RightClickMapMenu::RightClickMapMenu(tgui::Gui& guiRef,GridMap& mapRef,LiveMap& livemapRef )
-    : gui(guiRef), gridmap(mapRef),livemap(livemapRef)
+/**
+ * @brief Constructs the RightClickMapMenu.
+ * 
+ * Initializes references to GUI, GridMap, and LiveMap, then sets up the menu widgets
+ * and connects button signals.
+ * 
+ * @param guiRef Reference to the TGUI GUI instance.
+ * @param mapRef Reference to the GridMap instance.
+ * @param livemapRef Reference to the LiveMap instance.
+ */
+RightClickMapMenu::RightClickMapMenu(tgui::Gui& guiRef, GridMap& mapRef, LiveMap& livemapRef)
+    : gui(guiRef), gridmap(mapRef), livemap(livemapRef)
 {
     std::cout << "📦 RightClickMapMenu: loading..." << std::endl;
-    setupWidgets();
-    connectSignals();
+    setupWidgets();    /**< Load and configure GUI widgets */
+    connectSignals();  /**< Connect button event handlers */
 }
 
+/**
+ * @brief Loads GUI widgets from external TGUI form and applies styles.
+ * 
+ * Retrieves the ROS package path to locate the GUI form file, loads widgets into
+ * a container, then retrieves and styles the individual buttons. Hides the panel by default.
+ */
 void RightClickMapMenu::setupWidgets()
 {
     std::string package_path = ros::package::getPath("artgslam_vsc");
@@ -22,13 +38,13 @@ void RightClickMapMenu::setupWidgets()
 
         panel = container->get<tgui::ChildWindow>("ChildWindow1");
         if (!panel) {
-            std::cerr << "❌ No se encontró 'ChildWindow1' en el form.\n";
+            std::cerr << "❌ 'ChildWindow1' widget not found in form." << std::endl;
             return;
         }
 
         auto layout = panel->get<tgui::VerticalLayout>("VerticalLayout1");
         if (!layout) {
-            std::cerr << "❌ No se encontró 'VerticalLayout1' dentro del panel.\n";
+            std::cerr << "❌ 'VerticalLayout1' widget not found in panel." << std::endl;
             return;
         }
 
@@ -38,17 +54,17 @@ void RightClickMapMenu::setupWidgets()
         clearView = layout->get<tgui::Button>("ClearView");
 
         if (!start || !goal || !clear || !clearView) {
-            std::cerr << "⚠️ Uno o más botones no fueron encontrados dentro del layout.\n";
+            std::cerr << "⚠️ One or more buttons not found in layout." << std::endl;
         } else {
-            // Aplicar estilo para que el fondo sea azul en hover y borde visible
             auto applyHoverStyle = [](tgui::Button::Ptr btn) {
-                btn->getRenderer()->setBackgroundColor(sf::Color::Transparent);
-                btn->getRenderer()->setBackgroundColorHover(sf::Color(0, 120, 215));  // Azul Windows 10
-                btn->getRenderer()->setTextColor(sf::Color::Black);
-                btn->getRenderer()->setTextColorHover(sf::Color::White);
-                btn->getRenderer()->setBorderColor(sf::Color::Transparent);
-                btn->getRenderer()->setBorderColorHover(sf::Color(0, 120, 215));
-                btn->getRenderer()->setBorders({1, 1, 1, 1});  // Borde de 1 píxel en todos lados
+                auto renderer = btn->getRenderer();
+                renderer->setBackgroundColor(sf::Color::Transparent);
+                renderer->setBackgroundColorHover(sf::Color(0, 120, 215)); // Windows 10 blue
+                renderer->setTextColor(sf::Color::Black);
+                renderer->setTextColorHover(sf::Color::White);
+                renderer->setBorderColor(sf::Color::Transparent);
+                renderer->setBorderColorHover(sf::Color(0, 120, 215));
+                renderer->setBorders({1, 1, 1, 1}); // 1-pixel border
             };
 
             applyHoverStyle(start);
@@ -57,27 +73,36 @@ void RightClickMapMenu::setupWidgets()
             applyHoverStyle(clearView);
         }
 
-        panel->setVisible(false);
+        panel->setVisible(false); /**< Hide panel initially */
 
     } catch (const tgui::Exception& e) {
-        std::cerr << "❌ Error al cargar el formulario TGUI: " << e.what() << std::endl;
+        std::cerr << "❌ Failed to load TGUI form: " << e.what() << std::endl;
     }
 }
 
-void RightClickMapMenu::show(float x, float y,  const sf::Vector2i& gridIndex)
+/**
+ * @brief Shows the right-click menu at specified screen coordinates with a selected grid index.
+ * 
+ * @param x Screen x position.
+ * @param y Screen y position.
+ * @param gridIndex Grid cell index selected.
+ */
+void RightClickMapMenu::show(float x, float y, const sf::Vector2i& gridIndex)
 {
     if (!panel) return;
 
-   
     gridIndex_copy = gridIndex;
 
-    std::cout << "🟢 Selected index: (" << gridIndex.x << ", " << gridIndex.y << ")\n";
+    std::cout << "🟢 Selected index: (" << gridIndex.x << ", " << gridIndex.y << ")" << std::endl;
 
     panel->setPosition(x, y);
     panel->setVisible(true);
     visible = true;
 }
 
+/**
+ * @brief Hides the right-click menu.
+ */
 void RightClickMapMenu::hide()
 {
     if (panel) {
@@ -86,6 +111,11 @@ void RightClickMapMenu::hide()
     }
 }
 
+/**
+ * @brief Explicitly sets the visibility of the menu.
+ * 
+ * @param show True to show the menu, false to hide.
+ */
 void RightClickMapMenu::setVisible(bool show)
 {
     if (panel) {
@@ -94,15 +124,25 @@ void RightClickMapMenu::setVisible(bool show)
     }
 }
 
+/**
+ * @brief Returns whether the menu is currently visible.
+ * 
+ * @return true if visible, false otherwise.
+ */
 bool RightClickMapMenu::isVisible() const
 {
     return visible;
 }
 
+/**
+ * @brief Determines if a given point lies inside the menu boundaries.
+ * 
+ * @param point Point in screen coordinates to test.
+ * @return true if point is inside menu bounds, false otherwise.
+ */
 bool RightClickMapMenu::containsPoint(const sf::Vector2f& point) const
 {
-    if (!panel)
-        return false;
+    if (!panel) return false;
 
     sf::Vector2f pos = panel->getAbsolutePosition();
     sf::Vector2f size = panel->getSize();
@@ -111,7 +151,11 @@ bool RightClickMapMenu::containsPoint(const sf::Vector2f& point) const
     return bounds.contains(point);
 }
 
-
+/**
+ * @brief Connects button press signals to their respective logic functions.
+ * 
+ * Handles setting start/goal points, clearing points, and other button actions.
+ */
 void RightClickMapMenu::connectSignals()
 {
     if (start) {
@@ -119,16 +163,15 @@ void RightClickMapMenu::connectSignals()
             if (!isStartActive) {
                 if (livemap.getIsActive()) {
                     livemap.setStart(gridIndex_copy.x, gridIndex_copy.y);
-                    std::cout<<"los indices son x:"<<gridIndex_copy.x<<" y:"<<std::endl;
-                    std::cout << "📍 Start set on Livemap.\n";
+                    std::cout << "📍 Start set on LiveMap." << std::endl;
                 } else {
                     gridmap.setStart(gridIndex_copy.x, gridIndex_copy.y);
-                    std::cout << "📍 Start set on GridMap.\n";
+                    std::cout << "📍 Start set on GridMap." << std::endl;
                 }
                 startIndex = gridIndex_copy;
                 isStartActive = true;
             } else {
-                std::cout << "⚠️ Start already active. Clear it first.\n";
+                std::cout << "⚠️ Start is already active. Clear it first." << std::endl;
             }
             hide();
         });
@@ -139,18 +182,15 @@ void RightClickMapMenu::connectSignals()
             if (!isGoalActive) {
                 if (livemap.getIsActive()) {
                     livemap.setGoal(gridIndex_copy.x, gridIndex_copy.y);
-
-                    std::cout << "🎯 Goal set on Livemap.\n";
+                    std::cout << "🎯 Goal set on LiveMap." << std::endl;
                 } else {
                     gridmap.setGoal(gridIndex_copy.x, gridIndex_copy.y);
-
-                    std::cout << "🎯 Goal set on GridMap.\n";
+                    std::cout << "🎯 Goal set on GridMap." << std::endl;
                 }
-                std::cout<<"los indices son x:"<<gridIndex_copy.x<<" y:"<<std::endl;
                 goalIndex = gridIndex_copy;
                 isGoalActive = true;
             } else {
-                std::cout << "⚠️ Goal already active. Clear it first.\n";
+                std::cout << "⚠️ Goal is already active. Clear it first." << std::endl;
             }
             hide();
         });
@@ -159,25 +199,22 @@ void RightClickMapMenu::connectSignals()
     if (clear) {
         clear->onPress([this]() {
             if (isStartActive) {
-
                 gridmap.clearSetPoints(startIndex);
-               
                 isStartActive = false;
             }
             if (isGoalActive) {
                 gridmap.clearSetPoints(goalIndex);
                 isGoalActive = false;
             }
-            std::cout << "🧹 Start & Goal cleared.\n";
+            std::cout << "🧹 Start and Goal cleared." << std::endl;
             hide();
         });
     }
 
     if (clearView) {
         clearView->onPress([this]() {
-            std::cout << "🧼 Clear View pressed (no action assigned).\n";
+            std::cout << "🧼 Clear View button pressed (no action assigned)." << std::endl;
             hide();
         });
     }
 }
-

@@ -1,0 +1,5 @@
+<map id="FileManager::dataLoad" name="FileManager::dataLoad">
+<area shape="rect" id="node1" title="Loads coordinate data from a file into x and y vectors." alt="" coords="456,5,625,32"/>
+<area shape="rect" id="node2" href="$classFileManager.html#ae8a61fd55c9a1b8ac7804420015f3385" title="Opens a file dialog to select a file and loads its data into the map." alt="" coords="229,5,408,32"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,5,181,32"/>
+</map>

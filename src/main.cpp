@@ -2,38 +2,37 @@
 #include <SFML/Graphics.hpp>
 #include "artgslam_vsc/MapViewer.hpp"
 
-/* This is a grid map viewer for navigation or SLAM applications. 
-   It supports live map creation via ROS 1. */
-
-/* This is the main loop. It handles the main events. */
+/**
+ * @brief Main entry point for the ARTG SLAM visualization node.
+ * 
+ * Initializes the ROS node and SFML rendering window, then
+ * runs the main visualization loop that processes events,
+ * updates logic, renders visuals, and handles ROS callbacks.
+ * 
+ * @param argc Argument count from command line.
+ * @param argv Argument vector from command line.
+ * @return int Exit status code.
+ */
 int main(int argc, char** argv)
 {
-    // Initialize ROS 
+    // Initialize ROS node with a descriptive name
     ros::init(argc, argv, "artgslam_vsc_node");
 
-    // Create a window with the desired screen resolution and give a title to the window 
+    // Create an SFML window for rendering the visualizer
     sf::RenderWindow window(sf::VideoMode(1024, 768), "ARTG SLAM Visualizer");
-    window.setFramerateLimit(60);  // Limit window FPS to 60
+    window.setFramerateLimit(60);  // Cap frame rate at 60 FPS for smooth rendering
 
-    // Initialize the MapViewer object
+    // Instantiate MapViewer, which manages rendering, input, and ROS integration
     MapViewer mapViewer(window);
 
-    // Main loop
+    // Main loop: runs while ROS is active and window remains open
     while (ros::ok() && mapViewer.isRunning())
     {
-        // Process all mouse and keyboard inputs
-        mapViewer.processEvent();
-
-        // Update the internal logic
-        mapViewer.update();
-
-        // Draw things on the screen
-        mapViewer.render();
-
-        // Process ROS callbacks 
-        ros::spinOnce();
+        mapViewer.processEvent();  // Handle input events
+        mapViewer.update();        // Update simulation and logic
+        mapViewer.render();        // Render visualization
+        ros::spinOnce();           // Process ROS callbacks
     }
 
     return 0;
 }
-

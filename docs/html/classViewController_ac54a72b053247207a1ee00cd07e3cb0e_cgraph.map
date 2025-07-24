@@ -1,0 +1,6 @@
+<map id="ViewController::handleEvent" name="ViewController::handleEvent">
+<area shape="rect" id="node1" title="Handles mouse movement events for panning and zooming." alt="" coords="5,31,212,57"/>
+<area shape="rect" id="node2" href="$classViewController.html#a3ef5b86c4b69837a4d90b3a16f84379f" title="Resets the view to its default state." alt="" coords="294,5,453,32"/>
+<area shape="rect" id="node3" href="$classViewController.html#a0b015ef0ad0da78f94e932eda5ed2197" title="Handles zoom in/out based on user input events." alt="" coords="260,56,487,83"/>
+<area shape="rect" id="node4" href="$classViewController.html#ab3b39d154cf93e5eec28d2bbdead91e4" title="Returns the current zoom level." alt="" coords="535,56,720,83"/>
+</map>

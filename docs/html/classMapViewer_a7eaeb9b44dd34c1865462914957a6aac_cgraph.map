@@ -1,0 +1,17 @@
+<map id="MapViewer::render" name="MapViewer::render">
+<area shape="rect" id="node1" title="Renders all visual components to the screen." alt="" coords="5,309,151,336"/>
+<area shape="rect" id="node2" href="$classViewController.html#a8eaa9725daebdd8f73efba9fb0bbaee6" title="Applies the current view settings to the window." alt="" coords="199,5,393,32"/>
+<area shape="rect" id="node3" href="$classUnicicleWmr.html#a90cf366f26eedefd4d9f2fcc038fc8f4" title="Draws the robot on the screen." alt="" coords="223,56,369,83"/>
+<area shape="rect" id="node4" href="$classAStar.html#a6f489a0d3464a6c8263b47d009c25d04" title="Draws the current algorithm state to the given SFML render target." alt="" coords="247,107,345,133"/>
+<area shape="rect" id="node5" href="$classGridMap.html#a0242886063d0cd50d5982a0c419be8b6" title="Draw the map using SFML." alt="" coords="237,157,355,184"/>
+<area shape="rect" id="node6" href="$classViewController.html#a59766cfd8ec65083a66af156324cc173" title="Draws the axes lines and numeration on the render target." alt="" coords="201,208,391,235"/>
+<area shape="rect" id="node7" href="$classAStar.html#a12450d3a3c4d1baf327aec5e45abece3" title="Draws the final path, if found." alt="" coords="213,259,379,285"/>
+<area shape="rect" id="node8" href="$classViewController.html#a2a830a80bbb229b763e72ec8d29d48b6" title="Draws the grid lines on the provided render target." alt="" coords="203,309,389,336"/>
+<area shape="rect" id="node9" href="$classLiveMap.html#a0157071646700aba0cbb45a6767b7487" title="Draws the live grid using the ViewController." alt="" coords="210,411,382,437"/>
+<area shape="rect" id="node10" href="$classViewController.html#ae16abf87a7514af7eda581ac04d23ec3" title="Returns the size of each grid cell in meters." alt="" coords="441,345,633,386"/>
+<area shape="rect" id="node11" href="$classViewController.html#a4371bcfa79ff09f98c5f49914e2a854d" title="Returns the pixels per meter scale factor." alt="" coords="444,462,631,503"/>
+<area shape="rect" id="node13" href="$classLiveMap.html#af9c68de338a34ee872aac401122c10bb" title="Returns a constant reference to the full occupancy grid." alt="" coords="229,512,363,539"/>
+<area shape="rect" id="node14" href="$classGridMap.html#abed9c97e44c2302a1586de01ed369c10" title="Get a const reference to the occupancy grid." alt="" coords="229,563,363,589"/>
+<area shape="rect" id="node15" href="$classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64" title="Returns whether live mode is currently enabled." alt="" coords="210,613,382,640"/>
+<area shape="rect" id="node12" href="$classViewController.html#ab3b39d154cf93e5eec28d2bbdead91e4" title="Returns the current zoom level." alt="" coords="445,411,630,437"/>
+</map>

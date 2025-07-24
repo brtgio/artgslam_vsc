@@ -1,0 +1,8 @@
+<map id="Node::fCost" name="Node::fCost">
+<area shape="rect" id="node1" title="Returns the total estimated cost (f&#45;cost) of the node: f = g + h." alt="" coords="483,31,581,57"/>
+<area shape="rect" id="node2" href="$classNode.html#ad258e5e22898c8232316d8e2a8c10456" title="Comparison operator for use with priority queues (min&#45;heap)." alt="" coords="304,5,435,32"/>
+<area shape="rect" id="node3" href="$classAStar.html#a0c3d34d32a97828112f6ee453e75121b" title="Performs one step of the A* algorithm." alt="" coords="323,56,416,83"/>
+<area shape="rect" id="node4" href="$classAStar.html#ac1635080ee8fbca765f9bfd83ce2c4d2" title="Executes the full A* algorithm from start to goal in one call." alt="" coords="123,31,241,57"/>
+<area shape="rect" id="node5" href="$classMapViewer.html#a323a6ee85f1257b6e7c758ebf3d694bd" title="Manages logic updates and user interaction." alt="" coords="108,81,256,108"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,81,60,108"/>
+</map>

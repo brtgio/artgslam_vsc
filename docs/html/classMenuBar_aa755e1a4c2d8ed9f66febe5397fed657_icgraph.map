@@ -1,0 +1,4 @@
+<map id="MenuBar::setupliveToggle" name="MenuBar::setupliveToggle">
+<area shape="rect" id="node1" title="Helper to set up the toggle button for live mode (ROS streaming)." alt="" coords="200,5,391,32"/>
+<area shape="rect" id="node2" href="$classMenuBar.html#ab409cdcb7c1a05013f4ec78a0b3ddaa5" title="Constructor: initializes and places the menu elements within the given GUI." alt="" coords="5,5,152,32"/>
+</map>

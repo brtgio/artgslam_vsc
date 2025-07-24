@@ -1,0 +1,4 @@
+<map id="AStar::updatemap" name="AStar::updatemap">
+<area shape="rect" id="node1" title="Updates the internal state map based on the current GridMap." alt="" coords="229,5,368,32"/>
+<area shape="rect" id="node2" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,5,181,32"/>
+</map>

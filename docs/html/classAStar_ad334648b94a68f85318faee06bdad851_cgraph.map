@@ -1,0 +1,4 @@
+<map id="AStar::getNeighbors" name="AStar::getNeighbors">
+<area shape="rect" id="node1" title="Returns the valid neighbor cells of a given node." alt="" coords="5,5,157,32"/>
+<area shape="rect" id="node2" href="$classAStar.html#a07010836e7ee9f2b37854031b872cc52" title="Checks if the given cell coordinates are within the grid bounds." alt="" coords="205,5,340,32"/>
+</map>

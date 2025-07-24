@@ -1,0 +1,4 @@
+<map id="AStar::updatemap" name="AStar::updatemap">
+<area shape="rect" id="node1" title="Updates the internal state map based on the current GridMap." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node2" href="$classGridMap.html#abed9c97e44c2302a1586de01ed369c10" title="Get a const reference to the occupancy grid." alt="" coords="192,5,325,32"/>
+</map>

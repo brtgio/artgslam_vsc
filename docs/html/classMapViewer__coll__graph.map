@@ -1,0 +1,13 @@
+<map id="MapViewer" name="MapViewer">
+<area shape="rect" id="node1" title="This is the main class. It manages mouse/keyboard events and GUI integration. It also coordinates the..." alt="" coords="634,1423,768,1661"/>
+<area shape="rect" id="node2" href="$classRightClickMapMenu.html" title="Manages a contextual right&#45;click menu displayed on top of a map. Allows users to set the start and go..." alt="" coords="612,938,790,1323"/>
+<area shape="rect" id="node3" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="381,490,520,773"/>
+<area shape="rect" id="node8" href="$classFileManager.html" title="Manages file input/output operations for grid map visualization." alt="" coords="454,1055,588,1206"/>
+<area shape="rect" id="node9" href="$classAStar.html" title="This class handles the A* algorithm for path planning. It receives start and goal coordinates from th..." alt="" coords="180,901,342,1360"/>
+<area shape="rect" id="node4" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="354,5,546,376"/>
+<area shape="rect" id="node5" href="$classLiveMap.html" title="This class manages live map creation in &quot;live mode&quot;, by dynamically updating the map from incoming RO..." alt="" coords="605,439,797,824"/>
+<area shape="rect" id="node6" href="$classMenuBar.html" title="Manages the menu bar located at the bottom of the screen. Provides options for file handling,..." alt="" coords="925,1026,1096,1235"/>
+<area shape="rect" id="node7" href="$classUnicicleWmr.html" title="Simulates a unicycle model robot with position, velocity, and rendering support." alt="" coords="1120,916,1266,1345"/>
+<area shape="rect" id="node10" href="$classNode.html" title="Represents a node in a grid used for path planning algorithms (e.g., A*). Each node corresponds to a ..." alt="" coords="172,527,286,736"/>
+<area shape="rect" id="node11" href="$classRosHandler.html" title="Handles ROS communication:" alt="" coords="1290,931,1482,1331"/>
+</map>

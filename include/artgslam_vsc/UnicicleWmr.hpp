@@ -1,50 +1,87 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 #include "MyConstants.hpp"
-#include <math.h>
-class UnicicleWmr{
+#include <cmath>
 
-    public:
-        UnicicleWmr(float width_m = 0.28f, float height_m = 0.33f, float pixelsPerMeter = 50.0f);
+/**
+ * @brief Simulates a unicycle model robot with position, velocity, and rendering support.
+ */
+class UnicicleWmr {
+public:
+    /**
+     * @brief Constructor.
+     * @param width_m Width of the robot in meters.
+     * @param height_m Height of the robot in meters.
+     * @param pixelsPerMeter Conversion factor to render robot dimensions in pixels.
+     */
+    UnicicleWmr(float width_m = 0.28f, float height_m = 0.33f, float pixelsPerMeter = 50.0f);
 
-        void update(float dt);
-        void draw(sf::RenderWindow& window);
-        void setVelocity(float line_v,float angular_omega);
-        void reset(float x= 0.0f , float y = 0.0f , float theta = 0.0f );
+    /**
+     * @brief Updates the robot's position and orientation using its velocity.
+     * @param dt Time step in seconds.
+     */
+    void update(float dt);
 
-        //Obtener parametros del robot
-        float getX() const { return x; }
-        float getY() const { return y; }
-        float getTheta() const { return theta; }
+    /**
+     * @brief Draws the robot on the screen.
+     * @param window SFML render window.
+     */
+    void draw(sf::RenderWindow& window);
 
-        float getWidth() const { return width; }
-        float getheight() const { return height; }
-        void setRobotActive(bool active) { isRobotActive = active; }
-        bool getRobotActive() const {return isRobotActive;};
+    /**
+     * @brief Sets the linear and angular velocity of the robot.
+     * @param line_v Linear velocity in m/s.
+     * @param angular_omega Angular velocity in rad/s.
+     */
+    void setVelocity(float line_v, float angular_omega);
 
-        void setPose(float x,float y,float theta);
-        void setColor(sf::Color color);
-        void setDimensions(float width, float height);
+    /**
+     * @brief Resets the robot pose and velocities.
+     * @param x X position in meters.
+     * @param y Y position in meters.
+     * @param theta Orientation in radians.
+     */
+    void reset(float x = 0.0f, float y = 0.0f, float theta = 0.0f);
 
-    private:
-        
-        float pixelsPerMeter;
-        //Dimenciones
-        float width;
-        float height;
+    // --- Getters for position and orientation ---
+    float getX() const { return x; }
+    float getY() const { return y; }
+    float getTheta() const { return theta; }
 
-        //Pose
-        float x,y,theta;
-        
-        //velocidad
-        float linear_v;
-        float angular_omega;
+    // --- Getters for physical dimensions ---
+    float getWidth() const { return width; }
+    float getheight() const { return height; }
 
-        //Grafico del carro
-        sf::RectangleShape robotShape;
-        sf::Color robotcolor;
+    // --- Activation state ---
+    void setRobotActive(bool active) { isRobotActive = active; }
+    bool getRobotActive() const { return isRobotActive; }
 
-        //robot activity
-        bool isRobotActive = false;
+    // --- Setters for pose, color, and size ---
+    void setPose(float x, float y, float theta);
+    void setColor(sf::Color color);
+    void setDimensions(float width, float height);
 
+private:
+    float pixelsPerMeter; ///< Conversion factor from meters to pixels
+
+    // Physical dimensions
+    float width;  ///< Robot width in meters
+    float height; ///< Robot height in meters
+
+    // Pose
+    float x;     ///< X position in meters
+    float y;     ///< Y position in meters
+    float theta; ///< Orientation in radians
+
+    // Velocities
+    float linear_v;      ///< Linear velocity (m/s)
+    float angular_omega; ///< Angular velocity (rad/s)
+
+    // SFML shape representing the robot
+    sf::RectangleShape robotShape;
+    sf::Color robotcolor; ///< Color of the robot shape
+
+    // Activation state flag
+    bool isRobotActive = false;
 };

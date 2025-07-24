@@ -1,64 +1,80 @@
 #include "artgslam_vsc/FileManager.hpp"
- // Instancia global o estática de GridMap
 
-FileManager::FileManager(GridMap& mapRef,ViewController& controllerRef)
- : map(mapRef) ,controller(controllerRef) 
+/**
+ * @brief Constructor that stores a reference to the GridMap instance for interaction.
+ * @param mapRef Reference to the GridMap.
+ */
+FileManager::FileManager(GridMap& mapRef)
+    : map(mapRef)
 {
 }
 
+/**
+ * @brief Opens a file dialog to select a CSV dataset file, loads the data,
+ *        and updates the map accordingly.
+ */
 void FileManager::loadDialog()
 {
     const char* path = tinyfd_openFileDialog(
-        "Open Dataset",
-        "",            // Default path
-        0,             // No filter patterns
-        nullptr,       // No filter extensions
-        nullptr,       // No filter description
-        0              // Single selection
+        "Open Dataset", // Dialog title
+        "",             // Default path
+        0,              // Number of filters (0 = none)
+        nullptr,        // Filter patterns (ignored when count=0)
+        nullptr,        // Filter description
+        0               // Allow multiple selection? (0 = no)
     );
 
     if (path) {
-        std::cout << "Archivo seleccionado: " << path << std::endl;
+        std::cout << "Selected file: " << path << std::endl;
+        loadedFilename = path;
 
-        loadedFilename = path;  // Guardar el path seleccionado
-
-        // Cargar datos en vectores locales
+        // Load CSV data into vectors
         std::vector<double> xData, yData;
         dataLoad(loadedFilename, xData, yData);
 
-        // Actualizar puntos en el mapa
+        // Update map points with loaded real-world coordinates
         map.setPoints(xData, yData);
 
-        // Actualizar la grilla con los nuevos puntos cargados
+        // Convert real-world coordinates to grid indices and fill the occupancy grid
         std::vector<int> xGrid, yGrid;
         map.xy2Grid(map.getRealX(), map.getRealY(), xGrid, yGrid);
         map.fillGrid(xGrid, yGrid);
-
-    } 
-    else {
-        std::cout << "No se seleccionó ningún archivo." << std::endl;
+    } else {
+        std::cout << "No file was selected.\n";
     }
 }
 
+/**
+ * @brief Opens a save file dialog and saves current real-world map data to a CSV file.
+ */
 void FileManager::saveDialog()
 {
     const char* path = tinyfd_saveFileDialog(
-        "Save File",
-        "output.txt",
-        0,
-        nullptr,
-        nullptr
+        "Save File",       // Dialog title
+        "output.txt",      // Default filename
+        0,                 // Number of filters (0 = none)
+        nullptr,           // Filter patterns
+        nullptr            // Filter description
     );
 
     if (path) {
         std::cout << "Saving to: " << path << std::endl;
-        // Llamar a saveData pasándole el path y vectores del mapa
-        saveData(path, const_cast<std::vector<double>&>(map.getRealX()), const_cast<std::vector<double>&>(map.getRealY()));
+
+        // Save the real-world coordinates to the file
+        saveData(path,
+                 const_cast<std::vector<double>&>(map.getRealX()),
+                 const_cast<std::vector<double>&>(map.getRealY()));
     } else {
         std::cout << "Save operation was canceled.\n";
     }
 }
 
+/**
+ * @brief Loads (x,y) data points from a CSV file into the provided vectors.
+ * @param filename Path to the CSV file.
+ * @param x Output vector for x coordinates.
+ * @param y Output vector for y coordinates.
+ */
 void FileManager::dataLoad(const std::string& filename, std::vector<double>& x, std::vector<double>& y)
 {
     x.clear();
@@ -73,12 +89,13 @@ void FileManager::dataLoad(const std::string& filename, std::vector<double>& x, 
     std::string line;
     size_t count = 0;
 
+    // Read file line by line
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         std::string token;
         std::vector<std::string> tokens;
 
-        // Separar la línea en tokens separados por coma
+        // Tokenize by commas
         while (std::getline(ss, token, ',')) {
             tokens.push_back(token);
         }
@@ -87,12 +104,13 @@ void FileManager::dataLoad(const std::string& filename, std::vector<double>& x, 
             try {
                 double xVal, yVal;
 
+                // Support CSV files with two or more columns
                 if (tokens.size() == 2) {
-                    // Formato: x,y
+                    // Format: x,y
                     xVal = std::stod(tokens[0]);
                     yVal = std::stod(tokens[1]);
                 } else {
-                    // Formato >=3 columnas: ignorar la 1ª, tomar 2ª y 3ª como x,y
+                    // Format: skip first column, use second and third columns as x,y
                     xVal = std::stod(tokens[1]);
                     yVal = std::stod(tokens[2]);
                 }
@@ -104,17 +122,23 @@ void FileManager::dataLoad(const std::string& filename, std::vector<double>& x, 
                 std::cerr << "Error parsing line: " << line << " (" << e.what() << ")\n";
             }
         } else {
-            std::cerr << "Formato inválido en línea (menos de 2 columnas): " << line << "\n";
+            std::cerr << "Invalid line format (less than 2 columns): " << line << "\n";
         }
     }
 
-    std::cout << "Datos cargados: " << count << " puntos\n";
+    std::cout << "Loaded " << count << " points\n";
 }
 
+/**
+ * @brief Saves vectors of x and y coordinates to a CSV file.
+ * @param filename Path to the output file.
+ * @param x Vector of x coordinates.
+ * @param y Vector of y coordinates.
+ */
 void FileManager::saveData(const std::string &filename, std::vector<double> &x, std::vector<double> &y)
 {
     if (x.size() != y.size()) {
-        std::cerr << "Error: posX and posY sizes do not match.\n";
+        std::cerr << "Error: x and y vector sizes do not match.\n";
         return;
     }
 
@@ -124,26 +148,34 @@ void FileManager::saveData(const std::string &filename, std::vector<double> &x, 
         return;
     }
 
+    // Use high precision for floating point output
     outFile << std::fixed << std::setprecision(17);
     for (size_t i = 0; i < x.size(); ++i) {
         outFile << x[i] << "," << y[i] << "\n";
     }
 
     outFile.close();
-    std::cout << "txt file saved successfully.\n";
+    std::cout << "Text file saved successfully.\n";
 }
 
+/**
+ * @brief Placeholder for saving a screenshot of the map window.
+ * @param filename Suggested filename for saving.
+ * 
+ * Note: Implementation to capture and save SFML window content is pending.
+ */
 void FileManager::saveScreen(const std::string &filename)
 {
     const char* path = tinyfd_saveFileDialog(
-            "Save Image",
-            "Map.png",
-            0,
-            nullptr,
-            nullptr
-        );
-        if (path) {
-            
-            return;
-        }
+        "Save Image",
+        "Map.png",
+        0,
+        nullptr,
+        nullptr
+    );
+
+    if (path) {
+        // TODO: Implement screenshot capture and saving using SFML RenderWindow
+        return;
+    }
 }

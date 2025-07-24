@@ -1,0 +1,6 @@
+<map id="LiveMap::updateGridFromPoints" name="LiveMap::updateGridFromPoints">
+<area shape="rect" id="node1" title="Updates the grid from the internal point buffer." alt="" coords="5,31,236,57"/>
+<area shape="rect" id="node2" href="$classLiveMap.html#aca9414f3b6a8d57ec31f8a35fb1bb5d2" title="Fills the grid using the given grid indices, marking cells as occupied (1)" alt="" coords="287,5,417,32"/>
+<area shape="rect" id="node4" href="$classLiveMap.html#a4c5f9a45946eb1fc48e3b50b28da724a" title="Converts real&#45;world coordinates to grid indices." alt="" coords="284,56,420,83"/>
+<area shape="rect" id="node3" href="$classLiveMap.html#aba698035fef23107bc3aa1abc7c2dd90" title="Clears the occupancy grid (sets all cells to 0)" alt="" coords="468,5,612,32"/>
+</map>

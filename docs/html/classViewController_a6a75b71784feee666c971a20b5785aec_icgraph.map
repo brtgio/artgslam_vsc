@@ -1,0 +1,6 @@
+<map id="ViewController::getHoveredCell" name="ViewController::getHoveredCell">
+<area shape="rect" id="node1" title="Returns the grid cell index hovered by the mouse." alt="" coords="347,31,573,57"/>
+<area shape="rect" id="node2" href="$classMapViewer.html#abcde24a9cc11f7e9ea3e6ef0d7ed6063" title="Handles input events (mouse and keyboard)" alt="" coords="108,5,299,32"/>
+<area shape="rect" id="node4" href="$classMapViewer.html#a323a6ee85f1257b6e7c758ebf3d694bd" title="Manages logic updates and user interaction." alt="" coords="129,56,277,83"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,31,60,57"/>
+</map>

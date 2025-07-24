@@ -13,48 +13,62 @@
 #include <SFML/Graphics.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 
-/* 
- * Main class that handles rendering, input processing, UI menus, 
- * and their associated actions for the SLAM or navigation viewer.
+/**
+ * @class MapViewer
+ * @brief Main class managing rendering, input processing, UI menus, and simulation logic for SLAM/navigation visualization.
+ * 
+ * Coordinates GUI integration, handles keyboard/mouse input, and updates simulation components.
  */
 class MapViewer {
 private:
-    sf::RenderWindow& window;        // Reference to the main SFML window used for rendering
+    sf::RenderWindow& window;        ///< Reference to the SFML window for rendering
+
+    sf::View view;                   ///< SFML camera view
+    tgui::Gui gui;                   ///< GUI system for handling menus and widgets
     
-    sf::View view;                   // 2D camera handler (zoom and pan functionality)
-    tgui::Gui gui;                   // TGUI main object for managing GUI widgets
+    MenuBar menu;                   ///< Instance of the custom menu bar
+    FileManager manager;           ///< Manages file loading/saving
+    RosHandler roshandler;         ///< Handles communication with ROS (publishing/subscribing)
+    ViewController controller;     ///< Manages zoom, panning, grid drawing, and coordinate conversions
+    GridMap map;                   ///< Represents and stores the occupancy grid
+    UnicicleWmr wmr;               ///< Simulated unicycle WMR (Wheeled Mobile Robot)
+    LiveMap livemap;               ///< Handles live mapping mode based on ROS data
+    RightClickMapMenu r_menu;      ///< Context menu for selecting start and goal positions
+    AStar aStarsim;                ///< A* algorithm instance for path planning and animation
 
-    MenuBar menu;                    // Down menu bar (File, View, etc.)
-    FileManager manager;             // Handles saving/loading data to/from files
-    RosHandler roshandler;           // Handles ROS communication and callbacks
-    ViewController controller;       // Controls the view (camera movement and zoom)
-    GridMap map;                     // Manages the internal 2D occupancy grid map
-    UnicicleWmr wmr;                 // Simulates a unicycle-type wheeled mobile robot
-    LiveMap livemap;                 // Handles live map updates in real time (from sensors or ROS)
-    RightClickMapMenu r_menu;        // Manages context menu for right-click map interactions (e.g., set goal)
-    AStar aStarsim;                  // A* path planning algorithm implementation
+    bool running = true;               ///< Indicates whether the main loop is running
+    sf::Vector2f worldXY;              ///< World coordinates (floating point)
+    sf::Vector2i gridIndex;            ///< Current hovered grid cell
+    sf::Vector2i gridIndex2copy;       ///< Temporary copy of a selected grid index
 
-    bool running = true;             // Indicates if the main loop is running
-    sf::Vector2f worldXY;            // Mouse position in world coordinates
-    sf::Vector2i gridIndex;          // First selected grid index (e.g., start point for path planning)
-    sf::Vector2i gridIndex2copy;     // Second selected grid index (e.g., goal point)
-
-    bool astarAnimating = false;     // Flag indicating whether A* path animation is playing
-    bool astarCompleted = false;     // Flag indicating whether A* path planning has finished
+    bool astarAnimating = false;       ///< Indicates whether the A* animation is currently running
+    bool astarCompleted = false;       ///< Indicates whether the A* pathfinding has finished
 
 public:
-    // Constructor (requires a reference to the render window)
+    /**
+     * @brief Constructor.
+     * @param win Reference to the SFML render window
+     */
     MapViewer(sf::RenderWindow& win);
 
-    // Updates the simulation and internal logic
+    /**
+     * @brief Updates simulation state and handles internal logic.
+     */
     void update();
 
-    // Processes keyboard, mouse, and GUI events
+    /**
+     * @brief Processes keyboard, mouse, and GUI events.
+     */
     void processEvent();
 
-    // Renders the GUI and simulation elements to the screen
+    /**
+     * @brief Renders all GUI and simulation elements on screen.
+     */
     void render();
 
-    // Checks if the viewer is still running
+    /**
+     * @brief Checks whether the viewer main loop should continue running.
+     * @return True if running, false otherwise.
+     */
     [[nodiscard]] bool isRunning() const;
 };

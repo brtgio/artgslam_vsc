@@ -1,0 +1,6 @@
+<map id="LiveMap::drawLiveMap" name="LiveMap::drawLiveMap">
+<area shape="rect" id="node1" title="Draws the live grid using the ViewController." alt="" coords="5,78,177,105"/>
+<area shape="rect" id="node2" href="$classViewController.html#ae16abf87a7514af7eda581ac04d23ec3" title="Returns the size of each grid cell in meters." alt="" coords="225,5,417,47"/>
+<area shape="rect" id="node3" href="$classViewController.html#a4371bcfa79ff09f98c5f49914e2a854d" title="Returns the pixels per meter scale factor." alt="" coords="228,71,415,112"/>
+<area shape="rect" id="node4" href="$classViewController.html#ab3b39d154cf93e5eec28d2bbdead91e4" title="Returns the current zoom level." alt="" coords="229,137,414,163"/>
+</map>

@@ -1,51 +1,128 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+/**
+ * @brief Controls view, zoom, and panning. Also draws grid and axis numeration.
+ */
 class ViewController {
 public:
-    ViewController(sf::RenderWindow& win, float metersPerCell, float pixelsPerMeter,sf::View& view);
- 
-    void handleEvent(const sf::Event& event);  // Paneo, zoom, reset
-    void applyView();                          // Aplica view
-    void reset();                              // Resetea al centro
-    void drawGrid(sf::RenderTarget& target);   // Dibuja rejilla
-    void drawAxes(sf::RenderTarget& target);   // Dibuja ejes + etiquetas
-    void zoomControler(const sf::Event& event);// controla el alejamiento y acercamiento del zoom
-    void view2texture(const std::string& filepath,sf::RenderWindow& window,const sf::View& view);
-    sf::Vector2i windowMousePosition() const{return pixelPos;};
-    float getMetersPerCell() const{return metersPerCell;};
-    float getPixelsPerMeter() const{return pixelsPerMeter;};
+    /**
+     * @brief Constructor.
+     * @param win Reference to the SFML render window.
+     * @param metersPerCell Size of each grid cell in meters.
+     * @param pixelsPerMeter Scale factor to convert meters to pixels.
+     * @param view Reference to the SFML view object to control.
+     */
+    ViewController(sf::RenderWindow& win, float metersPerCell, float pixelsPerMeter, sf::View& view);
+
+    /**
+     * @brief Handles mouse movement events for panning and zooming.
+     * @param event The SFML event to process.
+     */
+    void handleEvent(const sf::Event& event);
+
+    /**
+     * @brief Applies the current view settings to the window.
+     */
+    void applyView();
+
+    /**
+     * @brief Resets the view to its default state.
+     */
+    void reset();
+
+    /**
+     * @brief Handles zoom in/out based on user input events.
+     * @param event The SFML event containing zoom information.
+     */
+    void zoomController(const sf::Event& event);
+
+    /**
+     * @brief Draws the grid lines on the provided render target.
+     * @param target SFML render target (e.g., window).
+     */
+    void drawGrid(sf::RenderTarget& target);
+
+    /**
+     * @brief Draws the axes lines and numeration on the render target.
+     * @param target SFML render target.
+     */
+    void drawAxes(sf::RenderTarget& target);
+
+    // --- Getters ---
+
+    /**
+     * @brief Returns the mouse position in window pixel coordinates.
+     */
+    sf::Vector2i windowMousePosition() const { return pixelPos; }
+
+    /**
+     * @brief Returns the size of each grid cell in meters.
+     */
+    float getMetersPerCell() const { return metersPerCell; }
+
+    /**
+     * @brief Returns the pixels per meter scale factor.
+     */
+    float getPixelsPerMeter() const { return pixelsPerMeter; }
+
+    /**
+     * @brief Returns mouse position in grid coordinates.
+     */
     sf::Vector2i getMousePixelPosition() const { return mousePosition_G; }
+
+    /**
+     * @brief Returns mouse position in world coordinates.
+     */
     sf::Vector2f getMouseWorldPosition() const { return mousePosition_W; }
-    sf::View getDefaultView() const {    return defaultView;};
+
+    /**
+     * @brief Returns the default view of the window.
+     */
+    sf::View getDefaultView() const { return defaultView; }
+
+    /**
+     * @brief Returns the total number of grid cells per side.
+     */
     int getMapSizeCells() const { return mapSizeCells; }
-    
+
+    /**
+     * @brief Returns the current view.
+     */
     sf::View getView() const;
+
+    /**
+     * @brief Returns the current zoom level.
+     */
     float getZoom() const;
-   
+
+    /**
+     * @brief Returns the grid cell index hovered by the mouse.
+     * @param gridSize Size of the grid in cells.
+     */
     sf::Vector2i getHoveredCell(int gridSize) const;
+
 private:
-    sf::RenderWindow& window;
-    sf::View& view;
-    sf::View defaultView;
-    sf::View customDefaultView;
+    sf::RenderWindow& window; ///< Reference to the SFML window
+    sf::View& view;           ///< Reference to the controlled view
+    sf::View defaultView;     ///< Default view settings
+    sf::View customDefaultView; ///< Custom default view if needed
 
-    bool dragging = false;
-    sf::Vector2i dragStart;
-    sf::Vector2f mousePosition_W;
-    sf::Vector2i mousePosition_G;
-    sf::Vector2i pixelPos;
+    bool dragging = false;    ///< True if currently dragging/panning
+    sf::Vector2i dragStart;   ///< Mouse position where dragging started
 
-    float metersPerCell;
-    float pixelsPerMeter;
-    const int mapSizeCells = 1000; 
+    // Mouse positions
+    sf::Vector2f mousePosition_W;  ///< Mouse position in world coordinates
+    sf::Vector2i mousePosition_G;  ///< Mouse position in grid coordinates
+    sf::Vector2i pixelPos;         ///< Mouse position in window pixels
 
-    sf::Font font;
-    bool fontLoaded = false;
+    float metersPerCell;            ///< Size of each grid cell in meters
+    float pixelsPerMeter;           ///< Conversion factor from meters to pixels
+    const int mapSizeCells = 1000; ///< Number of cells per side in the map
 
-    std::vector<std::vector<sf::Vector2f>> cellTopLeft_;  // [y][x]
-    bool cellCoordsValid_ = false;
-    
+    sf::Font font;           ///< Font used for axis numbering
+    bool fontLoaded = false; ///< Flag indicating font load success
+
+    std::vector<std::vector<sf::Vector2f>> cellTopLeft_; ///< Cached coordinates of top-left corners of cells
+    bool cellCoordsValid_ = false;                        ///< Indicates if cached cell coordinates are valid
 };
-
-

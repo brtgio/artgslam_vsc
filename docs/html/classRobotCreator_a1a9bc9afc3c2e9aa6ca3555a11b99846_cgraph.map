@@ -1,0 +1,11 @@
+<map id="RobotCreator::RobotCreator" name="RobotCreator::RobotCreator">
+<area shape="rect" id="node1" title="Explicit constructor that requires a reference to the UnicicleWmr instance to configure." alt="" coords="5,169,208,196"/>
+<area shape="rect" id="node2" href="$classRobotCreator.html#a22c9b7970700b0c482682aa4db5c13bd" title="Connects callbacks for button presses and other GUI events." alt="" coords="256,144,471,171"/>
+<area shape="rect" id="node9" href="$classRobotCreator.html#a09f323f248be0eb2dba7388050e81c6a" title="Initializes and sets up all GUI widgets (EditBoxes, Buttons)" alt="" coords="261,195,466,221"/>
+<area shape="rect" id="node3" href="$classRobotCreator.html#afbf5db42204804796c234a32d1a9e4bd" title="Converts a hexadecimal color string to an SFML Color object." alt="" coords="531,5,719,32"/>
+<area shape="rect" id="node4" href="$classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c" title="Helper function to check if a string represents a valid floating&#45;point number." alt="" coords="528,56,721,83"/>
+<area shape="rect" id="node5" href="$classRobotCreator.html#aa5bdc5e505359a51e82ce26aa1a8de37" title="Helper function to validate if a string is a valid hexadecimal color code." alt="" coords="531,107,718,149"/>
+<area shape="rect" id="node6" href="$classUnicicleWmr.html#a01d4d8ad0a8317e63f1a1eddd389069a" title="Sets the color used for drawing the robot." alt="" coords="541,173,708,200"/>
+<area shape="rect" id="node7" href="$classUnicicleWmr.html#abc29ba63976fdf56362558b301fd85f3" title="Updates the robot&#39;s dimensions and resizes the SFML shape accordingly." alt="" coords="519,224,730,251"/>
+<area shape="rect" id="node8" href="$classUnicicleWmr.html#a67da598341ba850b0a1958cacb7031fa" title=" " alt="" coords="519,275,731,301"/>
+</map>

@@ -1,0 +1,32 @@
+<map id="MapViewer::MapViewer" name="MapViewer::MapViewer">
+<area shape="rect" id="node1" title="Constructor." alt="" coords="5,677,181,704"/>
+<area shape="rect" id="node2" href="$classGridMap.html#a3b0d08933b5ed6a07b081177ada50f01" title="Clear the entire occupancy grid." alt="" coords="235,99,407,125"/>
+<area shape="rect" id="node3" href="$classRightClickMapMenu.html#add5bb68773931eb8ba5cd455e6847dba" title="Connects internal widget signals to their callbacks (e.g., button clicks)." alt="" coords="241,150,401,191"/>
+<area shape="rect" id="node9" href="$classFileManager.html#ae8a61fd55c9a1b8ac7804420015f3385" title="Opens a file dialog to select a file and loads its data into the map." alt="" coords="231,436,410,463"/>
+<area shape="rect" id="node17" href="$classViewController.html#a3ef5b86c4b69837a4d90b3a16f84379f" title="Resets the view to its default state." alt="" coords="241,677,400,704"/>
+<area shape="rect" id="node18" href="$classRobotCreator.html#a6aaa86f6cbd1426e862987d1f3d9f8fa" title="Main loop entry point to run the creation window." alt="" coords="252,753,389,780"/>
+<area shape="rect" id="node23" href="$classFileManager.html#aebbfa817fd1a8055c738128a22fe0f6f" title="Opens a file dialog to save the current data (coordinates)." alt="" coords="229,613,412,640"/>
+<area shape="rect" id="node26" href="$classMenuBar.html#a431f81a34ec89382bfaf5054cf518109" title="Sets the callback functions for each menu option:" alt="" coords="235,804,406,831"/>
+<area shape="rect" id="node27" href="$classAStar.html#addce30fb4dd4735c1e0275b93324b2cc" title="Initializes the A* algorithm." alt="" coords="273,867,368,893"/>
+<area shape="rect" id="node29" href="$classAStar.html#afaaae98c48d75edf9479adf38d68affe" title="Updates the internal state map based on the current GridMap." alt="" coords="251,943,390,969"/>
+<area shape="rect" id="node4" href="$classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9" title="Clear start or goal markers from a cell." alt="" coords="476,5,655,32"/>
+<area shape="rect" id="node5" href="$classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e" title="Returns whether live mode is currently active." alt="" coords="486,56,645,83"/>
+<area shape="rect" id="node6" href="$classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef" title="Hides the context menu." alt="" coords="471,107,659,133"/>
+<area shape="rect" id="node7" href="$classGridMap.html#a063197bc2b493578f0da0905a2e7dd90" title="Set the goal point in the grid (stored as ASCII &#39;g&#39;)." alt="" coords="498,157,633,184"/>
+<area shape="rect" id="node8" href="$classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e" title="Sets a special goal cell in the grid (value = &#39;g&#39;)" alt="" coords="498,208,633,235"/>
+<area shape="rect" id="node10" href="$classFileManager.html#ad30d0502c151865459ba32f7f3880477" title="Loads coordinate data from a file into x and y vectors." alt="" coords="481,259,650,285"/>
+<area shape="rect" id="node11" href="$classGridMap.html#ad404a1752c771bd142a46e579c47ec6d" title="Fill the occupancy grid using grid index vectors." alt="" coords="501,309,630,336"/>
+<area shape="rect" id="node12" href="$classGridMap.html#ad20af94e5a3cc2872a274a732b5e3f72" title="Getters for real&#45;world x coordinates." alt="" coords="493,512,637,539"/>
+<area shape="rect" id="node13" href="$classGridMap.html#af4fe1dc74416535a7463b7e168a326d1" title="Getters for real&#45;world y coordinates." alt="" coords="494,563,637,589"/>
+<area shape="rect" id="node14" href="$classGridMap.html#a83c5f50b869d134d31a43e58a7757eac" title="Replace all current points with new ones." alt="" coords="493,360,638,387"/>
+<area shape="rect" id="node15" href="$tinyfiledialogs_8h.html#a8918e9f47e1532c1d055f563a32b215c" title=" " alt="" coords="484,411,647,437"/>
+<area shape="rect" id="node16" href="$classGridMap.html#a41f7d52629250938bd87dac7c8cfbb76" title="Convert real&#45;world coordinates to grid indices." alt="" coords="497,461,633,488"/>
+<area shape="rect" id="node19" href="$classRobotCreator.html#a55c3f93cf65404a5c334c6a4be5ab67e" title="Returns true if the creation window is currently open and running." alt="" coords="475,715,655,741"/>
+<area shape="rect" id="node20" href="$classRobotCreator.html#a296898214fd76575c63de36ae1c5481f" title="Handles user input events like keyboard and mouse." alt="" coords="460,765,671,792"/>
+<area shape="rect" id="node21" href="$classRobotCreator.html#ad774a314cafeb9eee4187a295b5739d1" title="Renders the GUI window and widgets." alt="" coords="486,816,645,843"/>
+<area shape="rect" id="node22" href="$classRobotCreator.html#a3b1852ea68b66abab751226c1cb6820f" title="Updates internal state and GUI elements each frame." alt="" coords="485,867,646,893"/>
+<area shape="rect" id="node24" href="$classFileManager.html#ae4178789b8d0ae7653db505ba276640a" title="Saves x and y coordinate data to a file." alt="" coords="480,613,651,640"/>
+<area shape="rect" id="node25" href="$tinyfiledialogs_8h.html#a7a17e17150593bf3b04253ea819fc5bc" title=" " alt="" coords="484,664,647,691"/>
+<area shape="rect" id="node28" href="$classAStar.html#aa9a1a3a53f000075f201cf6373e8c912" title="Octile distance heuristic (better suited for 8&#45;connected grids)." alt="" coords="486,917,645,944"/>
+<area shape="rect" id="node30" href="$classGridMap.html#abed9c97e44c2302a1586de01ed369c10" title="Get a const reference to the occupancy grid." alt="" coords="499,968,632,995"/>
+</map>

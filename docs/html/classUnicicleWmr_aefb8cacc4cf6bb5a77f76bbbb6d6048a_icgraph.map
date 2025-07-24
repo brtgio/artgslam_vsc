@@ -1,0 +1,6 @@
+<map id="UnicicleWmr::setVelocity" name="UnicicleWmr::setVelocity">
+<area shape="rect" id="node1" title="Sets the linear and angular velocity of the robot." alt="" coords="304,31,491,57"/>
+<area shape="rect" id="node2" href="$classUnicicleWmr.html#ad52cf9b69d1a46b8f492546d8ebdbdc2" title="Resets the robot pose and velocities." alt="" coords="109,5,255,32"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#a323a6ee85f1257b6e7c758ebf3d694bd" title="Manages logic updates and user interaction." alt="" coords="108,56,256,83"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,56,60,83"/>
+</map>
