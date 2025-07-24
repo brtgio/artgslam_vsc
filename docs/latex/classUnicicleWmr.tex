@@ -1,0 +1,840 @@
+\hypertarget{classUnicicleWmr}{}\doxysection{Unicicle\+Wmr Class Reference}
+\label{classUnicicleWmr}\index{UnicicleWmr@{UnicicleWmr}}
+
+
+Simulates a unicycle model robot with position, velocity, and rendering support.  
+
+
+
+
+{\ttfamily \#include $<$Unicicle\+Wmr.\+hpp$>$}
+
+
+
+Collaboration diagram for Unicicle\+Wmr\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classUnicicleWmr__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUnicicleWmr_a7b774e21097c307a052e676466d6b0b8}{Unicicle\+Wmr}} (float width\+\_\+m=0.\+28f, float height\+\_\+m=0.\+33f, float \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixels\+Per\+Meter}}=50.\+0f)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnicicleWmr_a2ea87f3299c071e959f15bec87420f4d}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Updates the robot\textquotesingle{}s position and orientation using its velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnicicleWmr_a90cf366f26eedefd4d9f2fcc038fc8f4}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draws the robot on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a}{set\+Velocity}} (float line\+\_\+v, float \mbox{\hyperlink{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}{angular\+\_\+omega}})
+\begin{DoxyCompactList}\small\item\em Sets the linear and angular velocity of the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnicicleWmr_ad52cf9b69d1a46b8f492546d8ebdbdc2}{reset}} (float \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}}=0.\+0f, float \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}}=0.\+0f, float \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}}=0.\+0f)
+\begin{DoxyCompactList}\small\item\em Resets the robot pose and velocities. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_ae6bdacf3c74ea65006ea4ef198cbc3dd}{getX}} () const
+\item 
+float \mbox{\hyperlink{classUnicicleWmr_aef3e67e9fe75d9cf2ea817a7d7705b0d}{getY}} () const
+\item 
+float \mbox{\hyperlink{classUnicicleWmr_a310a4d6aa9ad1147627a60e1cdedef49}{get\+Theta}} () const
+\item 
+float \mbox{\hyperlink{classUnicicleWmr_abb08c18da6dca1e757f7e86e00e234b0}{get\+Width}} () const
+\item 
+float \mbox{\hyperlink{classUnicicleWmr_a2e44ae5429737d2e32fb6b60c260123a}{getheight}} () const
+\item 
+void \mbox{\hyperlink{classUnicicleWmr_a67da598341ba850b0a1958cacb7031fa}{set\+Robot\+Active}} (bool active)
+\item 
+bool \mbox{\hyperlink{classUnicicleWmr_a6886fca63842fa05cfba2d94af2ad1f4}{get\+Robot\+Active}} () const
+\item 
+void \mbox{\hyperlink{classUnicicleWmr_afc2d48283645201bac1bf69310b967ed}{set\+Pose}} (float \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}}, float \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}}, float \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}})
+\begin{DoxyCompactList}\small\item\em Sets the robot\textquotesingle{}s pose. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnicicleWmr_a01d4d8ad0a8317e63f1a1eddd389069a}{set\+Color}} (sf\+::\+Color color)
+\begin{DoxyCompactList}\small\item\em Sets the color used for drawing the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUnicicleWmr_abc29ba63976fdf56362558b301fd85f3}{set\+Dimensions}} (float \mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}}, float \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}})
+\begin{DoxyCompactList}\small\item\em Updates the robot\textquotesingle{}s dimensions and resizes the S\+F\+ML shape accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixels\+Per\+Meter}}
+\begin{DoxyCompactList}\small\item\em Conversion factor from meters to pixels. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}}
+\begin{DoxyCompactList}\small\item\em Robot width in meters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}}
+\begin{DoxyCompactList}\small\item\em Robot height in meters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}}
+\begin{DoxyCompactList}\small\item\em X position in meters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}}
+\begin{DoxyCompactList}\small\item\em Y position in meters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}}
+\begin{DoxyCompactList}\small\item\em Orientation in radians. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}{linear\+\_\+v}}
+\begin{DoxyCompactList}\small\item\em Linear velocity (m/s) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}{angular\+\_\+omega}}
+\begin{DoxyCompactList}\small\item\em Angular velocity (rad/s) \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robot\+Shape}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}{robotcolor}}
+\begin{DoxyCompactList}\small\item\em Color of the robot shape. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUnicicleWmr_a543d04cec6854c6fc56156b19d137c2b}{is\+Robot\+Active}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simulates a unicycle model robot with position, velocity, and rendering support. 
+
+Definition at line 10 of file Unicicle\+Wmr.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUnicicleWmr_a7b774e21097c307a052e676466d6b0b8}\label{classUnicicleWmr_a7b774e21097c307a052e676466d6b0b8}} 
+\index{UnicicleWmr@{UnicicleWmr}!UnicicleWmr@{UnicicleWmr}}
+\index{UnicicleWmr@{UnicicleWmr}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{UnicicleWmr()}{UnicicleWmr()}}
+{\footnotesize\ttfamily Unicicle\+Wmr\+::\+Unicicle\+Wmr (\begin{DoxyParamCaption}\item[{float}]{width\+\_\+m = {\ttfamily 0.28f},  }\item[{float}]{height\+\_\+m = {\ttfamily 0.33f},  }\item[{float}]{pixels\+Per\+Meter = {\ttfamily 50.0f} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width\+\_\+m} & Width of the robot in meters. \\
+\hline
+{\em height\+\_\+m} & Height of the robot in meters. \\
+\hline
+{\em pixels\+Per\+Meter} & Conversion factor to render robot dimensions in pixels.\\
+\hline
+\end{DoxyParams}
+Initializes the wheeled mobile robot with dimensions in meters and pixels-\/per-\/meter scale. Sets initial position (0,0), orientation 0 radians, zero velocities, and default blue color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width\+\_\+m} & Width of the robot in meters. \\
+\hline
+{\em height\+\_\+m} & Height of the robot in meters. \\
+\hline
+{\em pixels\+Per\+Meter} & Scale factor converting meters to pixels. \\
+\hline
+\end{DoxyParams}
+Setup the S\+F\+ML rectangle shape representing the robot with correct size and origin at center
+
+Definition at line 13 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14     : \mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}}(width\_m), \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}}(height\_m), \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}(\mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}),}
+\DoxyCodeLine{15       \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}}(0.f), \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}}(0.f), \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}}(0.f),}
+\DoxyCodeLine{16       \mbox{\hyperlink{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}{linear\_v}}(0.f), \mbox{\hyperlink{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}{angular\_omega}}(0.f),}
+\DoxyCodeLine{17       \mbox{\hyperlink{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}{robotcolor}}(sf::Color::Blue)}
+\DoxyCodeLine{18 \{\textcolor{comment}{}}
+\DoxyCodeLine{19 \textcolor{comment}{    /** Setup the SFML rectangle shape representing the robot with correct size and origin at center */}}
+\DoxyCodeLine{20     \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setSize(sf::Vector2f(\mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}} * \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}, \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}} * \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}));}
+\DoxyCodeLine{21     \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setOrigin(\mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.getSize() / 2.f);}
+\DoxyCodeLine{22     \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setFillColor(\mbox{\hyperlink{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}{robotcolor}});}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+
+
+References height, pixels\+Per\+Meter, robotcolor, robot\+Shape, and width.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUnicicleWmr_a90cf366f26eedefd4d9f2fcc038fc8f4}\label{classUnicicleWmr_a90cf366f26eedefd4d9f2fcc038fc8f4}} 
+\index{UnicicleWmr@{UnicicleWmr}!draw@{draw}}
+\index{draw@{draw}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draws the robot on the screen. 
+
+Draws the robot on the given S\+F\+ML render window if active.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & S\+F\+ML render window.\\
+\hline
+\end{DoxyParams}
+Positions and rotates the shape based on current pose.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Reference to the S\+F\+ML render window. \\
+\hline
+\end{DoxyParams}
+Convert radians to degrees
+
+Definition at line 46 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classUnicicleWmr_a543d04cec6854c6fc56156b19d137c2b}{isRobotActive}}) \{}
+\DoxyCodeLine{49         \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setPosition(\mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}} * \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}, \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}} * \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}});}
+\DoxyCodeLine{50         \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setRotation(\mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}} * 180.f / 3.14159265f);  \textcolor{comment}{/** Convert radians to degrees */}}
+\DoxyCodeLine{51         \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setFillColor(\mbox{\hyperlink{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}{robotcolor}});}
+\DoxyCodeLine{52         window.draw(\mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}});}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+
+
+References is\+Robot\+Active, pixels\+Per\+Meter, robotcolor, robot\+Shape, theta, x, and y.
+
+
+
+Referenced by Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_a90cf366f26eedefd4d9f2fcc038fc8f4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_a2e44ae5429737d2e32fb6b60c260123a}\label{classUnicicleWmr_a2e44ae5429737d2e32fb6b60c260123a}} 
+\index{UnicicleWmr@{UnicicleWmr}!getheight@{getheight}}
+\index{getheight@{getheight}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{getheight()}{getheight()}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::getheight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 54 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}}; \}}
+
+\end{DoxyCode}
+
+
+References height.
+
+\mbox{\Hypertarget{classUnicicleWmr_a6886fca63842fa05cfba2d94af2ad1f4}\label{classUnicicleWmr_a6886fca63842fa05cfba2d94af2ad1f4}} 
+\index{UnicicleWmr@{UnicicleWmr}!getRobotActive@{getRobotActive}}
+\index{getRobotActive@{getRobotActive}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{getRobotActive()}{getRobotActive()}}
+{\footnotesize\ttfamily bool Unicicle\+Wmr\+::get\+Robot\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 58 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classUnicicleWmr_a543d04cec6854c6fc56156b19d137c2b}{isRobotActive}}; \}}
+
+\end{DoxyCode}
+
+
+References is\+Robot\+Active.
+
+\mbox{\Hypertarget{classUnicicleWmr_a310a4d6aa9ad1147627a60e1cdedef49}\label{classUnicicleWmr_a310a4d6aa9ad1147627a60e1cdedef49}} 
+\index{UnicicleWmr@{UnicicleWmr}!getTheta@{getTheta}}
+\index{getTheta@{getTheta}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{getTheta()}{getTheta()}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::get\+Theta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 50 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}}; \}}
+
+\end{DoxyCode}
+
+
+References theta.
+
+\mbox{\Hypertarget{classUnicicleWmr_abb08c18da6dca1e757f7e86e00e234b0}\label{classUnicicleWmr_abb08c18da6dca1e757f7e86e00e234b0}} 
+\index{UnicicleWmr@{UnicicleWmr}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 53 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}}; \}}
+
+\end{DoxyCode}
+
+
+References width.
+
+\mbox{\Hypertarget{classUnicicleWmr_ae6bdacf3c74ea65006ea4ef198cbc3dd}\label{classUnicicleWmr_ae6bdacf3c74ea65006ea4ef198cbc3dd}} 
+\index{UnicicleWmr@{UnicicleWmr}!getX@{getX}}
+\index{getX@{getX}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 48 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}}; \}}
+
+\end{DoxyCode}
+
+
+References x.
+
+\mbox{\Hypertarget{classUnicicleWmr_aef3e67e9fe75d9cf2ea817a7d7705b0d}\label{classUnicicleWmr_aef3e67e9fe75d9cf2ea817a7d7705b0d}} 
+\index{UnicicleWmr@{UnicicleWmr}!getY@{getY}}
+\index{getY@{getY}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 49 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}}; \}}
+
+\end{DoxyCode}
+
+
+References y.
+
+\mbox{\Hypertarget{classUnicicleWmr_ad52cf9b69d1a46b8f492546d8ebdbdc2}\label{classUnicicleWmr_ad52cf9b69d1a46b8f492546d8ebdbdc2}} 
+\index{UnicicleWmr@{UnicicleWmr}!reset@{reset}}
+\index{reset@{reset}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::reset (\begin{DoxyParamCaption}\item[{float}]{x = {\ttfamily 0.0f},  }\item[{float}]{y = {\ttfamily 0.0f},  }\item[{float}]{theta = {\ttfamily 0.0f} }\end{DoxyParamCaption})}
+
+
+
+Resets the robot pose and velocities. 
+
+Resets the robot\textquotesingle{}s pose to the specified position and orientation and stops movement.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X position in meters. \\
+\hline
+{\em y} & Y position in meters. \\
+\hline
+{\em theta} & Orientation in radians.\\
+\hline
+{\em x} & New x-\/position in meters. \\
+\hline
+{\em y} & New y-\/position in meters. \\
+\hline
+{\em theta} & New orientation in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77     \mbox{\hyperlink{classUnicicleWmr_afc2d48283645201bac1bf69310b967ed}{setPose}}(\mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}}, \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}}, \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}});}
+\DoxyCodeLine{78     \mbox{\hyperlink{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a}{setVelocity}}(0.f, 0.f);}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+
+
+References set\+Pose(), set\+Velocity(), theta, x, and y.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_ad52cf9b69d1a46b8f492546d8ebdbdc2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_a01d4d8ad0a8317e63f1a1eddd389069a}\label{classUnicicleWmr_a01d4d8ad0a8317e63f1a1eddd389069a}} 
+\index{UnicicleWmr@{UnicicleWmr}!setColor@{setColor}}
+\index{setColor@{setColor}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::set\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Sets the color used for drawing the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & S\+F\+ML color to use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104     \mbox{\hyperlink{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}{robotcolor}} = color;}
+\DoxyCodeLine{105 \}}
+
+\end{DoxyCode}
+
+
+References robotcolor.
+
+
+
+Referenced by Robot\+Creator\+::setup\+Callbacks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_a01d4d8ad0a8317e63f1a1eddd389069a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_abc29ba63976fdf56362558b301fd85f3}\label{classUnicicleWmr_abc29ba63976fdf56362558b301fd85f3}} 
+\index{UnicicleWmr@{UnicicleWmr}!setDimensions@{setDimensions}}
+\index{setDimensions@{setDimensions}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{setDimensions()}{setDimensions()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::set\+Dimensions (\begin{DoxyParamCaption}\item[{float}]{width,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+
+
+Updates the robot\textquotesingle{}s dimensions and resizes the S\+F\+ML shape accordingly. 
+
+Also resets the origin to the center for correct rotation and positioning.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & New width in meters. \\
+\hline
+{\em height} & New height in meters. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{116 \{}
+\DoxyCodeLine{117     this-\/>\mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}} = \mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}};}
+\DoxyCodeLine{118     this-\/>\mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}} = \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}};}
+\DoxyCodeLine{119     \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setSize(sf::Vector2f(\mbox{\hyperlink{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}{width}} * \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}, \mbox{\hyperlink{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}{height}} * \mbox{\hyperlink{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}{pixelsPerMeter}}));}
+\DoxyCodeLine{120     \mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.setOrigin(\mbox{\hyperlink{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}{robotShape}}.getSize() / 2.f);}
+\DoxyCodeLine{121 \}}
+
+\end{DoxyCode}
+
+
+References height, pixels\+Per\+Meter, robot\+Shape, and width.
+
+
+
+Referenced by Robot\+Creator\+::setup\+Callbacks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_abc29ba63976fdf56362558b301fd85f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_afc2d48283645201bac1bf69310b967ed}\label{classUnicicleWmr_afc2d48283645201bac1bf69310b967ed}} 
+\index{UnicicleWmr@{UnicicleWmr}!setPose@{setPose}}
+\index{setPose@{setPose}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{setPose()}{setPose()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::set\+Pose (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{theta }\end{DoxyParamCaption})}
+
+
+
+Sets the robot\textquotesingle{}s pose. 
+
+Updates the position (x, y) and orientation (theta).
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/position in meters. \\
+\hline
+{\em y} & Y-\/position in meters. \\
+\hline
+{\em theta} & Orientation in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     this-\/>\mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}} = \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}};}
+\DoxyCodeLine{93     this-\/>\mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}} = \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}};}
+\DoxyCodeLine{94     this-\/>\mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}} = \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}};}
+\DoxyCodeLine{95 \}}
+
+\end{DoxyCode}
+
+
+References theta, x, and y.
+
+
+
+Referenced by reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classUnicicleWmr_afc2d48283645201bac1bf69310b967ed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_a67da598341ba850b0a1958cacb7031fa}\label{classUnicicleWmr_a67da598341ba850b0a1958cacb7031fa}} 
+\index{UnicicleWmr@{UnicicleWmr}!setRobotActive@{setRobotActive}}
+\index{setRobotActive@{setRobotActive}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{setRobotActive()}{setRobotActive()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::set\+Robot\+Active (\begin{DoxyParamCaption}\item[{bool}]{active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 57 of file Unicicle\+Wmr.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \{ \mbox{\hyperlink{classUnicicleWmr_a543d04cec6854c6fc56156b19d137c2b}{isRobotActive}} = active; \}}
+
+\end{DoxyCode}
+
+
+References is\+Robot\+Active.
+
+
+
+Referenced by Robot\+Creator\+::setup\+Callbacks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_a67da598341ba850b0a1958cacb7031fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a}\label{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a}} 
+\index{UnicicleWmr@{UnicicleWmr}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::set\+Velocity (\begin{DoxyParamCaption}\item[{float}]{linear\+\_\+v,  }\item[{float}]{angular\+\_\+omega }\end{DoxyParamCaption})}
+
+
+
+Sets the linear and angular velocity of the robot. 
+
+Sets the linear and angular velocities of the robot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+\_\+v} & Linear velocity in m/s. \\
+\hline
+{\em angular\+\_\+omega} & Angular velocity in rad/s.\\
+\hline
+{\em linear\+\_\+v} & Linear velocity (forward) in meters per second. \\
+\hline
+{\em angular\+\_\+omega} & Angular velocity (rotational) in radians per second. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 62 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64     this-\/>\mbox{\hyperlink{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}{linear\_v}} = \mbox{\hyperlink{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}{linear\_v}};}
+\DoxyCodeLine{65     this-\/>\mbox{\hyperlink{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}{angular\_omega}} = \mbox{\hyperlink{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}{angular\_omega}};}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+
+
+References angular\+\_\+omega, and linear\+\_\+v.
+
+
+
+Referenced by reset(), and Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classUnicicleWmr_a2ea87f3299c071e959f15bec87420f4d}\label{classUnicicleWmr_a2ea87f3299c071e959f15bec87420f4d}} 
+\index{UnicicleWmr@{UnicicleWmr}!update@{update}}
+\index{update@{update}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Unicicle\+Wmr\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Updates the robot\textquotesingle{}s position and orientation using its velocity. 
+
+Updates the robot\textquotesingle{}s pose based on current velocities and elapsed time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time step in seconds.\\
+\hline
+\end{DoxyParams}
+Simple unicycle kinematics\+: update x, y, and theta accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time interval in seconds since last update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file Unicicle\+Wmr.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}{x}} += \mbox{\hyperlink{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}{linear\_v}} * cos(\mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}}) * dt;}
+\DoxyCodeLine{35     \mbox{\hyperlink{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}{y}} += \mbox{\hyperlink{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}{linear\_v}} * sin(\mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}}) * dt;}
+\DoxyCodeLine{36     \mbox{\hyperlink{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}{theta}} += \mbox{\hyperlink{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}{angular\_omega}} * dt;}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+References angular\+\_\+omega, linear\+\_\+v, theta, x, and y.
+
+
+
+Referenced by Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnicicleWmr_a2ea87f3299c071e959f15bec87420f4d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}\label{classUnicicleWmr_a90f4027e0f3f45626bfa11dcaec95b2e}} 
+\index{UnicicleWmr@{UnicicleWmr}!angular\_omega@{angular\_omega}}
+\index{angular\_omega@{angular\_omega}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{angular\_omega}{angular\_omega}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::angular\+\_\+omega\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Angular velocity (rad/s) 
+
+
+
+Definition at line 79 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by set\+Velocity(), and update().
+
+\mbox{\Hypertarget{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}\label{classUnicicleWmr_a7cd01662e6c190b8e20800a11fa57dea}} 
+\index{UnicicleWmr@{UnicicleWmr}!height@{height}}
+\index{height@{height}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Robot height in meters. 
+
+
+
+Definition at line 70 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by getheight(), set\+Dimensions(), and Unicicle\+Wmr().
+
+\mbox{\Hypertarget{classUnicicleWmr_a543d04cec6854c6fc56156b19d137c2b}\label{classUnicicleWmr_a543d04cec6854c6fc56156b19d137c2b}} 
+\index{UnicicleWmr@{UnicicleWmr}!isRobotActive@{isRobotActive}}
+\index{isRobotActive@{isRobotActive}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{isRobotActive}{isRobotActive}}
+{\footnotesize\ttfamily bool Unicicle\+Wmr\+::is\+Robot\+Active = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 86 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), get\+Robot\+Active(), and set\+Robot\+Active().
+
+\mbox{\Hypertarget{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}\label{classUnicicleWmr_a547b33adcdd1ee45316703c6a8220a5c}} 
+\index{UnicicleWmr@{UnicicleWmr}!linear\_v@{linear\_v}}
+\index{linear\_v@{linear\_v}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{linear\_v}{linear\_v}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::linear\+\_\+v\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Linear velocity (m/s) 
+
+
+
+Definition at line 78 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by set\+Velocity(), and update().
+
+\mbox{\Hypertarget{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}\label{classUnicicleWmr_a321786b657bacfcbe12f0873d452fc87}} 
+\index{UnicicleWmr@{UnicicleWmr}!pixelsPerMeter@{pixelsPerMeter}}
+\index{pixelsPerMeter@{pixelsPerMeter}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{pixelsPerMeter}{pixelsPerMeter}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::pixels\+Per\+Meter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Conversion factor from meters to pixels. 
+
+
+
+Definition at line 66 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), set\+Dimensions(), and Unicicle\+Wmr().
+
+\mbox{\Hypertarget{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}\label{classUnicicleWmr_a8b5bc94350e5a6b84c4bc21a3796a3a7}} 
+\index{UnicicleWmr@{UnicicleWmr}!robotcolor@{robotcolor}}
+\index{robotcolor@{robotcolor}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{robotcolor}{robotcolor}}
+{\footnotesize\ttfamily sf\+::\+Color Unicicle\+Wmr\+::robotcolor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Color of the robot shape. 
+
+
+
+Definition at line 83 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), set\+Color(), and Unicicle\+Wmr().
+
+\mbox{\Hypertarget{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}\label{classUnicicleWmr_a8f3084ba213280edc3c47dc7731534cc}} 
+\index{UnicicleWmr@{UnicicleWmr}!robotShape@{robotShape}}
+\index{robotShape@{robotShape}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{robotShape}{robotShape}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Unicicle\+Wmr\+::robot\+Shape\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 82 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), set\+Dimensions(), and Unicicle\+Wmr().
+
+\mbox{\Hypertarget{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}\label{classUnicicleWmr_acd4e3e5ae16cb117c315c0a7403457ba}} 
+\index{UnicicleWmr@{UnicicleWmr}!theta@{theta}}
+\index{theta@{theta}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{theta}{theta}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::theta\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Orientation in radians. 
+
+
+
+Definition at line 75 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), get\+Theta(), reset(), set\+Pose(), and update().
+
+\mbox{\Hypertarget{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}\label{classUnicicleWmr_a632abed9ba36d75aa390c4eb9bb7fdc4}} 
+\index{UnicicleWmr@{UnicicleWmr}!width@{width}}
+\index{width@{width}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Robot width in meters. 
+
+
+
+Definition at line 69 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by get\+Width(), set\+Dimensions(), and Unicicle\+Wmr().
+
+\mbox{\Hypertarget{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}\label{classUnicicleWmr_a5108c74ec2686c5dd99fd6356056081d}} 
+\index{UnicicleWmr@{UnicicleWmr}!x@{x}}
+\index{x@{x}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::x\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+X position in meters. 
+
+
+
+Definition at line 73 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), get\+X(), reset(), set\+Pose(), and update().
+
+\mbox{\Hypertarget{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}\label{classUnicicleWmr_ae0f77e615a51feb6d1aecc3ee106fdef}} 
+\index{UnicicleWmr@{UnicicleWmr}!y@{y}}
+\index{y@{y}!UnicicleWmr@{UnicicleWmr}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float Unicicle\+Wmr\+::y\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Y position in meters. 
+
+
+
+Definition at line 74 of file Unicicle\+Wmr.\+hpp.
+
+
+
+Referenced by draw(), get\+Y(), reset(), set\+Pose(), and update().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{UnicicleWmr_8hpp}{Unicicle\+Wmr.\+hpp}}\item 
+src/\mbox{\hyperlink{UnicicleWmr_8cpp}{Unicicle\+Wmr.\+cpp}}\end{DoxyCompactItemize}

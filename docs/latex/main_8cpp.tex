@@ -1,0 +1,84 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}artgslam\+\_\+vsc/\+Map\+Viewer.\+hpp\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main entry point for the A\+R\+TG S\+L\+AM visualization node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main entry point for the A\+R\+TG S\+L\+AM visualization node. 
+
+Initializes R\+OS and S\+F\+ML window, then runs the visualization loop. 
+
+Definition at line 9 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{comment}{// Initialize ROS node with a descriptive name}}
+\DoxyCodeLine{12     ros::init(argc, argv, \textcolor{stringliteral}{"artgslam\_vsc\_node"});}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{comment}{// Create an SFML window for rendering the visualizer}}
+\DoxyCodeLine{15     sf::RenderWindow window(sf::VideoMode(1024, 768), \textcolor{stringliteral}{"ARTG SLAM Visualizer"});}
+\DoxyCodeLine{16     window.setFramerateLimit(60);  \textcolor{comment}{// Cap frame rate at 60 FPS for smooth rendering}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{comment}{// Instantiate MapViewer, which handles:}}
+\DoxyCodeLine{19     \textcolor{comment}{//  -\/ Map rendering and overlays}}
+\DoxyCodeLine{20     \textcolor{comment}{//  -\/ Simulation and live data updates}}
+\DoxyCodeLine{21     \textcolor{comment}{//  -\/ ROS topic subscriptions and publishing}}
+\DoxyCodeLine{22     \textcolor{comment}{//  -\/ User input and camera control}}
+\DoxyCodeLine{23     \mbox{\hyperlink{classMapViewer}{MapViewer}} mapViewer(window);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Main loop: run while ROS is active and window is open}}
+\DoxyCodeLine{26     \textcolor{keywordflow}{while} (ros::ok() \&\& mapViewer.isRunning())}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         \textcolor{comment}{// Process user events (keyboard, mouse, window events)}}
+\DoxyCodeLine{29         mapViewer.processEvent();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{comment}{// Update application state (map updates, robot pose, live mode, etc.)}}
+\DoxyCodeLine{32         mapViewer.update();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{comment}{// Render the current frame to the window}}
+\DoxyCodeLine{35         mapViewer.render();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{comment}{// Handle incoming ROS messages and callbacks}}
+\DoxyCodeLine{38         ros::spinOnce();}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+
+
+References Map\+Viewer\+::is\+Running(), Map\+Viewer\+::process\+Event(), Map\+Viewer\+::render(), and Map\+Viewer\+::update().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}

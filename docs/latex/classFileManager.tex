@@ -1,0 +1,486 @@
+\hypertarget{classFileManager}{}\doxysection{File\+Manager Class Reference}
+\label{classFileManager}\index{FileManager@{FileManager}}
+
+
+Manages file input/output operations for grid map visualization.  
+
+
+
+
+{\ttfamily \#include $<$File\+Manager.\+hpp$>$}
+
+
+
+Collaboration diagram for File\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classFileManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFileManager_a9e1d07dd5335fdf6565815b49c50606e}{File\+Manager}} (\mbox{\hyperlink{classGridMap}{Grid\+Map}} \&map\+Ref)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385}{load\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Opens a file dialog to select a file and loads its data into the map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f}{save\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Opens a file dialog to save the current data (coordinates). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_ad30d0502c151865459ba32f7f3880477}{data\+Load}} (const std\+::string \&filename, std\+::vector$<$ double $>$ \&x, std\+::vector$<$ double $>$ \&y)
+\begin{DoxyCompactList}\small\item\em Loads coordinate data from a file into x and y vectors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_ae4178789b8d0ae7653db505ba276640a}{save\+Data}} (const std\+::string \&filename, std\+::vector$<$ double $>$ \&x, std\+::vector$<$ double $>$ \&y)
+\begin{DoxyCompactList}\small\item\em Saves x and y coordinate data to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_ab506f83579b9ad8fe9542fd8197eaeb6}{save\+Screen}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Saves a screenshot of the current visualization to an image file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGridMap}{Grid\+Map}} \& \mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}
+\begin{DoxyCompactList}\small\item\em Reference to the grid map object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFileManager_aefa3ce55286133118c0abe06a18ef735}{loaded\+Filename}}
+\begin{DoxyCompactList}\small\item\em Path of the last loaded or saved file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages file input/output operations for grid map visualization. 
+
+This class handles loading data from files to populate the map, saving coordinate data, and exporting screenshots. 
+
+Definition at line 18 of file File\+Manager.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFileManager_a9e1d07dd5335fdf6565815b49c50606e}\label{classFileManager_a9e1d07dd5335fdf6565815b49c50606e}} 
+\index{FileManager@{FileManager}!FileManager@{FileManager}}
+\index{FileManager@{FileManager}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{FileManager()}{FileManager()}}
+{\footnotesize\ttfamily File\+Manager\+::\+File\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGridMap}{Grid\+Map}} \&}]{map\+Ref }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor that stores a reference to the \mbox{\hyperlink{classGridMap}{Grid\+Map}} instance for interaction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Ref} & Reference to the \mbox{\hyperlink{classGridMap}{Grid\+Map}} to work with\\
+\hline
+{\em map\+Ref} & Reference to the \mbox{\hyperlink{classGridMap}{Grid\+Map}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file File\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8     : \mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}(mapRef)}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileManager_ad30d0502c151865459ba32f7f3880477}\label{classFileManager_ad30d0502c151865459ba32f7f3880477}} 
+\index{FileManager@{FileManager}!dataLoad@{dataLoad}}
+\index{dataLoad@{dataLoad}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{dataLoad()}{dataLoad()}}
+{\footnotesize\ttfamily void File\+Manager\+::data\+Load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ double $>$ \&}]{x,  }\item[{std\+::vector$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Loads coordinate data from a file into x and y vectors. 
+
+Loads (x,y) data points from a C\+SV file into the provided vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path of the file to read from \\
+\hline
+{\em x} & Output vector of x coordinates \\
+\hline
+{\em y} & Output vector of y coordinates\\
+\hline
+{\em filename} & Path to the C\+SV file. \\
+\hline
+{\em x} & Output vector for x coordinates. \\
+\hline
+{\em y} & Output vector for y coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file File\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{80     x.clear();}
+\DoxyCodeLine{81     y.clear();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     std::ifstream file(filename);}
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{85         std::cerr << \textcolor{stringliteral}{"Error opening file: "} << filename << std::endl;}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     std::string line;}
+\DoxyCodeLine{90     \textcolor{keywordtype}{size\_t} count = 0;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{// Read file line by line}}
+\DoxyCodeLine{93     \textcolor{keywordflow}{while} (std::getline(file, line)) \{}
+\DoxyCodeLine{94         std::stringstream ss(line);}
+\DoxyCodeLine{95         std::string token;}
+\DoxyCodeLine{96         std::vector<std::string> tokens;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         \textcolor{comment}{// Tokenize by commas}}
+\DoxyCodeLine{99         \textcolor{keywordflow}{while} (std::getline(ss, token, \textcolor{charliteral}{','})) \{}
+\DoxyCodeLine{100             tokens.push\_back(token);}
+\DoxyCodeLine{101         \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         \textcolor{keywordflow}{if} (tokens.size() >= 2) \{}
+\DoxyCodeLine{104             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{105                 \textcolor{keywordtype}{double} xVal, yVal;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107                 \textcolor{comment}{// Support CSV files with two or more columns}}
+\DoxyCodeLine{108                 \textcolor{keywordflow}{if} (tokens.size() == 2) \{}
+\DoxyCodeLine{109                     \textcolor{comment}{// Format: x,y}}
+\DoxyCodeLine{110                     xVal = std::stod(tokens[0]);}
+\DoxyCodeLine{111                     yVal = std::stod(tokens[1]);}
+\DoxyCodeLine{112                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{113                     \textcolor{comment}{// Format: skip first column, use second and third columns as x,y}}
+\DoxyCodeLine{114                     xVal = std::stod(tokens[1]);}
+\DoxyCodeLine{115                     yVal = std::stod(tokens[2]);}
+\DoxyCodeLine{116                 \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118                 x.push\_back(xVal);}
+\DoxyCodeLine{119                 y.push\_back(yVal);}
+\DoxyCodeLine{120                 ++count;}
+\DoxyCodeLine{121             \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception\& e) \{}
+\DoxyCodeLine{122                 std::cerr << \textcolor{stringliteral}{"Error parsing line: "} << line << \textcolor{stringliteral}{" ("} << e.what() << \textcolor{stringliteral}{")\(\backslash\)n"};}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{125             std::cerr << \textcolor{stringliteral}{"Invalid line format (less than 2 columns): "} << line << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     std::cout << \textcolor{stringliteral}{"Loaded "} << count << \textcolor{stringliteral}{" points\(\backslash\)n"};}
+\DoxyCodeLine{130 \}}
+
+\end{DoxyCode}
+
+
+Referenced by load\+Dialog().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_ad30d0502c151865459ba32f7f3880477_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385}\label{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385}} 
+\index{FileManager@{FileManager}!loadDialog@{loadDialog}}
+\index{loadDialog@{loadDialog}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{loadDialog()}{loadDialog()}}
+{\footnotesize\ttfamily void File\+Manager\+::load\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens a file dialog to select a file and loads its data into the map. 
+
+Opens a file dialog to select a C\+SV dataset file, loads the data, and updates the map accordingly. 
+
+Definition at line 16 of file File\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* path = \mbox{\hyperlink{tinyfiledialogs_8h_a8918e9f47e1532c1d055f563a32b215c}{tinyfd\_openFileDialog}}(}
+\DoxyCodeLine{19         \textcolor{stringliteral}{"Open Dataset"}, \textcolor{comment}{// Dialog title}}
+\DoxyCodeLine{20         \textcolor{stringliteral}{""},             \textcolor{comment}{// Default path}}
+\DoxyCodeLine{21         0,              \textcolor{comment}{// Number of filters (0 = none)}}
+\DoxyCodeLine{22         \textcolor{keyword}{nullptr},        \textcolor{comment}{// Filter patterns (ignored when count=0)}}
+\DoxyCodeLine{23         \textcolor{keyword}{nullptr},        \textcolor{comment}{// Filter description}}
+\DoxyCodeLine{24         0               \textcolor{comment}{// Allow multiple selection? (0 = no)}}
+\DoxyCodeLine{25     );}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} (path) \{}
+\DoxyCodeLine{28         std::cout << \textcolor{stringliteral}{"Selected file: "} << path << std::endl;}
+\DoxyCodeLine{29         \mbox{\hyperlink{classFileManager_aefa3ce55286133118c0abe06a18ef735}{loadedFilename}} = path;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{comment}{// Load CSV data into vectors}}
+\DoxyCodeLine{32         std::vector<double> xData, yData;}
+\DoxyCodeLine{33         \mbox{\hyperlink{classFileManager_ad30d0502c151865459ba32f7f3880477}{dataLoad}}(\mbox{\hyperlink{classFileManager_aefa3ce55286133118c0abe06a18ef735}{loadedFilename}}, xData, yData);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{comment}{// Update map points with loaded real-\/world coordinates}}
+\DoxyCodeLine{36         \mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_a83c5f50b869d134d31a43e58a7757eac}{setPoints}}(xData, yData);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{comment}{// Convert real-\/world coordinates to grid indices and fill the occupancy grid}}
+\DoxyCodeLine{39         std::vector<int> xGrid, yGrid;}
+\DoxyCodeLine{40         \mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_a41f7d52629250938bd87dac7c8cfbb76}{xy2Grid}}(\mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_ad20af94e5a3cc2872a274a732b5e3f72}{getRealX}}(), \mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_af4fe1dc74416535a7463b7e168a326d1}{getRealY}}(), xGrid, yGrid);}
+\DoxyCodeLine{41         \mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_ad404a1752c771bd142a46e579c47ec6d}{fillGrid}}(xGrid, yGrid);}
+\DoxyCodeLine{42     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{43         std::cout << \textcolor{stringliteral}{"No file was selected.\(\backslash\)n"};}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+
+
+References data\+Load(), Grid\+Map\+::fill\+Grid(), Grid\+Map\+::get\+Real\+X(), Grid\+Map\+::get\+Real\+Y(), loaded\+Filename, map, Grid\+Map\+::set\+Points(), tinyfd\+\_\+open\+File\+Dialog(), and Grid\+Map\+::xy2\+Grid().
+
+
+
+Referenced by Map\+Viewer\+::\+Map\+Viewer().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classFileManager_ae4178789b8d0ae7653db505ba276640a}\label{classFileManager_ae4178789b8d0ae7653db505ba276640a}} 
+\index{FileManager@{FileManager}!saveData@{saveData}}
+\index{saveData@{saveData}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{saveData()}{saveData()}}
+{\footnotesize\ttfamily void File\+Manager\+::save\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ double $>$ \&}]{x,  }\item[{std\+::vector$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Saves x and y coordinate data to a file. 
+
+Saves vectors of x and y coordinates to a C\+SV file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path of the file to write to \\
+\hline
+{\em x} & Vector of x coordinates \\
+\hline
+{\em y} & Vector of y coordinates\\
+\hline
+{\em filename} & Path to the output file. \\
+\hline
+{\em x} & Vector of x coordinates. \\
+\hline
+{\em y} & Vector of y coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 138 of file File\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140     \textcolor{keywordflow}{if} (x.size() != y.size()) \{}
+\DoxyCodeLine{141         std::cerr << \textcolor{stringliteral}{"Error: x and y vector sizes do not match.\(\backslash\)n"};}
+\DoxyCodeLine{142         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     std::ofstream outFile(filename);}
+\DoxyCodeLine{146     \textcolor{keywordflow}{if} (!outFile) \{}
+\DoxyCodeLine{147         std::cerr << \textcolor{stringliteral}{"Error: Cannot open file for writing.\(\backslash\)n"};}
+\DoxyCodeLine{148         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{149     \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     \textcolor{comment}{// Use high precision for floating point output}}
+\DoxyCodeLine{152     outFile << std::fixed << std::setprecision(17);}
+\DoxyCodeLine{153     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < x.size(); ++i) \{}
+\DoxyCodeLine{154         outFile << x[i] << \textcolor{stringliteral}{","} << y[i] << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     outFile.close();}
+\DoxyCodeLine{158     std::cout << \textcolor{stringliteral}{"Text file saved successfully.\(\backslash\)n"};}
+\DoxyCodeLine{159 \}}
+
+\end{DoxyCode}
+
+
+Referenced by save\+Dialog().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_ae4178789b8d0ae7653db505ba276640a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f}\label{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f}} 
+\index{FileManager@{FileManager}!saveDialog@{saveDialog}}
+\index{saveDialog@{saveDialog}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{saveDialog()}{saveDialog()}}
+{\footnotesize\ttfamily void File\+Manager\+::save\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens a file dialog to save the current data (coordinates). 
+
+Opens a save file dialog and saves current real-\/world map data to a C\+SV file. 
+
+Definition at line 50 of file File\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* path = \mbox{\hyperlink{tinyfiledialogs_8h_a7a17e17150593bf3b04253ea819fc5bc}{tinyfd\_saveFileDialog}}(}
+\DoxyCodeLine{53         \textcolor{stringliteral}{"Save File"},       \textcolor{comment}{// Dialog title}}
+\DoxyCodeLine{54         \textcolor{stringliteral}{"output.txt"},      \textcolor{comment}{// Default filename}}
+\DoxyCodeLine{55         0,                 \textcolor{comment}{// Number of filters (0 = none)}}
+\DoxyCodeLine{56         \textcolor{keyword}{nullptr},           \textcolor{comment}{// Filter patterns}}
+\DoxyCodeLine{57         \textcolor{keyword}{nullptr}            \textcolor{comment}{// Filter description}}
+\DoxyCodeLine{58     );}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (path) \{}
+\DoxyCodeLine{61         std::cout << \textcolor{stringliteral}{"Saving to: "} << path << std::endl;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \textcolor{comment}{// Save the real-\/world coordinates to the file}}
+\DoxyCodeLine{64         \mbox{\hyperlink{classFileManager_ae4178789b8d0ae7653db505ba276640a}{saveData}}(path,}
+\DoxyCodeLine{65                  \textcolor{keyword}{const\_cast<}std::vector<double>\&\textcolor{keyword}{>}(\mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_ad20af94e5a3cc2872a274a732b5e3f72}{getRealX}}()),}
+\DoxyCodeLine{66                  \textcolor{keyword}{const\_cast<}std::vector<double>\&\textcolor{keyword}{>}(\mbox{\hyperlink{classFileManager_a65389894198088b73077f110db939e4c}{map}}.\mbox{\hyperlink{classGridMap_af4fe1dc74416535a7463b7e168a326d1}{getRealY}}()));}
+\DoxyCodeLine{67     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{68         std::cout << \textcolor{stringliteral}{"Save operation was canceled.\(\backslash\)n"};}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+
+
+References Grid\+Map\+::get\+Real\+X(), Grid\+Map\+::get\+Real\+Y(), map, save\+Data(), and tinyfd\+\_\+save\+File\+Dialog().
+
+
+
+Referenced by Map\+Viewer\+::\+Map\+Viewer().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classFileManager_ab506f83579b9ad8fe9542fd8197eaeb6}\label{classFileManager_ab506f83579b9ad8fe9542fd8197eaeb6}} 
+\index{FileManager@{FileManager}!saveScreen@{saveScreen}}
+\index{saveScreen@{saveScreen}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{saveScreen()}{saveScreen()}}
+{\footnotesize\ttfamily void File\+Manager\+::save\+Screen (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Saves a screenshot of the current visualization to an image file. 
+
+Placeholder for saving a screenshot of the map window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path of the image file to create\\
+\hline
+{\em filename} & Suggested filename for saving.\\
+\hline
+\end{DoxyParams}
+Note\+: Implementation to capture and save S\+F\+ML window content is pending. 
+
+Definition at line 167 of file File\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{168 \{}
+\DoxyCodeLine{169     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* path = \mbox{\hyperlink{tinyfiledialogs_8h_a7a17e17150593bf3b04253ea819fc5bc}{tinyfd\_saveFileDialog}}(}
+\DoxyCodeLine{170         \textcolor{stringliteral}{"Save Image"},}
+\DoxyCodeLine{171         \textcolor{stringliteral}{"Map.png"},}
+\DoxyCodeLine{172         0,}
+\DoxyCodeLine{173         \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{174         \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{175     );}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordflow}{if} (path) \{}
+\DoxyCodeLine{178         \textcolor{comment}{// TODO: Implement screenshot capture and saving using SFML RenderWindow}}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181 \}}
+
+\end{DoxyCode}
+
+
+References tinyfd\+\_\+save\+File\+Dialog().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFileManager_ab506f83579b9ad8fe9542fd8197eaeb6_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFileManager_aefa3ce55286133118c0abe06a18ef735}\label{classFileManager_aefa3ce55286133118c0abe06a18ef735}} 
+\index{FileManager@{FileManager}!loadedFilename@{loadedFilename}}
+\index{loadedFilename@{loadedFilename}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{loadedFilename}{loadedFilename}}
+{\footnotesize\ttfamily std\+::string File\+Manager\+::loaded\+Filename\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Path of the last loaded or saved file. 
+
+
+
+Definition at line 22 of file File\+Manager.\+hpp.
+
+
+
+Referenced by load\+Dialog().
+
+\mbox{\Hypertarget{classFileManager_a65389894198088b73077f110db939e4c}\label{classFileManager_a65389894198088b73077f110db939e4c}} 
+\index{FileManager@{FileManager}!map@{map}}
+\index{map@{map}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGridMap}{Grid\+Map}}\& File\+Manager\+::map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the grid map object. 
+
+
+
+Definition at line 21 of file File\+Manager.\+hpp.
+
+
+
+Referenced by load\+Dialog(), and save\+Dialog().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{FileManager_8hpp}{File\+Manager.\+hpp}}\item 
+src/\mbox{\hyperlink{FileManager_8cpp}{File\+Manager.\+cpp}}\end{DoxyCompactItemize}

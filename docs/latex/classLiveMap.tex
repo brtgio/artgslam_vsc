@@ -1,0 +1,977 @@
+\hypertarget{classLiveMap}{}\doxysection{Live\+Map Class Reference}
+\label{classLiveMap}\index{LiveMap@{LiveMap}}
+
+
+This class manages live map creation in \char`\"{}live mode\char`\"{}, by dynamically updating the map from incoming R\+OS data (e.\+g., from \mbox{\hyperlink{classRosHandler}{Ros\+Handler}}). It builds an occupancy grid in real time and draws it using a \mbox{\hyperlink{classViewController}{View\+Controller}}.  
+
+
+
+
+{\ttfamily \#include $<$Live\+Map.\+hpp$>$}
+
+
+
+Collaboration diagram for Live\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classLiveMap__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLiveMap_a0664a35b9b440c38b4eedd1e7922d799}{Live\+Map}} (int size, double resolution, \mbox{\hyperlink{classViewController}{View\+Controller}} \&\mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}})
+\begin{DoxyCompactList}\small\item\em Constructor\+: initializes map size, resolution and controller reference. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a0a1bc92b03f9d2204553db4ed225c410}{add\+Point}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em Adds a single point (in real-\/world coordinates) to the internal point buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a99cf8f3223e97aec8332b16ae0f0b1c3}{set\+Points}} (const std\+::vector$<$ double $>$ \&newX, const std\+::vector$<$ double $>$ \&newY)
+\begin{DoxyCompactList}\small\item\em Replaces current point buffer with a new set of coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_acb6cab34d7e2ae63d41ffcbdfbeece2e}{clear\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Clears all stored real-\/world points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90}{clear\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em Clears the occupancy grid (sets all cells to 0) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a4c5f9a45946eb1fc48e3b50b28da724a}{xy2\+Grid}} (const std\+::vector$<$ double $>$ \&x, const std\+::vector$<$ double $>$ \&y, std\+::vector$<$ int $>$ \&x\+Grid, std\+::vector$<$ int $>$ \&y\+Grid)
+\begin{DoxyCompactList}\small\item\em Converts real-\/world coordinates to grid indices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_aca9414f3b6a8d57ec31f8a35fb1bb5d2}{fill\+Grid}} (const std\+::vector$<$ int $>$ \&x\+Grid, const std\+::vector$<$ int $>$ \&y\+Grid)
+\begin{DoxyCompactList}\small\item\em Fills the grid using the given grid indices, marking cells as occupied (1) \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \& \mbox{\hyperlink{classLiveMap_af9c68de338a34ee872aac401122c10bb}{get\+Grid}} () const
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the full occupancy grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_af35f553cf7473ec20650328b423ddddf}{update\+Grid\+From\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Updates the grid from the internal point buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a0157071646700aba0cbb45a6767b7487}{draw\+Live\+Map}} (sf\+::\+Render\+Target \&target) const
+\begin{DoxyCompactList}\small\item\em Draws the live grid using the \mbox{\hyperlink{classViewController}{View\+Controller}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a7e1f1609a9105fdb4d99e6046fa14e16}{set\+Active}} (bool is\+Active)
+\begin{DoxyCompactList}\small\item\em Activates or deactivates live mode (when true, dynamic updates occur) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}{get\+Is\+Active}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether live mode is currently active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a9ad8bff237bd575f7394485e73b67370}{set\+Start}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Sets a special start cell in the grid (value = \textquotesingle{}s\textquotesingle{}) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLiveMap_a347e694d1d773cd4b6dae3619ece738e}{set\+Goal}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Sets a special goal cell in the grid (value = \textquotesingle{}g\textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classViewController}{View\+Controller}} \& \mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}}
+\begin{DoxyCompactList}\small\item\em Reference to the view controller for rendering. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{grid\+Size}}
+\begin{DoxyCompactList}\small\item\em Map size (number of cells per side) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLiveMap_a007a09b2172d464b3810db8d82a13c78}{grid\+Resolution}}
+\begin{DoxyCompactList}\small\item\em Size of each cell in real-\/world units. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}}
+\begin{DoxyCompactList}\small\item\em Buffer of real-\/world x/y points. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}
+\begin{DoxyCompactList}\small\item\em 2D occupancy grid (0 = free, 1 = occupied, \textquotesingle{}s\textquotesingle{} = start, \textquotesingle{}g\textquotesingle{} = goal) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLiveMap_a304b8a641e5328524e0ba0565cc80530}{origin\+Set}} = false
+\begin{DoxyCompactList}\small\item\em Flag to know if the origin is initialized. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLiveMap_a3c5d5907e4eea8c3165fce0a5286d926}{originX}} = 0.\+0
+\item 
+double \mbox{\hyperlink{classLiveMap_aff5417f7097398db0b20c08ddade79a6}{originY}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Optional offset for positioning. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLiveMap_a11ddcec1ab42448e65da6986e64af945}{is\+Livemode\+Active}} = false
+\begin{DoxyCompactList}\small\item\em Whether live updates are happening. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages live map creation in \char`\"{}live mode\char`\"{}, by dynamically updating the map from incoming R\+OS data (e.\+g., from \mbox{\hyperlink{classRosHandler}{Ros\+Handler}}). It builds an occupancy grid in real time and draws it using a \mbox{\hyperlink{classViewController}{View\+Controller}}. 
+
+Definition at line 13 of file Live\+Map.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLiveMap_a0664a35b9b440c38b4eedd1e7922d799}\label{classLiveMap_a0664a35b9b440c38b4eedd1e7922d799}} 
+\index{LiveMap@{LiveMap}!LiveMap@{LiveMap}}
+\index{LiveMap@{LiveMap}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{LiveMap()}{LiveMap()}}
+{\footnotesize\ttfamily Live\+Map\+::\+Live\+Map (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{double}]{resolution,  }\item[{\mbox{\hyperlink{classViewController}{View\+Controller}} \&}]{controller }\end{DoxyParamCaption})}
+
+
+
+Constructor\+: initializes map size, resolution and controller reference. 
+
+Constructs a \mbox{\hyperlink{classLiveMap}{Live\+Map}} object with specified grid size and resolution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of grid cells per side \\
+\hline
+{\em resolution} & Size of each grid cell in meters \\
+\hline
+{\em controller} & Reference to the view controller\\
+\hline
+\end{DoxyParams}
+Initializes the occupancy grid and links to the \mbox{\hyperlink{classViewController}{View\+Controller}}. 
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of grid cells per side (square grid). \\
+\hline
+{\em resolution} & Cell size in meters. \\
+\hline
+{\em controller} & Reference to \mbox{\hyperlink{classViewController}{View\+Controller}} for visualization parameters. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 11 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12     : \mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{gridSize}}(size), \mbox{\hyperlink{classLiveMap_a007a09b2172d464b3810db8d82a13c78}{gridResolution}}(resolution), \mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}}(\mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}}), \mbox{\hyperlink{classLiveMap_a304b8a641e5328524e0ba0565cc80530}{originSet}}(\textcolor{keyword}{false})}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \textcolor{comment}{// Initialize grid to all free cells (0)}}
+\DoxyCodeLine{15     \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}.resize(\mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{gridSize}}, 0));}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{comment}{// Clear stored real-\/world points}}
+\DoxyCodeLine{18     \mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}}.clear();}
+\DoxyCodeLine{19     \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}}.clear();}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+References grid, grid\+Size, posX, and posY.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLiveMap_a0a1bc92b03f9d2204553db4ed225c410}\label{classLiveMap_a0a1bc92b03f9d2204553db4ed225c410}} 
+\index{LiveMap@{LiveMap}!addPoint@{addPoint}}
+\index{addPoint@{addPoint}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{addPoint()}{addPoint()}}
+{\footnotesize\ttfamily void Live\+Map\+::add\+Point (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Adds a single point (in real-\/world coordinates) to the internal point buffer. 
+
+Adds a new real-\/world point to the list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Real-\/world X coordinate \\
+\hline
+{\em y} & Real-\/world Y coordinate\\
+\hline
+\end{DoxyParams}
+The first point added is used to set the origin for coordinate conversion. 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate in meters. \\
+\hline
+{\em y} & Y coordinate in meters. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classLiveMap_a304b8a641e5328524e0ba0565cc80530}{originSet}}) \{}
+\DoxyCodeLine{31         \mbox{\hyperlink{classLiveMap_a3c5d5907e4eea8c3165fce0a5286d926}{originX}} = x;}
+\DoxyCodeLine{32         \mbox{\hyperlink{classLiveMap_aff5417f7097398db0b20c08ddade79a6}{originY}} = y;}
+\DoxyCodeLine{33         \mbox{\hyperlink{classLiveMap_a304b8a641e5328524e0ba0565cc80530}{originSet}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35     \mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}}.push\_back(x);}
+\DoxyCodeLine{36     \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}}.push\_back(y);}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+References origin\+Set, originX, originY, posX, and posY.
+
+
+
+Referenced by Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_a0a1bc92b03f9d2204553db4ed225c410_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90}\label{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90}} 
+\index{LiveMap@{LiveMap}!clearGrid@{clearGrid}}
+\index{clearGrid@{clearGrid}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{clearGrid()}{clearGrid()}}
+{\footnotesize\ttfamily void Live\+Map\+::clear\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the occupancy grid (sets all cells to 0) 
+
+Resets the occupancy grid cells to free (0). 
+
+Definition at line 63 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& row : \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}) \{}
+\DoxyCodeLine{66         std::fill(row.begin(), row.end(), 0);}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+
+
+References grid.
+
+
+
+Referenced by fill\+Grid(), and Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_acb6cab34d7e2ae63d41ffcbdfbeece2e}\label{classLiveMap_acb6cab34d7e2ae63d41ffcbdfbeece2e}} 
+\index{LiveMap@{LiveMap}!clearPoints@{clearPoints}}
+\index{clearPoints@{clearPoints}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{clearPoints()}{clearPoints()}}
+{\footnotesize\ttfamily void Live\+Map\+::clear\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears all stored real-\/world points. 
+
+Clears all stored real-\/world points and resets the origin flag. 
+
+Definition at line 53 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55     \mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}}.clear();}
+\DoxyCodeLine{56     \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}}.clear();}
+\DoxyCodeLine{57     \mbox{\hyperlink{classLiveMap_a304b8a641e5328524e0ba0565cc80530}{originSet}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{58 \}}
+
+\end{DoxyCode}
+
+
+References origin\+Set, posX, and posY.
+
+
+
+Referenced by Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_acb6cab34d7e2ae63d41ffcbdfbeece2e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_a0157071646700aba0cbb45a6767b7487}\label{classLiveMap_a0157071646700aba0cbb45a6767b7487}} 
+\index{LiveMap@{LiveMap}!drawLiveMap@{drawLiveMap}}
+\index{drawLiveMap@{drawLiveMap}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{drawLiveMap()}{drawLiveMap()}}
+{\footnotesize\ttfamily void Live\+Map\+::draw\+Live\+Map (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption}) const}
+
+
+
+Draws the live grid using the \mbox{\hyperlink{classViewController}{View\+Controller}}. 
+
+Draws occupied cells of the live map on the given S\+F\+ML render target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & S\+F\+ML render target\\
+\hline
+\end{DoxyParams}
+The drawing is centered and scaled according to the controller parameters. 
+\begin{DoxyParams}{Parameters}
+{\em target} & S\+F\+ML Render\+Target to draw on. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 141 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142 \{}
+\DoxyCodeLine{143     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}.empty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{keywordtype}{float} metersPerCell = \mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}}.\mbox{\hyperlink{classViewController_ae16abf87a7514af7eda581ac04d23ec3}{getMetersPerCell}}();   \textcolor{comment}{// e.g., 0.1}}
+\DoxyCodeLine{146     \textcolor{keywordtype}{float} pixelsPerMeter = \mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}}.\mbox{\hyperlink{classViewController_a4371bcfa79ff09f98c5f49914e2a854d}{getPixelsPerMeter}}(); \textcolor{comment}{// e.g., 50.0}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{float} cellSize = metersPerCell * pixelsPerMeter;}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \textcolor{keywordtype}{int} rows = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}.size());}
+\DoxyCodeLine{151     \textcolor{keywordtype}{int} cols = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}[0].size());}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{keywordtype}{int} halfCols = cols / 2;}
+\DoxyCodeLine{154     \textcolor{keywordtype}{int} halfRows = rows / 2;}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     \textcolor{keywordtype}{float} zoom = \mbox{\hyperlink{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}{controller}}.\mbox{\hyperlink{classViewController_ab3b39d154cf93e5eec28d2bbdead91e4}{getZoom}}();}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     sf::RectangleShape cellShape;}
+\DoxyCodeLine{159     cellShape.setFillColor(sf::Color::Magenta);}
+\DoxyCodeLine{160     cellShape.setSize(sf::Vector2f(cellSize / zoom, cellSize / zoom));}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < rows; ++row) \{}
+\DoxyCodeLine{163         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < cols; ++col) \{}
+\DoxyCodeLine{164             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}[row][col] == 1) \{}
+\DoxyCodeLine{165                 \textcolor{keywordtype}{int} cellX = col -\/ halfCols;}
+\DoxyCodeLine{166                 \textcolor{keywordtype}{int} cellY = row -\/ halfRows;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168                 \textcolor{keywordtype}{float} x = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(cellX) * cellSize / zoom;}
+\DoxyCodeLine{169                 \textcolor{keywordtype}{float} y = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(cellY) * cellSize / zoom;}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171                 cellShape.setPosition(x, y);}
+\DoxyCodeLine{172                 target.draw(cellShape);}
+\DoxyCodeLine{173             \}}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 \}}
+
+\end{DoxyCode}
+
+
+References controller, View\+Controller\+::get\+Meters\+Per\+Cell(), View\+Controller\+::get\+Pixels\+Per\+Meter(), View\+Controller\+::get\+Zoom(), and grid.
+
+
+
+Referenced by Map\+Viewer\+::render().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_a0157071646700aba0cbb45a6767b7487_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_a0157071646700aba0cbb45a6767b7487_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_aca9414f3b6a8d57ec31f8a35fb1bb5d2}\label{classLiveMap_aca9414f3b6a8d57ec31f8a35fb1bb5d2}} 
+\index{LiveMap@{LiveMap}!fillGrid@{fillGrid}}
+\index{fillGrid@{fillGrid}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{fillGrid()}{fillGrid()}}
+{\footnotesize\ttfamily void Live\+Map\+::fill\+Grid (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{x\+Grid,  }\item[{const std\+::vector$<$ int $>$ \&}]{y\+Grid }\end{DoxyParamCaption})}
+
+
+
+Fills the grid using the given grid indices, marking cells as occupied (1) 
+
+Fills the grid with obstacles at specified grid indices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Grid} & Vector of X grid indices \\
+\hline
+{\em y\+Grid} & Vector of Y grid indices\\
+\hline
+\end{DoxyParams}
+Previous occupancy data is cleared. 
+\begin{DoxyParams}{Parameters}
+{\em x\+Grid} & Vector of X grid indices. \\
+\hline
+{\em y\+Grid} & Vector of Y grid indices. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 110 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111 \{}
+\DoxyCodeLine{112     \textcolor{keywordflow}{if} (xGrid.size() != yGrid.size()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \mbox{\hyperlink{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90}{clearGrid}}();}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < xGrid.size(); ++i) \{}
+\DoxyCodeLine{117         \textcolor{keywordtype}{int} xIdx = xGrid[i];}
+\DoxyCodeLine{118         \textcolor{keywordtype}{int} yIdx = yGrid[i];}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}[yIdx][xIdx] = 1; \textcolor{comment}{// Mark cell as occupied}}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+
+
+References clear\+Grid(), and grid.
+
+
+
+Referenced by update\+Grid\+From\+Points().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classLiveMap_aca9414f3b6a8d57ec31f8a35fb1bb5d2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_aca9414f3b6a8d57ec31f8a35fb1bb5d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_af9c68de338a34ee872aac401122c10bb}\label{classLiveMap_af9c68de338a34ee872aac401122c10bb}} 
+\index{LiveMap@{LiveMap}!getGrid@{getGrid}}
+\index{getGrid@{getGrid}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{getGrid()}{getGrid()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::vector$<$int$>$ $>$\& Live\+Map\+::get\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a constant reference to the full occupancy grid. 
+
+\begin{DoxyReturn}{Returns}
+Constant reference to grid 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file Live\+Map.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}; \};}
+
+\end{DoxyCode}
+
+
+References grid.
+
+
+
+Referenced by Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_af9c68de338a34ee872aac401122c10bb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}\label{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}} 
+\index{LiveMap@{LiveMap}!getIsActive@{getIsActive}}
+\index{getIsActive@{getIsActive}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{getIsActive()}{getIsActive()}}
+{\footnotesize\ttfamily bool Live\+Map\+::get\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether live mode is currently active. 
+
+\begin{DoxyReturn}{Returns}
+True if live mode is active 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Live\+Map.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classLiveMap_a11ddcec1ab42448e65da6986e64af945}{isLivemodeActive}}; \};}
+
+\end{DoxyCode}
+
+
+References is\+Livemode\+Active.
+
+
+
+Referenced by Right\+Click\+Map\+Menu\+::connect\+Signals().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_a7e1f1609a9105fdb4d99e6046fa14e16}\label{classLiveMap_a7e1f1609a9105fdb4d99e6046fa14e16}} 
+\index{LiveMap@{LiveMap}!setActive@{setActive}}
+\index{setActive@{setActive}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{setActive()}{setActive()}}
+{\footnotesize\ttfamily void Live\+Map\+::set\+Active (\begin{DoxyParamCaption}\item[{bool}]{is\+Active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Activates or deactivates live mode (when true, dynamic updates occur) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Active} & True to activate, false to deactivate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Live\+Map.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85 \{ \mbox{\hyperlink{classLiveMap_a11ddcec1ab42448e65da6986e64af945}{isLivemodeActive}} = \textcolor{keyword}{true}; \};}
+
+\end{DoxyCode}
+
+
+References is\+Livemode\+Active.
+
+\mbox{\Hypertarget{classLiveMap_a347e694d1d773cd4b6dae3619ece738e}\label{classLiveMap_a347e694d1d773cd4b6dae3619ece738e}} 
+\index{LiveMap@{LiveMap}!setGoal@{setGoal}}
+\index{setGoal@{setGoal}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{setGoal()}{setGoal()}}
+{\footnotesize\ttfamily void Live\+Map\+::set\+Goal (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Sets a special goal cell in the grid (value = \textquotesingle{}g\textquotesingle{}) 
+
+Marks a cell as the goal in the grid using A\+S\+C\+II code \textquotesingle{}g\textquotesingle{} (103).
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Grid row index \\
+\hline
+{\em j} & Grid column index\\
+\hline
+{\em i} & Row index. \\
+\hline
+{\em j} & Column index. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 183 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{184 \{}
+\DoxyCodeLine{185     \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}[i][j] = 103; \textcolor{comment}{// ASCII 'g'}}
+\DoxyCodeLine{186 \}}
+
+\end{DoxyCode}
+
+
+References grid.
+
+
+
+Referenced by Right\+Click\+Map\+Menu\+::connect\+Signals().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_a347e694d1d773cd4b6dae3619ece738e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_a99cf8f3223e97aec8332b16ae0f0b1c3}\label{classLiveMap_a99cf8f3223e97aec8332b16ae0f0b1c3}} 
+\index{LiveMap@{LiveMap}!setPoints@{setPoints}}
+\index{setPoints@{setPoints}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{setPoints()}{setPoints()}}
+{\footnotesize\ttfamily void Live\+Map\+::set\+Points (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{newX,  }\item[{const std\+::vector$<$ double $>$ \&}]{newY }\end{DoxyParamCaption})}
+
+
+
+Replaces current point buffer with a new set of coordinates. 
+
+Replaces stored points with a new set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & New set of X coordinates \\
+\hline
+{\em newY} & New set of Y coordinates\\
+\hline
+{\em newX} & Vector of X coordinates. \\
+\hline
+{\em newY} & Vector of Y coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}} = newX;}
+\DoxyCodeLine{47     \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}} = newY;}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+
+
+References posX, and posY.
+
+\mbox{\Hypertarget{classLiveMap_a9ad8bff237bd575f7394485e73b67370}\label{classLiveMap_a9ad8bff237bd575f7394485e73b67370}} 
+\index{LiveMap@{LiveMap}!setStart@{setStart}}
+\index{setStart@{setStart}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{setStart()}{setStart()}}
+{\footnotesize\ttfamily void Live\+Map\+::set\+Start (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Sets a special start cell in the grid (value = \textquotesingle{}s\textquotesingle{}) 
+
+Marks a cell as the start in the grid using A\+S\+C\+II code \textquotesingle{}s\textquotesingle{} (115).
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Grid row index \\
+\hline
+{\em j} & Grid column index\\
+\hline
+{\em i} & Row index. \\
+\hline
+{\em j} & Column index. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 193 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{194 \{}
+\DoxyCodeLine{195     \mbox{\hyperlink{classLiveMap_a668066237391014de894e4e00a09ab4d}{grid}}[i][j] = 115; \textcolor{comment}{// ASCII 's'}}
+\DoxyCodeLine{196 \}}
+
+\end{DoxyCode}
+
+
+References grid.
+
+\mbox{\Hypertarget{classLiveMap_af35f553cf7473ec20650328b423ddddf}\label{classLiveMap_af35f553cf7473ec20650328b423ddddf}} 
+\index{LiveMap@{LiveMap}!updateGridFromPoints@{updateGridFromPoints}}
+\index{updateGridFromPoints@{updateGridFromPoints}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{updateGridFromPoints()}{updateGridFromPoints()}}
+{\footnotesize\ttfamily void Live\+Map\+::update\+Grid\+From\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the grid from the internal point buffer. 
+
+Updates the occupancy grid based on the stored real-\/world points. 
+
+Definition at line 127 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128 \{}
+\DoxyCodeLine{129     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}}.empty() || \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}}.empty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     std::vector<int> xGrid, yGrid;}
+\DoxyCodeLine{132     \mbox{\hyperlink{classLiveMap_a4c5f9a45946eb1fc48e3b50b28da724a}{xy2Grid}}(\mbox{\hyperlink{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}{posX}}, \mbox{\hyperlink{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}{posY}}, xGrid, yGrid);}
+\DoxyCodeLine{133     \mbox{\hyperlink{classLiveMap_aca9414f3b6a8d57ec31f8a35fb1bb5d2}{fillGrid}}(xGrid, yGrid);}
+\DoxyCodeLine{134 \}}
+
+\end{DoxyCode}
+
+
+References fill\+Grid(), posX, posY, and xy2\+Grid().
+
+
+
+Referenced by Map\+Viewer\+::update().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_af35f553cf7473ec20650328b423ddddf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_af35f553cf7473ec20650328b423ddddf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classLiveMap_a4c5f9a45946eb1fc48e3b50b28da724a}\label{classLiveMap_a4c5f9a45946eb1fc48e3b50b28da724a}} 
+\index{LiveMap@{LiveMap}!xy2Grid@{xy2Grid}}
+\index{xy2Grid@{xy2Grid}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{xy2Grid()}{xy2Grid()}}
+{\footnotesize\ttfamily void Live\+Map\+::xy2\+Grid (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{x,  }\item[{const std\+::vector$<$ double $>$ \&}]{y,  }\item[{std\+::vector$<$ int $>$ \&}]{x\+Grid,  }\item[{std\+::vector$<$ int $>$ \&}]{y\+Grid }\end{DoxyParamCaption})}
+
+
+
+Converts real-\/world coordinates to grid indices. 
+
+Converts real-\/world coordinates to grid indices relative to the origin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Vector of real-\/world X coordinates \\
+\hline
+{\em y} & Vector of real-\/world Y coordinates \\
+\hline
+{\em x\+Grid} & Output vector for grid X indices \\
+\hline
+{\em y\+Grid} & Output vector for grid Y indices\\
+\hline
+\end{DoxyParams}
+Points outside the grid are ignored. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Vector of X coordinates. \\
+\hline
+{\em y} & Vector of Y coordinates. \\
+\hline
+{\em x\+Grid} & Output vector of grid X indices. \\
+\hline
+{\em y\+Grid} & Output vector of grid Y indices. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file Live\+Map.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81     \textcolor{keywordflow}{if} (x.size() != y.size() || !\mbox{\hyperlink{classLiveMap_a304b8a641e5328524e0ba0565cc80530}{originSet}}) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     xGrid.clear();}
+\DoxyCodeLine{84     yGrid.clear();}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} halfGrid = \mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{gridSize}} / 2;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < x.size(); ++i) \{}
+\DoxyCodeLine{89         \textcolor{keywordtype}{double} shiftedX = x[i] -\/ \mbox{\hyperlink{classLiveMap_a3c5d5907e4eea8c3165fce0a5286d926}{originX}};}
+\DoxyCodeLine{90         \textcolor{keywordtype}{double} shiftedY = y[i] -\/ \mbox{\hyperlink{classLiveMap_aff5417f7097398db0b20c08ddade79a6}{originY}};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92         \textcolor{keywordtype}{int} xIdx = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(shiftedX / \mbox{\hyperlink{classLiveMap_a007a09b2172d464b3810db8d82a13c78}{gridResolution}})) + halfGrid;}
+\DoxyCodeLine{93         \textcolor{keywordtype}{int} yIdx = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(shiftedY / \mbox{\hyperlink{classLiveMap_a007a09b2172d464b3810db8d82a13c78}{gridResolution}})) + halfGrid;}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95         \textcolor{comment}{// Ignore points outside grid bounds}}
+\DoxyCodeLine{96         \textcolor{keywordflow}{if} (xIdx < 0 || xIdx >= \mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{gridSize}} || yIdx < 0 || yIdx >= \mbox{\hyperlink{classLiveMap_a14a370d873c5d63a058c140290b9d226}{gridSize}})}
+\DoxyCodeLine{97             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99         xGrid.push\_back(xIdx);}
+\DoxyCodeLine{100         yGrid.push\_back(yIdx);}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
+
+
+References grid\+Resolution, grid\+Size, origin\+Set, originX, and originY.
+
+
+
+Referenced by update\+Grid\+From\+Points().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLiveMap_a4c5f9a45946eb1fc48e3b50b28da724a_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}\label{classLiveMap_a09bd40e3b05bf8d7b7f9c9015945d7b4}} 
+\index{LiveMap@{LiveMap}!controller@{controller}}
+\index{controller@{controller}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classViewController}{View\+Controller}}\& Live\+Map\+::controller\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the view controller for rendering. 
+
+
+
+Definition at line 108 of file Live\+Map.\+hpp.
+
+
+
+Referenced by draw\+Live\+Map().
+
+\mbox{\Hypertarget{classLiveMap_a668066237391014de894e4e00a09ab4d}\label{classLiveMap_a668066237391014de894e4e00a09ab4d}} 
+\index{LiveMap@{LiveMap}!grid@{grid}}
+\index{grid@{grid}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{grid}{grid}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ Live\+Map\+::grid\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+2D occupancy grid (0 = free, 1 = occupied, \textquotesingle{}s\textquotesingle{} = start, \textquotesingle{}g\textquotesingle{} = goal) 
+
+
+
+Definition at line 113 of file Live\+Map.\+hpp.
+
+
+
+Referenced by clear\+Grid(), draw\+Live\+Map(), fill\+Grid(), get\+Grid(), Live\+Map(), set\+Goal(), and set\+Start().
+
+\mbox{\Hypertarget{classLiveMap_a007a09b2172d464b3810db8d82a13c78}\label{classLiveMap_a007a09b2172d464b3810db8d82a13c78}} 
+\index{LiveMap@{LiveMap}!gridResolution@{gridResolution}}
+\index{gridResolution@{gridResolution}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{gridResolution}{gridResolution}}
+{\footnotesize\ttfamily double Live\+Map\+::grid\+Resolution\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Size of each cell in real-\/world units. 
+
+
+
+Definition at line 110 of file Live\+Map.\+hpp.
+
+
+
+Referenced by xy2\+Grid().
+
+\mbox{\Hypertarget{classLiveMap_a14a370d873c5d63a058c140290b9d226}\label{classLiveMap_a14a370d873c5d63a058c140290b9d226}} 
+\index{LiveMap@{LiveMap}!gridSize@{gridSize}}
+\index{gridSize@{gridSize}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{gridSize}{gridSize}}
+{\footnotesize\ttfamily int Live\+Map\+::grid\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map size (number of cells per side) 
+
+
+
+Definition at line 109 of file Live\+Map.\+hpp.
+
+
+
+Referenced by Live\+Map(), and xy2\+Grid().
+
+\mbox{\Hypertarget{classLiveMap_a11ddcec1ab42448e65da6986e64af945}\label{classLiveMap_a11ddcec1ab42448e65da6986e64af945}} 
+\index{LiveMap@{LiveMap}!isLivemodeActive@{isLivemodeActive}}
+\index{isLivemodeActive@{isLivemodeActive}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{isLivemodeActive}{isLivemodeActive}}
+{\footnotesize\ttfamily bool Live\+Map\+::is\+Livemode\+Active = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether live updates are happening. 
+
+
+
+Definition at line 118 of file Live\+Map.\+hpp.
+
+
+
+Referenced by get\+Is\+Active(), and set\+Active().
+
+\mbox{\Hypertarget{classLiveMap_a304b8a641e5328524e0ba0565cc80530}\label{classLiveMap_a304b8a641e5328524e0ba0565cc80530}} 
+\index{LiveMap@{LiveMap}!originSet@{originSet}}
+\index{originSet@{originSet}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{originSet}{originSet}}
+{\footnotesize\ttfamily bool Live\+Map\+::origin\+Set = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag to know if the origin is initialized. 
+
+
+
+Definition at line 115 of file Live\+Map.\+hpp.
+
+
+
+Referenced by add\+Point(), clear\+Points(), and xy2\+Grid().
+
+\mbox{\Hypertarget{classLiveMap_a3c5d5907e4eea8c3165fce0a5286d926}\label{classLiveMap_a3c5d5907e4eea8c3165fce0a5286d926}} 
+\index{LiveMap@{LiveMap}!originX@{originX}}
+\index{originX@{originX}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{originX}{originX}}
+{\footnotesize\ttfamily double Live\+Map\+::originX = 0.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 116 of file Live\+Map.\+hpp.
+
+
+
+Referenced by add\+Point(), and xy2\+Grid().
+
+\mbox{\Hypertarget{classLiveMap_aff5417f7097398db0b20c08ddade79a6}\label{classLiveMap_aff5417f7097398db0b20c08ddade79a6}} 
+\index{LiveMap@{LiveMap}!originY@{originY}}
+\index{originY@{originY}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{originY}{originY}}
+{\footnotesize\ttfamily double Live\+Map\+::originY = 0.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Optional offset for positioning. 
+
+
+
+Definition at line 116 of file Live\+Map.\+hpp.
+
+
+
+Referenced by add\+Point(), and xy2\+Grid().
+
+\mbox{\Hypertarget{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}\label{classLiveMap_ac80d72bd729e60a816f9e44fd61ee885}} 
+\index{LiveMap@{LiveMap}!posX@{posX}}
+\index{posX@{posX}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{posX}{posX}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Live\+Map\+::posX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 112 of file Live\+Map.\+hpp.
+
+
+
+Referenced by add\+Point(), clear\+Points(), Live\+Map(), set\+Points(), and update\+Grid\+From\+Points().
+
+\mbox{\Hypertarget{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}\label{classLiveMap_a33593d4dfa6518b02e3cdc321e380e1d}} 
+\index{LiveMap@{LiveMap}!posY@{posY}}
+\index{posY@{posY}!LiveMap@{LiveMap}}
+\doxysubsubsection{\texorpdfstring{posY}{posY}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Live\+Map\+::posY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Buffer of real-\/world x/y points. 
+
+
+
+Definition at line 112 of file Live\+Map.\+hpp.
+
+
+
+Referenced by add\+Point(), clear\+Points(), Live\+Map(), set\+Points(), and update\+Grid\+From\+Points().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{LiveMap_8hpp}{Live\+Map.\+hpp}}\item 
+src/\mbox{\hyperlink{LiveMap_8cpp}{Live\+Map.\+cpp}}\end{DoxyCompactItemize}

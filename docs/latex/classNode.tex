@@ -1,0 +1,319 @@
+\hypertarget{classNode}{}\doxysection{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+
+
+Represents a node in a grid used for path planning algorithms (e.\+g., A$\ast$). Each node corresponds to a cell and holds all relevant data for cost calculation and path reconstruction.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+hpp$>$}
+
+
+
+Collaboration diagram for Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNode_ad7a34779cad45d997bfd6d3d8043c75f}{Node}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor\+: initializes all coordinates and costs to invalid/default values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode_a23a19f53dfbb18fec58cdac90de3d144}{Node}} (int \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}, int \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}})
+\begin{DoxyCompactList}\small\item\em Constructor with node position. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{f\+Cost}} () const
+\begin{DoxyCompactList}\small\item\em Returns the total estimated cost (f-\/cost) of the node\+: f = g + h. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNode_ad258e5e22898c8232316d8e2a8c10456}{operator$>$}} (const \mbox{\hyperlink{classNode}{Node}} \&other) const
+\begin{DoxyCompactList}\small\item\em Comparison operator for use with priority queues (min-\/heap). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}
+\item 
+int \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}
+\begin{DoxyCompactList}\small\item\em Current node (cell) position in grid coordinates. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classNode_a7fd6d92dcc86489f111d70c8e322d94c}{parent}}
+\begin{DoxyCompactList}\small\item\em Parent node position (used for path reconstruction) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}
+\item 
+int \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}
+\begin{DoxyCompactList}\small\item\em Redundant storage of parent coordinates. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{g\+Cost}}
+\begin{DoxyCompactList}\small\item\em Cost from the start node to this node. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{h\+Cost}}
+\begin{DoxyCompactList}\small\item\em Heuristic cost estimate from this node to the goal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a node in a grid used for path planning algorithms (e.\+g., A$\ast$). Each node corresponds to a cell and holds all relevant data for cost calculation and path reconstruction. 
+
+Definition at line 9 of file Node.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNode_ad7a34779cad45d997bfd6d3d8043c75f}\label{classNode_ad7a34779cad45d997bfd6d3d8043c75f}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor\+: initializes all coordinates and costs to invalid/default values. 
+
+
+
+Definition at line 17 of file Node.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 : \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}(-\/1), \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}(-\/1), \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}(-\/1), \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}(-\/1), \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}}(0), \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}(0) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a23a19f53dfbb18fec58cdac90de3d144}\label{classNode_a23a19f53dfbb18fec58cdac90de3d144}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with node position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Grid x-\/coordinate of the node. \\
+\hline
+{\em y} & Grid y-\/coordinate of the node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file Node.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25         : \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}(\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}), \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}(\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}), \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}(-\/1), \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}(-\/1), \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}}(0), \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}(0)}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27         \mbox{\hyperlink{classNode_a7fd6d92dcc86489f111d70c8e322d94c}{parent}} = sf::Vector2i(\mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}, \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}});}
+\DoxyCodeLine{28     \}}
+
+\end{DoxyCode}
+
+
+References parent, parentX, and parentY.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNode_ad4e8dcafa398a8613bc3ed8681f31933}\label{classNode_ad4e8dcafa398a8613bc3ed8681f31933}} 
+\index{Node@{Node}!fCost@{fCost}}
+\index{fCost@{fCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{fCost()}{fCost()}}
+{\footnotesize\ttfamily float Node\+::f\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the total estimated cost (f-\/cost) of the node\+: f = g + h. 
+
+This value is used in most path planning algorithms (e.\+g., A$\ast$) to prioritize nodes. \begin{DoxyReturn}{Returns}
+Sum of g\+Cost and h\+Cost. 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file Node.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} + \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}; \}}
+
+\end{DoxyCode}
+
+
+References g\+Cost, and h\+Cost.
+
+
+
+Referenced by operator$>$(), and A\+Star\+::step().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classNode_ad4e8dcafa398a8613bc3ed8681f31933_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classNode_ad258e5e22898c8232316d8e2a8c10456}\label{classNode_ad258e5e22898c8232316d8e2a8c10456}} 
+\index{Node@{Node}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Node\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comparison operator for use with priority queues (min-\/heap). 
+
+Returns true if this node has a higher f-\/cost than another node. Nodes with lower f-\/costs are given higher priority. 
+\begin{DoxyParams}{Parameters}
+{\em other} & The other node to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this node\textquotesingle{}s f\+Cost is greater than the other\textquotesingle{}s. 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file Node.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                                             \{}
+\DoxyCodeLine{51         \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}() > other.\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}();}
+\DoxyCodeLine{52     \}}
+
+\end{DoxyCode}
+
+
+References f\+Cost().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classNode_ad258e5e22898c8232316d8e2a8c10456_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classNode_ac4099dbe7fe9827ceae92ab60606515a}\label{classNode_ac4099dbe7fe9827ceae92ab60606515a}} 
+\index{Node@{Node}!gCost@{gCost}}
+\index{gCost@{gCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{gCost}{gCost}}
+{\footnotesize\ttfamily float Node\+::g\+Cost}
+
+
+
+Cost from the start node to this node. 
+
+
+
+Definition at line 33 of file Node.\+hpp.
+
+
+
+Referenced by f\+Cost(), A\+Star\+::start(), and A\+Star\+::step().
+
+\mbox{\Hypertarget{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}\label{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}} 
+\index{Node@{Node}!hCost@{hCost}}
+\index{hCost@{hCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{hCost}{hCost}}
+{\footnotesize\ttfamily float Node\+::h\+Cost}
+
+
+
+Heuristic cost estimate from this node to the goal. 
+
+
+
+Definition at line 34 of file Node.\+hpp.
+
+
+
+Referenced by f\+Cost(), A\+Star\+::start(), and A\+Star\+::step().
+
+\mbox{\Hypertarget{classNode_a7fd6d92dcc86489f111d70c8e322d94c}\label{classNode_a7fd6d92dcc86489f111d70c8e322d94c}} 
+\index{Node@{Node}!parent@{parent}}
+\index{parent@{parent}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Node\+::parent}
+
+
+
+Parent node position (used for path reconstruction) 
+
+
+
+Definition at line 31 of file Node.\+hpp.
+
+
+
+Referenced by Node().
+
+\mbox{\Hypertarget{classNode_a4a2efa33b7903fe8e0848f30368c00d0}\label{classNode_a4a2efa33b7903fe8e0848f30368c00d0}} 
+\index{Node@{Node}!parentX@{parentX}}
+\index{parentX@{parentX}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{parentX}{parentX}}
+{\footnotesize\ttfamily int Node\+::parentX}
+
+
+
+Definition at line 32 of file Node.\+hpp.
+
+
+
+Referenced by Node().
+
+\mbox{\Hypertarget{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}\label{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}} 
+\index{Node@{Node}!parentY@{parentY}}
+\index{parentY@{parentY}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{parentY}{parentY}}
+{\footnotesize\ttfamily int Node\+::parentY}
+
+
+
+Redundant storage of parent coordinates. 
+
+
+
+Definition at line 32 of file Node.\+hpp.
+
+
+
+Referenced by Node().
+
+\mbox{\Hypertarget{classNode_aff1029a518bdc2651007b8856f958364}\label{classNode_aff1029a518bdc2651007b8856f958364}} 
+\index{Node@{Node}!x@{x}}
+\index{x@{x}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Node\+::x}
+
+
+
+Definition at line 30 of file Node.\+hpp.
+
+
+
+Referenced by A\+Star\+::get\+Neighbors(), A\+Star\+::reconstruct\+Path(), and A\+Star\+::step().
+
+\mbox{\Hypertarget{classNode_aa3e5b5240023b4528ae85057b3324202}\label{classNode_aa3e5b5240023b4528ae85057b3324202}} 
+\index{Node@{Node}!y@{y}}
+\index{y@{y}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Node\+::y}
+
+
+
+Current node (cell) position in grid coordinates. 
+
+
+
+Definition at line 30 of file Node.\+hpp.
+
+
+
+Referenced by A\+Star\+::get\+Neighbors(), A\+Star\+::reconstruct\+Path(), and A\+Star\+::step().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{Node_8hpp}{Node.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,622 @@
+\hypertarget{classMenuBar}{}\doxysection{Menu\+Bar Class Reference}
+\label{classMenuBar}\index{MenuBar@{MenuBar}}
+
+
+Manages the menu bar located at the bottom of the screen. Provides options for file handling, view controls, robot creation, and live mode toggle.  
+
+
+
+
+{\ttfamily \#include $<$Menu\+Bar.\+hpp$>$}
+
+
+
+Collaboration diagram for Menu\+Bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classMenuBar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMenuBar_ab409cdcb7c1a05013f4ec78a0b3ddaa5}{Menu\+Bar}} (tgui\+::\+Gui \&gui)
+\begin{DoxyCompactList}\small\item\em Constructor\+: initializes and places the menu elements within the given G\+UI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuBar_a431f81a34ec89382bfaf5054cf518109}{set\+Callbacks}} (std\+::function$<$ void()$>$ on\+Open, std\+::function$<$ void()$>$ on\+Save, std\+::function$<$ void()$>$ on\+Save\+Image, std\+::function$<$ void()$>$ on\+Close, std\+::function$<$ void()$>$ on\+Reset\+View, std\+::function$<$ void()$>$ on\+Clear\+View, std\+::function$<$ void()$>$ on\+Create\+Robot, std\+::function$<$ void()$>$ on\+Simulation)
+\begin{DoxyCompactList}\small\item\em Sets the callback functions for each menu option\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuBar_a94cba4067d873ac499fe9f0327ba22dc}{update\+Coordinates}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Updates the label showing the current grid coordinates of the mouse. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}{get\+Live\+Mode}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether live mode is currently enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMenuBar_a960511444212d092307581bb43e28e9f}{setup\+Menu}} (tgui\+::\+Gui \&gui)
+\begin{DoxyCompactList}\small\item\em Helper to set up the main menu bar structure and entries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuBar_a00fceb6edf16b945279408d034b77eb1}{setup\+Cord\+Lable}} (tgui\+::\+Gui \&gui)
+\begin{DoxyCompactList}\small\item\em Helper to set up the label that shows mouse grid coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657}{setuplive\+Toggle}} (tgui\+::\+Gui \&gui)
+\begin{DoxyCompactList}\small\item\em Helper to set up the toggle button for live mode (R\+OS streaming). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+tgui\+::\+Menu\+Bar\+::\+Ptr \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menu\+Bar}}
+\begin{DoxyCompactList}\small\item\em Pointer to the T\+G\+UI \mbox{\hyperlink{classMenuBar}{Menu\+Bar}} widget. \end{DoxyCompactList}\item 
+tgui\+::\+Label\+::\+Ptr \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coord\+Label}}
+\begin{DoxyCompactList}\small\item\em Label to show mouse position in grid coordinates. \end{DoxyCompactList}\item 
+tgui\+::\+Toggle\+Button\+::\+Ptr \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{live\+Toggle}}
+\begin{DoxyCompactList}\small\item\em Toggle button to activate/deactivate live mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{live\+Mode}} = false
+\begin{DoxyCompactList}\small\item\em Indicates whether live mode is active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the menu bar located at the bottom of the screen. Provides options for file handling, view controls, robot creation, and live mode toggle. 
+
+Definition at line 14 of file Menu\+Bar.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMenuBar_ab409cdcb7c1a05013f4ec78a0b3ddaa5}\label{classMenuBar_ab409cdcb7c1a05013f4ec78a0b3ddaa5}} 
+\index{MenuBar@{MenuBar}!MenuBar@{MenuBar}}
+\index{MenuBar@{MenuBar}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{MenuBar()}{MenuBar()}}
+{\footnotesize\ttfamily Menu\+Bar\+::\+Menu\+Bar (\begin{DoxyParamCaption}\item[{tgui\+::\+Gui \&}]{gui }\end{DoxyParamCaption})}
+
+
+
+Constructor\+: initializes and places the menu elements within the given G\+UI. 
+
+Constructs the \mbox{\hyperlink{classMenuBar}{Menu\+Bar}} and initializes all components.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI object where menu elements will be placed.\\
+\hline
+\end{DoxyParams}
+Creates the main menu bar, the coordinate label, and the live mode toggle button.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI instance where widgets will be added. \\
+\hline
+\end{DoxyParams}
+$<$ Create the main menu bar
+
+$<$ Create coordinate display label
+
+$<$ Create toggle button for live mode
+
+Definition at line 14 of file Menu\+Bar.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14                              \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{classMenuBar_a960511444212d092307581bb43e28e9f}{setupMenu}}(gui);        \textcolor{comment}{/**< Create the main menu bar */}}
+\DoxyCodeLine{16     \mbox{\hyperlink{classMenuBar_a00fceb6edf16b945279408d034b77eb1}{setupCordLable}}(gui);  \textcolor{comment}{/**< Create coordinate display label */}}
+\DoxyCodeLine{17     \mbox{\hyperlink{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657}{setupliveToggle}}(gui);  \textcolor{comment}{/**< Create toggle button for live mode */}}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+
+
+References setup\+Cord\+Lable(), setuplive\+Toggle(), and setup\+Menu().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMenuBar_ab409cdcb7c1a05013f4ec78a0b3ddaa5_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}\label{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}} 
+\index{MenuBar@{MenuBar}!getLiveMode@{getLiveMode}}
+\index{getLiveMode@{getLiveMode}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{getLiveMode()}{getLiveMode()}}
+{\footnotesize\ttfamily bool Menu\+Bar\+::get\+Live\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether live mode is currently enabled. 
+
+\begin{DoxyReturn}{Returns}
+true if live mode is active, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file Menu\+Bar.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}}; \};}
+
+\end{DoxyCode}
+
+
+References live\+Mode.
+
+
+
+Referenced by Map\+Viewer\+::render(), and Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMenuBar_a355bc5c82c36caf2693d65907ff92e64_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMenuBar_a431f81a34ec89382bfaf5054cf518109}\label{classMenuBar_a431f81a34ec89382bfaf5054cf518109}} 
+\index{MenuBar@{MenuBar}!setCallbacks@{setCallbacks}}
+\index{setCallbacks@{setCallbacks}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{setCallbacks()}{setCallbacks()}}
+{\footnotesize\ttfamily void Menu\+Bar\+::set\+Callbacks (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{on\+Open,  }\item[{std\+::function$<$ void()$>$}]{on\+Save,  }\item[{std\+::function$<$ void()$>$}]{on\+Save\+Image,  }\item[{std\+::function$<$ void()$>$}]{on\+Close,  }\item[{std\+::function$<$ void()$>$}]{on\+Reset\+View,  }\item[{std\+::function$<$ void()$>$}]{on\+Clear\+View,  }\item[{std\+::function$<$ void()$>$}]{on\+Create\+Robot,  }\item[{std\+::function$<$ void()$>$}]{on\+Simulation }\end{DoxyParamCaption})}
+
+
+
+Sets the callback functions for each menu option\+: 
+
+Connects external callback functions to the menu items.
+
+
+\begin{DoxyItemize}
+\item on\+Open\+: Open a map file
+\item on\+Save\+: Save current map state
+\item on\+Save\+Image\+: Export current map as an image
+\item on\+Close\+: Exit or close the application
+\item on\+Reset\+View\+: Reset camera view
+\item on\+Clear\+View\+: Clear the current grid/map
+\item on\+Create\+Robot\+: Trigger robot creation interface
+\item on\+Simulation\+: Start or stop the simulation
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em on\+Open} & Callback for \char`\"{}\+Open\char`\"{} menu option \\
+\hline
+{\em on\+Save} & Callback for \char`\"{}\+Save\char`\"{} menu option \\
+\hline
+{\em on\+Save\+Image} & Callback for \char`\"{}\+Save Image\char`\"{} menu option \\
+\hline
+{\em on\+Close} & Callback for \char`\"{}\+Close\char`\"{} menu option \\
+\hline
+{\em on\+Reset\+View} & Callback for \char`\"{}\+Reset View\char`\"{} menu option \\
+\hline
+{\em on\+Clear\+View} & Callback for \char`\"{}\+Clear View\char`\"{} menu option \\
+\hline
+{\em on\+Create\+Robot} & Callback for \char`\"{}\+Create Robot\char`\"{} menu option \\
+\hline
+{\em on\+Simulation} & Callback for \char`\"{}\+Simulation\char`\"{} menu option\\
+\hline
+\end{DoxyParams}
+Allows external code to respond to menu item selections.
+
+
+\begin{DoxyParams}{Parameters}
+{\em on\+Open} & Callback invoked when \char`\"{}\+Open\char`\"{} is selected. \\
+\hline
+{\em on\+Save} & Callback invoked when \char`\"{}\+Save\char`\"{} is selected. \\
+\hline
+{\em on\+Save\+Image} & Callback invoked when \char`\"{}\+Save2\+Image\char`\"{} is selected. \\
+\hline
+{\em on\+Close} & Callback invoked when \char`\"{}\+Close\char`\"{} is selected. \\
+\hline
+{\em on\+Reset\+View} & Callback invoked when \char`\"{}\+Reset\+View\char`\"{} is selected. \\
+\hline
+{\em on\+Clear\+View} & Callback invoked when \char`\"{}\+Clear\+View\char`\"{} is selected. \\
+\hline
+{\em on\+Create\+Robot} & Callback invoked when \char`\"{}\+W\+M\+R\char`\"{} is selected under \char`\"{}\+Create object\char`\"{}. \\
+\hline
+{\em on\+Simulation} & Callback invoked when \char`\"{}\+A$\ast$\char`\"{} is selected under \char`\"{}\+Simulation\char`\"{}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file Menu\+Bar.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142 \{}
+\DoxyCodeLine{143     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Open"}, [onOpen]() \{}
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} (onOpen) onOpen();}
+\DoxyCodeLine{145     \});}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save"}, [onSave]() \{}
+\DoxyCodeLine{148         \textcolor{keywordflow}{if} (onSave) onSave();}
+\DoxyCodeLine{149     \});}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save2Image"}, [onSaveImage]() \{}
+\DoxyCodeLine{152         \textcolor{keywordflow}{if} (onSaveImage) onSaveImage();}
+\DoxyCodeLine{153     \});}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Close"}, [onClose]() \{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{if} (onClose) onClose();}
+\DoxyCodeLine{157     \});}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ResetView"}, [onResetView]() \{}
+\DoxyCodeLine{160         \textcolor{keywordflow}{if} (onResetView) onResetView();}
+\DoxyCodeLine{161     \});}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ClearView"}, [onClearView]() \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} (onClearView) onClearView();}
+\DoxyCodeLine{165     \});}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"Create object"}, \textcolor{stringliteral}{"WMR"}, [onCreateRobot]() \{}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} (onCreateRobot) onCreateRobot();}
+\DoxyCodeLine{169     \});}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"Simulation"}, \textcolor{stringliteral}{"A*"}, [onSimulation]() \{}
+\DoxyCodeLine{172         \textcolor{keywordflow}{if} (onSimulation) onSimulation();}
+\DoxyCodeLine{173     \});}
+\DoxyCodeLine{174 \}}
+
+\end{DoxyCode}
+
+
+References menu\+Bar.
+
+
+
+Referenced by Map\+Viewer\+::\+Map\+Viewer().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMenuBar_a431f81a34ec89382bfaf5054cf518109_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMenuBar_a00fceb6edf16b945279408d034b77eb1}\label{classMenuBar_a00fceb6edf16b945279408d034b77eb1}} 
+\index{MenuBar@{MenuBar}!setupCordLable@{setupCordLable}}
+\index{setupCordLable@{setupCordLable}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{setupCordLable()}{setupCordLable()}}
+{\footnotesize\ttfamily void Menu\+Bar\+::setup\+Cord\+Lable (\begin{DoxyParamCaption}\item[{tgui\+::\+Gui \&}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper to set up the label that shows mouse grid coordinates. 
+
+Sets up the coordinate label displayed at the bottom right of the window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI object.\\
+\hline
+\end{DoxyParams}
+The label initially shows placeholder text and has transparent background with black text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file Menu\+Bar.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                          \{}
+\DoxyCodeLine{64     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}} = tgui::Label::create(\textcolor{stringliteral}{"Grid: -\/, Real: -\/"});}
+\DoxyCodeLine{65     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setTextSize(14);}
+\DoxyCodeLine{66     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setPosition(\textcolor{stringliteral}{"100\% -\/ 400"}, \textcolor{stringliteral}{"100\% -\/ 20"}); \textcolor{comment}{// Bottom right, offset leftwards}}
+\DoxyCodeLine{67     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>getRenderer()-\/>setBackgroundColor(tgui::Color::Transparent);}
+\DoxyCodeLine{68     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>getRenderer()-\/>setTextColor(tgui::Color::Black);}
+\DoxyCodeLine{69     gui.add(\mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}, \textcolor{stringliteral}{"CoordLabel"});}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+
+
+References coord\+Label.
+
+
+
+Referenced by Menu\+Bar().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMenuBar_a00fceb6edf16b945279408d034b77eb1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657}\label{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657}} 
+\index{MenuBar@{MenuBar}!setupliveToggle@{setupliveToggle}}
+\index{setupliveToggle@{setupliveToggle}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{setupliveToggle()}{setupliveToggle()}}
+{\footnotesize\ttfamily void Menu\+Bar\+::setuplive\+Toggle (\begin{DoxyParamCaption}\item[{tgui\+::\+Gui \&}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper to set up the toggle button for live mode (R\+OS streaming). 
+
+Creates and configures the live mode toggle button.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI object.\\
+\hline
+\end{DoxyParams}
+The button switches between O\+N/\+O\+FF states with color feedback (green/red). Positioned near the coordinate label.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 80 of file Menu\+Bar.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                                           \{}
+\DoxyCodeLine{81     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}} = tgui::ToggleButton::create();}
+\DoxyCodeLine{82     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setSize(50, 20);}
+\DoxyCodeLine{83     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setText(\textcolor{stringliteral}{"Live"});}
+\DoxyCodeLine{84     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setPosition(\textcolor{stringliteral}{"100\% -\/ 60"}, \textcolor{stringliteral}{"100\% -\/ 20"});}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keyword}{auto} renderer = \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>getRenderer();}
+\DoxyCodeLine{87     renderer-\/>setRoundedBorderRadius(10);}
+\DoxyCodeLine{88     renderer-\/>setTextColor(tgui::Color::White);}
+\DoxyCodeLine{89     renderer-\/>setBorderColor(tgui::Color::White);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{// Default OFF (red) colors}}
+\DoxyCodeLine{92     renderer-\/>setBackgroundColor(tgui::Color(120, 0, 0));}
+\DoxyCodeLine{93     renderer-\/>setBackgroundColorHover(tgui::Color(180, 60, 60));}
+\DoxyCodeLine{94     renderer-\/>setBackgroundColorDown(tgui::Color(255, 100, 100));}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     gui.add(\mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}});}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{comment}{// Change toggle button color based on state (green for ON, red for OFF)}}
+\DoxyCodeLine{101     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>onToggle([\textcolor{keyword}{this}](\textcolor{keywordtype}{bool} state) \{}
+\DoxyCodeLine{102         \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}} = state;}
+\DoxyCodeLine{103         \textcolor{keyword}{auto} renderer = \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>getRenderer();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} (state) \{}
+\DoxyCodeLine{106             \textcolor{comment}{// ON state colors (green)}}
+\DoxyCodeLine{107             renderer-\/>setBackgroundColor(tgui::Color(0, 180, 0));}
+\DoxyCodeLine{108             renderer-\/>setBackgroundColorHover(tgui::Color(80, 220, 80));}
+\DoxyCodeLine{109             renderer-\/>setBackgroundColorDown(tgui::Color(100, 255, 100));}
+\DoxyCodeLine{110         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{111             \textcolor{comment}{// OFF state colors (red)}}
+\DoxyCodeLine{112             renderer-\/>setBackgroundColor(tgui::Color(120, 0, 0));}
+\DoxyCodeLine{113             renderer-\/>setBackgroundColorHover(tgui::Color(180, 60, 60));}
+\DoxyCodeLine{114             renderer-\/>setBackgroundColorDown(tgui::Color(255, 100, 100));}
+\DoxyCodeLine{115         \}}
+\DoxyCodeLine{116     \});}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+
+
+References live\+Mode, and live\+Toggle.
+
+
+
+Referenced by Menu\+Bar().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMenuBar_a960511444212d092307581bb43e28e9f}\label{classMenuBar_a960511444212d092307581bb43e28e9f}} 
+\index{MenuBar@{MenuBar}!setupMenu@{setupMenu}}
+\index{setupMenu@{setupMenu}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{setupMenu()}{setupMenu()}}
+{\footnotesize\ttfamily void Menu\+Bar\+::setup\+Menu (\begin{DoxyParamCaption}\item[{tgui\+::\+Gui \&}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper to set up the main menu bar structure and entries. 
+
+Creates and configures the main menu bar with categorized menu items.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI object.\\
+\hline
+\end{DoxyParams}
+The menu includes File, View, Create Object, and Simulation categories with their items. The menu bar is positioned at the bottom and menus open upward.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gui} & Reference to the T\+G\+UI G\+UI instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Menu\+Bar.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                     \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}} = tgui::MenuBar::create();}
+\DoxyCodeLine{30     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setSize(\textcolor{stringliteral}{"100\%"}, 20);}
+\DoxyCodeLine{31     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setPosition(0, \textcolor{stringliteral}{"100\% -\/ 20"});  \textcolor{comment}{// Bottom of the window}}
+\DoxyCodeLine{32     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setInvertedMenuDirection(\textcolor{keyword}{true}); \textcolor{comment}{// Menus open upward}}
+\DoxyCodeLine{33     gui.add(\mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// File menu and items}}
+\DoxyCodeLine{36     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"File"});}
+\DoxyCodeLine{37     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Open"});}
+\DoxyCodeLine{38     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save"});}
+\DoxyCodeLine{39     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save2Image"});}
+\DoxyCodeLine{40     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Close"});}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// View menu and items}}
+\DoxyCodeLine{43     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"View"});}
+\DoxyCodeLine{44     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ResetView"});}
+\DoxyCodeLine{45     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ClearView"});}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Create object menu and items}}
+\DoxyCodeLine{48     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"Create object"});}
+\DoxyCodeLine{49     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"Create object"}, \textcolor{stringliteral}{"WMR"});}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{// Simulation menu and items}}
+\DoxyCodeLine{52     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{53     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"Simulation"}, \textcolor{stringliteral}{"A*"});}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+
+
+References menu\+Bar.
+
+
+
+Referenced by Menu\+Bar().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classMenuBar_a960511444212d092307581bb43e28e9f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMenuBar_a94cba4067d873ac499fe9f0327ba22dc}\label{classMenuBar_a94cba4067d873ac499fe9f0327ba22dc}} 
+\index{MenuBar@{MenuBar}!updateCoordinates@{updateCoordinates}}
+\index{updateCoordinates@{updateCoordinates}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{updateCoordinates()}{updateCoordinates()}}
+{\footnotesize\ttfamily void Menu\+Bar\+::update\+Coordinates (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Updates the label showing the current grid coordinates of the mouse. 
+
+Updates the coordinate label text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text to display (usually formatted coordinates)\\
+\hline
+{\em text} & New coordinate string to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 181 of file Menu\+Bar.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181                                                      \{}
+\DoxyCodeLine{182     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}})}
+\DoxyCodeLine{183         \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setText(text);}
+\DoxyCodeLine{184 \}}
+
+\end{DoxyCode}
+
+
+References coord\+Label.
+
+
+
+Referenced by Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMenuBar_a94cba4067d873ac499fe9f0327ba22dc_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}\label{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}} 
+\index{MenuBar@{MenuBar}!coordLabel@{coordLabel}}
+\index{coordLabel@{coordLabel}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{coordLabel}{coordLabel}}
+{\footnotesize\ttfamily tgui\+::\+Label\+::\+Ptr Menu\+Bar\+::coord\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Label to show mouse position in grid coordinates. 
+
+
+
+Definition at line 85 of file Menu\+Bar.\+hpp.
+
+
+
+Referenced by setup\+Cord\+Lable(), and update\+Coordinates().
+
+\mbox{\Hypertarget{classMenuBar_aed948287d4d9c211fb074983c6552267}\label{classMenuBar_aed948287d4d9c211fb074983c6552267}} 
+\index{MenuBar@{MenuBar}!liveMode@{liveMode}}
+\index{liveMode@{liveMode}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{liveMode}{liveMode}}
+{\footnotesize\ttfamily bool Menu\+Bar\+::live\+Mode = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indicates whether live mode is active. 
+
+
+
+Definition at line 88 of file Menu\+Bar.\+hpp.
+
+
+
+Referenced by get\+Live\+Mode(), and setuplive\+Toggle().
+
+\mbox{\Hypertarget{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}\label{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}} 
+\index{MenuBar@{MenuBar}!liveToggle@{liveToggle}}
+\index{liveToggle@{liveToggle}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{liveToggle}{liveToggle}}
+{\footnotesize\ttfamily tgui\+::\+Toggle\+Button\+::\+Ptr Menu\+Bar\+::live\+Toggle\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Toggle button to activate/deactivate live mode. 
+
+
+
+Definition at line 86 of file Menu\+Bar.\+hpp.
+
+
+
+Referenced by setuplive\+Toggle().
+
+\mbox{\Hypertarget{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}\label{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}} 
+\index{MenuBar@{MenuBar}!menuBar@{menuBar}}
+\index{menuBar@{menuBar}!MenuBar@{MenuBar}}
+\doxysubsubsection{\texorpdfstring{menuBar}{menuBar}}
+{\footnotesize\ttfamily tgui\+::\+Menu\+Bar\+::\+Ptr Menu\+Bar\+::menu\+Bar\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to the T\+G\+UI \mbox{\hyperlink{classMenuBar}{Menu\+Bar}} widget. 
+
+
+
+Definition at line 84 of file Menu\+Bar.\+hpp.
+
+
+
+Referenced by set\+Callbacks(), and setup\+Menu().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{MenuBar_8hpp}{Menu\+Bar.\+hpp}}\item 
+src/\mbox{\hyperlink{MenuBar_8cpp}{Menu\+Bar.\+cpp}}\end{DoxyCompactItemize}

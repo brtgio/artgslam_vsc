@@ -1,0 +1,1280 @@
+\hypertarget{classViewController}{}\doxysection{View\+Controller Class Reference}
+\label{classViewController}\index{ViewController@{ViewController}}
+
+
+Controls view, zoom, and panning.  
+
+
+
+
+{\ttfamily \#include $<$View\+Controller.\+hpp$>$}
+
+
+
+Collaboration diagram for View\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classViewController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classViewController_afb48622e1aeb50058e1c52b3ec36b540}{View\+Controller}} (sf\+::\+Render\+Window \&win, float \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{meters\+Per\+Cell}}, float \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixels\+Per\+Meter}}, sf\+::\+View \&\mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classViewController_ac54a72b053247207a1ee00cd07e3cb0e}{handle\+Event}} (const sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Handles mouse movement events for panning and zooming. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classViewController_a8eaa9725daebdd8f73efba9fb0bbaee6}{apply\+View}} ()
+\begin{DoxyCompactList}\small\item\em Applies the current view settings to the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the view to its default state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classViewController_a0b015ef0ad0da78f94e932eda5ed2197}{zoom\+Controller}} (const sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Handles zoom in/out based on user input events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classViewController_a2a830a80bbb229b763e72ec8d29d48b6}{draw\+Grid}} (sf\+::\+Render\+Target \&target)
+\begin{DoxyCompactList}\small\item\em Draws the grid lines on the provided render target. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classViewController_a59766cfd8ec65083a66af156324cc173}{draw\+Axes}} (sf\+::\+Render\+Target \&target)
+\begin{DoxyCompactList}\small\item\em Draws the axes lines and numeration on the render target. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classViewController_ada99110efc0a335cff163ac682de3dc7}{window\+Mouse\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Returns the mouse position in window pixel coordinates. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classViewController_ae16abf87a7514af7eda581ac04d23ec3}{get\+Meters\+Per\+Cell}} () const
+\begin{DoxyCompactList}\small\item\em Returns the size of each grid cell in meters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classViewController_a4371bcfa79ff09f98c5f49914e2a854d}{get\+Pixels\+Per\+Meter}} () const
+\begin{DoxyCompactList}\small\item\em Returns the pixels per meter scale factor. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classViewController_a158807272af13a199da994e0b36be7bf}{get\+Mouse\+Pixel\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Returns mouse position in grid coordinates. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classViewController_a718f7ee25b1eb61d7eb7a1d023fbc059}{get\+Mouse\+World\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Returns mouse position in world coordinates. \end{DoxyCompactList}\item 
+sf\+::\+View \mbox{\hyperlink{classViewController_a8121d225615f952e8da1e146df67641d}{get\+Default\+View}} () const
+\begin{DoxyCompactList}\small\item\em Returns the default view of the window. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classViewController_af833855aa14141e9270264f660fbb4f5}{get\+Map\+Size\+Cells}} () const
+\begin{DoxyCompactList}\small\item\em Returns the total number of grid cells per side. \end{DoxyCompactList}\item 
+sf\+::\+View \mbox{\hyperlink{classViewController_a14501e70e7559c16caa4470a89b44f13}{get\+View}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current view. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classViewController_ab3b39d154cf93e5eec28d2bbdead91e4}{get\+Zoom}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current zoom level. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classViewController_a6a75b71784feee666c971a20b5785aec}{get\+Hovered\+Cell}} (int grid\+Size) const
+\begin{DoxyCompactList}\small\item\em Returns the grid cell index hovered by the mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Render\+Window \& \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}
+\begin{DoxyCompactList}\small\item\em Reference to the S\+F\+ML window. \end{DoxyCompactList}\item 
+sf\+::\+View \& \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}
+\begin{DoxyCompactList}\small\item\em Reference to the controlled view. \end{DoxyCompactList}\item 
+sf\+::\+View \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{default\+View}}
+\begin{DoxyCompactList}\small\item\em Default view settings. \end{DoxyCompactList}\item 
+sf\+::\+View \mbox{\hyperlink{classViewController_a52aba6ad055c1b3fb780a308e6972bed}{custom\+Default\+View}}
+\begin{DoxyCompactList}\small\item\em Custom default view if needed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classViewController_a0cff930dc85b5aefd0a268545883ce01}{dragging}} = false
+\begin{DoxyCompactList}\small\item\em True if currently dragging/panning. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classViewController_aa6fe4e19d6a2f04f723b5d4abba3a2f5}{drag\+Start}}
+\begin{DoxyCompactList}\small\item\em Mouse position where dragging started. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classViewController_aaf2c84de152e17d0012adb70bd8489b3}{mouse\+Position\+\_\+W}}
+\begin{DoxyCompactList}\small\item\em Mouse position in world coordinates. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classViewController_a4c4f508b343ab804954703e1e2e7d0cd}{mouse\+Position\+\_\+G}}
+\begin{DoxyCompactList}\small\item\em Mouse position in grid coordinates. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classViewController_ae06d946a0f8a111292b637aa656bb8f9}{pixel\+Pos}}
+\begin{DoxyCompactList}\small\item\em Mouse position in window pixels. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{meters\+Per\+Cell}}
+\begin{DoxyCompactList}\small\item\em Size of each grid cell in meters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixels\+Per\+Meter}}
+\begin{DoxyCompactList}\small\item\em Conversion factor from meters to pixels. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classViewController_af5ab4c36198bda6200fa7993a076d232}{map\+Size\+Cells}} = 1000
+\begin{DoxyCompactList}\small\item\em Number of cells per side in the map. \end{DoxyCompactList}\item 
+sf\+::\+Font \mbox{\hyperlink{classViewController_a191011cc02f07a941dd379c7bd4527f6}{font}}
+\begin{DoxyCompactList}\small\item\em Font used for axis numbering. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classViewController_a89e75967af756615a8a08c4532ad79c9}{font\+Loaded}} = false
+\begin{DoxyCompactList}\small\item\em Flag indicating font load success. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ sf\+::\+Vector2f $>$ $>$ \mbox{\hyperlink{classViewController_a9b6f5382906fdff312e3593218c1626e}{cell\+Top\+Left\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Cached coordinates of top-\/left corners of cells. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classViewController_adc39ad9c376641a83fbe465855b4b54f}{cell\+Coords\+Valid\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if cached cell coordinates are valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controls view, zoom, and panning. 
+
+Also draws grid and axis numeration. 
+
+Definition at line 7 of file View\+Controller.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classViewController_afb48622e1aeb50058e1c52b3ec36b540}\label{classViewController_afb48622e1aeb50058e1c52b3ec36b540}} 
+\index{ViewController@{ViewController}!ViewController@{ViewController}}
+\index{ViewController@{ViewController}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{ViewController()}{ViewController()}}
+{\footnotesize\ttfamily View\+Controller\+::\+View\+Controller (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{win,  }\item[{float}]{meters\+Per\+Cell\+\_\+,  }\item[{float}]{pixels\+Per\+Meter\+\_\+,  }\item[{sf\+::\+View \&}]{view }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em win} & Reference to the S\+F\+ML render window. \\
+\hline
+{\em meters\+Per\+Cell} & Size of each grid cell in meters. \\
+\hline
+{\em pixels\+Per\+Meter} & Scale factor to convert meters to pixels. \\
+\hline
+{\em view} & Reference to the S\+F\+ML view object to control.\\
+\hline
+\end{DoxyParams}
+Initializes the view controller with references to the S\+F\+ML window and view, as well as parameters defining grid cell size and pixel scale. Loads a custom font for rendering axis labels.
+
+
+\begin{DoxyParams}{Parameters}
+{\em win} & Reference to the S\+F\+ML render window. \\
+\hline
+{\em meters\+Per\+Cell\+\_\+} & Size of each grid cell in meters. \\
+\hline
+{\em pixels\+Per\+Meter\+\_\+} & Scale factor from meters to pixels. \\
+\hline
+{\em view} & Reference to the S\+F\+ML view to control. \\
+\hline
+\end{DoxyParams}
+Initialize the view with a zoom level of 3 (closer zoom)
+
+Load font from R\+OS package assets for axis labels
+
+Definition at line 19 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20     : \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}(win), \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}}(metersPerCell\_), \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixelsPerMeter}}(pixelsPerMeter\_), \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}(\mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}})}
+\DoxyCodeLine{21 \{\textcolor{comment}{}}
+\DoxyCodeLine{22 \textcolor{comment}{    /** Initialize the view with a zoom level of 3 (closer zoom) */}}
+\DoxyCodeLine{23     \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}} = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.getDefaultView();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}} = \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}};}
+\DoxyCodeLine{26     \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.setCenter(0.f, 0.f);}
+\DoxyCodeLine{27     \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.setSize(\mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}}.getSize() / 3.f);}
+\DoxyCodeLine{28     \mbox{\hyperlink{classViewController_a52aba6ad055c1b3fb780a308e6972bed}{customDefaultView}} = \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}};}
+\DoxyCodeLine{29 \textcolor{comment}{}}
+\DoxyCodeLine{30 \textcolor{comment}{    /** Load font from ROS package assets for axis labels */}}
+\DoxyCodeLine{31     std::string package\_path = ros::package::getPath(\textcolor{stringliteral}{"artgslam\_vsc"});}
+\DoxyCodeLine{32     std::string fontPath = package\_path + \textcolor{stringliteral}{"/assets/fonts/NotoSansMath-\/Regular.ttf"};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{classViewController_a89e75967af756615a8a08c4532ad79c9}{fontLoaded}} = \mbox{\hyperlink{classViewController_a191011cc02f07a941dd379c7bd4527f6}{font}}.loadFromFile(fontPath);}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classViewController_a89e75967af756615a8a08c4532ad79c9}{fontLoaded}}) \{}
+\DoxyCodeLine{36         std::cerr << \textcolor{stringliteral}{"❌ Error: Could not load font in ViewController from: "} << fontPath << std::endl;}
+\DoxyCodeLine{37     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{38         std::cout << \textcolor{stringliteral}{"✅ Font successfully loaded from: "} << fontPath << std::endl;}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+
+
+References custom\+Default\+View, default\+View, font, font\+Loaded, view, and window.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classViewController_a8eaa9725daebdd8f73efba9fb0bbaee6}\label{classViewController_a8eaa9725daebdd8f73efba9fb0bbaee6}} 
+\index{ViewController@{ViewController}!applyView@{applyView}}
+\index{applyView@{applyView}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{applyView()}{applyView()}}
+{\footnotesize\ttfamily void View\+Controller\+::apply\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Applies the current view settings to the window. 
+
+Applies the current view to the S\+F\+ML window.
+
+Should be called before rendering to set the view properly. 
+
+Definition at line 84 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84                                \{}
+\DoxyCodeLine{85     \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.setView(\mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});}
+\DoxyCodeLine{86 \}}
+
+\end{DoxyCode}
+
+
+References view, and window.
+
+
+
+Referenced by Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a8eaa9725daebdd8f73efba9fb0bbaee6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a59766cfd8ec65083a66af156324cc173}\label{classViewController_a59766cfd8ec65083a66af156324cc173}} 
+\index{ViewController@{ViewController}!drawAxes@{drawAxes}}
+\index{drawAxes@{drawAxes}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{drawAxes()}{drawAxes()}}
+{\footnotesize\ttfamily void View\+Controller\+::draw\+Axes (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Draws the axes lines and numeration on the render target. 
+
+Draws the X and Y axes centered at (0,0) with labels.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & S\+F\+ML render target.\\
+\hline
+\end{DoxyParams}
+X axis is red, Y axis is blue. Labels are drawn every 5 cells along each axis, scaled according to current zoom level for readability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The render target on which to draw the axes. \\
+\hline
+\end{DoxyParams}
+Save current view
+
+Use current zoomed/panned view
+
+Calculate visible boundaries
+
+Draw X axis (red) and Y axis (blue)
+
+Draw axis labels on the H\+UD (default view)
+
+Cell size in pixels
+
+Clamp text scale between 0.\+5 and 1.\+5 for readability
+
+Calculate visible cells in current view
+
+Draw labels on X axis every 5 cells
+
+Draw labels on Y axis every 5 cells
+
+Restore original view
+
+Definition at line 184 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{185 \{}
+\DoxyCodeLine{186     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classViewController_a89e75967af756615a8a08c4532ad79c9}{fontLoaded}}) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{187 \textcolor{comment}{}}
+\DoxyCodeLine{188 \textcolor{comment}{    /** Save current view */}}
+\DoxyCodeLine{189     sf::View originalView = target.getView();}
+\DoxyCodeLine{190     target.setView(\mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});  \textcolor{comment}{/** Use current zoomed/panned view */}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192     sf::VertexArray axes(sf::Lines, 4);}
+\DoxyCodeLine{193     sf::Vector2f center = \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.getCenter();}
+\DoxyCodeLine{194     sf::Vector2f size = \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.getSize();}
+\DoxyCodeLine{195 \textcolor{comment}{}}
+\DoxyCodeLine{196 \textcolor{comment}{    /** Calculate visible boundaries */}}
+\DoxyCodeLine{197     \textcolor{keywordtype}{float} left = center.x -\/ size.x * 0.5f;}
+\DoxyCodeLine{198     \textcolor{keywordtype}{float} right = center.x + size.x * 0.5f;}
+\DoxyCodeLine{199     \textcolor{keywordtype}{float} top = center.y -\/ size.y * 0.5f;}
+\DoxyCodeLine{200     \textcolor{keywordtype}{float} bottom = center.y + size.y * 0.5f;}
+\DoxyCodeLine{201 \textcolor{comment}{}}
+\DoxyCodeLine{202 \textcolor{comment}{    /** Draw X axis (red) and Y axis (blue) */}}
+\DoxyCodeLine{203     axes[0] = sf::Vertex(\{left, 0.f\}, sf::Color::Red);}
+\DoxyCodeLine{204     axes[1] = sf::Vertex(\{right, 0.f\}, sf::Color::Red);}
+\DoxyCodeLine{205     axes[2] = sf::Vertex(\{0.f, top\}, sf::Color::Blue);}
+\DoxyCodeLine{206     axes[3] = sf::Vertex(\{0.f, bottom\}, sf::Color::Blue);}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208     target.draw(axes);}
+\DoxyCodeLine{209 \textcolor{comment}{}}
+\DoxyCodeLine{210 \textcolor{comment}{    /** Draw axis labels on the HUD (default view) */}}
+\DoxyCodeLine{211     target.setView(\mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}});}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{keyword}{const} \textcolor{keywordtype}{float} cellSizeWorld = \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}} * \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixelsPerMeter}};   \textcolor{comment}{/** Cell size in pixels */}}
+\DoxyCodeLine{214     \textcolor{keyword}{const} \textcolor{keywordtype}{float} zoomLevel = \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}}.getSize().x / \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.getSize().x;}
+\DoxyCodeLine{215 \textcolor{comment}{}}
+\DoxyCodeLine{216 \textcolor{comment}{    /** Clamp text scale between 0.5 and 1.5 for readability */}}
+\DoxyCodeLine{217     \textcolor{keywordtype}{float} textScale = std::clamp(zoomLevel, 0.5f, 1.5f);}
+\DoxyCodeLine{218     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} baseFontSize = 12;}
+\DoxyCodeLine{219 \textcolor{comment}{}}
+\DoxyCodeLine{220 \textcolor{comment}{    /** Calculate visible cells in current view */}}
+\DoxyCodeLine{221     sf::Vector2f topLeft = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapPixelToCoords(\{0, 0\}, \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});}
+\DoxyCodeLine{222     sf::Vector2f bottomRight = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapPixelToCoords(}
+\DoxyCodeLine{223         \{\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.getSize().x), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.getSize().y)\}, \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keywordtype}{int} firstCellX = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor(topLeft.x / cellSizeWorld));}
+\DoxyCodeLine{226     \textcolor{keywordtype}{int} firstCellY = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor(topLeft.y / cellSizeWorld));}
+\DoxyCodeLine{227     \textcolor{keywordtype}{int} numCols = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}((bottomRight.x -\/ topLeft.x) / cellSizeWorld) + 2;}
+\DoxyCodeLine{228     \textcolor{keywordtype}{int} numRows = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}((bottomRight.y -\/ topLeft.y) / cellSizeWorld) + 2;}
+\DoxyCodeLine{229 \textcolor{comment}{}}
+\DoxyCodeLine{230 \textcolor{comment}{    /** Draw labels on X axis every 5 cells */}}
+\DoxyCodeLine{231     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= numCols; ++i) \{}
+\DoxyCodeLine{232         \textcolor{keywordtype}{int} cellX = firstCellX + i;}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} (cellX \% 5 != 0) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235         \textcolor{keywordtype}{float} worldX = cellX * cellSizeWorld;}
+\DoxyCodeLine{236         sf::Vector2i scr = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapCoordsToPixel(\{worldX, 0.f\}, \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});}
+\DoxyCodeLine{237         sf::Vector2f pos(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(scr.x) + 2.f, 4.f);}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         sf::Text txt(std::to\_string(cellX), \mbox{\hyperlink{classViewController_a191011cc02f07a941dd379c7bd4527f6}{font}}, baseFontSize);}
+\DoxyCodeLine{240         txt.setFillColor(sf::Color::Yellow);}
+\DoxyCodeLine{241         txt.setScale(textScale, textScale);}
+\DoxyCodeLine{242         txt.setPosition(pos);}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244         sf::FloatRect b = txt.getLocalBounds();}
+\DoxyCodeLine{245         sf::RectangleShape bg(\{b.width * textScale, b.height * textScale\});}
+\DoxyCodeLine{246         bg.setPosition(pos);}
+\DoxyCodeLine{247         bg.setFillColor(sf::Color(0, 0, 0, 180));}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249         target.draw(bg);}
+\DoxyCodeLine{250         target.draw(txt);}
+\DoxyCodeLine{251     \}}
+\DoxyCodeLine{252 \textcolor{comment}{}}
+\DoxyCodeLine{253 \textcolor{comment}{    /** Draw labels on Y axis every 5 cells */}}
+\DoxyCodeLine{254     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= numRows; ++i) \{}
+\DoxyCodeLine{255         \textcolor{keywordtype}{int} cellY = firstCellY + i;}
+\DoxyCodeLine{256         \textcolor{keywordflow}{if} (cellY \% 5 != 0) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258         \textcolor{keywordtype}{float} worldY = cellY * cellSizeWorld;}
+\DoxyCodeLine{259         sf::Vector2i scr = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapCoordsToPixel(\{0.f, worldY\}, \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});}
+\DoxyCodeLine{260         sf::Vector2f pos(4.f, \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(scr.y) + 2.f);}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262         sf::Text txt(std::to\_string(cellY), \mbox{\hyperlink{classViewController_a191011cc02f07a941dd379c7bd4527f6}{font}}, baseFontSize);}
+\DoxyCodeLine{263         txt.setFillColor(sf::Color::Yellow);}
+\DoxyCodeLine{264         txt.setScale(textScale, textScale);}
+\DoxyCodeLine{265         txt.setPosition(pos);}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267         sf::FloatRect b = txt.getLocalBounds();}
+\DoxyCodeLine{268         sf::RectangleShape bg(\{b.width * textScale, b.height * textScale\});}
+\DoxyCodeLine{269         bg.setPosition(pos);}
+\DoxyCodeLine{270         bg.setFillColor(sf::Color(0, 0, 0, 180));}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272         target.draw(bg);}
+\DoxyCodeLine{273         target.draw(txt);}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275 \textcolor{comment}{}}
+\DoxyCodeLine{276 \textcolor{comment}{    /** Restore original view */}}
+\DoxyCodeLine{277     target.setView(originalView);}
+\DoxyCodeLine{278 \}}
+
+\end{DoxyCode}
+
+
+References default\+View, font, font\+Loaded, meters\+Per\+Cell, pixels\+Per\+Meter, view, and window.
+
+
+
+Referenced by Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a59766cfd8ec65083a66af156324cc173_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a2a830a80bbb229b763e72ec8d29d48b6}\label{classViewController_a2a830a80bbb229b763e72ec8d29d48b6}} 
+\index{ViewController@{ViewController}!drawGrid@{drawGrid}}
+\index{drawGrid@{drawGrid}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{drawGrid()}{drawGrid()}}
+{\footnotesize\ttfamily void View\+Controller\+::draw\+Grid (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Draws the grid lines on the provided render target. 
+
+Draws the grid lines centered around (0,0).
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & S\+F\+ML render target (e.\+g., window).\\
+\hline
+\end{DoxyParams}
+The grid spans from -\/map\+Size\+Cells/2 to +map\+Size\+Cells/2 in both directions. Lines are drawn in gray.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The render target on which to draw the grid. \\
+\hline
+\end{DoxyParams}
+Vertical lines
+
+Horizontal lines
+
+Definition at line 155 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155                                                     \{}
+\DoxyCodeLine{156     \textcolor{keywordtype}{float} zoom = \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}}.getSize().x / \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.getSize().x;}
+\DoxyCodeLine{157     \textcolor{keywordtype}{float} cellSize = \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}} * \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixelsPerMeter}};}
+\DoxyCodeLine{158     \textcolor{keywordtype}{float} halfWidth = (\mbox{\hyperlink{classViewController_af5ab4c36198bda6200fa7993a076d232}{mapSizeCells}} / 2) * cellSize;}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     sf::VertexArray lines(sf::Lines);}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = -\/\mbox{\hyperlink{classViewController_af5ab4c36198bda6200fa7993a076d232}{mapSizeCells}} / 2; i <= \mbox{\hyperlink{classViewController_af5ab4c36198bda6200fa7993a076d232}{mapSizeCells}} / 2; ++i) \{}
+\DoxyCodeLine{163         \textcolor{keywordtype}{float} pos = i * cellSize;\textcolor{comment}{}}
+\DoxyCodeLine{164 \textcolor{comment}{        /** Vertical lines */}}
+\DoxyCodeLine{165         lines.append(sf::Vertex(\{pos, -\/halfWidth\}, sf::Color(100, 100, 100)));}
+\DoxyCodeLine{166         lines.append(sf::Vertex(\{pos, halfWidth\}, sf::Color(100, 100, 100)));\textcolor{comment}{}}
+\DoxyCodeLine{167 \textcolor{comment}{        /** Horizontal lines */}}
+\DoxyCodeLine{168         lines.append(sf::Vertex(\{-\/halfWidth, pos\}, sf::Color(100, 100, 100)));}
+\DoxyCodeLine{169         lines.append(sf::Vertex(\{halfWidth, pos\}, sf::Color(100, 100, 100)));}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     target.draw(lines);}
+\DoxyCodeLine{173 \}}
+
+\end{DoxyCode}
+
+
+References default\+View, map\+Size\+Cells, meters\+Per\+Cell, pixels\+Per\+Meter, and view.
+
+
+
+Referenced by Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a2a830a80bbb229b763e72ec8d29d48b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a8121d225615f952e8da1e146df67641d}\label{classViewController_a8121d225615f952e8da1e146df67641d}} 
+\index{ViewController@{ViewController}!getDefaultView@{getDefaultView}}
+\index{getDefaultView@{getDefaultView}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getDefaultView()}{getDefaultView()}}
+{\footnotesize\ttfamily sf\+::\+View View\+Controller\+::get\+Default\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the default view of the window. 
+
+
+
+Definition at line 82 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}}; \}}
+
+\end{DoxyCode}
+
+
+References default\+View.
+
+\mbox{\Hypertarget{classViewController_a6a75b71784feee666c971a20b5785aec}\label{classViewController_a6a75b71784feee666c971a20b5785aec}} 
+\index{ViewController@{ViewController}!getHoveredCell@{getHoveredCell}}
+\index{getHoveredCell@{getHoveredCell}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getHoveredCell()}{getHoveredCell()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i View\+Controller\+::get\+Hovered\+Cell (\begin{DoxyParamCaption}\item[{int}]{grid\+Size }\end{DoxyParamCaption}) const}
+
+
+
+Returns the grid cell index hovered by the mouse. 
+
+Calculates the grid cell indices currently hovered by the mouse.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Size} & Size of the grid in cells.\\
+\hline
+\end{DoxyParams}
+Converts the mouse position from world coordinates to grid indices, taking into account the size of each cell and the grid origin offset. Returns \{-\/1, -\/1\} if the position is outside the grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Size} & The size (number of cells) of the square grid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Vector2i The column and row indices of the hovered cell, or \{-\/1, -\/1\} if invalid. 
+\end{DoxyReturn}
+Convert mouse world coordinates from pixels to meters
+
+Adjust for grid origin being centered (offset)
+
+Compute cell indices
+
+Validate indices are within grid bounds
+
+Definition at line 127 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128 \{\textcolor{comment}{}}
+\DoxyCodeLine{129 \textcolor{comment}{    /** Convert mouse world coordinates from pixels to meters */}}
+\DoxyCodeLine{130     \textcolor{keywordtype}{float} worldX = \mbox{\hyperlink{classViewController_aaf2c84de152e17d0012adb70bd8489b3}{mousePosition\_W}}.x / \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixelsPerMeter}};}
+\DoxyCodeLine{131     \textcolor{keywordtype}{float} worldY = \mbox{\hyperlink{classViewController_aaf2c84de152e17d0012adb70bd8489b3}{mousePosition\_W}}.y / \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixelsPerMeter}};}
+\DoxyCodeLine{132 \textcolor{comment}{}}
+\DoxyCodeLine{133 \textcolor{comment}{    /** Adjust for grid origin being centered (offset) */}}
+\DoxyCodeLine{134     \textcolor{keywordtype}{float} offset = (gridSize * \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}}) / 2.0f;}
+\DoxyCodeLine{135 \textcolor{comment}{}}
+\DoxyCodeLine{136 \textcolor{comment}{    /** Compute cell indices */}}
+\DoxyCodeLine{137     \textcolor{keywordtype}{int} col = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor((worldX + offset) / \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}}));}
+\DoxyCodeLine{138     \textcolor{keywordtype}{int} row = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor((worldY + offset) / \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}}));}
+\DoxyCodeLine{139 \textcolor{comment}{}}
+\DoxyCodeLine{140 \textcolor{comment}{    /** Validate indices are within grid bounds */}}
+\DoxyCodeLine{141     \textcolor{keywordflow}{if} (col < 0 || col >= gridSize || row < 0 || row >= gridSize)}
+\DoxyCodeLine{142         \textcolor{keywordflow}{return} \{-\/1, -\/1\};}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordflow}{return} \{col, row\};}
+\DoxyCodeLine{145 \}}
+
+\end{DoxyCode}
+
+
+References meters\+Per\+Cell, mouse\+Position\+\_\+W, and pixels\+Per\+Meter.
+
+
+
+Referenced by Map\+Viewer\+::process\+Event(), and Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a6a75b71784feee666c971a20b5785aec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_af833855aa14141e9270264f660fbb4f5}\label{classViewController_af833855aa14141e9270264f660fbb4f5}} 
+\index{ViewController@{ViewController}!getMapSizeCells@{getMapSizeCells}}
+\index{getMapSizeCells@{getMapSizeCells}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getMapSizeCells()}{getMapSizeCells()}}
+{\footnotesize\ttfamily int View\+Controller\+::get\+Map\+Size\+Cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the total number of grid cells per side. 
+
+
+
+Definition at line 87 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_af5ab4c36198bda6200fa7993a076d232}{mapSizeCells}}; \}}
+
+\end{DoxyCode}
+
+
+References map\+Size\+Cells.
+
+\mbox{\Hypertarget{classViewController_ae16abf87a7514af7eda581ac04d23ec3}\label{classViewController_ae16abf87a7514af7eda581ac04d23ec3}} 
+\index{ViewController@{ViewController}!getMetersPerCell@{getMetersPerCell}}
+\index{getMetersPerCell@{getMetersPerCell}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getMetersPerCell()}{getMetersPerCell()}}
+{\footnotesize\ttfamily float View\+Controller\+::get\+Meters\+Per\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the size of each grid cell in meters. 
+
+
+
+Definition at line 62 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}{metersPerCell}}; \}}
+
+\end{DoxyCode}
+
+
+References meters\+Per\+Cell.
+
+
+
+Referenced by Live\+Map\+::draw\+Live\+Map(), and Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_ae16abf87a7514af7eda581ac04d23ec3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a158807272af13a199da994e0b36be7bf}\label{classViewController_a158807272af13a199da994e0b36be7bf}} 
+\index{ViewController@{ViewController}!getMousePixelPosition@{getMousePixelPosition}}
+\index{getMousePixelPosition@{getMousePixelPosition}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getMousePixelPosition()}{getMousePixelPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i View\+Controller\+::get\+Mouse\+Pixel\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns mouse position in grid coordinates. 
+
+
+
+Definition at line 72 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_a4c4f508b343ab804954703e1e2e7d0cd}{mousePosition\_G}}; \}}
+
+\end{DoxyCode}
+
+
+References mouse\+Position\+\_\+G.
+
+\mbox{\Hypertarget{classViewController_a718f7ee25b1eb61d7eb7a1d023fbc059}\label{classViewController_a718f7ee25b1eb61d7eb7a1d023fbc059}} 
+\index{ViewController@{ViewController}!getMouseWorldPosition@{getMouseWorldPosition}}
+\index{getMouseWorldPosition@{getMouseWorldPosition}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getMouseWorldPosition()}{getMouseWorldPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f View\+Controller\+::get\+Mouse\+World\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns mouse position in world coordinates. 
+
+
+
+Definition at line 77 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_aaf2c84de152e17d0012adb70bd8489b3}{mousePosition\_W}}; \}}
+
+\end{DoxyCode}
+
+
+References mouse\+Position\+\_\+W.
+
+
+
+Referenced by Map\+Viewer\+::update().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a718f7ee25b1eb61d7eb7a1d023fbc059_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a4371bcfa79ff09f98c5f49914e2a854d}\label{classViewController_a4371bcfa79ff09f98c5f49914e2a854d}} 
+\index{ViewController@{ViewController}!getPixelsPerMeter@{getPixelsPerMeter}}
+\index{getPixelsPerMeter@{getPixelsPerMeter}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getPixelsPerMeter()}{getPixelsPerMeter()}}
+{\footnotesize\ttfamily float View\+Controller\+::get\+Pixels\+Per\+Meter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the pixels per meter scale factor. 
+
+
+
+Definition at line 67 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_ae332c73880b90395b00b84b7df88281e}{pixelsPerMeter}}; \}}
+
+\end{DoxyCode}
+
+
+References pixels\+Per\+Meter.
+
+
+
+Referenced by Live\+Map\+::draw\+Live\+Map(), and Map\+Viewer\+::render().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a4371bcfa79ff09f98c5f49914e2a854d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a14501e70e7559c16caa4470a89b44f13}\label{classViewController_a14501e70e7559c16caa4470a89b44f13}} 
+\index{ViewController@{ViewController}!getView@{getView}}
+\index{getView@{getView}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getView()}{getView()}}
+{\footnotesize\ttfamily sf\+::\+View View\+Controller\+::get\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current view. 
+
+Gets the current S\+F\+ML view object.
+
+\begin{DoxyReturn}{Returns}
+The current sf\+::\+View being used. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102                                      \{}
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}};}
+\DoxyCodeLine{104 \}}
+
+\end{DoxyCode}
+
+
+References view.
+
+\mbox{\Hypertarget{classViewController_ab3b39d154cf93e5eec28d2bbdead91e4}\label{classViewController_ab3b39d154cf93e5eec28d2bbdead91e4}} 
+\index{ViewController@{ViewController}!getZoom@{getZoom}}
+\index{getZoom@{getZoom}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{getZoom()}{getZoom()}}
+{\footnotesize\ttfamily float View\+Controller\+::get\+Zoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current zoom level. 
+
+Gets the current zoom factor.
+
+The zoom factor is the ratio between the current view size and the default view size.
+
+\begin{DoxyReturn}{Returns}
+Current zoom factor as a float. 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113                                     \{}
+\DoxyCodeLine{114     \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.getSize().x / \mbox{\hyperlink{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}{defaultView}}.getSize().x;}
+\DoxyCodeLine{115 \}}
+
+\end{DoxyCode}
+
+
+References default\+View, and view.
+
+
+
+Referenced by Live\+Map\+::draw\+Live\+Map(), and zoom\+Controller().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_ab3b39d154cf93e5eec28d2bbdead91e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_ac54a72b053247207a1ee00cd07e3cb0e}\label{classViewController_ac54a72b053247207a1ee00cd07e3cb0e}} 
+\index{ViewController@{ViewController}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void View\+Controller\+::handle\+Event (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles mouse movement events for panning and zooming. 
+
+Handles all relevant S\+F\+ML events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The S\+F\+ML event to process.\\
+\hline
+\end{DoxyParams}
+Processes mouse wheel zoom, mouse dragging for panning, Escape key for resetting view, and mouse move events to update positions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Reference to the S\+F\+ML event to process. \\
+\hline
+\end{DoxyParams}
+Calculate delta movement in world coordinates and move the view accordingly
+
+Update mouse position in pixels and corresponding world coordinates
+
+Definition at line 50 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                                                      \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (event.type == sf::Event::MouseWheelScrolled) \{}
+\DoxyCodeLine{52         \mbox{\hyperlink{classViewController_a0b015ef0ad0da78f94e932eda5ed2197}{zoomController}}(event);}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.type == sf::Event::MouseButtonPressed \&\& event.mouseButton.button == sf::Mouse::Left) \{}
+\DoxyCodeLine{55         \mbox{\hyperlink{classViewController_a0cff930dc85b5aefd0a268545883ce01}{dragging}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{56         \mbox{\hyperlink{classViewController_aa6fe4e19d6a2f04f723b5d4abba3a2f5}{dragStart}} = sf::Mouse::getPosition(\mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}});}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.type == sf::Event::MouseButtonReleased \&\& event.mouseButton.button == sf::Mouse::Left) \{}
+\DoxyCodeLine{59         \mbox{\hyperlink{classViewController_a0cff930dc85b5aefd0a268545883ce01}{dragging}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.type == sf::Event::MouseMoved \&\& \mbox{\hyperlink{classViewController_a0cff930dc85b5aefd0a268545883ce01}{dragging}}) \{\textcolor{comment}{}}
+\DoxyCodeLine{62 \textcolor{comment}{        /** Calculate delta movement in world coordinates and move the view accordingly */}}
+\DoxyCodeLine{63         sf::Vector2i now = sf::Mouse::getPosition(\mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}});}
+\DoxyCodeLine{64         sf::Vector2f delta = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapPixelToCoords(\mbox{\hyperlink{classViewController_aa6fe4e19d6a2f04f723b5d4abba3a2f5}{dragStart}}) -\/ \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapPixelToCoords(now);}
+\DoxyCodeLine{65         \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.move(delta);}
+\DoxyCodeLine{66         \mbox{\hyperlink{classViewController_aa6fe4e19d6a2f04f723b5d4abba3a2f5}{dragStart}} = now;}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.type == sf::Event::KeyPressed \&\& event.key.code == sf::Keyboard::Escape) \{}
+\DoxyCodeLine{69         \mbox{\hyperlink{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f}{reset}}();}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.type == sf::Event::MouseMoved) \{\textcolor{comment}{}}
+\DoxyCodeLine{72 \textcolor{comment}{        /** Update mouse position in pixels and corresponding world coordinates */}}
+\DoxyCodeLine{73         \mbox{\hyperlink{classViewController_ae06d946a0f8a111292b637aa656bb8f9}{pixelPos}} = sf::Mouse::getPosition(\mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}});}
+\DoxyCodeLine{74         \mbox{\hyperlink{classViewController_aaf2c84de152e17d0012adb70bd8489b3}{mousePosition\_W}} = \mbox{\hyperlink{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}{window}}.mapPixelToCoords(\mbox{\hyperlink{classViewController_ae06d946a0f8a111292b637aa656bb8f9}{pixelPos}}, \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}});}
+\DoxyCodeLine{75         \mbox{\hyperlink{classViewController_a4c4f508b343ab804954703e1e2e7d0cd}{mousePosition\_G}} = \mbox{\hyperlink{classViewController_ae06d946a0f8a111292b637aa656bb8f9}{pixelPos}};}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+
+
+References dragging, drag\+Start, mouse\+Position\+\_\+G, mouse\+Position\+\_\+W, pixel\+Pos, reset(), view, window, and zoom\+Controller().
+
+
+
+Referenced by Map\+Viewer\+::process\+Event().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_ac54a72b053247207a1ee00cd07e3cb0e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_ac54a72b053247207a1ee00cd07e3cb0e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f}\label{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f}} 
+\index{ViewController@{ViewController}!reset@{reset}}
+\index{reset@{reset}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void View\+Controller\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the view to its default state. 
+
+Resets the view to the custom default view.
+
+This restores the initial zoom and center set in the constructor. 
+
+Definition at line 93 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93                            \{}
+\DoxyCodeLine{94     \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}} = \mbox{\hyperlink{classViewController_a52aba6ad055c1b3fb780a308e6972bed}{customDefaultView}};}
+\DoxyCodeLine{95 \}}
+
+\end{DoxyCode}
+
+
+References custom\+Default\+View, and view.
+
+
+
+Referenced by handle\+Event(), and Map\+Viewer\+::\+Map\+Viewer().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classViewController_ada99110efc0a335cff163ac682de3dc7}\label{classViewController_ada99110efc0a335cff163ac682de3dc7}} 
+\index{ViewController@{ViewController}!windowMousePosition@{windowMousePosition}}
+\index{windowMousePosition@{windowMousePosition}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{windowMousePosition()}{windowMousePosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i View\+Controller\+::window\+Mouse\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the mouse position in window pixel coordinates. 
+
+
+
+Definition at line 57 of file View\+Controller.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classViewController_ae06d946a0f8a111292b637aa656bb8f9}{pixelPos}}; \}}
+
+\end{DoxyCode}
+
+
+References pixel\+Pos.
+
+\mbox{\Hypertarget{classViewController_a0b015ef0ad0da78f94e932eda5ed2197}\label{classViewController_a0b015ef0ad0da78f94e932eda5ed2197}} 
+\index{ViewController@{ViewController}!zoomController@{zoomController}}
+\index{zoomController@{zoomController}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{zoomController()}{zoomController()}}
+{\footnotesize\ttfamily void View\+Controller\+::zoom\+Controller (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles zoom in/out based on user input events. 
+
+Controls zooming based on mouse wheel scroll events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The S\+F\+ML event containing zoom information.\\
+\hline
+\end{DoxyParams}
+Limits zoom to be within min and max zoom levels to avoid excessive zooming in or out.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The S\+F\+ML mouse wheel scroll event triggering zoom. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 287 of file View\+Controller.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{287                                                         \{}
+\DoxyCodeLine{288     \textcolor{keywordtype}{float} factor = (\textcolor{keyword}{event}.mouseWheelScroll.delta > 0) ? (1.f / 1.1f) : 1.1f;}
+\DoxyCodeLine{289     \textcolor{keywordtype}{float} currentZoom = \mbox{\hyperlink{classViewController_ab3b39d154cf93e5eec28d2bbdead91e4}{getZoom}}();}
+\DoxyCodeLine{290     \textcolor{keywordtype}{float} newZoom = currentZoom * factor;}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292     \textcolor{keyword}{const} \textcolor{keywordtype}{float} minZoom = 0.1f;}
+\DoxyCodeLine{293     \textcolor{keyword}{const} \textcolor{keywordtype}{float} maxZoom = 1.0f;}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295     std::cout << \textcolor{stringliteral}{"newZoom: "} << newZoom << std::endl;}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297     \textcolor{keywordflow}{if} (newZoom < minZoom || newZoom > maxZoom) \{}
+\DoxyCodeLine{298         std::cout << \textcolor{stringliteral}{"Zoom out of range ["} << minZoom << \textcolor{stringliteral}{", "} << maxZoom << \textcolor{stringliteral}{"], operation cancelled\(\backslash\)n"};}
+\DoxyCodeLine{299         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{300     \}}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302     \mbox{\hyperlink{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}{view}}.zoom(factor);}
+\DoxyCodeLine{303 \}}
+
+\end{DoxyCode}
+
+
+References get\+Zoom(), and view.
+
+
+
+Referenced by handle\+Event().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a0b015ef0ad0da78f94e932eda5ed2197_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classViewController_a0b015ef0ad0da78f94e932eda5ed2197_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classViewController_adc39ad9c376641a83fbe465855b4b54f}\label{classViewController_adc39ad9c376641a83fbe465855b4b54f}} 
+\index{ViewController@{ViewController}!cellCoordsValid\_@{cellCoordsValid\_}}
+\index{cellCoordsValid\_@{cellCoordsValid\_}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{cellCoordsValid\_}{cellCoordsValid\_}}
+{\footnotesize\ttfamily bool View\+Controller\+::cell\+Coords\+Valid\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indicates if cached cell coordinates are valid. 
+
+
+
+Definition at line 127 of file View\+Controller.\+hpp.
+
+\mbox{\Hypertarget{classViewController_a9b6f5382906fdff312e3593218c1626e}\label{classViewController_a9b6f5382906fdff312e3593218c1626e}} 
+\index{ViewController@{ViewController}!cellTopLeft\_@{cellTopLeft\_}}
+\index{cellTopLeft\_@{cellTopLeft\_}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{cellTopLeft\_}{cellTopLeft\_}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$sf\+::\+Vector2f$>$ $>$ View\+Controller\+::cell\+Top\+Left\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cached coordinates of top-\/left corners of cells. 
+
+
+
+Definition at line 126 of file View\+Controller.\+hpp.
+
+\mbox{\Hypertarget{classViewController_a52aba6ad055c1b3fb780a308e6972bed}\label{classViewController_a52aba6ad055c1b3fb780a308e6972bed}} 
+\index{ViewController@{ViewController}!customDefaultView@{customDefaultView}}
+\index{customDefaultView@{customDefaultView}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{customDefaultView}{customDefaultView}}
+{\footnotesize\ttfamily sf\+::\+View View\+Controller\+::custom\+Default\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Custom default view if needed. 
+
+
+
+Definition at line 109 of file View\+Controller.\+hpp.
+
+
+
+Referenced by reset(), and View\+Controller().
+
+\mbox{\Hypertarget{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}\label{classViewController_a8b94fb5bce3ce8104b0d411ef7cf9e7d}} 
+\index{ViewController@{ViewController}!defaultView@{defaultView}}
+\index{defaultView@{defaultView}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{defaultView}{defaultView}}
+{\footnotesize\ttfamily sf\+::\+View View\+Controller\+::default\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Default view settings. 
+
+
+
+Definition at line 108 of file View\+Controller.\+hpp.
+
+
+
+Referenced by draw\+Axes(), draw\+Grid(), get\+Default\+View(), get\+Zoom(), and View\+Controller().
+
+\mbox{\Hypertarget{classViewController_a0cff930dc85b5aefd0a268545883ce01}\label{classViewController_a0cff930dc85b5aefd0a268545883ce01}} 
+\index{ViewController@{ViewController}!dragging@{dragging}}
+\index{dragging@{dragging}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{dragging}{dragging}}
+{\footnotesize\ttfamily bool View\+Controller\+::dragging = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+True if currently dragging/panning. 
+
+
+
+Definition at line 111 of file View\+Controller.\+hpp.
+
+
+
+Referenced by handle\+Event().
+
+\mbox{\Hypertarget{classViewController_aa6fe4e19d6a2f04f723b5d4abba3a2f5}\label{classViewController_aa6fe4e19d6a2f04f723b5d4abba3a2f5}} 
+\index{ViewController@{ViewController}!dragStart@{dragStart}}
+\index{dragStart@{dragStart}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{dragStart}{dragStart}}
+{\footnotesize\ttfamily sf\+::\+Vector2i View\+Controller\+::drag\+Start\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mouse position where dragging started. 
+
+
+
+Definition at line 112 of file View\+Controller.\+hpp.
+
+
+
+Referenced by handle\+Event().
+
+\mbox{\Hypertarget{classViewController_a191011cc02f07a941dd379c7bd4527f6}\label{classViewController_a191011cc02f07a941dd379c7bd4527f6}} 
+\index{ViewController@{ViewController}!font@{font}}
+\index{font@{font}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily sf\+::\+Font View\+Controller\+::font\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Font used for axis numbering. 
+
+
+
+Definition at line 123 of file View\+Controller.\+hpp.
+
+
+
+Referenced by draw\+Axes(), and View\+Controller().
+
+\mbox{\Hypertarget{classViewController_a89e75967af756615a8a08c4532ad79c9}\label{classViewController_a89e75967af756615a8a08c4532ad79c9}} 
+\index{ViewController@{ViewController}!fontLoaded@{fontLoaded}}
+\index{fontLoaded@{fontLoaded}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{fontLoaded}{fontLoaded}}
+{\footnotesize\ttfamily bool View\+Controller\+::font\+Loaded = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag indicating font load success. 
+
+
+
+Definition at line 124 of file View\+Controller.\+hpp.
+
+
+
+Referenced by draw\+Axes(), and View\+Controller().
+
+\mbox{\Hypertarget{classViewController_af5ab4c36198bda6200fa7993a076d232}\label{classViewController_af5ab4c36198bda6200fa7993a076d232}} 
+\index{ViewController@{ViewController}!mapSizeCells@{mapSizeCells}}
+\index{mapSizeCells@{mapSizeCells}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{mapSizeCells}{mapSizeCells}}
+{\footnotesize\ttfamily const int View\+Controller\+::map\+Size\+Cells = 1000\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of cells per side in the map. 
+
+
+
+Definition at line 121 of file View\+Controller.\+hpp.
+
+
+
+Referenced by draw\+Grid(), and get\+Map\+Size\+Cells().
+
+\mbox{\Hypertarget{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}\label{classViewController_aa7fa8b04e474bbf8b940a458a64acb40}} 
+\index{ViewController@{ViewController}!metersPerCell@{metersPerCell}}
+\index{metersPerCell@{metersPerCell}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{metersPerCell}{metersPerCell}}
+{\footnotesize\ttfamily float View\+Controller\+::meters\+Per\+Cell\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Size of each grid cell in meters. 
+
+
+
+Definition at line 119 of file View\+Controller.\+hpp.
+
+
+
+Referenced by draw\+Axes(), draw\+Grid(), get\+Hovered\+Cell(), and get\+Meters\+Per\+Cell().
+
+\mbox{\Hypertarget{classViewController_a4c4f508b343ab804954703e1e2e7d0cd}\label{classViewController_a4c4f508b343ab804954703e1e2e7d0cd}} 
+\index{ViewController@{ViewController}!mousePosition\_G@{mousePosition\_G}}
+\index{mousePosition\_G@{mousePosition\_G}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{mousePosition\_G}{mousePosition\_G}}
+{\footnotesize\ttfamily sf\+::\+Vector2i View\+Controller\+::mouse\+Position\+\_\+G\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mouse position in grid coordinates. 
+
+
+
+Definition at line 116 of file View\+Controller.\+hpp.
+
+
+
+Referenced by get\+Mouse\+Pixel\+Position(), and handle\+Event().
+
+\mbox{\Hypertarget{classViewController_aaf2c84de152e17d0012adb70bd8489b3}\label{classViewController_aaf2c84de152e17d0012adb70bd8489b3}} 
+\index{ViewController@{ViewController}!mousePosition\_W@{mousePosition\_W}}
+\index{mousePosition\_W@{mousePosition\_W}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{mousePosition\_W}{mousePosition\_W}}
+{\footnotesize\ttfamily sf\+::\+Vector2f View\+Controller\+::mouse\+Position\+\_\+W\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mouse position in world coordinates. 
+
+
+
+Definition at line 115 of file View\+Controller.\+hpp.
+
+
+
+Referenced by get\+Hovered\+Cell(), get\+Mouse\+World\+Position(), and handle\+Event().
+
+\mbox{\Hypertarget{classViewController_ae06d946a0f8a111292b637aa656bb8f9}\label{classViewController_ae06d946a0f8a111292b637aa656bb8f9}} 
+\index{ViewController@{ViewController}!pixelPos@{pixelPos}}
+\index{pixelPos@{pixelPos}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{pixelPos}{pixelPos}}
+{\footnotesize\ttfamily sf\+::\+Vector2i View\+Controller\+::pixel\+Pos\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mouse position in window pixels. 
+
+
+
+Definition at line 117 of file View\+Controller.\+hpp.
+
+
+
+Referenced by handle\+Event(), and window\+Mouse\+Position().
+
+\mbox{\Hypertarget{classViewController_ae332c73880b90395b00b84b7df88281e}\label{classViewController_ae332c73880b90395b00b84b7df88281e}} 
+\index{ViewController@{ViewController}!pixelsPerMeter@{pixelsPerMeter}}
+\index{pixelsPerMeter@{pixelsPerMeter}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{pixelsPerMeter}{pixelsPerMeter}}
+{\footnotesize\ttfamily float View\+Controller\+::pixels\+Per\+Meter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Conversion factor from meters to pixels. 
+
+
+
+Definition at line 120 of file View\+Controller.\+hpp.
+
+
+
+Referenced by draw\+Axes(), draw\+Grid(), get\+Hovered\+Cell(), and get\+Pixels\+Per\+Meter().
+
+\mbox{\Hypertarget{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}\label{classViewController_a54ad100e7177c75f0533fbe35e0d10bd}} 
+\index{ViewController@{ViewController}!view@{view}}
+\index{view@{view}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{view}{view}}
+{\footnotesize\ttfamily sf\+::\+View\& View\+Controller\+::view\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the controlled view. 
+
+
+
+Definition at line 107 of file View\+Controller.\+hpp.
+
+
+
+Referenced by apply\+View(), draw\+Axes(), draw\+Grid(), get\+View(), get\+Zoom(), handle\+Event(), reset(), View\+Controller(), and zoom\+Controller().
+
+\mbox{\Hypertarget{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}\label{classViewController_af8c1e0db5694cabbd1de412fff8d58e7}} 
+\index{ViewController@{ViewController}!window@{window}}
+\index{window@{window}!ViewController@{ViewController}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window\& View\+Controller\+::window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the S\+F\+ML window. 
+
+
+
+Definition at line 106 of file View\+Controller.\+hpp.
+
+
+
+Referenced by apply\+View(), draw\+Axes(), handle\+Event(), and View\+Controller().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{ViewController_8hpp}{View\+Controller.\+hpp}}\item 
+src/\mbox{\hyperlink{ViewController_8cpp}{View\+Controller.\+cpp}}\end{DoxyCompactItemize}

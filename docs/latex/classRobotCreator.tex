@@ -1,0 +1,874 @@
+\hypertarget{classRobotCreator}{}\doxysection{Robot\+Creator Class Reference}
+\label{classRobotCreator}\index{RobotCreator@{RobotCreator}}
+
+
+Manages a G\+UI window for creating and configuring a Unicycle Wheeled Mobile Robot (W\+MR). Allows user input for robot parameters like width, height, and color, then applies these to the robot model.  
+
+
+
+
+{\ttfamily \#include $<$Robot\+Creator.\+hpp$>$}
+
+
+
+Collaboration diagram for Robot\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRobotCreator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRobotCreator_a1a9bc9afc3c2e9aa6ca3555a11b99846}{Robot\+Creator}} (\mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}} \&wmr\+Ref)
+\begin{DoxyCompactList}\small\item\em Explicit constructor that requires a reference to the \mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}} instance to configure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRobotCreator_a183f01cec759616f285dac85101c105a}{Robot\+Creator}} ()=delete
+\begin{DoxyCompactList}\small\item\em Deleted default constructor to avoid creating an instance without a robot reference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRobotCreator_a3cb1ac2763b6340fb60b0711317cec7b}{Robot\+Creator}} (const \mbox{\hyperlink{classRobotCreator}{Robot\+Creator}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor to prevent copying. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRobotCreator}{Robot\+Creator}} \& \mbox{\hyperlink{classRobotCreator_ac624d69812bde03f24e60208f03bf12d}{operator=}} (const \mbox{\hyperlink{classRobotCreator}{Robot\+Creator}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator to prevent copying. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobotCreator_a6aaa86f6cbd1426e862987d1f3d9f8fa}{run}} ()
+\begin{DoxyCompactList}\small\item\em Main loop entry point to run the creation window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobotCreator_a3b1852ea68b66abab751226c1cb6820f}{update}} ()
+\begin{DoxyCompactList}\small\item\em Updates internal state and G\+UI elements each frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobotCreator_a296898214fd76575c63de36ae1c5481f}{process\+Events}} ()
+\begin{DoxyCompactList}\small\item\em Handles user input events like keyboard and mouse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobotCreator_ad774a314cafeb9eee4187a295b5739d1}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renders the G\+UI window and widgets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobotCreator_a09f323f248be0eb2dba7388050e81c6a}{setup\+Widgets}} ()
+\begin{DoxyCompactList}\small\item\em Initializes and sets up all G\+UI widgets (Edit\+Boxes, Buttons) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobotCreator_a22c9b7970700b0c482682aa4db5c13bd}{setup\+Callbacks}} ()
+\begin{DoxyCompactList}\small\item\em Connects callbacks for button presses and other G\+UI events. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRobotCreator_a55c3f93cf65404a5c334c6a4be5ab67e}{is\+Running}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if the creation window is currently open and running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classRobotCreator_a4b0809b3fe7dd98ecc52697273cb473c}{is\+Valid\+Float}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Helper function to check if a string represents a valid floating-\/point number. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRobotCreator_aa5bdc5e505359a51e82ce26aa1a8de37}{is\+Valid\+Hex\+Color}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Helper function to validate if a string is a valid hexadecimal color code. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{classRobotCreator_afbf5db42204804796c234a32d1a9e4bd}{hex\+To\+Color}} (const std\+::string \&hex)
+\begin{DoxyCompactList}\small\item\em Converts a hexadecimal color string to an S\+F\+ML Color object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Render\+Window \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{window\+Robot\+Creator}}
+\begin{DoxyCompactList}\small\item\em S\+F\+ML window for robot creation G\+UI. \end{DoxyCompactList}\item 
+tgui\+::\+Gui \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}
+\begin{DoxyCompactList}\small\item\em T\+G\+UI G\+UI manager attached to the window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}} \& \mbox{\hyperlink{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}{wmr}}
+\begin{DoxyCompactList}\small\item\em Reference to the robot being configured. \end{DoxyCompactList}\item 
+tgui\+::\+Edit\+Box\+::\+Ptr \mbox{\hyperlink{classRobotCreator_a8acaa474e35e35627269867ded5eba96}{width\+Box}}
+\begin{DoxyCompactList}\small\item\em G\+UI widgets for robot parameters input. \end{DoxyCompactList}\item 
+tgui\+::\+Edit\+Box\+::\+Ptr \mbox{\hyperlink{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}{height\+Box}}
+\begin{DoxyCompactList}\small\item\em Input for robot height. \end{DoxyCompactList}\item 
+tgui\+::\+Edit\+Box\+::\+Ptr \mbox{\hyperlink{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}{color\+Box}}
+\begin{DoxyCompactList}\small\item\em Input for robot color (hexadecimal string) \end{DoxyCompactList}\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{classRobotCreator_ad3e31369423de1445e90d87c8001b554}{reset\+Button}}
+\begin{DoxyCompactList}\small\item\em Buttons for user actions. \end{DoxyCompactList}\item 
+tgui\+::\+Button\+::\+Ptr \mbox{\hyperlink{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}{create\+Button}}
+\begin{DoxyCompactList}\small\item\em Applies parameters and creates/configures the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a G\+UI window for creating and configuring a Unicycle Wheeled Mobile Robot (W\+MR). Allows user input for robot parameters like width, height, and color, then applies these to the robot model. 
+
+Definition at line 19 of file Robot\+Creator.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRobotCreator_a1a9bc9afc3c2e9aa6ca3555a11b99846}\label{classRobotCreator_a1a9bc9afc3c2e9aa6ca3555a11b99846}} 
+\index{RobotCreator@{RobotCreator}!RobotCreator@{RobotCreator}}
+\index{RobotCreator@{RobotCreator}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{RobotCreator()}{RobotCreator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Robot\+Creator\+::\+Robot\+Creator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}} \&}]{wmr\+Ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Explicit constructor that requires a reference to the \mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}} instance to configure. 
+
+Constructor for \mbox{\hyperlink{classRobotCreator}{Robot\+Creator}}.
+
+The explicit keyword prevents unintended implicit conversions. 
+\begin{DoxyParams}{Parameters}
+{\em wmr\+Ref} & Reference to the wheeled mobile robot instance\\
+\hline
+\end{DoxyParams}
+Loads the G\+UI form, initializes the window and widgets, and sets up callbacks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em wmr\+Ref} & Reference to the \mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}} robot model to configure. \\
+\hline
+\end{DoxyParams}
+$<$ Link widget variables to G\+UI elements
+
+$<$ Setup button callbacks
+
+Definition at line 13 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14     : \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}(sf::VideoMode(400, 250), \textcolor{stringliteral}{"Robot Creator"}),}
+\DoxyCodeLine{15       \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}(\mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}), \mbox{\hyperlink{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}{wmr}}(wmrRef)}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{comment}{// Load form file path from ROS package}}
+\DoxyCodeLine{18     std::string package\_path = ros::package::getPath(\textcolor{stringliteral}{"artgslam\_vsc"});}
+\DoxyCodeLine{19     std::string formPath = package\_path + \textcolor{stringliteral}{"/assets/forms/createRobot.txt"};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{22         \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.loadWidgetsFromFile(formPath);}
+\DoxyCodeLine{23     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} tgui::Exception\& e) \{}
+\DoxyCodeLine{24         std::cerr << \textcolor{stringliteral}{"Error loading GUI form: "} << e.what() << std::endl;}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{classRobotCreator_a09f323f248be0eb2dba7388050e81c6a}{setupWidgets}}();   \textcolor{comment}{/**< Link widget variables to GUI elements */}}
+\DoxyCodeLine{28     \mbox{\hyperlink{classRobotCreator_a22c9b7970700b0c482682aa4db5c13bd}{setupCallbacks}}(); \textcolor{comment}{/**< Setup button callbacks */}}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+References gui, setup\+Callbacks(), and setup\+Widgets().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a1a9bc9afc3c2e9aa6ca3555a11b99846_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a183f01cec759616f285dac85101c105a}\label{classRobotCreator_a183f01cec759616f285dac85101c105a}} 
+\index{RobotCreator@{RobotCreator}!RobotCreator@{RobotCreator}}
+\index{RobotCreator@{RobotCreator}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{RobotCreator()}{RobotCreator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Robot\+Creator\+::\+Robot\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted default constructor to avoid creating an instance without a robot reference. 
+
+\mbox{\Hypertarget{classRobotCreator_a3cb1ac2763b6340fb60b0711317cec7b}\label{classRobotCreator_a3cb1ac2763b6340fb60b0711317cec7b}} 
+\index{RobotCreator@{RobotCreator}!RobotCreator@{RobotCreator}}
+\index{RobotCreator@{RobotCreator}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{RobotCreator()}{RobotCreator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Robot\+Creator\+::\+Robot\+Creator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRobotCreator}{Robot\+Creator}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor to prevent copying. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRobotCreator_afbf5db42204804796c234a32d1a9e4bd}\label{classRobotCreator_afbf5db42204804796c234a32d1a9e4bd}} 
+\index{RobotCreator@{RobotCreator}!hexToColor@{hexToColor}}
+\index{hexToColor@{hexToColor}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{hexToColor()}{hexToColor()}}
+{\footnotesize\ttfamily sf\+::\+Color Robot\+Creator\+::hex\+To\+Color (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{hex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts a hexadecimal color string to an S\+F\+ML Color object. 
+
+Converts a hex color string to an S\+F\+ML color object.
+
+Assumes valid input format. 
+\begin{DoxyParams}{Parameters}
+{\em hex} & Hexadecimal color string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Corresponding sf\+::\+Color
+\end{DoxyReturn}
+Supports both 3-\/digit (\#abc) and 6-\/digit (\#aabbcc) hex formats.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hex} & The hex color string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Corresponding sf\+::\+Color object. 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{210 \{}
+\DoxyCodeLine{211     std::string h = hex;}
+\DoxyCodeLine{212     \textcolor{keywordflow}{if} (h.empty()) \textcolor{keywordflow}{return} sf::Color::White;}
+\DoxyCodeLine{213     \textcolor{keywordflow}{if} (h[0] == \textcolor{charliteral}{'\#'}) h = h.substr(1);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215     \textcolor{keywordflow}{if} (h.length() == 3)}
+\DoxyCodeLine{216     \{}
+\DoxyCodeLine{217         h = \{h[0], h[0], h[1], h[1], h[2], h[2]\};}
+\DoxyCodeLine{218     \}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} r = std::stoul(h.substr(0, 2), \textcolor{keyword}{nullptr}, 16);}
+\DoxyCodeLine{221     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} g = std::stoul(h.substr(2, 2), \textcolor{keyword}{nullptr}, 16);}
+\DoxyCodeLine{222     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} b = std::stoul(h.substr(4, 2), \textcolor{keyword}{nullptr}, 16);}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{keywordflow}{return} sf::Color(r, g, b);}
+\DoxyCodeLine{225 \}}
+
+\end{DoxyCode}
+
+
+Referenced by setup\+Callbacks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_afbf5db42204804796c234a32d1a9e4bd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a55c3f93cf65404a5c334c6a4be5ab67e}\label{classRobotCreator_a55c3f93cf65404a5c334c6a4be5ab67e}} 
+\index{RobotCreator@{RobotCreator}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{isRunning()}{isRunning()}}
+{\footnotesize\ttfamily bool Robot\+Creator\+::is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns true if the creation window is currently open and running. 
+
+Checks if the window is still open.
+
+\begin{DoxyReturn}{Returns}
+true if the window is open, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171 \{}
+\DoxyCodeLine{172     \textcolor{keywordflow}{return} \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}.isOpen();}
+\DoxyCodeLine{173 \}}
+
+\end{DoxyCode}
+
+
+References window\+Robot\+Creator.
+
+
+
+Referenced by run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a55c3f93cf65404a5c334c6a4be5ab67e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a4b0809b3fe7dd98ecc52697273cb473c}\label{classRobotCreator_a4b0809b3fe7dd98ecc52697273cb473c}} 
+\index{RobotCreator@{RobotCreator}!isValidFloat@{isValidFloat}}
+\index{isValidFloat@{isValidFloat}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{isValidFloat()}{isValidFloat()}}
+{\footnotesize\ttfamily bool Robot\+Creator\+::is\+Valid\+Float (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper function to check if a string represents a valid floating-\/point number. 
+
+Validates if a string represents a valid floating point number.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid float, false otherwise
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid float format, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{182 \{}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (str.empty()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{184     \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex floatRegex(R\textcolor{stringliteral}{"(\string^-\/?\(\backslash\)d+(\(\backslash\).\(\backslash\)d+)?\$)");}}
+\DoxyCodeLine{185 \textcolor{stringliteral}{    }\textcolor{keywordflow}{return} std::regex\_match(str, floatRegex);}
+\DoxyCodeLine{186 \}}
+
+\end{DoxyCode}
+
+
+Referenced by setup\+Callbacks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a4b0809b3fe7dd98ecc52697273cb473c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_aa5bdc5e505359a51e82ce26aa1a8de37}\label{classRobotCreator_aa5bdc5e505359a51e82ce26aa1a8de37}} 
+\index{RobotCreator@{RobotCreator}!isValidHexColor@{isValidHexColor}}
+\index{isValidHexColor@{isValidHexColor}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{isValidHexColor()}{isValidHexColor()}}
+{\footnotesize\ttfamily bool Robot\+Creator\+::is\+Valid\+Hex\+Color (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper function to validate if a string is a valid hexadecimal color code. 
+
+Validates if a string is a valid hex color (\#\+R\+GB or \#\+R\+R\+G\+G\+BB).
+
+Supports formats like \char`\"{}\#\+R\+R\+G\+G\+B\+B\char`\"{} or \char`\"{}\+R\+R\+G\+G\+B\+B\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em str} & Input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid hex color, false otherwise
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The hex color string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid hex color format, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{195 \{}
+\DoxyCodeLine{196     \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex hexShort(R\textcolor{stringliteral}{"(\#([A-\/Fa-\/f0-\/9]\{3\}))");}}
+\DoxyCodeLine{197 \textcolor{stringliteral}{    }\textcolor{keyword}{static} \textcolor{keyword}{const} std::regex hexLong(R\textcolor{stringliteral}{"(\#([A-\/Fa-\/f0-\/9]\{6\}))");}}
+\DoxyCodeLine{198 \textcolor{stringliteral}{    }\textcolor{keywordflow}{return} std::regex\_match(str, hexShort) || std::regex\_match(str, hexLong);}
+\DoxyCodeLine{199 \}}
+
+\end{DoxyCode}
+
+
+Referenced by setup\+Callbacks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_aa5bdc5e505359a51e82ce26aa1a8de37_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_ac624d69812bde03f24e60208f03bf12d}\label{classRobotCreator_ac624d69812bde03f24e60208f03bf12d}} 
+\index{RobotCreator@{RobotCreator}!operator=@{operator=}}
+\index{operator=@{operator=}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRobotCreator}{Robot\+Creator}}\& Robot\+Creator\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRobotCreator}{Robot\+Creator}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator to prevent copying. 
+
+\mbox{\Hypertarget{classRobotCreator_a296898214fd76575c63de36ae1c5481f}\label{classRobotCreator_a296898214fd76575c63de36ae1c5481f}} 
+\index{RobotCreator@{RobotCreator}!processEvents@{processEvents}}
+\index{processEvents@{processEvents}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{processEvents()}{processEvents()}}
+{\footnotesize\ttfamily void Robot\+Creator\+::process\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles user input events like keyboard and mouse. 
+
+Processes all window events.
+
+Polls and handles S\+F\+ML window events and delegates event handling to T\+G\+UI. 
+
+Definition at line 51 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     sf::Event event;}
+\DoxyCodeLine{54     \textcolor{keywordflow}{while} (\mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}.pollEvent(event))}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.handleEvent(event);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} (event.type == sf::Event::Closed)}
+\DoxyCodeLine{59             \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}.close();}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+
+
+References gui, and window\+Robot\+Creator.
+
+
+
+Referenced by run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a296898214fd76575c63de36ae1c5481f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_ad774a314cafeb9eee4187a295b5739d1}\label{classRobotCreator_ad774a314cafeb9eee4187a295b5739d1}} 
+\index{RobotCreator@{RobotCreator}!render@{render}}
+\index{render@{render}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Robot\+Creator\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders the G\+UI window and widgets. 
+
+Clears the window and draws the G\+UI. 
+
+Definition at line 74 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76     \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}.clear(sf::Color::White);}
+\DoxyCodeLine{77     \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.draw();}
+\DoxyCodeLine{78     \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}.display();}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+
+
+References gui, and window\+Robot\+Creator.
+
+
+
+Referenced by run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_ad774a314cafeb9eee4187a295b5739d1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a6aaa86f6cbd1426e862987d1f3d9f8fa}\label{classRobotCreator_a6aaa86f6cbd1426e862987d1f3d9f8fa}} 
+\index{RobotCreator@{RobotCreator}!run@{run}}
+\index{run@{run}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Robot\+Creator\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main loop entry point to run the creation window. 
+
+Runs the main loop of the Robot Creator window.
+
+Processes events, updates state, and renders G\+UI until the window is closed. $<$ Handle input and window events
+
+$<$ Update logic (currently unused)
+
+$<$ Render the G\+UI
+
+Definition at line 36 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38     \textcolor{keywordflow}{while} (\mbox{\hyperlink{classRobotCreator_a55c3f93cf65404a5c334c6a4be5ab67e}{isRunning}}())}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \mbox{\hyperlink{classRobotCreator_a296898214fd76575c63de36ae1c5481f}{processEvents}}(); \textcolor{comment}{/**< Handle input and window events */}}
+\DoxyCodeLine{41         \mbox{\hyperlink{classRobotCreator_a3b1852ea68b66abab751226c1cb6820f}{update}}();        \textcolor{comment}{/**< Update logic (currently unused) */}}
+\DoxyCodeLine{42         \mbox{\hyperlink{classRobotCreator_ad774a314cafeb9eee4187a295b5739d1}{render}}();        \textcolor{comment}{/**< Render the GUI */}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+References is\+Running(), process\+Events(), render(), and update().
+
+
+
+Referenced by Map\+Viewer\+::\+Map\+Viewer().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a6aaa86f6cbd1426e862987d1f3d9f8fa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a6aaa86f6cbd1426e862987d1f3d9f8fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a22c9b7970700b0c482682aa4db5c13bd}\label{classRobotCreator_a22c9b7970700b0c482682aa4db5c13bd}} 
+\index{RobotCreator@{RobotCreator}!setupCallbacks@{setupCallbacks}}
+\index{setupCallbacks@{setupCallbacks}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{setupCallbacks()}{setupCallbacks()}}
+{\footnotesize\ttfamily void Robot\+Creator\+::setup\+Callbacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Connects callbacks for button presses and other G\+UI events. 
+
+Sets up callbacks for reset and create buttons.
+
+
+\begin{DoxyItemize}
+\item Resets all input fields on reset button press.
+\item Validates input and creates robot on create button press. 
+\end{DoxyItemize}
+
+Definition at line 110 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111 \{}
+\DoxyCodeLine{112     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRobotCreator_ad3e31369423de1445e90d87c8001b554}{resetButton}} || !\mbox{\hyperlink{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}{createButton}}) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \mbox{\hyperlink{classRobotCreator_ad3e31369423de1445e90d87c8001b554}{resetButton}}-\/>onPress([\textcolor{keyword}{this}]() \{}
+\DoxyCodeLine{115         \mbox{\hyperlink{classRobotCreator_a8acaa474e35e35627269867ded5eba96}{widthBox}}-\/>setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{116         \mbox{\hyperlink{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}{heightBox}}-\/>setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{117         \mbox{\hyperlink{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}{colorBox}}-\/>setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{118     \});}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \mbox{\hyperlink{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}{createButton}}-\/>onPress([\textcolor{keyword}{this}]() \{}
+\DoxyCodeLine{121         std::string widthStr  = \mbox{\hyperlink{classRobotCreator_a8acaa474e35e35627269867ded5eba96}{widthBox}}-\/>getText().toStdString();}
+\DoxyCodeLine{122         std::string heightStr = \mbox{\hyperlink{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}{heightBox}}-\/>getText().toStdString();}
+\DoxyCodeLine{123         std::string colorStr  = \mbox{\hyperlink{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}{colorBox}}-\/>getText().toStdString();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{keywordtype}{bool} valid = \textcolor{keyword}{true};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRobotCreator_a4b0809b3fe7dd98ecc52697273cb473c}{isValidFloat}}(widthStr)) \{}
+\DoxyCodeLine{128             \mbox{\hyperlink{classRobotCreator_a8acaa474e35e35627269867ded5eba96}{widthBox}}-\/>setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{129             valid = \textcolor{keyword}{false};}
+\DoxyCodeLine{130         \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRobotCreator_a4b0809b3fe7dd98ecc52697273cb473c}{isValidFloat}}(heightStr)) \{}
+\DoxyCodeLine{133             \mbox{\hyperlink{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}{heightBox}}-\/>setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{134             valid = \textcolor{keyword}{false};}
+\DoxyCodeLine{135         \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRobotCreator_aa5bdc5e505359a51e82ce26aa1a8de37}{isValidHexColor}}(colorStr)) \{}
+\DoxyCodeLine{138             \mbox{\hyperlink{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}{colorBox}}-\/>setText(\textcolor{stringliteral}{""});}
+\DoxyCodeLine{139             valid = \textcolor{keyword}{false};}
+\DoxyCodeLine{140         \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} (!valid) \{}
+\DoxyCodeLine{143             std::cout << \textcolor{stringliteral}{"Error: Invalid input. Please check the fields.\(\backslash\)n"};}
+\DoxyCodeLine{144             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147         \textcolor{keywordtype}{float} width  = std::stof(widthStr);}
+\DoxyCodeLine{148         \textcolor{keywordtype}{float} height = std::stof(heightStr);}
+\DoxyCodeLine{149         sf::Color color = \mbox{\hyperlink{classRobotCreator_afbf5db42204804796c234a32d1a9e4bd}{hexToColor}}(colorStr);}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151         \mbox{\hyperlink{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_abc29ba63976fdf56362558b301fd85f3}{setDimensions}}(width, height);}
+\DoxyCodeLine{152         \mbox{\hyperlink{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_a01d4d8ad0a8317e63f1a1eddd389069a}{setColor}}(color);}
+\DoxyCodeLine{153         \mbox{\hyperlink{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_a67da598341ba850b0a1958cacb7031fa}{setRobotActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155         std::cout << \textcolor{stringliteral}{"Robot created:\(\backslash\)n"};}
+\DoxyCodeLine{156         std::cout << \textcolor{stringliteral}{"Width: "} << width << \textcolor{stringliteral}{", Height: "} << height << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{157         std::cout << \textcolor{stringliteral}{"Color RGB: ("} }
+\DoxyCodeLine{158                   << \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(color.r) << \textcolor{stringliteral}{", "}}
+\DoxyCodeLine{159                   << \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(color.g) << \textcolor{stringliteral}{", "}}
+\DoxyCodeLine{160                   << \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(color.b) << \textcolor{stringliteral}{")\(\backslash\)n"};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \mbox{\hyperlink{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}{windowRobotCreator}}.close();}
+\DoxyCodeLine{163     \});}
+\DoxyCodeLine{164 \}}
+
+\end{DoxyCode}
+
+
+References color\+Box, create\+Button, height\+Box, hex\+To\+Color(), is\+Valid\+Float(), is\+Valid\+Hex\+Color(), reset\+Button, Unicicle\+Wmr\+::set\+Color(), Unicicle\+Wmr\+::set\+Dimensions(), Unicicle\+Wmr\+::set\+Robot\+Active(), width\+Box, window\+Robot\+Creator, and wmr.
+
+
+
+Referenced by Robot\+Creator().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a22c9b7970700b0c482682aa4db5c13bd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a22c9b7970700b0c482682aa4db5c13bd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a09f323f248be0eb2dba7388050e81c6a}\label{classRobotCreator_a09f323f248be0eb2dba7388050e81c6a}} 
+\index{RobotCreator@{RobotCreator}!setupWidgets@{setupWidgets}}
+\index{setupWidgets@{setupWidgets}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{setupWidgets()}{setupWidgets()}}
+{\footnotesize\ttfamily void Robot\+Creator\+::setup\+Widgets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes and sets up all G\+UI widgets (Edit\+Boxes, Buttons) 
+
+Retrieves and validates G\+UI widgets from the loaded form. 
+
+Definition at line 84 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86     \mbox{\hyperlink{classRobotCreator_a8acaa474e35e35627269867ded5eba96}{widthBox}}  = \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.get<tgui::EditBox>(\textcolor{stringliteral}{"widthBox"});}
+\DoxyCodeLine{87     \mbox{\hyperlink{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}{heightBox}} = \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.get<tgui::EditBox>(\textcolor{stringliteral}{"heightBox"});}
+\DoxyCodeLine{88     \mbox{\hyperlink{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}{colorBox}}  = \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.get<tgui::EditBox>(\textcolor{stringliteral}{"colorBox"});}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \mbox{\hyperlink{classRobotCreator_ad3e31369423de1445e90d87c8001b554}{resetButton}}  = \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.get<tgui::Button>(\textcolor{stringliteral}{"Button1"});}
+\DoxyCodeLine{91     \mbox{\hyperlink{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}{createButton}} = \mbox{\hyperlink{classRobotCreator_a45146043791bc6757d667693ece10080}{gui}}.get<tgui::Button>(\textcolor{stringliteral}{"Button2"});}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRobotCreator_a8acaa474e35e35627269867ded5eba96}{widthBox}} || !\mbox{\hyperlink{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}{heightBox}} || !\mbox{\hyperlink{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}{colorBox}} || !\mbox{\hyperlink{classRobotCreator_ad3e31369423de1445e90d87c8001b554}{resetButton}} || !\mbox{\hyperlink{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}{createButton}})}
+\DoxyCodeLine{94     \{}
+\DoxyCodeLine{95         std::cerr << \textcolor{stringliteral}{"[ERROR] One or more widgets could not be found.\(\backslash\)n"};}
+\DoxyCodeLine{96         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{comment}{// Optional: set input validators (commented out)}}
+\DoxyCodeLine{100     \textcolor{comment}{// widthBox-\/>setInputValidator(R"(\string^-\/?\(\backslash\)d*\(\backslash\).?\(\backslash\)d+\$)");}}
+\DoxyCodeLine{101     \textcolor{comment}{// heightBox-\/>setInputValidator(R"(\string^-\/?\(\backslash\)d*\(\backslash\).?\(\backslash\)d+\$)");}}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
+
+
+References color\+Box, create\+Button, gui, height\+Box, reset\+Button, and width\+Box.
+
+
+
+Referenced by Robot\+Creator().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a09f323f248be0eb2dba7388050e81c6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRobotCreator_a3b1852ea68b66abab751226c1cb6820f}\label{classRobotCreator_a3b1852ea68b66abab751226c1cb6820f}} 
+\index{RobotCreator@{RobotCreator}!update@{update}}
+\index{update@{update}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Robot\+Creator\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates internal state and G\+UI elements each frame. 
+
+Placeholder for future update logic. 
+
+Definition at line 66 of file Robot\+Creator.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     \textcolor{comment}{// Currently no update logic}}
+\DoxyCodeLine{69 \}}
+
+\end{DoxyCode}
+
+
+Referenced by run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobotCreator_a3b1852ea68b66abab751226c1cb6820f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}\label{classRobotCreator_ac02889de32c4fcadacce1584e6b1c559}} 
+\index{RobotCreator@{RobotCreator}!colorBox@{colorBox}}
+\index{colorBox@{colorBox}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{colorBox}{colorBox}}
+{\footnotesize\ttfamily tgui\+::\+Edit\+Box\+::\+Ptr Robot\+Creator\+::color\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Input for robot color (hexadecimal string) 
+
+
+
+Definition at line 67 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by setup\+Callbacks(), and setup\+Widgets().
+
+\mbox{\Hypertarget{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}\label{classRobotCreator_adf59c2f30c9de4121ab6fe3bd7fc90b3}} 
+\index{RobotCreator@{RobotCreator}!createButton@{createButton}}
+\index{createButton@{createButton}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{createButton}{createButton}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Robot\+Creator\+::create\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Applies parameters and creates/configures the robot. 
+
+
+
+Definition at line 71 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by setup\+Callbacks(), and setup\+Widgets().
+
+\mbox{\Hypertarget{classRobotCreator_a45146043791bc6757d667693ece10080}\label{classRobotCreator_a45146043791bc6757d667693ece10080}} 
+\index{RobotCreator@{RobotCreator}!gui@{gui}}
+\index{gui@{gui}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{gui}{gui}}
+{\footnotesize\ttfamily tgui\+::\+Gui Robot\+Creator\+::gui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+T\+G\+UI G\+UI manager attached to the window. 
+
+
+
+Definition at line 61 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by process\+Events(), render(), Robot\+Creator(), and setup\+Widgets().
+
+\mbox{\Hypertarget{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}\label{classRobotCreator_a12e37b30cb7ba1d1fa1d793c3382a8ac}} 
+\index{RobotCreator@{RobotCreator}!heightBox@{heightBox}}
+\index{heightBox@{heightBox}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{heightBox}{heightBox}}
+{\footnotesize\ttfamily tgui\+::\+Edit\+Box\+::\+Ptr Robot\+Creator\+::height\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Input for robot height. 
+
+
+
+Definition at line 66 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by setup\+Callbacks(), and setup\+Widgets().
+
+\mbox{\Hypertarget{classRobotCreator_ad3e31369423de1445e90d87c8001b554}\label{classRobotCreator_ad3e31369423de1445e90d87c8001b554}} 
+\index{RobotCreator@{RobotCreator}!resetButton@{resetButton}}
+\index{resetButton@{resetButton}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{resetButton}{resetButton}}
+{\footnotesize\ttfamily tgui\+::\+Button\+::\+Ptr Robot\+Creator\+::reset\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Buttons for user actions. 
+
+Resets all input fields to default 
+
+Definition at line 70 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by setup\+Callbacks(), and setup\+Widgets().
+
+\mbox{\Hypertarget{classRobotCreator_a8acaa474e35e35627269867ded5eba96}\label{classRobotCreator_a8acaa474e35e35627269867ded5eba96}} 
+\index{RobotCreator@{RobotCreator}!widthBox@{widthBox}}
+\index{widthBox@{widthBox}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{widthBox}{widthBox}}
+{\footnotesize\ttfamily tgui\+::\+Edit\+Box\+::\+Ptr Robot\+Creator\+::width\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+G\+UI widgets for robot parameters input. 
+
+Input for robot width 
+
+Definition at line 65 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by setup\+Callbacks(), and setup\+Widgets().
+
+\mbox{\Hypertarget{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}\label{classRobotCreator_a42997b6e44f42b8f6ade64f7a77858fd}} 
+\index{RobotCreator@{RobotCreator}!windowRobotCreator@{windowRobotCreator}}
+\index{windowRobotCreator@{windowRobotCreator}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{windowRobotCreator}{windowRobotCreator}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window Robot\+Creator\+::window\+Robot\+Creator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+S\+F\+ML window for robot creation G\+UI. 
+
+
+
+Definition at line 60 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by is\+Running(), process\+Events(), render(), and setup\+Callbacks().
+
+\mbox{\Hypertarget{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}\label{classRobotCreator_a4f93cda60d2e9f311ca66f8249d63028}} 
+\index{RobotCreator@{RobotCreator}!wmr@{wmr}}
+\index{wmr@{wmr}!RobotCreator@{RobotCreator}}
+\doxysubsubsection{\texorpdfstring{wmr}{wmr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnicicleWmr}{Unicicle\+Wmr}}\& Robot\+Creator\+::wmr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the robot being configured. 
+
+
+
+Definition at line 62 of file Robot\+Creator.\+hpp.
+
+
+
+Referenced by setup\+Callbacks().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/artgslam\+\_\+vsc/\mbox{\hyperlink{RobotCreator_8hpp}{Robot\+Creator.\+hpp}}\item 
+src/\mbox{\hyperlink{RobotCreator_8cpp}{Robot\+Creator.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,381 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Star Class Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{8}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Member Enumeration Documentation}{8}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}State}{8}{subsubsection.3.1.2.1}%
+\contentsline {subsection}{\numberline {3.1.3}Constructor \& Destructor Documentation}{9}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}AStar()}{9}{subsubsection.3.1.3.1}%
+\contentsline {subsection}{\numberline {3.1.4}Member Function Documentation}{10}{subsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.4.1}draw()}{10}{subsubsection.3.1.4.1}%
+\contentsline {subsubsection}{\numberline {3.1.4.2}drawFoundPath()}{11}{subsubsection.3.1.4.2}%
+\contentsline {subsubsection}{\numberline {3.1.4.3}euclideanHeuristic()}{12}{subsubsection.3.1.4.3}%
+\contentsline {subsubsection}{\numberline {3.1.4.4}findPath()}{12}{subsubsection.3.1.4.4}%
+\contentsline {subsubsection}{\numberline {3.1.4.5}getCurrentNode()}{13}{subsubsection.3.1.4.5}%
+\contentsline {subsubsection}{\numberline {3.1.4.6}getNeighbors()}{13}{subsubsection.3.1.4.6}%
+\contentsline {subsubsection}{\numberline {3.1.4.7}getStateMap()}{15}{subsubsection.3.1.4.7}%
+\contentsline {subsubsection}{\numberline {3.1.4.8}isFinished()}{15}{subsubsection.3.1.4.8}%
+\contentsline {subsubsection}{\numberline {3.1.4.9}isPathFound()}{15}{subsubsection.3.1.4.9}%
+\contentsline {subsubsection}{\numberline {3.1.4.10}isValidCell()}{16}{subsubsection.3.1.4.10}%
+\contentsline {subsubsection}{\numberline {3.1.4.11}octileHeuristic()}{16}{subsubsection.3.1.4.11}%
+\contentsline {subsubsection}{\numberline {3.1.4.12}reconstructPath()}{17}{subsubsection.3.1.4.12}%
+\contentsline {subsubsection}{\numberline {3.1.4.13}start()}{17}{subsubsection.3.1.4.13}%
+\contentsline {subsubsection}{\numberline {3.1.4.14}step()}{19}{subsubsection.3.1.4.14}%
+\contentsline {subsubsection}{\numberline {3.1.4.15}updatemap()}{21}{subsubsection.3.1.4.15}%
+\contentsline {subsection}{\numberline {3.1.5}Member Data Documentation}{21}{subsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.5.1}closedList}{22}{subsubsection.3.1.5.1}%
+\contentsline {subsubsection}{\numberline {3.1.5.2}currentNode}{22}{subsubsection.3.1.5.2}%
+\contentsline {subsubsection}{\numberline {3.1.5.3}finalPath}{22}{subsubsection.3.1.5.3}%
+\contentsline {subsubsection}{\numberline {3.1.5.4}finished}{22}{subsubsection.3.1.5.4}%
+\contentsline {subsubsection}{\numberline {3.1.5.5}goalIndex}{23}{subsubsection.3.1.5.5}%
+\contentsline {subsubsection}{\numberline {3.1.5.6}goalNode}{23}{subsubsection.3.1.5.6}%
+\contentsline {subsubsection}{\numberline {3.1.5.7}gScore}{23}{subsubsection.3.1.5.7}%
+\contentsline {subsubsection}{\numberline {3.1.5.8}height}{23}{subsubsection.3.1.5.8}%
+\contentsline {subsubsection}{\numberline {3.1.5.9}map}{24}{subsubsection.3.1.5.9}%
+\contentsline {subsubsection}{\numberline {3.1.5.10}openList}{24}{subsubsection.3.1.5.10}%
+\contentsline {subsubsection}{\numberline {3.1.5.11}parentMap}{24}{subsubsection.3.1.5.11}%
+\contentsline {subsubsection}{\numberline {3.1.5.12}pathFound}{24}{subsubsection.3.1.5.12}%
+\contentsline {subsubsection}{\numberline {3.1.5.13}startIndex}{25}{subsubsection.3.1.5.13}%
+\contentsline {subsubsection}{\numberline {3.1.5.14}stateMap}{25}{subsubsection.3.1.5.14}%
+\contentsline {subsubsection}{\numberline {3.1.5.15}width}{25}{subsubsection.3.1.5.15}%
+\contentsline {section}{\numberline {3.2}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{26}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{27}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Constructor \& Destructor Documentation}{27}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}FileManager()}{27}{subsubsection.3.2.2.1}%
+\contentsline {subsection}{\numberline {3.2.3}Member Function Documentation}{28}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}dataLoad()}{28}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}loadDialog()}{29}{subsubsection.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.3.3}saveData()}{30}{subsubsection.3.2.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.4}saveDialog()}{31}{subsubsection.3.2.3.4}%
+\contentsline {subsubsection}{\numberline {3.2.3.5}saveScreen()}{32}{subsubsection.3.2.3.5}%
+\contentsline {subsection}{\numberline {3.2.4}Member Data Documentation}{33}{subsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}loadedFilename}{33}{subsubsection.3.2.4.1}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}map}{34}{subsubsection.3.2.4.2}%
+\contentsline {section}{\numberline {3.3}Grid\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map Class Reference}{34}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{37}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Constructor \& Destructor Documentation}{37}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}GridMap()}{37}{subsubsection.3.3.2.1}%
+\contentsline {subsection}{\numberline {3.3.3}Member Function Documentation}{37}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}addPoints()}{37}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}clearGridMap()}{39}{subsubsection.3.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3.3}clearPoints()}{39}{subsubsection.3.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3.4}clearSetPoints()}{40}{subsubsection.3.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.3.5}draw()}{40}{subsubsection.3.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.3.6}fillGrid()}{41}{subsubsection.3.3.3.6}%
+\contentsline {subsubsection}{\numberline {3.3.3.7}getCellIndexX()}{42}{subsubsection.3.3.3.7}%
+\contentsline {subsubsection}{\numberline {3.3.3.8}getCellIndexY()}{43}{subsubsection.3.3.3.8}%
+\contentsline {subsubsection}{\numberline {3.3.3.9}getGrid()}{44}{subsubsection.3.3.3.9}%
+\contentsline {subsubsection}{\numberline {3.3.3.10}getMapSize()}{44}{subsubsection.3.3.3.10}%
+\contentsline {subsubsection}{\numberline {3.3.3.11}getRealX()}{45}{subsubsection.3.3.3.11}%
+\contentsline {subsubsection}{\numberline {3.3.3.12}getRealY()}{46}{subsubsection.3.3.3.12}%
+\contentsline {subsubsection}{\numberline {3.3.3.13}isOccupied()}{46}{subsubsection.3.3.3.13}%
+\contentsline {subsubsection}{\numberline {3.3.3.14}setGoal()}{47}{subsubsection.3.3.3.14}%
+\contentsline {subsubsection}{\numberline {3.3.3.15}setPoints()}{48}{subsubsection.3.3.3.15}%
+\contentsline {subsubsection}{\numberline {3.3.3.16}setStart()}{49}{subsubsection.3.3.3.16}%
+\contentsline {subsubsection}{\numberline {3.3.3.17}xy2Grid()}{49}{subsubsection.3.3.3.17}%
+\contentsline {subsection}{\numberline {3.3.4}Member Data Documentation}{50}{subsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.4.1}controller}{50}{subsubsection.3.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.3.4.2}grid}{51}{subsubsection.3.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.3.4.3}gridResolution}{51}{subsubsection.3.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.3.4.4}gridSize}{51}{subsubsection.3.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.3.4.5}posX}{51}{subsubsection.3.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.3.4.6}posY}{52}{subsubsection.3.3.4.6}%
+\contentsline {section}{\numberline {3.4}Live\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map Class Reference}{52}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{54}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Constructor \& Destructor Documentation}{55}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}LiveMap()}{55}{subsubsection.3.4.2.1}%
+\contentsline {subsection}{\numberline {3.4.3}Member Function Documentation}{55}{subsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.3.1}addPoint()}{55}{subsubsection.3.4.3.1}%
+\contentsline {subsubsection}{\numberline {3.4.3.2}clearGrid()}{56}{subsubsection.3.4.3.2}%
+\contentsline {subsubsection}{\numberline {3.4.3.3}clearPoints()}{57}{subsubsection.3.4.3.3}%
+\contentsline {subsubsection}{\numberline {3.4.3.4}drawLiveMap()}{57}{subsubsection.3.4.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.3.5}fillGrid()}{59}{subsubsection.3.4.3.5}%
+\contentsline {subsubsection}{\numberline {3.4.3.6}getGrid()}{60}{subsubsection.3.4.3.6}%
+\contentsline {subsubsection}{\numberline {3.4.3.7}getIsActive()}{61}{subsubsection.3.4.3.7}%
+\contentsline {subsubsection}{\numberline {3.4.3.8}setActive()}{61}{subsubsection.3.4.3.8}%
+\contentsline {subsubsection}{\numberline {3.4.3.9}setGoal()}{61}{subsubsection.3.4.3.9}%
+\contentsline {subsubsection}{\numberline {3.4.3.10}setPoints()}{62}{subsubsection.3.4.3.10}%
+\contentsline {subsubsection}{\numberline {3.4.3.11}setStart()}{63}{subsubsection.3.4.3.11}%
+\contentsline {subsubsection}{\numberline {3.4.3.12}updateGridFromPoints()}{63}{subsubsection.3.4.3.12}%
+\contentsline {subsubsection}{\numberline {3.4.3.13}xy2Grid()}{64}{subsubsection.3.4.3.13}%
+\contentsline {subsection}{\numberline {3.4.4}Member Data Documentation}{65}{subsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.4.1}controller}{65}{subsubsection.3.4.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.4.2}grid}{65}{subsubsection.3.4.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.4.3}gridResolution}{66}{subsubsection.3.4.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4.4}gridSize}{66}{subsubsection.3.4.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.4.5}isLivemodeActive}{66}{subsubsection.3.4.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.4.6}originSet}{66}{subsubsection.3.4.4.6}%
+\contentsline {subsubsection}{\numberline {3.4.4.7}originX}{67}{subsubsection.3.4.4.7}%
+\contentsline {subsubsection}{\numberline {3.4.4.8}originY}{67}{subsubsection.3.4.4.8}%
+\contentsline {subsubsection}{\numberline {3.4.4.9}posX}{67}{subsubsection.3.4.4.9}%
+\contentsline {subsubsection}{\numberline {3.4.4.10}posY}{67}{subsubsection.3.4.4.10}%
+\contentsline {section}{\numberline {3.5}Map\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Viewer Class Reference}{68}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{69}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Constructor \& Destructor Documentation}{69}{subsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.1}MapViewer()}{70}{subsubsection.3.5.2.1}%
+\contentsline {subsection}{\numberline {3.5.3}Member Function Documentation}{72}{subsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.3.1}isRunning()}{73}{subsubsection.3.5.3.1}%
+\contentsline {subsubsection}{\numberline {3.5.3.2}processEvent()}{73}{subsubsection.3.5.3.2}%
+\contentsline {subsubsection}{\numberline {3.5.3.3}render()}{75}{subsubsection.3.5.3.3}%
+\contentsline {subsubsection}{\numberline {3.5.3.4}update()}{76}{subsubsection.3.5.3.4}%
+\contentsline {subsection}{\numberline {3.5.4}Member Data Documentation}{78}{subsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.4.1}astarAnimating}{78}{subsubsection.3.5.4.1}%
+\contentsline {subsubsection}{\numberline {3.5.4.2}aStarsim}{79}{subsubsection.3.5.4.2}%
+\contentsline {subsubsection}{\numberline {3.5.4.3}controller}{79}{subsubsection.3.5.4.3}%
+\contentsline {subsubsection}{\numberline {3.5.4.4}gridIndex}{79}{subsubsection.3.5.4.4}%
+\contentsline {subsubsection}{\numberline {3.5.4.5}gridIndex2copy}{79}{subsubsection.3.5.4.5}%
+\contentsline {subsubsection}{\numberline {3.5.4.6}gui}{80}{subsubsection.3.5.4.6}%
+\contentsline {subsubsection}{\numberline {3.5.4.7}livemap}{80}{subsubsection.3.5.4.7}%
+\contentsline {subsubsection}{\numberline {3.5.4.8}manager}{80}{subsubsection.3.5.4.8}%
+\contentsline {subsubsection}{\numberline {3.5.4.9}map}{80}{subsubsection.3.5.4.9}%
+\contentsline {subsubsection}{\numberline {3.5.4.10}menu}{81}{subsubsection.3.5.4.10}%
+\contentsline {subsubsection}{\numberline {3.5.4.11}r\_menu}{81}{subsubsection.3.5.4.11}%
+\contentsline {subsubsection}{\numberline {3.5.4.12}roshandler}{81}{subsubsection.3.5.4.12}%
+\contentsline {subsubsection}{\numberline {3.5.4.13}running}{81}{subsubsection.3.5.4.13}%
+\contentsline {subsubsection}{\numberline {3.5.4.14}view}{82}{subsubsection.3.5.4.14}%
+\contentsline {subsubsection}{\numberline {3.5.4.15}window}{82}{subsubsection.3.5.4.15}%
+\contentsline {subsubsection}{\numberline {3.5.4.16}wmr}{82}{subsubsection.3.5.4.16}%
+\contentsline {subsubsection}{\numberline {3.5.4.17}worldXY}{82}{subsubsection.3.5.4.17}%
+\contentsline {section}{\numberline {3.6}Menu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bar Class Reference}{83}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Detailed Description}{84}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Constructor \& Destructor Documentation}{84}{subsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.1}MenuBar()}{84}{subsubsection.3.6.2.1}%
+\contentsline {subsection}{\numberline {3.6.3}Member Function Documentation}{85}{subsection.3.6.3}%
+\contentsline {subsubsection}{\numberline {3.6.3.1}getLiveMode()}{85}{subsubsection.3.6.3.1}%
+\contentsline {subsubsection}{\numberline {3.6.3.2}setCallbacks()}{86}{subsubsection.3.6.3.2}%
+\contentsline {subsubsection}{\numberline {3.6.3.3}setupCordLable()}{87}{subsubsection.3.6.3.3}%
+\contentsline {subsubsection}{\numberline {3.6.3.4}setupliveToggle()}{88}{subsubsection.3.6.3.4}%
+\contentsline {subsubsection}{\numberline {3.6.3.5}setupMenu()}{89}{subsubsection.3.6.3.5}%
+\contentsline {subsubsection}{\numberline {3.6.3.6}updateCoordinates()}{90}{subsubsection.3.6.3.6}%
+\contentsline {subsection}{\numberline {3.6.4}Member Data Documentation}{91}{subsection.3.6.4}%
+\contentsline {subsubsection}{\numberline {3.6.4.1}coordLabel}{91}{subsubsection.3.6.4.1}%
+\contentsline {subsubsection}{\numberline {3.6.4.2}liveMode}{91}{subsubsection.3.6.4.2}%
+\contentsline {subsubsection}{\numberline {3.6.4.3}liveToggle}{92}{subsubsection.3.6.4.3}%
+\contentsline {subsubsection}{\numberline {3.6.4.4}menuBar}{92}{subsubsection.3.6.4.4}%
+\contentsline {section}{\numberline {3.7}Node Class Reference}{92}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Detailed Description}{93}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Constructor \& Destructor Documentation}{93}{subsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}Node()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{93}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}Node()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{93}{subsubsection.3.7.2.2}%
+\contentsline {subsection}{\numberline {3.7.3}Member Function Documentation}{94}{subsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.3.1}fCost()}{94}{subsubsection.3.7.3.1}%
+\contentsline {subsubsection}{\numberline {3.7.3.2}operator$>$()}{94}{subsubsection.3.7.3.2}%
+\contentsline {subsection}{\numberline {3.7.4}Member Data Documentation}{95}{subsection.3.7.4}%
+\contentsline {subsubsection}{\numberline {3.7.4.1}gCost}{95}{subsubsection.3.7.4.1}%
+\contentsline {subsubsection}{\numberline {3.7.4.2}hCost}{95}{subsubsection.3.7.4.2}%
+\contentsline {subsubsection}{\numberline {3.7.4.3}parent}{96}{subsubsection.3.7.4.3}%
+\contentsline {subsubsection}{\numberline {3.7.4.4}parentX}{96}{subsubsection.3.7.4.4}%
+\contentsline {subsubsection}{\numberline {3.7.4.5}parentY}{96}{subsubsection.3.7.4.5}%
+\contentsline {subsubsection}{\numberline {3.7.4.6}x}{96}{subsubsection.3.7.4.6}%
+\contentsline {subsubsection}{\numberline {3.7.4.7}y}{96}{subsubsection.3.7.4.7}%
+\contentsline {section}{\numberline {3.8}Right\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Click\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu Class Reference}{97}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{99}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Constructor \& Destructor Documentation}{99}{subsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.2.1}RightClickMapMenu()}{99}{subsubsection.3.8.2.1}%
+\contentsline {subsection}{\numberline {3.8.3}Member Function Documentation}{100}{subsection.3.8.3}%
+\contentsline {subsubsection}{\numberline {3.8.3.1}connectSignals()}{100}{subsubsection.3.8.3.1}%
+\contentsline {subsubsection}{\numberline {3.8.3.2}containsPoint()}{102}{subsubsection.3.8.3.2}%
+\contentsline {subsubsection}{\numberline {3.8.3.3}hide()}{103}{subsubsection.3.8.3.3}%
+\contentsline {subsubsection}{\numberline {3.8.3.4}isSet()}{104}{subsubsection.3.8.3.4}%
+\contentsline {subsubsection}{\numberline {3.8.3.5}isVisible()}{104}{subsubsection.3.8.3.5}%
+\contentsline {subsubsection}{\numberline {3.8.3.6}setupWidgets()}{105}{subsubsection.3.8.3.6}%
+\contentsline {subsubsection}{\numberline {3.8.3.7}setVisible()}{106}{subsubsection.3.8.3.7}%
+\contentsline {subsubsection}{\numberline {3.8.3.8}show()}{107}{subsubsection.3.8.3.8}%
+\contentsline {subsection}{\numberline {3.8.4}Member Data Documentation}{108}{subsection.3.8.4}%
+\contentsline {subsubsection}{\numberline {3.8.4.1}clear}{108}{subsubsection.3.8.4.1}%
+\contentsline {subsubsection}{\numberline {3.8.4.2}clearView}{108}{subsubsection.3.8.4.2}%
+\contentsline {subsubsection}{\numberline {3.8.4.3}container}{108}{subsubsection.3.8.4.3}%
+\contentsline {subsubsection}{\numberline {3.8.4.4}goal}{108}{subsubsection.3.8.4.4}%
+\contentsline {subsubsection}{\numberline {3.8.4.5}goalIndex}{109}{subsubsection.3.8.4.5}%
+\contentsline {subsubsection}{\numberline {3.8.4.6}gridIndex\_copy}{109}{subsubsection.3.8.4.6}%
+\contentsline {subsubsection}{\numberline {3.8.4.7}gridmap}{109}{subsubsection.3.8.4.7}%
+\contentsline {subsubsection}{\numberline {3.8.4.8}gui}{109}{subsubsection.3.8.4.8}%
+\contentsline {subsubsection}{\numberline {3.8.4.9}isGoalActive}{110}{subsubsection.3.8.4.9}%
+\contentsline {subsubsection}{\numberline {3.8.4.10}isStartActive}{110}{subsubsection.3.8.4.10}%
+\contentsline {subsubsection}{\numberline {3.8.4.11}livemap}{110}{subsubsection.3.8.4.11}%
+\contentsline {subsubsection}{\numberline {3.8.4.12}panel}{110}{subsubsection.3.8.4.12}%
+\contentsline {subsubsection}{\numberline {3.8.4.13}start}{111}{subsubsection.3.8.4.13}%
+\contentsline {subsubsection}{\numberline {3.8.4.14}startIndex}{111}{subsubsection.3.8.4.14}%
+\contentsline {subsubsection}{\numberline {3.8.4.15}visible}{111}{subsubsection.3.8.4.15}%
+\contentsline {subsubsection}{\numberline {3.8.4.16}worldXY\_copy}{111}{subsubsection.3.8.4.16}%
+\contentsline {section}{\numberline {3.9}Robot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creator Class Reference}{112}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{114}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Constructor \& Destructor Documentation}{114}{subsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.1}RobotCreator()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{114}{subsubsection.3.9.2.1}%
+\contentsline {subsubsection}{\numberline {3.9.2.2}RobotCreator()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{115}{subsubsection.3.9.2.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.3}RobotCreator()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{115}{subsubsection.3.9.2.3}%
+\contentsline {subsection}{\numberline {3.9.3}Member Function Documentation}{115}{subsection.3.9.3}%
+\contentsline {subsubsection}{\numberline {3.9.3.1}hexToColor()}{115}{subsubsection.3.9.3.1}%
+\contentsline {subsubsection}{\numberline {3.9.3.2}isRunning()}{116}{subsubsection.3.9.3.2}%
+\contentsline {subsubsection}{\numberline {3.9.3.3}isValidFloat()}{117}{subsubsection.3.9.3.3}%
+\contentsline {subsubsection}{\numberline {3.9.3.4}isValidHexColor()}{118}{subsubsection.3.9.3.4}%
+\contentsline {subsubsection}{\numberline {3.9.3.5}operator=()}{119}{subsubsection.3.9.3.5}%
+\contentsline {subsubsection}{\numberline {3.9.3.6}processEvents()}{119}{subsubsection.3.9.3.6}%
+\contentsline {subsubsection}{\numberline {3.9.3.7}render()}{120}{subsubsection.3.9.3.7}%
+\contentsline {subsubsection}{\numberline {3.9.3.8}run()}{120}{subsubsection.3.9.3.8}%
+\contentsline {subsubsection}{\numberline {3.9.3.9}setupCallbacks()}{121}{subsubsection.3.9.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.3.10}setupWidgets()}{123}{subsubsection.3.9.3.10}%
+\contentsline {subsubsection}{\numberline {3.9.3.11}update()}{124}{subsubsection.3.9.3.11}%
+\contentsline {subsection}{\numberline {3.9.4}Member Data Documentation}{124}{subsection.3.9.4}%
+\contentsline {subsubsection}{\numberline {3.9.4.1}colorBox}{124}{subsubsection.3.9.4.1}%
+\contentsline {subsubsection}{\numberline {3.9.4.2}createButton}{124}{subsubsection.3.9.4.2}%
+\contentsline {subsubsection}{\numberline {3.9.4.3}gui}{125}{subsubsection.3.9.4.3}%
+\contentsline {subsubsection}{\numberline {3.9.4.4}heightBox}{125}{subsubsection.3.9.4.4}%
+\contentsline {subsubsection}{\numberline {3.9.4.5}resetButton}{125}{subsubsection.3.9.4.5}%
+\contentsline {subsubsection}{\numberline {3.9.4.6}widthBox}{125}{subsubsection.3.9.4.6}%
+\contentsline {subsubsection}{\numberline {3.9.4.7}windowRobotCreator}{126}{subsubsection.3.9.4.7}%
+\contentsline {subsubsection}{\numberline {3.9.4.8}wmr}{126}{subsubsection.3.9.4.8}%
+\contentsline {section}{\numberline {3.10}Ros\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler Class Reference}{126}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}Detailed Description}{128}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}Constructor \& Destructor Documentation}{128}{subsection.3.10.2}%
+\contentsline {subsubsection}{\numberline {3.10.2.1}RosHandler()}{129}{subsubsection.3.10.2.1}%
+\contentsline {subsection}{\numberline {3.10.3}Member Function Documentation}{129}{subsection.3.10.3}%
+\contentsline {subsubsection}{\numberline {3.10.3.1}getAngularVelocity()}{130}{subsubsection.3.10.3.1}%
+\contentsline {subsubsection}{\numberline {3.10.3.2}getLastDeltaTime()}{130}{subsubsection.3.10.3.2}%
+\contentsline {subsubsection}{\numberline {3.10.3.3}getLinearVelocity()}{131}{subsubsection.3.10.3.3}%
+\contentsline {subsubsection}{\numberline {3.10.3.4}getMemoryUsageKB()}{131}{subsubsection.3.10.3.4}%
+\contentsline {subsubsection}{\numberline {3.10.3.5}getSonarPoints()}{132}{subsubsection.3.10.3.5}%
+\contentsline {subsubsection}{\numberline {3.10.3.6}joyCallback()}{133}{subsubsection.3.10.3.6}%
+\contentsline {subsubsection}{\numberline {3.10.3.7}publishMemoryUsage()}{134}{subsubsection.3.10.3.7}%
+\contentsline {subsubsection}{\numberline {3.10.3.8}sonarPointReceiver()}{135}{subsubsection.3.10.3.8}%
+\contentsline {subsection}{\numberline {3.10.4}Member Data Documentation}{135}{subsection.3.10.4}%
+\contentsline {subsubsection}{\numberline {3.10.4.1}a\_scale}{135}{subsubsection.3.10.4.1}%
+\contentsline {subsubsection}{\numberline {3.10.4.2}angular}{136}{subsubsection.3.10.4.2}%
+\contentsline {subsubsection}{\numberline {3.10.4.3}current\_angular\_velocity}{136}{subsubsection.3.10.4.3}%
+\contentsline {subsubsection}{\numberline {3.10.4.4}current\_linear\_velocity}{136}{subsubsection.3.10.4.4}%
+\contentsline {subsubsection}{\numberline {3.10.4.5}joy\_sub}{136}{subsubsection.3.10.4.5}%
+\contentsline {subsubsection}{\numberline {3.10.4.6}l\_scale}{137}{subsubsection.3.10.4.6}%
+\contentsline {subsubsection}{\numberline {3.10.4.7}last\_dt}{137}{subsubsection.3.10.4.7}%
+\contentsline {subsubsection}{\numberline {3.10.4.8}last\_joy\_time}{137}{subsubsection.3.10.4.8}%
+\contentsline {subsubsection}{\numberline {3.10.4.9}linear}{137}{subsubsection.3.10.4.9}%
+\contentsline {subsubsection}{\numberline {3.10.4.10}nh}{137}{subsubsection.3.10.4.10}%
+\contentsline {subsubsection}{\numberline {3.10.4.11}ram\_pub}{138}{subsubsection.3.10.4.11}%
+\contentsline {subsubsection}{\numberline {3.10.4.12}ram\_timer}{138}{subsubsection.3.10.4.12}%
+\contentsline {subsubsection}{\numberline {3.10.4.13}sonar\_sub}{138}{subsubsection.3.10.4.13}%
+\contentsline {subsubsection}{\numberline {3.10.4.14}sonarPoints}{138}{subsubsection.3.10.4.14}%
+\contentsline {subsubsection}{\numberline {3.10.4.15}vel\_pub}{139}{subsubsection.3.10.4.15}%
+\contentsline {section}{\numberline {3.11}Unicicle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Wmr Class Reference}{139}{section.3.11}%
+\contentsline {subsection}{\numberline {3.11.1}Detailed Description}{141}{subsection.3.11.1}%
+\contentsline {subsection}{\numberline {3.11.2}Constructor \& Destructor Documentation}{141}{subsection.3.11.2}%
+\contentsline {subsubsection}{\numberline {3.11.2.1}UnicicleWmr()}{141}{subsubsection.3.11.2.1}%
+\contentsline {subsection}{\numberline {3.11.3}Member Function Documentation}{141}{subsection.3.11.3}%
+\contentsline {subsubsection}{\numberline {3.11.3.1}draw()}{142}{subsubsection.3.11.3.1}%
+\contentsline {subsubsection}{\numberline {3.11.3.2}getheight()}{142}{subsubsection.3.11.3.2}%
+\contentsline {subsubsection}{\numberline {3.11.3.3}getRobotActive()}{143}{subsubsection.3.11.3.3}%
+\contentsline {subsubsection}{\numberline {3.11.3.4}getTheta()}{143}{subsubsection.3.11.3.4}%
+\contentsline {subsubsection}{\numberline {3.11.3.5}getWidth()}{143}{subsubsection.3.11.3.5}%
+\contentsline {subsubsection}{\numberline {3.11.3.6}getX()}{143}{subsubsection.3.11.3.6}%
+\contentsline {subsubsection}{\numberline {3.11.3.7}getY()}{143}{subsubsection.3.11.3.7}%
+\contentsline {subsubsection}{\numberline {3.11.3.8}reset()}{143}{subsubsection.3.11.3.8}%
+\contentsline {subsubsection}{\numberline {3.11.3.9}setColor()}{144}{subsubsection.3.11.3.9}%
+\contentsline {subsubsection}{\numberline {3.11.3.10}setDimensions()}{145}{subsubsection.3.11.3.10}%
+\contentsline {subsubsection}{\numberline {3.11.3.11}setPose()}{145}{subsubsection.3.11.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.3.12}setRobotActive()}{146}{subsubsection.3.11.3.12}%
+\contentsline {subsubsection}{\numberline {3.11.3.13}setVelocity()}{146}{subsubsection.3.11.3.13}%
+\contentsline {subsubsection}{\numberline {3.11.3.14}update()}{147}{subsubsection.3.11.3.14}%
+\contentsline {subsection}{\numberline {3.11.4}Member Data Documentation}{148}{subsection.3.11.4}%
+\contentsline {subsubsection}{\numberline {3.11.4.1}angular\_omega}{148}{subsubsection.3.11.4.1}%
+\contentsline {subsubsection}{\numberline {3.11.4.2}height}{148}{subsubsection.3.11.4.2}%
+\contentsline {subsubsection}{\numberline {3.11.4.3}isRobotActive}{149}{subsubsection.3.11.4.3}%
+\contentsline {subsubsection}{\numberline {3.11.4.4}linear\_v}{149}{subsubsection.3.11.4.4}%
+\contentsline {subsubsection}{\numberline {3.11.4.5}pixelsPerMeter}{149}{subsubsection.3.11.4.5}%
+\contentsline {subsubsection}{\numberline {3.11.4.6}robotcolor}{149}{subsubsection.3.11.4.6}%
+\contentsline {subsubsection}{\numberline {3.11.4.7}robotShape}{149}{subsubsection.3.11.4.7}%
+\contentsline {subsubsection}{\numberline {3.11.4.8}theta}{150}{subsubsection.3.11.4.8}%
+\contentsline {subsubsection}{\numberline {3.11.4.9}width}{150}{subsubsection.3.11.4.9}%
+\contentsline {subsubsection}{\numberline {3.11.4.10}x}{150}{subsubsection.3.11.4.10}%
+\contentsline {subsubsection}{\numberline {3.11.4.11}y}{150}{subsubsection.3.11.4.11}%
+\contentsline {section}{\numberline {3.12}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{151}{section.3.12}%
+\contentsline {subsection}{\numberline {3.12.1}Detailed Description}{153}{subsection.3.12.1}%
+\contentsline {subsection}{\numberline {3.12.2}Constructor \& Destructor Documentation}{153}{subsection.3.12.2}%
+\contentsline {subsubsection}{\numberline {3.12.2.1}ViewController()}{153}{subsubsection.3.12.2.1}%
+\contentsline {subsection}{\numberline {3.12.3}Member Function Documentation}{154}{subsection.3.12.3}%
+\contentsline {subsubsection}{\numberline {3.12.3.1}applyView()}{154}{subsubsection.3.12.3.1}%
+\contentsline {subsubsection}{\numberline {3.12.3.2}drawAxes()}{155}{subsubsection.3.12.3.2}%
+\contentsline {subsubsection}{\numberline {3.12.3.3}drawGrid()}{158}{subsubsection.3.12.3.3}%
+\contentsline {subsubsection}{\numberline {3.12.3.4}getDefaultView()}{159}{subsubsection.3.12.3.4}%
+\contentsline {subsubsection}{\numberline {3.12.3.5}getHoveredCell()}{159}{subsubsection.3.12.3.5}%
+\contentsline {subsubsection}{\numberline {3.12.3.6}getMapSizeCells()}{160}{subsubsection.3.12.3.6}%
+\contentsline {subsubsection}{\numberline {3.12.3.7}getMetersPerCell()}{160}{subsubsection.3.12.3.7}%
+\contentsline {subsubsection}{\numberline {3.12.3.8}getMousePixelPosition()}{161}{subsubsection.3.12.3.8}%
+\contentsline {subsubsection}{\numberline {3.12.3.9}getMouseWorldPosition()}{161}{subsubsection.3.12.3.9}%
+\contentsline {subsubsection}{\numberline {3.12.3.10}getPixelsPerMeter()}{161}{subsubsection.3.12.3.10}%
+\contentsline {subsubsection}{\numberline {3.12.3.11}getView()}{162}{subsubsection.3.12.3.11}%
+\contentsline {subsubsection}{\numberline {3.12.3.12}getZoom()}{162}{subsubsection.3.12.3.12}%
+\contentsline {subsubsection}{\numberline {3.12.3.13}handleEvent()}{162}{subsubsection.3.12.3.13}%
+\contentsline {subsubsection}{\numberline {3.12.3.14}reset()}{164}{subsubsection.3.12.3.14}%
+\contentsline {subsubsection}{\numberline {3.12.3.15}windowMousePosition()}{164}{subsubsection.3.12.3.15}%
+\contentsline {subsubsection}{\numberline {3.12.3.16}zoomController()}{164}{subsubsection.3.12.3.16}%
+\contentsline {subsection}{\numberline {3.12.4}Member Data Documentation}{165}{subsection.3.12.4}%
+\contentsline {subsubsection}{\numberline {3.12.4.1}cellCoordsValid\_}{166}{subsubsection.3.12.4.1}%
+\contentsline {subsubsection}{\numberline {3.12.4.2}cellTopLeft\_}{166}{subsubsection.3.12.4.2}%
+\contentsline {subsubsection}{\numberline {3.12.4.3}customDefaultView}{166}{subsubsection.3.12.4.3}%
+\contentsline {subsubsection}{\numberline {3.12.4.4}defaultView}{166}{subsubsection.3.12.4.4}%
+\contentsline {subsubsection}{\numberline {3.12.4.5}dragging}{166}{subsubsection.3.12.4.5}%
+\contentsline {subsubsection}{\numberline {3.12.4.6}dragStart}{167}{subsubsection.3.12.4.6}%
+\contentsline {subsubsection}{\numberline {3.12.4.7}font}{167}{subsubsection.3.12.4.7}%
+\contentsline {subsubsection}{\numberline {3.12.4.8}fontLoaded}{167}{subsubsection.3.12.4.8}%
+\contentsline {subsubsection}{\numberline {3.12.4.9}mapSizeCells}{167}{subsubsection.3.12.4.9}%
+\contentsline {subsubsection}{\numberline {3.12.4.10}metersPerCell}{168}{subsubsection.3.12.4.10}%
+\contentsline {subsubsection}{\numberline {3.12.4.11}mousePosition\_G}{168}{subsubsection.3.12.4.11}%
+\contentsline {subsubsection}{\numberline {3.12.4.12}mousePosition\_W}{168}{subsubsection.3.12.4.12}%
+\contentsline {subsubsection}{\numberline {3.12.4.13}pixelPos}{168}{subsubsection.3.12.4.13}%
+\contentsline {subsubsection}{\numberline {3.12.4.14}pixelsPerMeter}{169}{subsubsection.3.12.4.14}%
+\contentsline {subsubsection}{\numberline {3.12.4.15}view}{169}{subsubsection.3.12.4.15}%
+\contentsline {subsubsection}{\numberline {3.12.4.16}window}{169}{subsubsection.3.12.4.16}%
+\contentsline {chapter}{\numberline {4}File Documentation}{171}{chapter.4}%
+\contentsline {section}{\numberline {4.1}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Star.hpp File Reference}{171}{section.4.1}%
+\contentsline {section}{\numberline {4.2}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.hpp File Reference}{172}{section.4.2}%
+\contentsline {section}{\numberline {4.3}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grid\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.hpp File Reference}{173}{section.4.3}%
+\contentsline {section}{\numberline {4.4}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Live\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.hpp File Reference}{174}{section.4.4}%
+\contentsline {section}{\numberline {4.5}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Viewer.hpp File Reference}{175}{section.4.5}%
+\contentsline {section}{\numberline {4.6}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bar.hpp File Reference}{176}{section.4.6}%
+\contentsline {section}{\numberline {4.7}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node.hpp File Reference}{177}{section.4.7}%
+\contentsline {section}{\numberline {4.8}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Right\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Click\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu.hpp File Reference}{178}{section.4.8}%
+\contentsline {section}{\numberline {4.9}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Robot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creator.hpp File Reference}{179}{section.4.9}%
+\contentsline {section}{\numberline {4.10}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ros\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.hpp File Reference}{180}{section.4.10}%
+\contentsline {section}{\numberline {4.11}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/tinyfiledialogs.h File Reference}{181}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Function Documentation}{182}{subsection.4.11.1}%
+\contentsline {subsubsection}{\numberline {4.11.1.1}tinyfd\_beep()}{182}{subsubsection.4.11.1.1}%
+\contentsline {subsubsection}{\numberline {4.11.1.2}tinyfd\_colorChooser()}{182}{subsubsection.4.11.1.2}%
+\contentsline {subsubsection}{\numberline {4.11.1.3}tinyfd\_getGlobalChar()}{183}{subsubsection.4.11.1.3}%
+\contentsline {subsubsection}{\numberline {4.11.1.4}tinyfd\_getGlobalInt()}{183}{subsubsection.4.11.1.4}%
+\contentsline {subsubsection}{\numberline {4.11.1.5}tinyfd\_inputBox()}{183}{subsubsection.4.11.1.5}%
+\contentsline {subsubsection}{\numberline {4.11.1.6}tinyfd\_messageBox()}{183}{subsubsection.4.11.1.6}%
+\contentsline {subsubsection}{\numberline {4.11.1.7}tinyfd\_notifyPopup()}{183}{subsubsection.4.11.1.7}%
+\contentsline {subsubsection}{\numberline {4.11.1.8}tinyfd\_openFileDialog()}{184}{subsubsection.4.11.1.8}%
+\contentsline {subsubsection}{\numberline {4.11.1.9}tinyfd\_saveFileDialog()}{184}{subsubsection.4.11.1.9}%
+\contentsline {subsubsection}{\numberline {4.11.1.10}tinyfd\_selectFolderDialog()}{184}{subsubsection.4.11.1.10}%
+\contentsline {subsubsection}{\numberline {4.11.1.11}tinyfd\_setGlobalInt()}{185}{subsubsection.4.11.1.11}%
+\contentsline {subsection}{\numberline {4.11.2}Variable Documentation}{185}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}tinyfd\_allowCursesDialogs}{185}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}tinyfd\_forceConsole}{185}{subsubsection.4.11.2.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.3}tinyfd\_needs}{185}{subsubsection.4.11.2.3}%
+\contentsline {subsubsection}{\numberline {4.11.2.4}tinyfd\_response}{185}{subsubsection.4.11.2.4}%
+\contentsline {subsubsection}{\numberline {4.11.2.5}tinyfd\_silent}{185}{subsubsection.4.11.2.5}%
+\contentsline {subsubsection}{\numberline {4.11.2.6}tinyfd\_verbose}{185}{subsubsection.4.11.2.6}%
+\contentsline {subsubsection}{\numberline {4.11.2.7}tinyfd\_version}{186}{subsubsection.4.11.2.7}%
+\contentsline {section}{\numberline {4.12}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Unicicle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Wmr.hpp File Reference}{186}{section.4.12}%
+\contentsline {section}{\numberline {4.13}include/artgslam\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vsc/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.hpp File Reference}{187}{section.4.13}%
+\contentsline {section}{\numberline {4.14}include/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constants.hpp File Reference}{188}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Variable Documentation}{188}{subsection.4.14.1}%
+\contentsline {subsubsection}{\numberline {4.14.1.1}PI}{188}{subsubsection.4.14.1.1}%
+\contentsline {section}{\numberline {4.15}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Astar.cpp File Reference}{189}{section.4.15}%
+\contentsline {section}{\numberline {4.16}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.cpp File Reference}{189}{section.4.16}%
+\contentsline {section}{\numberline {4.17}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grid\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.cpp File Reference}{189}{section.4.17}%
+\contentsline {section}{\numberline {4.18}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Live\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.cpp File Reference}{190}{section.4.18}%
+\contentsline {section}{\numberline {4.19}src/main.cpp File Reference}{190}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Function Documentation}{191}{subsection.4.19.1}%
+\contentsline {subsubsection}{\numberline {4.19.1.1}main()}{191}{subsubsection.4.19.1.1}%
+\contentsline {section}{\numberline {4.20}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Viewer.cpp File Reference}{192}{section.4.20}%
+\contentsline {section}{\numberline {4.21}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bar.cpp File Reference}{193}{section.4.21}%
+\contentsline {section}{\numberline {4.22}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constants.cpp File Reference}{193}{section.4.22}%
+\contentsline {section}{\numberline {4.23}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Right\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Click\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu.cpp File Reference}{193}{section.4.23}%
+\contentsline {section}{\numberline {4.24}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Robot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creator.cpp File Reference}{194}{section.4.24}%
+\contentsline {section}{\numberline {4.25}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ros\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.cpp File Reference}{194}{section.4.25}%
+\contentsline {section}{\numberline {4.26}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Unicicle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Wmr.cpp File Reference}{194}{section.4.26}%
+\contentsline {section}{\numberline {4.27}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.cpp File Reference}{195}{section.4.27}%
