@@ -28,3 +28,18 @@
 - [TGUI](https://tgui.eu/tutorials/0.9/)
 - [TinyFileDialogs](https://sourceforge.net/projects/tinyfiledialogs/)
 - [ROS Noetic](http://wiki.ros.org/noetic/Installation) (tested on Ubuntu 20.04)
+
+Neded for use with adeptmobile robots , see API documentation on changing resive data topics(dinamic changing is being considering) not needed for standart mode.
+- [Aria](https://github.com/cinvesrob/Aria) (tested on ubuntu 20.04 and debian 10)
+- [RosAria](https://github.com/amor-ros-pkg/rosaria) (tested on ubuntu 20.04 and debian 10)
+
+
+Make sure you have a working ROS 1 workspace set up:
+
+```bash
+# Example: ROS workspace
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin_make
+
+### Instalation
