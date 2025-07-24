@@ -1,0 +1,4 @@
+<map id="RightClickMapMenu::setupWidgets" name="RightClickMapMenu::setupWidgets">
+<area shape="rect" id="node1" title="Sets up the menu layout and widgets (start, goal, clear, etc.)." alt="" coords="213,5,373,47"/>
+<area shape="rect" id="node2" href="$classRightClickMapMenu.html#a99fb3feef15efd62845960340c4ca0fa" title="Constructor: initializes the menu with references to the TGUI GUI system and map instances." alt="" coords="5,5,165,47"/>
+</map>

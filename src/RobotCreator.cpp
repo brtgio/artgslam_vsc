@@ -3,10 +3,18 @@
 #include <iostream>
 #include <regex>
 
+/**
+ * @brief Constructor for RobotCreator.
+ * 
+ * Loads the GUI form, initializes the window and widgets, and sets up callbacks.
+ * 
+ * @param wmrRef Reference to the UnicicleWmr robot model to configure.
+ */
 RobotCreator::RobotCreator(UnicicleWmr& wmrRef)
-: windowRobotCreator(sf::VideoMode(400, 250), "Robot Creator"),
-  gui(windowRobotCreator), wmr(wmrRef)
+    : windowRobotCreator(sf::VideoMode(400, 250), "Robot Creator"),
+      gui(windowRobotCreator), wmr(wmrRef)
 {
+    // Load form file path from ROS package
     std::string package_path = ros::package::getPath("artgslam_vsc");
     std::string formPath = package_path + "/assets/forms/createRobot.txt";
 
@@ -16,20 +24,30 @@ RobotCreator::RobotCreator(UnicicleWmr& wmrRef)
         std::cerr << "Error loading GUI form: " << e.what() << std::endl;
     }
 
-    setupWidgets();
-    setupCallbacks();
+    setupWidgets();   /**< Link widget variables to GUI elements */
+    setupCallbacks(); /**< Setup button callbacks */
 }
 
+/**
+ * @brief Runs the main loop of the Robot Creator window.
+ * 
+ * Processes events, updates state, and renders GUI until the window is closed.
+ */
 void RobotCreator::run()
 {
     while (isRunning())
     {
-        processEvents();
-        update();
-        render();
+        processEvents(); /**< Handle input and window events */
+        update();        /**< Update logic (currently unused) */
+        render();        /**< Render the GUI */
     }
 }
 
+/**
+ * @brief Processes all window events.
+ * 
+ * Polls and handles SFML window events and delegates event handling to TGUI.
+ */
 void RobotCreator::processEvents()
 {
     sf::Event event;
@@ -42,11 +60,17 @@ void RobotCreator::processEvents()
     }
 }
 
+/**
+ * @brief Placeholder for future update logic.
+ */
 void RobotCreator::update()
 {
-    // Lógica si es necesaria
+    // Currently no update logic
 }
 
+/**
+ * @brief Clears the window and draws the GUI.
+ */
 void RobotCreator::render()
 {
     windowRobotCreator.clear(sf::Color::White);
@@ -54,27 +78,35 @@ void RobotCreator::render()
     windowRobotCreator.display();
 }
 
+/**
+ * @brief Retrieves and validates GUI widgets from the loaded form.
+ */
 void RobotCreator::setupWidgets()
 {
-    widthBox = gui.get<tgui::EditBox>("widthBox");
+    widthBox  = gui.get<tgui::EditBox>("widthBox");
     heightBox = gui.get<tgui::EditBox>("heightBox");
-    colorBox = gui.get<tgui::EditBox>("colorBox");
+    colorBox  = gui.get<tgui::EditBox>("colorBox");
 
-    resetButton = gui.get<tgui::Button>("Button1");
+    resetButton  = gui.get<tgui::Button>("Button1");
     createButton = gui.get<tgui::Button>("Button2");
 
-    // Verificación de carga de widgets
     if (!widthBox || !heightBox || !colorBox || !resetButton || !createButton)
     {
-        std::cerr << "[ERROR] Algún widget no se encontró en el formulario.\n";
+        std::cerr << "[ERROR] One or more widgets could not be found.\n";
         return;
     }
 
-    // Validadores de números flotantes (positivos o negativos)
-   // widthBox->setInputValidator(R"(^-?\d*\.?\d+$)");
-    //heightBox->setInputValidator(R"(^-?\d*\.?\d+$)");
+    // Optional: set input validators (commented out)
+    // widthBox->setInputValidator(R"(^-?\d*\.?\d+$)");
+    // heightBox->setInputValidator(R"(^-?\d*\.?\d+$)");
 }
 
+/**
+ * @brief Sets up callbacks for reset and create buttons.
+ * 
+ * - Resets all input fields on reset button press.
+ * - Validates input and creates robot on create button press.
+ */
 void RobotCreator::setupCallbacks()
 {
     if (!resetButton || !createButton) return;
@@ -86,9 +118,9 @@ void RobotCreator::setupCallbacks()
     });
 
     createButton->onPress([this]() {
-        std::string widthStr = widthBox->getText().toStdString();
+        std::string widthStr  = widthBox->getText().toStdString();
         std::string heightStr = heightBox->getText().toStdString();
-        std::string colorStr = colorBox->getText().toStdString();
+        std::string colorStr  = colorBox->getText().toStdString();
 
         bool valid = true;
 
@@ -108,21 +140,19 @@ void RobotCreator::setupCallbacks()
         }
 
         if (!valid) {
-            std::cout << "Error: Datos inválidos. Verifica los campos.\n";
+            std::cout << "Error: Invalid input. Please check the fields.\n";
             return;
         }
 
-        // Conversión segura después de validar
-        float width = std::stof(widthStr);
+        float width  = std::stof(widthStr);
         float height = std::stof(heightStr);
         sf::Color color = hexToColor(colorStr);
 
-        // Aplicar parámetros al robot
         wmr.setDimensions(width, height);
         wmr.setColor(color);
         wmr.setRobotActive(true);
 
-        std::cout << "Robot creado:\n";
+        std::cout << "Robot created:\n";
         std::cout << "Width: " << width << ", Height: " << height << "\n";
         std::cout << "Color RGB: (" 
                   << static_cast<int>(color.r) << ", "
@@ -133,25 +163,49 @@ void RobotCreator::setupCallbacks()
     });
 }
 
+/**
+ * @brief Checks if the window is still open.
+ * @return true if the window is open, false otherwise.
+ */
 bool RobotCreator::isRunning() const
 {
     return windowRobotCreator.isOpen();
 }
 
+/**
+ * @brief Validates if a string represents a valid floating point number.
+ * 
+ * @param str The string to validate.
+ * @return true if valid float format, false otherwise.
+ */
 bool RobotCreator::isValidFloat(const std::string& str)
 {
     if (str.empty()) return false;
-    std::regex floatRegex(R"(^-?\d+(\.\d+)?$)");
+    static const std::regex floatRegex(R"(^-?\d+(\.\d+)?$)");
     return std::regex_match(str, floatRegex);
 }
 
+/**
+ * @brief Validates if a string is a valid hex color (#RGB or #RRGGBB).
+ * 
+ * @param str The hex color string.
+ * @return true if valid hex color format, false otherwise.
+ */
 bool RobotCreator::isValidHexColor(const std::string& str)
 {
-    std::regex hexShort(R"(#([A-Fa-f0-9]{3}))");
-    std::regex hexLong(R"(#([A-Fa-f0-9]{6}))");
+    static const std::regex hexShort(R"(#([A-Fa-f0-9]{3}))");
+    static const std::regex hexLong(R"(#([A-Fa-f0-9]{6}))");
     return std::regex_match(str, hexShort) || std::regex_match(str, hexLong);
 }
 
+/**
+ * @brief Converts a hex color string to an SFML color object.
+ * 
+ * Supports both 3-digit (#abc) and 6-digit (#aabbcc) hex formats.
+ * 
+ * @param hex The hex color string.
+ * @return Corresponding sf::Color object.
+ */
 sf::Color RobotCreator::hexToColor(const std::string& hex)
 {
     std::string h = hex;

@@ -1,0 +1,7 @@
+<map id="ViewController::reset" name="ViewController::reset">
+<area shape="rect" id="node1" title="Resets the view to its default state." alt="" coords="601,31,760,57"/>
+<area shape="rect" id="node2" href="$classViewController.html#ac54a72b053247207a1ee00cd07e3cb0e" title="Handles mouse movement events for panning and zooming." alt="" coords="347,5,553,32"/>
+<area shape="rect" id="node5" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="362,56,538,83"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#abcde24a9cc11f7e9ea3e6ef0d7ed6063" title="Handles input events (mouse and keyboard)" alt="" coords="108,5,299,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,5,60,32"/>
+</map>

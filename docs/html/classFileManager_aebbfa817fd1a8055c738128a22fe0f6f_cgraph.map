@@ -1,0 +1,7 @@
+<map id="FileManager::saveDialog" name="FileManager::saveDialog">
+<area shape="rect" id="node1" title="Opens a file dialog to save the current data (coordinates)." alt="" coords="5,81,188,108"/>
+<area shape="rect" id="node2" href="$classGridMap.html#ad20af94e5a3cc2872a274a732b5e3f72" title="Getters for real&#45;world x coordinates." alt="" coords="249,5,393,32"/>
+<area shape="rect" id="node3" href="$classGridMap.html#af4fe1dc74416535a7463b7e168a326d1" title="Getters for real&#45;world y coordinates." alt="" coords="250,56,393,83"/>
+<area shape="rect" id="node4" href="$classFileManager.html#ae4178789b8d0ae7653db505ba276640a" title="Saves x and y coordinate data to a file." alt="" coords="236,107,407,133"/>
+<area shape="rect" id="node5" href="$tinyfiledialogs_8h.html#a7a17e17150593bf3b04253ea819fc5bc" title=" " alt="" coords="240,157,403,184"/>
+</map>

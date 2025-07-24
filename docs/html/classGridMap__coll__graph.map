@@ -1,0 +1,4 @@
+<map id="GridMap" name="GridMap">
+<area shape="rect" id="node1" title="Handles the creation and management of map data." alt="" coords="32,439,171,721"/>
+<area shape="rect" id="node2" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="5,5,197,376"/>
+</map>

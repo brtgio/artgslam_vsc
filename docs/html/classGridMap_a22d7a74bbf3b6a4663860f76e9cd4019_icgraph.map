@@ -1,0 +1,7 @@
+<map id="GridMap::isOccupied" name="GridMap::isOccupied">
+<area shape="rect" id="node1" title="Query cell status." alt="" coords="445,31,601,57"/>
+<area shape="rect" id="node2" href="$classAStar.html#a0c3d34d32a97828112f6ee453e75121b" title="Performs one step of the A* algorithm." alt="" coords="304,31,397,57"/>
+<area shape="rect" id="node3" href="$classAStar.html#ac1635080ee8fbca765f9bfd83ce2c4d2" title="Executes the full A* algorithm from start to goal in one call." alt="" coords="123,5,241,32"/>
+<area shape="rect" id="node4" href="$classMapViewer.html#a323a6ee85f1257b6e7c758ebf3d694bd" title="Manages logic updates and user interaction." alt="" coords="108,56,256,83"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,56,60,83"/>
+</map>

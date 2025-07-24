@@ -1,0 +1,4 @@
+<map id="ViewController::zoomController" name="ViewController::zoomController">
+<area shape="rect" id="node1" title="Handles zoom in/out based on user input events." alt="" coords="5,5,232,32"/>
+<area shape="rect" id="node2" href="$classViewController.html#ab3b39d154cf93e5eec28d2bbdead91e4" title="Returns the current zoom level." alt="" coords="280,5,465,32"/>
+</map>

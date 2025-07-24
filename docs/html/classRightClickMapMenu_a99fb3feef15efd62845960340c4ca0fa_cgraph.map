@@ -1,0 +1,10 @@
+<map id="RightClickMapMenu::RightClickMapMenu" name="RightClickMapMenu::RightClickMapMenu">
+<area shape="rect" id="node1" title="Constructor: initializes the menu with references to the TGUI GUI system and map instances." alt="" coords="5,133,165,174"/>
+<area shape="rect" id="node2" href="$classRightClickMapMenu.html#add5bb68773931eb8ba5cd455e6847dba" title="Connects internal widget signals to their callbacks (e.g., button clicks)." alt="" coords="213,99,373,141"/>
+<area shape="rect" id="node8" href="$classRightClickMapMenu.html#ad63b3f74c4414abe368d6580ea5ae099" title="Sets up the menu layout and widgets (start, goal, clear, etc.)." alt="" coords="213,165,373,206"/>
+<area shape="rect" id="node3" href="$classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9" title="Clear start or goal markers from a cell." alt="" coords="426,5,605,32"/>
+<area shape="rect" id="node4" href="$classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e" title="Returns whether live mode is currently active." alt="" coords="436,56,595,83"/>
+<area shape="rect" id="node5" href="$classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef" title="Hides the context menu." alt="" coords="421,107,609,133"/>
+<area shape="rect" id="node6" href="$classGridMap.html#a063197bc2b493578f0da0905a2e7dd90" title="Set the goal point in the grid (stored as ASCII &#39;g&#39;)." alt="" coords="448,157,583,184"/>
+<area shape="rect" id="node7" href="$classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e" title="Sets a special goal cell in the grid (value = &#39;g&#39;)" alt="" coords="448,208,583,235"/>
+</map>

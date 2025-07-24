@@ -1,0 +1,6 @@
+<map id="tinyfd_saveFileDialog" name="tinyfd_saveFileDialog">
+<area shape="rect" id="node1" title=" " alt="" coords="461,31,624,57"/>
+<area shape="rect" id="node2" href="$classFileManager.html#aebbfa817fd1a8055c738128a22fe0f6f" title="Opens a file dialog to save the current data (coordinates)." alt="" coords="230,5,413,32"/>
+<area shape="rect" id="node4" href="$classFileManager.html#ab506f83579b9ad8fe9542fd8197eaeb6" title="Saves a screenshot of the current visualization to an image file." alt="" coords="229,56,413,83"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,5,181,32"/>
+</map>

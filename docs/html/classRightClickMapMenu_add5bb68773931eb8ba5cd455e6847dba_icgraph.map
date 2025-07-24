@@ -1,0 +1,5 @@
+<map id="RightClickMapMenu::connectSignals" name="RightClickMapMenu::connectSignals">
+<area shape="rect" id="node1" title="Connects internal widget signals to their callbacks (e.g., button clicks)." alt="" coords="229,27,389,69"/>
+<area shape="rect" id="node2" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,5,181,32"/>
+<area shape="rect" id="node3" href="$classRightClickMapMenu.html#a99fb3feef15efd62845960340c4ca0fa" title="Constructor: initializes the menu with references to the TGUI GUI system and map instances." alt="" coords="13,57,173,98"/>
+</map>

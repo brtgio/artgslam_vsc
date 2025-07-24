@@ -1,0 +1,4 @@
+<map id="GridMap::clearGridMap" name="GridMap::clearGridMap">
+<area shape="rect" id="node1" title="Clear the entire occupancy grid." alt="" coords="229,5,401,32"/>
+<area shape="rect" id="node2" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,5,181,32"/>
+</map>

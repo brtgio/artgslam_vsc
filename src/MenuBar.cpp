@@ -4,55 +4,81 @@
 #include <fstream>
 #include <iomanip>
 
-
-
-// Constructor
+/**
+ * @brief Constructs the MenuBar and initializes all components.
+ * 
+ * Creates the main menu bar, the coordinate label, and the live mode toggle button.
+ * 
+ * @param gui Reference to the TGUI GUI instance where widgets will be added.
+ */
 MenuBar::MenuBar(tgui::Gui& gui) {
-    setupMenu(gui);
-    setupCordLable(gui);
-    setupliveToggle(gui);
+    setupMenu(gui);        /**< Create the main menu bar */
+    setupCordLable(gui);  /**< Create coordinate display label */
+    setupliveToggle(gui);  /**< Create toggle button for live mode */
 }
 
-// Separa lógica de menú para claridad
+/**
+ * @brief Creates and configures the main menu bar with categorized menu items.
+ * 
+ * The menu includes File, View, Create Object, and Simulation categories with their items.
+ * The menu bar is positioned at the bottom and menus open upward.
+ * 
+ * @param gui Reference to the TGUI GUI instance.
+ */
 void MenuBar::setupMenu(tgui::Gui& gui) {
     menuBar = tgui::MenuBar::create();
     menuBar->setSize("100%", 20);
-    menuBar->setPosition(0, "100% - 20");
-    menuBar->setInvertedMenuDirection(true); // Abre hacia arriba
+    menuBar->setPosition(0, "100% - 20");  // Bottom of the window
+    menuBar->setInvertedMenuDirection(true); // Menus open upward
     gui.add(menuBar);
 
+    // File menu and items
     menuBar->addMenu("File");
     menuBar->addMenuItem("File", "Open");
     menuBar->addMenuItem("File", "Save");
     menuBar->addMenuItem("File", "Save2Image");
     menuBar->addMenuItem("File", "Close");
 
+    // View menu and items
     menuBar->addMenu("View");
     menuBar->addMenuItem("View", "ResetView");
     menuBar->addMenuItem("View", "ClearView");
 
+    // Create object menu and items
     menuBar->addMenu("Create object");
     menuBar->addMenuItem("Create object", "WMR");
 
+    // Simulation menu and items
     menuBar->addMenu("Simulation");
     menuBar->addMenuItem("Simulation", "A*");
-
-
 }
 
-void MenuBar::setupCordLable(tgui::Gui &gui)
-{
+/**
+ * @brief Sets up the coordinate label displayed at the bottom right of the window.
+ * 
+ * The label initially shows placeholder text and has transparent background with black text.
+ * 
+ * @param gui Reference to the TGUI GUI instance.
+ */
+void MenuBar::setupCordLable(tgui::Gui& gui) {
     coordLabel = tgui::Label::create("Grid: -, Real: -");
     coordLabel->setTextSize(14);
-    coordLabel->setPosition("100% - 400", "100% - 20");
+    coordLabel->setPosition("100% - 400", "100% - 20"); // Bottom right, offset leftwards
     coordLabel->getRenderer()->setBackgroundColor(tgui::Color::Transparent);
     coordLabel->getRenderer()->setTextColor(tgui::Color::Black);
     gui.add(coordLabel, "CoordLabel");
 }
 
-void MenuBar::setupliveToggle(tgui::Gui &gui)
-{
-liveToggle = tgui::ToggleButton::create();
+/**
+ * @brief Creates and configures the live mode toggle button.
+ * 
+ * The button switches between ON/OFF states with color feedback (green/red).
+ * Positioned near the coordinate label.
+ * 
+ * @param gui Reference to the TGUI GUI instance.
+ */
+void MenuBar::setupliveToggle(tgui::Gui& gui) {
+    liveToggle = tgui::ToggleButton::create();
     liveToggle->setSize(50, 20);
     liveToggle->setText("Live");
     liveToggle->setPosition("100% - 60", "100% - 20");
@@ -62,33 +88,48 @@ liveToggle = tgui::ToggleButton::create();
     renderer->setTextColor(tgui::Color::White);
     renderer->setBorderColor(tgui::Color::White);
 
-    // Estado inicial (OFF)
-    renderer->setBackgroundColor(tgui::Color(120, 0, 0));             // Rojo oscuro
-    renderer->setBackgroundColorHover(tgui::Color(180, 60, 60));      // Hover rojo claro
-    renderer->setBackgroundColorDown(tgui::Color(255, 100, 100));     // Click rojo
+    // Default OFF (red) colors
+    renderer->setBackgroundColor(tgui::Color(120, 0, 0));
+    renderer->setBackgroundColorHover(tgui::Color(180, 60, 60));
+    renderer->setBackgroundColorDown(tgui::Color(255, 100, 100));
 
     gui.add(liveToggle);
 
     liveMode = false;
 
+    // Change toggle button color based on state (green for ON, red for OFF)
     liveToggle->onToggle([this](bool state) {
         liveMode = state;
-
         auto renderer = liveToggle->getRenderer();
 
         if (state) {
-            // ON → verde brillante
-            renderer->setBackgroundColor(tgui::Color(0, 180, 0));            // Verde activo
-            renderer->setBackgroundColorHover(tgui::Color(80, 220, 80));     // Hover verde claro
-            renderer->setBackgroundColorDown(tgui::Color(100, 255, 100));    // Click verde
+            // ON state colors (green)
+            renderer->setBackgroundColor(tgui::Color(0, 180, 0));
+            renderer->setBackgroundColorHover(tgui::Color(80, 220, 80));
+            renderer->setBackgroundColorDown(tgui::Color(100, 255, 100));
         } else {
-            // OFF → rojo oscuro
+            // OFF state colors (red)
             renderer->setBackgroundColor(tgui::Color(120, 0, 0));
             renderer->setBackgroundColorHover(tgui::Color(180, 60, 60));
             renderer->setBackgroundColorDown(tgui::Color(255, 100, 100));
         }
     });
-} // Callbacks
+}
+
+/**
+ * @brief Connects external callback functions to the menu items.
+ * 
+ * Allows external code to respond to menu item selections.
+ * 
+ * @param onOpen Callback invoked when "Open" is selected.
+ * @param onSave Callback invoked when "Save" is selected.
+ * @param onSaveImage Callback invoked when "Save2Image" is selected.
+ * @param onClose Callback invoked when "Close" is selected.
+ * @param onResetView Callback invoked when "ResetView" is selected.
+ * @param onClearView Callback invoked when "ClearView" is selected.
+ * @param onCreateRobot Callback invoked when "WMR" is selected under "Create object".
+ * @param onSimulation Callback invoked when "A*" is selected under "Simulation".
+ */
 void MenuBar::setCallbacks(
     std::function<void()> onOpen,
     std::function<void()> onSave,
@@ -132,11 +173,12 @@ void MenuBar::setCallbacks(
     });
 }
 
-// Actualiza el texto del label de coordenadas
+/**
+ * @brief Updates the coordinate label text.
+ * 
+ * @param text New coordinate string to display.
+ */
 void MenuBar::updateCoordinates(const std::string& text) {
     if (coordLabel)
         coordLabel->setText(text);
 }
-
-
-

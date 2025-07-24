@@ -1,0 +1,9 @@
+<map id="AStar::octileHeuristic" name="AStar::octileHeuristic">
+<area shape="rect" id="node1" title="Octile distance heuristic (better suited for 8&#45;connected grids)." alt="" coords="475,56,633,83"/>
+<area shape="rect" id="node2" href="$classAStar.html#addce30fb4dd4735c1e0275b93324b2cc" title="Initializes the A* algorithm." alt="" coords="332,31,427,57"/>
+<area shape="rect" id="node5" href="$classAStar.html#a0c3d34d32a97828112f6ee453e75121b" title="Performs one step of the A* algorithm." alt="" coords="333,81,426,108"/>
+<area shape="rect" id="node3" href="$classAStar.html#ac1635080ee8fbca765f9bfd83ce2c4d2" title="Executes the full A* algorithm from start to goal in one call." alt="" coords="137,56,255,83"/>
+<area shape="rect" id="node4" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="108,5,284,32"/>
+<area shape="rect" id="node6" href="$classMapViewer.html#a323a6ee85f1257b6e7c758ebf3d694bd" title="Manages logic updates and user interaction." alt="" coords="122,107,270,133"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,107,60,133"/>
+</map>

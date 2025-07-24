@@ -1,57 +1,93 @@
 #pragma once
+
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
 #include <geometry_msgs/Point32.h>
 #include <sensor_msgs/PointCloud.h>
+#include <nav_msgs/Odometry.h>
+#include <nav_msgs/OccupancyGrid.h>
+#include <std_msgs/Int32.h>
+#include <tf/transform_datatypes.h>
+
 #include <string>
 #include <vector>
-#include "nav_msgs/Odometry.h"
-#include "tf/transform_datatypes.h"
+#include <fstream>
 #include <iostream>
 #include <cmath>
-#include <nav_msgs/OccupancyGrid.h>
-#include <std_msgs/Int32.h>   // <--- para publicar uso de RAM
-#include <fstream>            // <--- para leer /proc/self/status
 
-class RosHandler{
+/**
+ * @class RosHandler
+ * @brief Handles ROS communication:
+ *  - Publishes velocity commands
+ *  - Subscribes to joystick and sonar data
+ *  - Provides access to velocities and sonar points
+ */
+class RosHandler {
+public:
+    /// Constructor
+    RosHandler();
 
-    public:
-        RosHandler();
+    /// @return Sonar points received from ROS used to build the map
+    const std::vector<geometry_msgs::Point32>& getSonarPoints() const;
 
-        const std::vector<geometry_msgs::Point32>& getSonarPoints() const;
-        double getLinearVelocity() const { return current_linear_velocity; }
-        double getAngularVelocity() const { return current_angular_velocity; }
-        float getlast_dt() const{return last_dt;};
+    /// @return Current robot linear velocity for animation purposes
+    double getLinearVelocity() const { return current_linear_velocity; }
 
-    private:
-        ros::NodeHandle nh;
+    /// @return Current robot angular velocity for animation purposes
+    double getAngularVelocity() const { return current_angular_velocity; }
 
-        //variables use to publish or resive data
-        int linear, angular;
-        double l_scale, a_scale;
-        std::vector<geometry_msgs::Point32> sonarPoints;
-        double current_linear_velocity = 0.0;
-        double current_angular_velocity = 0.0;
-        float last_dt = 0.0;
-        ros::Time last_joy_time;
+    /// @return Time since last joystick update
+    float getLastDeltaTime() const { return last_dt; }
 
-        //subs and pubs 
-        ros::Publisher vel_pub;
-        ros::Subscriber sonar_sub;
-        ros::Subscriber joy_sub;
+private:
+    ros::NodeHandle nh; ///< ROS node handle
 
-        // NUEVO: Publisher para uso de RAM y timer
-        ros::Publisher ram_pub;
-        ros::Timer ram_timer;
+    // Velocity scaling factors
+    int linear, angular; ///< Raw joystick axis indices
+    double l_scale, a_scale; ///< Linear and angular velocity scaling factors
 
-        void joyCallback(const sensor_msgs::Joy::ConstPtr &joy);
-        void sonarPointReceiver(const geometry_msgs::Point32::ConstPtr& sonar);
+    // Sensor data
+    std::vector<geometry_msgs::Point32> sonarPoints; ///< Points from sonar sensor
+    double current_linear_velocity = 0.0; ///< Current linear velocity
+    double current_angular_velocity = 0.0; ///< Current angular velocity
+    float last_dt = 0.0; ///< Time since last joystick message
+    ros::Time last_joy_time; ///< Timestamp of last joystick message received
 
-        // NUEVO: función para obtener uso de memoria en KB
-        long getMemoryUsageKB();
+    // ROS publishers and subscribers
+    ros::Publisher vel_pub; ///< Publisher for velocity commands
+    ros::Subscriber sonar_sub; ///< Subscriber for sonar point messages
+    ros::Subscriber joy_sub; ///< Subscriber for joystick messages
 
-        // NUEVO: función que publica RAM periódicamente
-        void publishMemoryUsage(const ros::TimerEvent&);
+    // RAM monitoring
+    ros::Publisher ram_pub; ///< Publisher for RAM usage info
+    ros::Timer ram_timer; ///< Timer to trigger RAM publishing
 
+    // Callbacks
+    /**
+     * @brief Callback for joystick messages.
+     * Reads joystick values and publishes velocity commands.
+     * @param joy Incoming joystick message
+     */
+    void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
+
+    /**
+     * @brief Callback for sonar point messages.
+     * Receives sonar point data to be used in mapping.
+     * @param sonar Incoming sonar point message
+     */
+    void sonarPointReceiver(const geometry_msgs::Point32::ConstPtr& sonar);
+
+    // RAM usage utilities
+    /**
+     * @brief Reads current RAM usage of the process in KB.
+     * @return RAM usage in kilobytes
+     */
+    long getMemoryUsageKB();
+
+    /**
+     * @brief Periodically publishes the RAM usage to a ROS topic.
+     * @param event Timer event info
+     */
+    void publishMemoryUsage(const ros::TimerEvent&);
 };

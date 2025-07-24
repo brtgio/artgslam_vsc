@@ -1,0 +1,4 @@
+<map id="RobotCreator" name="RobotCreator">
+<area shape="rect" id="node1" title="Manages a GUI window for creating and configuring a Unicycle Wheeled Mobile Robot (WMR)...." alt="" coords="5,497,172,853"/>
+<area shape="rect" id="node2" href="$classUnicicleWmr.html" title="Simulates a unicycle model robot with position, velocity, and rendering support." alt="" coords="15,5,162,435"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="ViewController::getZoom" name="ViewController::getZoom">
+<area shape="rect" id="node1" title="Returns the current zoom level." alt="" coords="876,31,1061,57"/>
+<area shape="rect" id="node2" href="$classLiveMap.html#a0157071646700aba0cbb45a6767b7487" title="Draws the live grid using the ViewController." alt="" coords="629,5,801,32"/>
+<area shape="rect" id="node5" href="$classViewController.html#a0b015ef0ad0da78f94e932eda5ed2197" title="Handles zoom in/out based on user input events." alt="" coords="601,56,828,83"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#a7eaeb9b44dd34c1865462914957a6aac" title="Renders all visual components to the screen." alt="" coords="131,5,276,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node6" href="$classViewController.html#ac54a72b053247207a1ee00cd07e3cb0e" title="Handles mouse movement events for panning and zooming." alt="" coords="347,56,553,83"/>
+<area shape="rect" id="node7" href="$classMapViewer.html#abcde24a9cc11f7e9ea3e6ef0d7ed6063" title="Handles input events (mouse and keyboard)" alt="" coords="108,56,299,83"/>
+</map>

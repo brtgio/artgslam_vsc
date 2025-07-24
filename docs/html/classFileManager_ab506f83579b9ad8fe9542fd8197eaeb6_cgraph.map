@@ -1,0 +1,4 @@
+<map id="FileManager::saveScreen" name="FileManager::saveScreen">
+<area shape="rect" id="node1" title="Saves a screenshot of the current visualization to an image file." alt="" coords="5,5,189,32"/>
+<area shape="rect" id="node2" href="$tinyfiledialogs_8h.html#a7a17e17150593bf3b04253ea819fc5bc" title=" " alt="" coords="237,5,400,32"/>
+</map>

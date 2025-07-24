@@ -1,0 +1,5 @@
+<map id="AStar::start" name="AStar::start">
+<area shape="rect" id="node1" title="Initializes the A* algorithm." alt="" coords="229,31,324,57"/>
+<area shape="rect" id="node2" href="$classAStar.html#ac1635080ee8fbca765f9bfd83ce2c4d2" title="Executes the full A* algorithm from start to goal in one call." alt="" coords="34,5,153,32"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,56,181,83"/>
+</map>

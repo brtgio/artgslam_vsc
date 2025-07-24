@@ -3,53 +3,68 @@
 #include <iomanip>
 #include <algorithm>
 
+/**
+ * @brief Constructs a MapViewer instance.
+ * 
+ * Initializes references to the SFML window, GUI, controller, map, menu, ROS handler,
+ * robot model, live map, right-click menu, and A* simulation.
+ * Sets up menu callbacks and connects right-click menu signals.
+ * 
+ * @param win Reference to the SFML RenderWindow where rendering occurs.
+ */
 MapViewer::MapViewer(sf::RenderWindow& win)
-    : window(win)
-    , view(window.getDefaultView())
-    , gui(win)
-    , controller(win, 0.1f, 50.0f, view)
-    , map(1000, 0.1, controller)
-    , manager(map, controller)
-    , menu(gui)
-    , roshandler()
-    , wmr()
-    , livemap(1000, 0.1, controller)
-    , r_menu(gui, map, livemap)
-    , aStarsim(map)
+    : window(win)                           // Store reference to SFML window
+    , view(window.getDefaultView())        // Initialize default camera view
+    , gui(win)                            // Initialize GUI with window reference
+    , controller(win, 0.1f, 50.0f, view)  // Initialize ViewController with parameters
+    , map(1000, 0.1, controller)           // Initialize GridMap with size, resolution, controller
+    , manager(map)                         // FileManager with reference to GridMap
+    , menu(gui)                           // MenuBar with GUI reference
+    , roshandler()                       // ROS data handler for sensors and velocity
+    , wmr()                              // Wheeled Mobile Robot model
+    , livemap(1000, 0.1, controller)      // LiveMap with same size and resolution
+    , r_menu(gui, map, livemap)           // Right-click menu with GUI, map, and livemap refs
+    , aStarsim(map)                       // A* pathfinding simulator with GridMap
 {
-    r_menu.connectSignals();
-    window.setFramerateLimit(120);
+    r_menu.connectSignals();  /**< Connect right-click menu event callbacks */
 
+    // Set callback functions for menu bar actions
     menu.setCallbacks(
-        [this]() { manager.loadDialog(); },
-        [this]() { manager.saveDialog(); },
-        [this]() { /* handleSaveImage */ },
-        [this]() { running = false; window.close(); },
-        [this]() { controller.reset(); },
-        [this]() { map.clearGridMap(); },
-        [this]() {
+        [this]() { manager.loadDialog(); },              /**< Load map file dialog */
+        [this]() { manager.saveDialog(); },              /**< Save map file dialog */
+        [this]() { /* TODO: Implement image saving functionality */ },
+        [this]() { running = false; window.close(); },   /**< Exit application */
+        [this]() { controller.reset(); },                /**< Reset camera view */
+        [this]() { map.clearGridMap(); },                /**< Clear the grid map */
+        [this]() {                                        /**< Open robot creator tool */
             RobotCreator creator(wmr);
             creator.run();
         },
-        [this]() {
-            aStarsim.updatemap();   // Actualiza índices start/goal desde el grid
-            aStarsim.start();       // Inicia animación de A*
+        [this]() {                                        /**< Run A* pathfinding animation */
+            aStarsim.updatemap();  /**< Update start and goal points */
+            aStarsim.start();      /**< Start A* animation */
             astarAnimating = true;
         }
     );
 }
 
+/**
+ * @brief Updates application logic per frame.
+ * 
+ * Updates mouse position and grid cell info, live mode sensor data, A* animation,
+ * and robot model position.
+ */
 void MapViewer::update()
 {
     int gridSize = map.getMapSize();
 
-    // 1. Obtener índice de celda bajo el mouse
+    // Get the grid cell currently under the mouse cursor
     sf::Vector2i gridIndex = controller.getHoveredCell(gridSize);
 
-    // 2. Obtener posición del mouse en el mundo (en metros)
+    // Get mouse position in world coordinates (meters)
     sf::Vector2f worldPos = controller.getMouseWorldPosition();
 
-    // 3. Mostrar información de coordenadas
+    // Prepare coordinate status string with fixed precision
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2)
         << "Mouse: (" << worldPos.x << ", " << worldPos.y << ") m";
@@ -57,34 +72,37 @@ void MapViewer::update()
     if (gridIndex.x != -1 && gridIndex.y != -1) {
         oss << " | Grid: (" << gridIndex.x << ", " << gridIndex.y << ")";
     } else {
-        oss << " | Fuera del mapa";
+        oss << " | Out of bounds";
     }
 
+    // Update coordinate display in status bar
     menu.updateCoordinates(oss.str());
 
-    // -----------------------------------------------
-    // Modo en vivo (Live Mode)
+    // -------- Live Mode: real-time sensor updates --------
     if (menu.getLiveMode()) {
-        livemap.clearPoints();
-        livemap.clearGrid();
+        livemap.clearPoints();  /**< Clear existing sonar points */
+        livemap.clearGrid();    /**< Clear live occupancy grid */
 
+        // Update robot velocity from ROS data
         double v = roshandler.getLinearVelocity();
         double w = roshandler.getAngularVelocity();
         wmr.setVelocity(v, w);
 
+        // Add sonar points to live map
         const auto& sonar = roshandler.getSonarPoints();
         for (const auto& p : sonar) {
             livemap.addPoint(p.x, p.y);
         }
 
+        // Update live map grid with sonar points
         livemap.updateGridFromPoints();
     }
 
-    // Animación paso a paso del algoritmo A*
+    // -------- A* Animation: step-by-step simulation --------
     if (astarAnimating) {
         if (!aStarsim.isFinished()) {
-            bool continueAnimation = aStarsim.step();
-            if (!continueAnimation) {
+            bool continueAnim = aStarsim.step();
+            if (!continueAnim) {
                 astarAnimating = false;
             }
         } else {
@@ -92,20 +110,26 @@ void MapViewer::update()
         }
     }
 
-    // Actualizar posición del robot
-    wmr.update(roshandler.getlast_dt());
+    // Update robot model position using ROS delta time
+    wmr.update(roshandler.getLastDeltaTime());
 }
 
+/**
+ * @brief Processes SFML window events.
+ * 
+ * Handles user inputs including window closing, mouse clicks, and GUI events.
+ * Shows or hides the right-click menu on mouse events.
+ */
 void MapViewer::processEvent()
 {
     sf::Event event;
     while (window.pollEvent(event)) {
-        gui.handleEvent(event);
-        controller.handleEvent(event);
+        gui.handleEvent(event);        /**< Forward event to GUI system */
+        controller.handleEvent(event); /**< Forward event to view controller */
 
         if (event.type == sf::Event::Closed) {
             running = false;
-            window.close();
+            window.close();            /**< Close window and exit */
         }
 
         if (event.type == sf::Event::MouseButtonPressed) {
@@ -115,12 +139,13 @@ void MapViewer::processEvent()
             const sf::Vector2f pixelPosF(pixelPos);
 
             if (event.mouseButton.button == sf::Mouse::Right) {
-                // Mostrar menú contextual en la posición del clic
+                // Show context menu at mouse position for right-click
                 r_menu.show(static_cast<float>(pixelPos.x),
                             static_cast<float>(pixelPos.y),
                             cell);
                 r_menu.setVisible(true);
             } else if (event.mouseButton.button == sf::Mouse::Left) {
+                // Hide menu if click is outside of the menu area
                 if (r_menu.isVisible() && !r_menu.containsPoint(pixelPosF)) {
                     r_menu.setVisible(false);
                 }
@@ -129,14 +154,21 @@ void MapViewer::processEvent()
     }
 }
 
+/**
+ * @brief Renders the entire map viewer frame.
+ * 
+ * Clears the window, draws the grid and axes, live or stored maps,
+ * A* simulation, robot, GUI, and presents the final image.
+ */
 void MapViewer::render()
 {
-    window.clear(sf::Color::Black);
-    controller.applyView();  // Aplica vista con zoom y pan
+    window.clear(sf::Color::Black);       /**< Clear window with black background */
+    controller.applyView();                /**< Apply current camera transform (zoom, pan) */
 
-    controller.drawGrid(window);   // Dibuja la rejilla
-    controller.drawAxes(window);  // Dibuja los ejes
+    controller.drawGrid(window);           /**< Draw grid lines */
+    controller.drawAxes(window);           /**< Draw X and Y axes */
 
+    // Draw live map or stored grid map based on live mode status
     if (menu.getLiveMode()) {
         const auto& gridLive = livemap.getGrid();
         if (gridLive.empty() || gridLive[0].empty()) {
@@ -146,7 +178,7 @@ void MapViewer::render()
             window.display();
             return;
         }
-        livemap.drawLiveMap(window);
+        livemap.drawLiveMap(window);       /**< Draw live sensor data map */
     } else {
         const auto& gridMap = map.getGrid();
         if (gridMap.empty() || gridMap[0].empty()) {
@@ -156,22 +188,34 @@ void MapViewer::render()
             window.display();
             return;
         }
-        map.draw(window, controller.getPixelsPerMeter());
+        map.draw(window, controller.getPixelsPerMeter()); /**< Draw stored occupancy grid */
     }
 
-    // Dibujar A* si está activo
-    
+    // Draw A* algorithm visualization while animating
     if (astarAnimating) {
         aStarsim.draw(window, 50.0f, controller.getMetersPerCell());
     }
-    
-    aStarsim.drawFoundPath(window,50.0f,controller.getMetersPerCell());
+
+    // Draw the final path found by A* (if any)
+    aStarsim.drawFoundPath(window, 50.0f, controller.getMetersPerCell());
+
+    // Draw robot’s current pose and orientation
     wmr.draw(window);
+
+    // Draw GUI elements on top (using default view)
     window.setView(window.getDefaultView());
     gui.draw();
+
+    // Display everything on screen
     window.display();
 }
 
-bool MapViewer::isRunning() const {
+/**
+ * @brief Checks if the MapViewer application is running.
+ * 
+ * @return true if the application is running and window is open, false otherwise.
+ */
+bool MapViewer::isRunning() const
+{
     return running && window.isOpen();
 }

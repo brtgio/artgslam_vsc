@@ -1,0 +1,5 @@
+<map id="FileManager" name="FileManager">
+<area shape="rect" id="node1" title="Manages file input/output operations for grid map visualization." alt="" coords="34,784,169,935"/>
+<area shape="rect" id="node2" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="32,439,171,721"/>
+<area shape="rect" id="node3" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="5,5,197,376"/>
+</map>

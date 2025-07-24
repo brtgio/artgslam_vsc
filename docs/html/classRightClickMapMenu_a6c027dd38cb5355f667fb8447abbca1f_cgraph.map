@@ -1,0 +1,4 @@
+<map id="RightClickMapMenu::setVisible" name="RightClickMapMenu::setVisible">
+<area shape="rect" id="node1" title="Sets the visibility state of the menu." alt="" coords="5,5,165,47"/>
+<area shape="rect" id="node2" href="$classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb" title="Displays the context menu at the given screen coordinates." alt="" coords="213,13,408,39"/>
+</map>

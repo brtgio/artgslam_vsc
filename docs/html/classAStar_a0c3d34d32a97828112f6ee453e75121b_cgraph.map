@@ -1,0 +1,9 @@
+<map id="AStar::step" name="AStar::step">
+<area shape="rect" id="node1" title="Performs one step of the A* algorithm." alt="" coords="5,107,99,133"/>
+<area shape="rect" id="node2" href="$classNode.html#ad4e8dcafa398a8613bc3ed8681f31933" title="Returns the total estimated cost (f&#45;cost) of the node: f = g + h." alt="" coords="181,5,279,32"/>
+<area shape="rect" id="node3" href="$classAStar.html#ad334648b94a68f85318faee06bdad851" title="Returns the valid neighbor cells of a given node." alt="" coords="154,56,306,83"/>
+<area shape="rect" id="node5" href="$classGridMap.html#a22d7a74bbf3b6a4663860f76e9cd4019" title="Query cell status." alt="" coords="152,107,308,133"/>
+<area shape="rect" id="node6" href="$classAStar.html#aa9a1a3a53f000075f201cf6373e8c912" title="Octile distance heuristic (better suited for 8&#45;connected grids)." alt="" coords="151,157,309,184"/>
+<area shape="rect" id="node7" href="$classAStar.html#afbd7e300de5b7e171633d4be1982ce07" title="Reconstructs the final path from the goal node by tracing the parent map." alt="" coords="147,208,313,235"/>
+<area shape="rect" id="node4" href="$classAStar.html#a07010836e7ee9f2b37854031b872cc52" title="Checks if the given cell coordinates are within the grid bounds." alt="" coords="361,56,496,83"/>
+</map>

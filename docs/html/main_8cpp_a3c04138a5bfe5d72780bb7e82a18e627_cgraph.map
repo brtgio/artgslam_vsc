@@ -1,0 +1,52 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title="Main entry point for the ARTG SLAM visualization node." alt="" coords="5,545,60,572"/>
+<area shape="rect" id="node2" href="$classMapViewer.html#afa37bc47b81572f2e41aa8880de1697a" title="Returns whether the viewer should keep running." alt="" coords="120,309,287,336"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#abcde24a9cc11f7e9ea3e6ef0d7ed6063" title="Handles input events (mouse and keyboard)" alt="" coords="108,785,299,812"/>
+<area shape="rect" id="node14" href="$classMapViewer.html#a7eaeb9b44dd34c1865462914957a6aac" title="Renders all visual components to the screen." alt="" coords="131,360,276,387"/>
+<area shape="rect" id="node28" href="$classMapViewer.html#a323a6ee85f1257b6e7c758ebf3d694bd" title="Manages logic updates and user interaction." alt="" coords="129,1293,277,1320"/>
+<area shape="rect" id="node4" href="$classRightClickMapMenu.html#a87f03273425aa850fb7552ed1d21ab21" title="Checks if a world&#45;space point is inside the menu bounds." alt="" coords="382,614,542,655"/>
+<area shape="rect" id="node5" href="$classViewController.html#a6a75b71784feee666c971a20b5785aec" title="Returns the grid cell index hovered by the mouse." alt="" coords="349,1015,575,1041"/>
+<area shape="rect" id="node6" href="$classGridMap.html#a5dc821c5c3cb7883e62148573d75c57f" title="Get the number of cells per side." alt="" coords="381,964,543,991"/>
+<area shape="rect" id="node7" href="$classViewController.html#ac54a72b053247207a1ee00cd07e3cb0e" title="Handles mouse movement events for panning and zooming." alt="" coords="359,680,565,707"/>
+<area shape="rect" id="node11" href="$classRightClickMapMenu.html#a4ed94d4b642e38a5af97e05395565c6b" title="Returns whether the menu is currently visible." alt="" coords="382,898,542,939"/>
+<area shape="rect" id="node12" href="$classRightClickMapMenu.html#a6c027dd38cb5355f667fb8447abbca1f" title="Sets the visibility state of the menu." alt="" coords="382,833,542,874"/>
+<area shape="rect" id="node13" href="$classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb" title="Displays the context menu at the given screen coordinates." alt="" coords="641,785,836,812"/>
+<area shape="rect" id="node8" href="$classViewController.html#a3ef5b86c4b69837a4d90b3a16f84379f" title="Resets the view to its default state." alt="" coords="659,680,818,707"/>
+<area shape="rect" id="node9" href="$classViewController.html#a0b015ef0ad0da78f94e932eda5ed2197" title="Handles zoom in/out based on user input events." alt="" coords="625,431,852,457"/>
+<area shape="rect" id="node10" href="$classViewController.html#ab3b39d154cf93e5eec28d2bbdead91e4" title="Returns the current zoom level." alt="" coords="900,273,1085,300"/>
+<area shape="rect" id="node15" href="$classViewController.html#a8eaa9725daebdd8f73efba9fb0bbaee6" title="Applies the current view settings to the window." alt="" coords="365,309,559,336"/>
+<area shape="rect" id="node16" href="$classUnicicleWmr.html#a90cf366f26eedefd4d9f2fcc038fc8f4" title="Draws the robot on the screen." alt="" coords="389,360,535,387"/>
+<area shape="rect" id="node17" href="$classAStar.html#a6f489a0d3464a6c8263b47d009c25d04" title="Draws the current algorithm state to the given SFML render target." alt="" coords="413,411,511,437"/>
+<area shape="rect" id="node18" href="$classGridMap.html#a0242886063d0cd50d5982a0c419be8b6" title="Draw the map using SFML." alt="" coords="403,461,521,488"/>
+<area shape="rect" id="node19" href="$classViewController.html#a59766cfd8ec65083a66af156324cc173" title="Draws the axes lines and numeration on the render target." alt="" coords="367,512,557,539"/>
+<area shape="rect" id="node20" href="$classAStar.html#a12450d3a3c4d1baf327aec5e45abece3" title="Draws the final path, if found." alt="" coords="379,563,545,589"/>
+<area shape="rect" id="node21" href="$classViewController.html#a2a830a80bbb229b763e72ec8d29d48b6" title="Draws the grid lines on the provided render target." alt="" coords="369,5,555,32"/>
+<area shape="rect" id="node22" href="$classLiveMap.html#a0157071646700aba0cbb45a6767b7487" title="Draws the live grid using the ViewController." alt="" coords="376,107,548,133"/>
+<area shape="rect" id="node23" href="$classViewController.html#ae16abf87a7514af7eda581ac04d23ec3" title="Returns the size of each grid cell in meters." alt="" coords="643,45,835,86"/>
+<area shape="rect" id="node24" href="$classViewController.html#a4371bcfa79ff09f98c5f49914e2a854d" title="Returns the pixels per meter scale factor." alt="" coords="645,162,832,203"/>
+<area shape="rect" id="node25" href="$classLiveMap.html#af9c68de338a34ee872aac401122c10bb" title="Returns a constant reference to the full occupancy grid." alt="" coords="395,208,529,235"/>
+<area shape="rect" id="node26" href="$classGridMap.html#abed9c97e44c2302a1586de01ed369c10" title="Get a const reference to the occupancy grid." alt="" coords="395,259,529,285"/>
+<area shape="rect" id="node27" href="$classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64" title="Returns whether live mode is currently enabled." alt="" coords="376,781,548,808"/>
+<area shape="rect" id="node29" href="$classLiveMap.html#a0a1bc92b03f9d2204553db4ed225c410" title="Adds a single point (in real&#45;world coordinates) to the internal point buffer." alt="" coords="391,1167,533,1193"/>
+<area shape="rect" id="node30" href="$classLiveMap.html#aba698035fef23107bc3aa1abc7c2dd90" title="Clears the occupancy grid (sets all cells to 0)" alt="" coords="921,1243,1065,1269"/>
+<area shape="rect" id="node31" href="$classLiveMap.html#acb6cab34d7e2ae63d41ffcbdfbeece2e" title="Clears all stored real&#45;world points." alt="" coords="383,1319,541,1345"/>
+<area shape="rect" id="node32" href="$classRosHandler.html#a42df3df8aa66d76424ea3e7b14ad4710" title=" " alt="" coords="347,1369,577,1396"/>
+<area shape="rect" id="node33" href="$classRosHandler.html#af7228ab05a94f94465a8f0afea118377" title=" " alt="" coords="352,1420,572,1447"/>
+<area shape="rect" id="node34" href="$classRosHandler.html#affab703b7eb05afb33b68c7276616c39" title=" " alt="" coords="353,1471,571,1497"/>
+<area shape="rect" id="node35" href="$classViewController.html#a718f7ee25b1eb61d7eb7a1d023fbc059" title="Returns mouse position in world coordinates." alt="" coords="367,1522,557,1563"/>
+<area shape="rect" id="node36" href="$classRosHandler.html#a7aba64be62c8bfd3480b3cd7a082a85d" title="Gets the vector of sonar points received from the sensor." alt="" coords="361,1588,563,1615"/>
+<area shape="rect" id="node37" href="$classAStar.html#a281c6749b8bc907e5be4902545aed4dd" title="Returns whether the algorithm has finished executing." alt="" coords="397,1639,527,1665"/>
+<area shape="rect" id="node38" href="$classUnicicleWmr.html#aefb8cacc4cf6bb5a77f76bbbb6d6048a" title="Sets the linear and angular velocity of the robot." alt="" coords="369,1689,555,1716"/>
+<area shape="rect" id="node39" href="$classAStar.html#a0c3d34d32a97828112f6ee453e75121b" title="Performs one step of the A* algorithm." alt="" coords="415,1740,509,1767"/>
+<area shape="rect" id="node46" href="$classUnicicleWmr.html#a2ea87f3299c071e959f15bec87420f4d" title="Updates the robot&#39;s position and orientation using its velocity." alt="" coords="383,1065,541,1092"/>
+<area shape="rect" id="node47" href="$classMenuBar.html#a94cba4067d873ac499fe9f0327ba22dc" title="Updates the label showing the current grid coordinates of the mouse." alt="" coords="357,1116,567,1143"/>
+<area shape="rect" id="node48" href="$classLiveMap.html#af35f553cf7473ec20650328b423ddddf" title="Updates the grid from the internal point buffer." alt="" coords="347,1268,577,1295"/>
+<area shape="rect" id="node40" href="$classNode.html#ad4e8dcafa398a8613bc3ed8681f31933" title="Returns the total estimated cost (f&#45;cost) of the node: f = g + h." alt="" coords="689,1791,788,1817"/>
+<area shape="rect" id="node41" href="$classAStar.html#ad334648b94a68f85318faee06bdad851" title="Returns the valid neighbor cells of a given node." alt="" coords="663,1841,815,1868"/>
+<area shape="rect" id="node43" href="$classGridMap.html#a22d7a74bbf3b6a4663860f76e9cd4019" title="Query cell status." alt="" coords="661,1639,817,1665"/>
+<area shape="rect" id="node44" href="$classAStar.html#aa9a1a3a53f000075f201cf6373e8c912" title="Octile distance heuristic (better suited for 8&#45;connected grids)." alt="" coords="659,1689,818,1716"/>
+<area shape="rect" id="node45" href="$classAStar.html#afbd7e300de5b7e171633d4be1982ce07" title="Reconstructs the final path from the goal node by tracing the parent map." alt="" coords="655,1740,822,1767"/>
+<area shape="rect" id="node42" href="$classAStar.html#a07010836e7ee9f2b37854031b872cc52" title="Checks if the given cell coordinates are within the grid bounds." alt="" coords="925,1841,1060,1868"/>
+<area shape="rect" id="node49" href="$classLiveMap.html#aca9414f3b6a8d57ec31f8a35fb1bb5d2" title="Fills the grid using the given grid indices, marking cells as occupied (1)" alt="" coords="674,1268,803,1295"/>
+<area shape="rect" id="node50" href="$classLiveMap.html#a4c5f9a45946eb1fc48e3b50b28da724a" title="Converts real&#45;world coordinates to grid indices." alt="" coords="671,1319,807,1345"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="MenuBar::MenuBar" name="MenuBar::MenuBar">
+<area shape="rect" id="node1" title="Constructor: initializes and places the menu elements within the given GUI." alt="" coords="5,56,152,83"/>
+<area shape="rect" id="node2" href="$classMenuBar.html#a00fceb6edf16b945279408d034b77eb1" title="Helper to set up the label that shows mouse grid coordinates." alt="" coords="201,5,390,32"/>
+<area shape="rect" id="node3" href="$classMenuBar.html#aa755e1a4c2d8ed9f66febe5397fed657" title="Helper to set up the toggle button for live mode (ROS streaming)." alt="" coords="200,56,391,83"/>
+<area shape="rect" id="node4" href="$classMenuBar.html#a960511444212d092307581bb43e28e9f" title="Helper to set up the main menu bar structure and entries." alt="" coords="215,107,375,133"/>
+</map>

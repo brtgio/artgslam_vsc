@@ -1,0 +1,8 @@
+<map id="RightClickMapMenu::connectSignals" name="RightClickMapMenu::connectSignals">
+<area shape="rect" id="node1" title="Connects internal widget signals to their callbacks (e.g., button clicks)." alt="" coords="5,99,165,141"/>
+<area shape="rect" id="node2" href="$classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9" title="Clear start or goal markers from a cell." alt="" coords="218,5,397,32"/>
+<area shape="rect" id="node3" href="$classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e" title="Returns whether live mode is currently active." alt="" coords="228,56,387,83"/>
+<area shape="rect" id="node4" href="$classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef" title="Hides the context menu." alt="" coords="213,107,401,133"/>
+<area shape="rect" id="node5" href="$classGridMap.html#a063197bc2b493578f0da0905a2e7dd90" title="Set the goal point in the grid (stored as ASCII &#39;g&#39;)." alt="" coords="240,157,375,184"/>
+<area shape="rect" id="node6" href="$classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e" title="Sets a special goal cell in the grid (value = &#39;g&#39;)" alt="" coords="240,208,375,235"/>
+</map>

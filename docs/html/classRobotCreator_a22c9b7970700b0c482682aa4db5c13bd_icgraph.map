@@ -1,0 +1,4 @@
+<map id="RobotCreator::setupCallbacks" name="RobotCreator::setupCallbacks">
+<area shape="rect" id="node1" title="Connects callbacks for button presses and other GUI events." alt="" coords="256,5,471,32"/>
+<area shape="rect" id="node2" href="$classRobotCreator.html#a1a9bc9afc3c2e9aa6ca3555a11b99846" title="Explicit constructor that requires a reference to the UnicicleWmr instance to configure." alt="" coords="5,5,208,32"/>
+</map>

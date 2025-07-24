@@ -1,0 +1,4 @@
+<map id="AStar::start" name="AStar::start">
+<area shape="rect" id="node1" title="Initializes the A* algorithm." alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node2" href="$classAStar.html#aa9a1a3a53f000075f201cf6373e8c912" title="Octile distance heuristic (better suited for 8&#45;connected grids)." alt="" coords="148,5,307,32"/>
+</map>

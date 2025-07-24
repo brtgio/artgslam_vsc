@@ -1,0 +1,13 @@
+<map id="MapViewer::processEvent" name="MapViewer::processEvent">
+<area shape="rect" id="node1" title="Handles input events (mouse and keyboard)" alt="" coords="5,173,196,199"/>
+<area shape="rect" id="node2" href="$classRightClickMapMenu.html#a87f03273425aa850fb7552ed1d21ab21" title="Checks if a world&#45;space point is inside the menu bounds." alt="" coords="277,5,437,47"/>
+<area shape="rect" id="node3" href="$classViewController.html#a6a75b71784feee666c971a20b5785aec" title="Returns the grid cell index hovered by the mouse." alt="" coords="244,71,471,98"/>
+<area shape="rect" id="node4" href="$classGridMap.html#a5dc821c5c3cb7883e62148573d75c57f" title="Get the number of cells per side." alt="" coords="277,122,438,149"/>
+<area shape="rect" id="node5" href="$classViewController.html#ac54a72b053247207a1ee00cd07e3cb0e" title="Handles mouse movement events for panning and zooming." alt="" coords="254,173,461,199"/>
+<area shape="rect" id="node9" href="$classRightClickMapMenu.html#a4ed94d4b642e38a5af97e05395565c6b" title="Returns whether the menu is currently visible." alt="" coords="277,224,437,265"/>
+<area shape="rect" id="node10" href="$classRightClickMapMenu.html#a6c027dd38cb5355f667fb8447abbca1f" title="Sets the visibility state of the menu." alt="" coords="277,289,437,331"/>
+<area shape="rect" id="node11" href="$classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb" title="Displays the context menu at the given screen coordinates." alt="" coords="535,326,729,353"/>
+<area shape="rect" id="node6" href="$classViewController.html#a3ef5b86c4b69837a4d90b3a16f84379f" title="Resets the view to its default state." alt="" coords="553,147,711,174"/>
+<area shape="rect" id="node7" href="$classViewController.html#a0b015ef0ad0da78f94e932eda5ed2197" title="Handles zoom in/out based on user input events." alt="" coords="519,198,745,225"/>
+<area shape="rect" id="node8" href="$classViewController.html#ab3b39d154cf93e5eec28d2bbdead91e4" title="Returns the current zoom level." alt="" coords="793,198,979,225"/>
+</map>

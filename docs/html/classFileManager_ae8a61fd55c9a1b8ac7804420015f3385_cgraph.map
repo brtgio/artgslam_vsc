@@ -1,0 +1,10 @@
+<map id="FileManager::loadDialog" name="FileManager::loadDialog">
+<area shape="rect" id="node1" title="Opens a file dialog to select a file and loads its data into the map." alt="" coords="5,157,184,184"/>
+<area shape="rect" id="node2" href="$classFileManager.html#ad30d0502c151865459ba32f7f3880477" title="Loads coordinate data from a file into x and y vectors." alt="" coords="232,5,401,32"/>
+<area shape="rect" id="node3" href="$classGridMap.html#ad404a1752c771bd142a46e579c47ec6d" title="Fill the occupancy grid using grid index vectors." alt="" coords="252,56,381,83"/>
+<area shape="rect" id="node4" href="$classGridMap.html#ad20af94e5a3cc2872a274a732b5e3f72" title="Getters for real&#45;world x coordinates." alt="" coords="245,107,389,133"/>
+<area shape="rect" id="node5" href="$classGridMap.html#af4fe1dc74416535a7463b7e168a326d1" title="Getters for real&#45;world y coordinates." alt="" coords="245,157,388,184"/>
+<area shape="rect" id="node6" href="$classGridMap.html#a83c5f50b869d134d31a43e58a7757eac" title="Replace all current points with new ones." alt="" coords="244,208,389,235"/>
+<area shape="rect" id="node7" href="$tinyfiledialogs_8h.html#a8918e9f47e1532c1d055f563a32b215c" title=" " alt="" coords="235,259,398,285"/>
+<area shape="rect" id="node8" href="$classGridMap.html#a41f7d52629250938bd87dac7c8cfbb76" title="Convert real&#45;world coordinates to grid indices." alt="" coords="249,309,385,336"/>
+</map>

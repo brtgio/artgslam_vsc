@@ -1,0 +1,6 @@
+<map id="AStar" name="AStar">
+<area shape="rect" id="node1" title="This class handles the A* algorithm for path planning. It receives start and goal coordinates from th..." alt="" coords="41,799,203,1257"/>
+<area shape="rect" id="node2" href="$classNode.html" title="Represents a node in a grid used for path planning algorithms (e.g., A*). Each node corresponds to a ..." alt="" coords="5,475,119,685"/>
+<area shape="rect" id="node3" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="143,439,282,721"/>
+<area shape="rect" id="node4" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="117,5,309,376"/>
+</map>

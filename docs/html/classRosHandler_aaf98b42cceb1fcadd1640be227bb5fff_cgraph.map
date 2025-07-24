@@ -1,0 +1,4 @@
+<map id="RosHandler::publishMemoryUsage" name="RosHandler::publishMemoryUsage">
+<area shape="rect" id="node1" title="Periodically publishes the RAM usage to a ROS topic." alt="" coords="5,5,212,47"/>
+<area shape="rect" id="node2" href="$classRosHandler.html#ac1e035daa32ccbcca02a9c55b5fc2da4" title="Reads current RAM usage of the process in KB." alt="" coords="260,13,499,39"/>
+</map>

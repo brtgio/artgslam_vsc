@@ -1,0 +1,7 @@
+<map id="RobotCreator::run" name="RobotCreator::run">
+<area shape="rect" id="node1" title="Main loop entry point to run the creation window." alt="" coords="5,81,143,108"/>
+<area shape="rect" id="node2" href="$classRobotCreator.html#a55c3f93cf65404a5c334c6a4be5ab67e" title="Returns true if the creation window is currently open and running." alt="" coords="206,5,386,32"/>
+<area shape="rect" id="node3" href="$classRobotCreator.html#a296898214fd76575c63de36ae1c5481f" title="Handles user input events like keyboard and mouse." alt="" coords="191,56,401,83"/>
+<area shape="rect" id="node4" href="$classRobotCreator.html#ad774a314cafeb9eee4187a295b5739d1" title="Renders the GUI window and widgets." alt="" coords="217,107,375,133"/>
+<area shape="rect" id="node5" href="$classRobotCreator.html#a3b1852ea68b66abab751226c1cb6820f" title="Updates internal state and GUI elements each frame." alt="" coords="215,157,377,184"/>
+</map>
