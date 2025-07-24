@@ -21,3 +21,10 @@
 
 
 ## Instalation Guide 
+
+### Prerequisites
+
+- [SFML](https://www.sfml-dev.org/tutorials/2.5/)
+- [TGUI](https://tgui.eu/tutorials/0.9/)
+- [TinyFileDialogs](https://sourceforge.net/projects/tinyfiledialogs/)
+- [ROS Noetic](http://wiki.ros.org/noetic/Installation) (tested on Ubuntu 20.04)
