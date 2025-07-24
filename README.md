@@ -24,17 +24,22 @@
 
 ### Prerequisites
 
+Ensure the following libraries and tools are installed:
 - [SFML](https://www.sfml-dev.org/tutorials/2.5/)
 - [TGUI](https://tgui.eu/tutorials/0.9/)
 - [TinyFileDialogs](https://sourceforge.net/projects/tinyfiledialogs/)
 - [ROS Noetic](http://wiki.ros.org/noetic/Installation) (tested on Ubuntu 20.04)
 
-Neded for use with adeptmobile robots , see API documentation on changing resive data topics(dinamic changing is being considering) not needed for standart mode.
+Optional – required **only** for integration with Adept MobileRobots (e.g., Amigobot):
 - [Aria](https://github.com/cinvesrob/Aria) (tested on ubuntu 20.04 and debian 10)
 - [RosAria](https://github.com/amor-ros-pkg/rosaria) (tested on ubuntu 20.04 and debian 10)
 
+> 🧠 **Note**: The ROS topics for receiving sonar data are hardcoded by default. Dynamic configuration is being considered for future versions.
 
-Make sure you have a working ROS 1 workspace set up:
+
+### 🛠️ Set Up ROS Workspace
+
+If you don’t already have a catkin workspace set up:
 
 ```bash
 # Example: ROS workspace
@@ -44,26 +49,30 @@ catkin_make
 
 ```
 
-### Building
+### Build the project
 
 ```bash
 
-# Clone the repo inside your /src folder inside catkin workspace
-git clone https://github.com/brtgio/artgslam_vsc.git
-# go back to catkin main directory
-cd ~/catkin_ws
-#make the workspace
-catkin_make
+# Navigate to the 'src' directory of your workspace
+cd ~/catkin_ws/src
 
+# Clone this repository
+git clone https://github.com/brtgio/artgslam_vsc.git
+
+# Go back to the workspace root and build
+cd ~/catkin_ws
+catkin_make
 ```
 ## 🧪 **Usage**
 
-To run the application from terminal
 
 ```bash
 
-# Run Roscore
+# In one terminal, start the ROS core
 roscore
-#run artgslam_vsc package
+```
+```bash
+# In a new terminal, run the Artgslam Visualizer node
 rosrun artgslam_vsc artgslam_vsc_node
 ```
+
