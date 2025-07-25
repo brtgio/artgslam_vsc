@@ -1,0 +1,18 @@
+Copyright (c) 2025 Gilberto Ramos Valenzuela
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to use,
+copy, modify, and distribute the Software **for personal, academic, or research purposes only**.
+
+**Commercial use of the full original application "artgslam_vsc" is prohibited without explicit permission from the copyright holder.**
+
+You may incorporate parts or modified versions of the Software into your own projects,
+including commercial projects, provided that you do **not** redistribute the full original application as a product.
+
+**Attribution:** You must give appropriate credit, provide a link to the original repository, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+The Software is provided "AS IS", without warranty of any kind, express or implied,
+including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+In no event shall the author be liable for any claim, damages or other liability,
+whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Software or the use or other dealings in the Software.
