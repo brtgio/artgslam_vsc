@@ -1,6 +1,6 @@
 # Artgslam Visualizer
 
-**Artgslam Visualizer** is a grid map viewer designed for use with the **Artgslam backend**, a sonar-based SLAM system developed for the Adept MobileRobots Amigobot platform.
+**Artgslam Visualizer** is a grid map viewer designed for use with the **Artgslam backend**, a sonar-based SLAM system developed for the Adept MobileRobots Amigobot platform. Full code documentation can be found here https://brtgio.github.io/artgslam_vsc/html/index.html.
 
 ### ✨ Features
 
@@ -75,6 +75,7 @@ roscore
 # In a new terminal, run the Artgslam Visualizer node
 rosrun artgslam_vsc artgslam_vsc_node
 ```
+## Usage 
 
 ## 📚 Licenses
 
