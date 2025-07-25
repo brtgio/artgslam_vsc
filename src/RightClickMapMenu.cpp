@@ -1,3 +1,17 @@
+/* 
+ * -----------------------------------------------------------------------------
+ *  Copyright (c) 2025 Gilberto Ramos Valenzuela
+ *
+ *  This file is part of the Artgslam Visualizer project.
+ *
+ *  Licensed for personal, academic, and non-commercial use only.
+ *  Commercial use of the complete application "Artgslam Visualizer" is prohibited
+ *  without explicit permission from the copyright holder.
+ *
+ *  For full license details, see the LICENSE.txt file distributed with this software.
+ * -----------------------------------------------------------------------------
+ */
+
 #include "artgslam_vsc/RightClickMapMenu.hpp"
 #include <ros/package.h>
 #include <iostream>

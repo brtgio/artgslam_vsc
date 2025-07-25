@@ -78,14 +78,16 @@ rosrun artgslam_vsc artgslam_vsc_node
 
 ## 📚 Licenses
 
-### Third-Party
+### Third-Party Libraries
 
-This project uses the following open-source libraries. Please refer to their respective licenses:
+This project incorporates the following open-source libraries. Please refer to their respective licenses for more details:
 
 - **SFML** – [zlib/libpng License](https://www.sfml-dev.org/license.php)
 - **TGUI** – [zlib/libpng License](https://tgui.eu/license/)
 - **TinyFileDialogs** – [WTFPL or MIT License](https://sourceforge.net/projects/tinyfiledialogs/)
 - **ROS** – [BSD License](https://www.ros.org/reps/rep-0003.html)
 
-All credit goes to the respective authors and maintainers of these libraries.
+All credit is given to the original authors and maintainers of these libraries.
 
+This project is provided for personal, academic, and non-commercial use only.  
+For the full terms and conditions, please refer to the `LICENSE.txt` file included in this repository.
