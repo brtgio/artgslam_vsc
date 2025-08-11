@@ -17,6 +17,7 @@
 #include <cmath>
 #include <algorithm> // std::reverse
 #include <limits>
+#include <unistd.h>
 
 /**
  * @brief Constructor initializes A* algorithm with a reference to the map.
@@ -50,15 +51,17 @@ AStar::AStar(GridMap& mapRef)
 }
 
 /**
- * @brief Returns valid neighbors around a node in 8 directions.
+ * @brief Returns valid neighbors around a node in 4 directions.
  * @param node Current node.
  * @return Vector of neighbor cell coordinates.
  */
 std::vector<sf::Vector2i> AStar::getNeighbors(const Node& node) const {
-    // Directions: N, NE, E, SE, S, SW, W, NW
+    // Directions: N, E, S, W
     static const std::vector<sf::Vector2i> directions = {
-        { 0, -1}, { 1, -1}, { 1,  0}, { 1,  1},
-        { 0,  1}, {-1,  1}, {-1,  0}, {-1, -1}
+        { 0, -1}, // North
+        { 1,  0}, // East
+        { 0,  1}, // South
+        {-1,  0}  // West
     };
 
     std::vector<sf::Vector2i> neighbors;
@@ -73,6 +76,7 @@ std::vector<sf::Vector2i> AStar::getNeighbors(const Node& node) const {
 
     return neighbors;
 }
+
 
 /**
  * @brief Initializes the pathfinding process.
@@ -115,90 +119,103 @@ void AStar::start() {
  */
 bool AStar::step() {
     if (finished) {
-        std::cout << "[DEBUG] finished == true, exiting step().\n";
+        std::cout << "[DEBUG] Pathfinding finished; skipping step.\n";
+        sleep(1);
         return false;
     }
 
     if (openList.empty()) {
-        // No nodes left to explore, path not found
         finished = true;
         pathFound = false;
-        std::cout << "[DEBUG] openList empty, no path found.\n";
+        std::cout << "[DEBUG] Open list empty — no path found.\n";
+        sleep(1);
         return false;
     }
 
     currentNode = openList.top();
     openList.pop();
 
-    std::cout << "[DEBUG] Processing node (" << currentNode.x << ", " << currentNode.y 
-              << ") gCost: " << currentNode.gCost 
-              << ", hCost: " << currentNode.hCost 
+    std::cout << "\n[STEP] Expanding node (" << currentNode.x << ", " << currentNode.y << ") "
+              << "gCost: " << currentNode.gCost << ", hCost: " << currentNode.hCost 
               << ", fCost: " << currentNode.fCost() << "\n";
+    sleep(1);
 
     if (closedList[currentNode.y][currentNode.x]) {
         std::cout << "[DEBUG] Node already closed, skipping.\n";
+        sleep(1);
         return true;
     }
 
     closedList[currentNode.y][currentNode.x] = true;
     stateMap[currentNode.y][currentNode.x] = State::cClose;
+    std::cout << "[DEBUG] Marked node as closed.\n";
+    sleep(1);
 
     if (currentNode.x == goalIndex.x && currentNode.y == goalIndex.y) {
         finished = true;
         pathFound = true;
         goalNode = currentNode;
-
-        std::cout << "[DEBUG] Goal node reached.\n";
-
-        // Mark the path cells (except start/goal)
-        for (auto& pos : reconstructPath(goalNode)) {
-            if (pos != startIndex && pos != goalIndex) {
-                stateMap[pos.y][pos.x] = State::cPath;
-                std::cout << "[DEBUG] Marking path cell (" << pos.x << ", " << pos.y << ").\n";
-            }
-        }
+        std::cout << "[SUCCESS] Goal reached!\n";
+        sleep(1);
 
         finalPath = reconstructPath(goalNode);
-        std::cout << "Path to goal reached\n";
+        for (const auto& pos : finalPath) {
+            if (pos != startIndex && pos != goalIndex) {
+                stateMap[pos.y][pos.x] = State::cPath;
+                std::cout << "[PATH] Marking (" << pos.x << ", " << pos.y << ") on path.\n";
+                sleep(1);
+            }
+        }
         return false;
     }
 
-    // Explore neighbors
+    std::cout << "[DEBUG] Checking neighbors...\n";
+    sleep(1);
+
     for (const auto& neighborPos : getNeighbors(currentNode)) {
         int nx = neighborPos.x;
         int ny = neighborPos.y;
 
         int occupancy = map.isOccupied(nx, ny);
-
-        std::cout << "[DEBUG] Neighbor (" << nx << ", " << ny << ") occupancy: " << occupancy
-                  << ", closed: " << closedList[ny][nx]
-                  << ", current gScore: " << gScore[ny][nx] << "\n";
+        std::cout << "  Neighbor (" << nx << ", " << ny << "), Occupancy: " << occupancy
+                  << ", Closed: " << closedList[ny][nx]
+                  << ", gScore: " << gScore[ny][nx] << "\n";
+        sleep(1);
 
         if (closedList[ny][nx] || occupancy == 1) {
-            std::cout << "[DEBUG] Neighbor discarded.\n";
+            std::cout << "  [SKIP] Blocked or already closed.\n";
+            sleep(1);
             continue;
         }
 
-        float tentativeG = currentNode.gCost + octileHeuristic(currentNode.x, currentNode.y, nx, ny);
-
-        std::cout << "[DEBUG] tentativeG for (" << nx << ", " << ny << "): " << tentativeG << "\n";
+        float tentativeG = currentNode.gCost + 1.0f;
+        std::cout << "  Tentative gCost: " << tentativeG << "\n";
+        sleep(1);
 
         if (tentativeG < gScore[ny][nx]) {
-            std::cout << "[DEBUG] Updating gScore and parent for (" << nx << ", " << ny << ").\n";
+            std::cout << "  [UPDATE] Better path found, updating.\n";
+            sleep(1);
+
             gScore[ny][nx] = tentativeG;
             parentMap[ny][nx] = {currentNode.x, currentNode.y};
 
             Node neighbor(nx, ny);
             neighbor.gCost = tentativeG;
-            neighbor.hCost = octileHeuristic(nx, ny, goalIndex.x, goalIndex.y);
+            neighbor.hCost = manhattanHeuristic(nx, ny, goalIndex.x, goalIndex.y);
 
             openList.push(neighbor);
-            std::cout << "[DEBUG] Neighbor (" << nx << ", " << ny << ") added to openList.\n";
+            std::cout << "  Neighbor added to open list with fCost: " << neighbor.fCost() << "\n";
+            sleep(1);
+        } else {
+            std::cout << "  [NO UPDATE] Current path is better or equal, skipping.\n";
+            sleep(1);
         }
     }
 
     return true;
 }
+
+
 
 /**
  * @brief Finds the complete path from start to goal.
@@ -310,7 +327,7 @@ void AStar::drawFoundPath(sf::RenderTarget &target, float pixelsPerMeter, float 
     float offsetY = -(height / 2.f) * cellSize;
 
     sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));
-    cellShape.setFillColor(sf::Color::Yellow);
+    cellShape.setFillColor(sf::Color::Blue);
 
     for (const auto& pos : finalPath) {
         if (pos == startIndex || pos == goalIndex) continue;

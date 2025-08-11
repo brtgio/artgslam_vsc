@@ -118,6 +118,18 @@ public:
      */
     void setGoal(int i, int j);
 
+    /**
+     * @brief Getters for real-world x coordinates
+     * @return Vector of x coordinates
+     */
+    const std::vector<double>& getRealX() const { return posX; }
+
+    /**
+     * @brief Getters for real-world y coordinates
+     * @return Vector of y coordinates
+     */
+    const std::vector<double>& getRealY() const { return posY; }
+
 private:
     ViewController& controller;           ///< Reference to the view controller for rendering
     int gridSize;                         ///< Map size (number of cells per side)

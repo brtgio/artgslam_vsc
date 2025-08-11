@@ -115,6 +115,10 @@ private:
         return std::max(dx, dy) + (std::sqrt(2.0) - 1.0) * std::min(dx, dy);
     }
 
+    double manhattanHeuristic(int x1,int y1, int x2, int y2){
+            return std::abs(x1 - x2) + std::abs(y1 - y2);
+    }
+
     /// \brief Checks if the given cell coordinates are within the grid bounds.
     bool isValidCell(int x, int y) const {
         return x >= 0 && x < width && y >= 0 && y < height;

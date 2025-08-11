@@ -30,13 +30,13 @@ MapViewer::MapViewer(sf::RenderWindow& win)
     : window(win)                           // Store reference to SFML window
     , view(window.getDefaultView())        // Initialize default camera view
     , gui(win)                            // Initialize GUI with window reference
-    , controller(win, 0.1f, 50.0f, view)  // Initialize ViewController with parameters
-    , map(1000, 0.1, controller)           // Initialize GridMap with size, resolution, controller
-    , manager(map)                         // FileManager with reference to GridMap
+    , controller(win, 0.4f, 50.0f, view)  // Initialize ViewController with parameters
+    , map(1000, 0.4f, controller)           // Initialize GridMap with size, resolution, controller
+    , manager(map,livemap)                 // FileManager with reference to GridMap
     , menu(gui)                           // MenuBar with GUI reference
     , roshandler()                       // ROS data handler for sensors and velocity
     , wmr()                              // Wheeled Mobile Robot model
-    , livemap(1000, 0.1, controller)      // LiveMap with same size and resolution
+    , livemap(1000, 0.4f, controller)      // LiveMap with same size and resolution
     , r_menu(gui, map, livemap)           // Right-click menu with GUI, map, and livemap refs
     , aStarsim(map)                       // A* pathfinding simulator with GridMap
 {

@@ -20,6 +20,7 @@
 #include <iostream>
 #include <iomanip>         // For std::setprecision
 #include "GridMap.hpp"
+#include "LiveMap.hpp"
 #include "ViewController.hpp"
 #include "tinyfiledialogs.h"
 
@@ -33,6 +34,7 @@ class FileManager
 {
 private:
     GridMap& map;                 ///< Reference to the grid map object
+    LiveMap& lmap;
     std::string loadedFilename;  ///< Path of the last loaded or saved file
 
 public:
@@ -41,7 +43,7 @@ public:
      * 
      * @param mapRef Reference to the GridMap to work with
      */
-    FileManager(GridMap& mapRef);
+    FileManager(GridMap& mapRef,LiveMap& lmapRef);
 
     /**
      * @brief Opens a file dialog to select a file and loads its data into the map.

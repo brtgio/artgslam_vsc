@@ -18,8 +18,8 @@
  * @brief Constructor that stores a reference to the GridMap instance for interaction.
  * @param mapRef Reference to the GridMap.
  */
-FileManager::FileManager(GridMap& mapRef)
-    : map(mapRef)
+FileManager::FileManager(GridMap& mapRef,LiveMap& lmapRef)
+    : map(mapRef),lmap(lmapRef)
 {
 }
 
@@ -75,9 +75,18 @@ void FileManager::saveDialog()
         std::cout << "Saving to: " << path << std::endl;
 
         // Save the real-world coordinates to the file
+        if(lmap.getIsActive()==false){
+
+        
         saveData(path,
                  const_cast<std::vector<double>&>(map.getRealX()),
                  const_cast<std::vector<double>&>(map.getRealY()));
+        }
+        else{
+            saveData(path,
+                 const_cast<std::vector<double>&>(lmap.getRealX()),
+                 const_cast<std::vector<double>&>(lmap.getRealY()));
+        }
     } else {
         std::cout << "Save operation was canceled.\n";
     }
