@@ -11,8 +11,7 @@ Manages the menu bar located at the bottom of the screen. Provides options for f
 
 
 
-Collaboration diagram for Menu\+Bar\+:
-\nopagebreak
+Collaboration diagram for Menu\+Bar\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -55,7 +54,7 @@ bool \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{live\+Mode
 \doxysubsection{Detailed Description}
 Manages the menu bar located at the bottom of the screen. Provides options for file handling, view controls, robot creation, and live mode toggle. 
 
-Definition at line 14 of file Menu\+Bar.\+hpp.
+Definition at line 28 of file Menu\+Bar.\+hpp.
 
 
 
@@ -90,23 +89,22 @@ $<$ Create coordinate display label
 
 $<$ Create toggle button for live mode
 
-Definition at line 14 of file Menu\+Bar.\+cpp.
+Definition at line 28 of file Menu\+Bar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{14                              \{}
-\DoxyCodeLine{15     \mbox{\hyperlink{classMenuBar_a960511444212d092307581bb43e28e9f}{setupMenu}}(gui);        \textcolor{comment}{/**< Create the main menu bar */}}
-\DoxyCodeLine{16     \mbox{\hyperlink{classMenuBar_a00fceb6edf16b945279408d034b77eb1}{setupCordLable}}(gui);  \textcolor{comment}{/**< Create coordinate display label */}}
-\DoxyCodeLine{17     \mbox{\hyperlink{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657}{setupliveToggle}}(gui);  \textcolor{comment}{/**< Create toggle button for live mode */}}
-\DoxyCodeLine{18 \}}
+\DoxyCodeLine{28                              \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{classMenuBar_a960511444212d092307581bb43e28e9f}{setupMenu}}(gui);        \textcolor{comment}{/**< Create the main menu bar */}}
+\DoxyCodeLine{30     \mbox{\hyperlink{classMenuBar_a00fceb6edf16b945279408d034b77eb1}{setupCordLable}}(gui);  \textcolor{comment}{/**< Create coordinate display label */}}
+\DoxyCodeLine{31     \mbox{\hyperlink{classMenuBar_aa755e1a4c2d8ed9f66febe5397fed657}{setupliveToggle}}(gui);  \textcolor{comment}{/**< Create toggle button for live mode */}}
+\DoxyCodeLine{32 \}}
 
 \end{DoxyCode}
 
 
 References setup\+Cord\+Lable(), setuplive\+Toggle(), and setup\+Menu().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -131,11 +129,11 @@ true if live mode is active, false otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 63 of file Menu\+Bar.\+hpp.
+Definition at line 77 of file Menu\+Bar.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{63 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}}; \};}
+\DoxyCodeLine{77 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}}; \};}
 
 \end{DoxyCode}
 
@@ -146,8 +144,7 @@ References live\+Mode.
 
 Referenced by Map\+Viewer\+::render(), and Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -220,43 +217,43 @@ Allows external code to respond to menu item selections.
 \end{DoxyParams}
 
 
-Definition at line 133 of file Menu\+Bar.\+cpp.
+Definition at line 147 of file Menu\+Bar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{142 \{}
-\DoxyCodeLine{143     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Open"}, [onOpen]() \{}
-\DoxyCodeLine{144         \textcolor{keywordflow}{if} (onOpen) onOpen();}
-\DoxyCodeLine{145     \});}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save"}, [onSave]() \{}
-\DoxyCodeLine{148         \textcolor{keywordflow}{if} (onSave) onSave();}
-\DoxyCodeLine{149     \});}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{151     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save2Image"}, [onSaveImage]() \{}
-\DoxyCodeLine{152         \textcolor{keywordflow}{if} (onSaveImage) onSaveImage();}
-\DoxyCodeLine{153     \});}
-\DoxyCodeLine{154 }
-\DoxyCodeLine{155     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Close"}, [onClose]() \{}
-\DoxyCodeLine{156         \textcolor{keywordflow}{if} (onClose) onClose();}
-\DoxyCodeLine{157     \});}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ResetView"}, [onResetView]() \{}
-\DoxyCodeLine{160         \textcolor{keywordflow}{if} (onResetView) onResetView();}
-\DoxyCodeLine{161     \});}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ClearView"}, [onClearView]() \{}
-\DoxyCodeLine{164         \textcolor{keywordflow}{if} (onClearView) onClearView();}
-\DoxyCodeLine{165     \});}
-\DoxyCodeLine{166 }
-\DoxyCodeLine{167     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"Create object"}, \textcolor{stringliteral}{"WMR"}, [onCreateRobot]() \{}
-\DoxyCodeLine{168         \textcolor{keywordflow}{if} (onCreateRobot) onCreateRobot();}
-\DoxyCodeLine{169     \});}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"Simulation"}, \textcolor{stringliteral}{"A*"}, [onSimulation]() \{}
-\DoxyCodeLine{172         \textcolor{keywordflow}{if} (onSimulation) onSimulation();}
-\DoxyCodeLine{173     \});}
-\DoxyCodeLine{174 \}}
+\DoxyCodeLine{156 \{}
+\DoxyCodeLine{157     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Open"}, [onOpen]() \{}
+\DoxyCodeLine{158         \textcolor{keywordflow}{if} (onOpen) onOpen();}
+\DoxyCodeLine{159     \});}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save"}, [onSave]() \{}
+\DoxyCodeLine{162         \textcolor{keywordflow}{if} (onSave) onSave();}
+\DoxyCodeLine{163     \});}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save2Image"}, [onSaveImage]() \{}
+\DoxyCodeLine{166         \textcolor{keywordflow}{if} (onSaveImage) onSaveImage();}
+\DoxyCodeLine{167     \});}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Close"}, [onClose]() \{}
+\DoxyCodeLine{170         \textcolor{keywordflow}{if} (onClose) onClose();}
+\DoxyCodeLine{171     \});}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ResetView"}, [onResetView]() \{}
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} (onResetView) onResetView();}
+\DoxyCodeLine{175     \});}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ClearView"}, [onClearView]() \{}
+\DoxyCodeLine{178         \textcolor{keywordflow}{if} (onClearView) onClearView();}
+\DoxyCodeLine{179     \});}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"Create object"}, \textcolor{stringliteral}{"WMR"}, [onCreateRobot]() \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} (onCreateRobot) onCreateRobot();}
+\DoxyCodeLine{183     \});}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>connectMenuItem(\textcolor{stringliteral}{"Simulation"}, \textcolor{stringliteral}{"A*"}, [onSimulation]() \{}
+\DoxyCodeLine{186         \textcolor{keywordflow}{if} (onSimulation) onSimulation();}
+\DoxyCodeLine{187     \});}
+\DoxyCodeLine{188 \}}
 
 \end{DoxyCode}
 
@@ -267,8 +264,7 @@ References menu\+Bar.
 
 Referenced by Map\+Viewer\+::\+Map\+Viewer().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -301,18 +297,18 @@ The label initially shows placeholder text and has transparent background with b
 \end{DoxyParams}
 
 
-Definition at line 63 of file Menu\+Bar.\+cpp.
+Definition at line 77 of file Menu\+Bar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{63                                          \{}
-\DoxyCodeLine{64     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}} = tgui::Label::create(\textcolor{stringliteral}{"Grid: -\/, Real: -\/"});}
-\DoxyCodeLine{65     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setTextSize(14);}
-\DoxyCodeLine{66     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setPosition(\textcolor{stringliteral}{"100\% -\/ 400"}, \textcolor{stringliteral}{"100\% -\/ 20"}); \textcolor{comment}{// Bottom right, offset leftwards}}
-\DoxyCodeLine{67     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>getRenderer()-\/>setBackgroundColor(tgui::Color::Transparent);}
-\DoxyCodeLine{68     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>getRenderer()-\/>setTextColor(tgui::Color::Black);}
-\DoxyCodeLine{69     gui.add(\mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}, \textcolor{stringliteral}{"CoordLabel"});}
-\DoxyCodeLine{70 \}}
+\DoxyCodeLine{77                                          \{}
+\DoxyCodeLine{78     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}} = tgui::Label::create(\textcolor{stringliteral}{"Grid: -\/, Real: -\/"});}
+\DoxyCodeLine{79     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setTextSize(14);}
+\DoxyCodeLine{80     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setPosition(\textcolor{stringliteral}{"100\% -\/ 400"}, \textcolor{stringliteral}{"100\% -\/ 20"}); \textcolor{comment}{// Bottom right, offset leftwards}}
+\DoxyCodeLine{81     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>getRenderer()-\/>setBackgroundColor(tgui::Color::Transparent);}
+\DoxyCodeLine{82     \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>getRenderer()-\/>setTextColor(tgui::Color::Black);}
+\DoxyCodeLine{83     gui.add(\mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}, \textcolor{stringliteral}{"CoordLabel"});}
+\DoxyCodeLine{84 \}}
 
 \end{DoxyCode}
 
@@ -323,8 +319,7 @@ References coord\+Label.
 
 Referenced by Menu\+Bar().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -357,48 +352,48 @@ The button switches between O\+N/\+O\+FF states with color feedback (green/red).
 \end{DoxyParams}
 
 
-Definition at line 80 of file Menu\+Bar.\+cpp.
+Definition at line 94 of file Menu\+Bar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{80                                           \{}
-\DoxyCodeLine{81     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}} = tgui::ToggleButton::create();}
-\DoxyCodeLine{82     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setSize(50, 20);}
-\DoxyCodeLine{83     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setText(\textcolor{stringliteral}{"Live"});}
-\DoxyCodeLine{84     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setPosition(\textcolor{stringliteral}{"100\% -\/ 60"}, \textcolor{stringliteral}{"100\% -\/ 20"});}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86     \textcolor{keyword}{auto} renderer = \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>getRenderer();}
-\DoxyCodeLine{87     renderer-\/>setRoundedBorderRadius(10);}
-\DoxyCodeLine{88     renderer-\/>setTextColor(tgui::Color::White);}
-\DoxyCodeLine{89     renderer-\/>setBorderColor(tgui::Color::White);}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91     \textcolor{comment}{// Default OFF (red) colors}}
-\DoxyCodeLine{92     renderer-\/>setBackgroundColor(tgui::Color(120, 0, 0));}
-\DoxyCodeLine{93     renderer-\/>setBackgroundColorHover(tgui::Color(180, 60, 60));}
-\DoxyCodeLine{94     renderer-\/>setBackgroundColorDown(tgui::Color(255, 100, 100));}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     gui.add(\mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}});}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98     \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{94                                           \{}
+\DoxyCodeLine{95     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}} = tgui::ToggleButton::create();}
+\DoxyCodeLine{96     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setSize(50, 20);}
+\DoxyCodeLine{97     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setText(\textcolor{stringliteral}{"Live"});}
+\DoxyCodeLine{98     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>setPosition(\textcolor{stringliteral}{"100\% -\/ 60"}, \textcolor{stringliteral}{"100\% -\/ 20"});}
 \DoxyCodeLine{99 }
-\DoxyCodeLine{100     \textcolor{comment}{// Change toggle button color based on state (green for ON, red for OFF)}}
-\DoxyCodeLine{101     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>onToggle([\textcolor{keyword}{this}](\textcolor{keywordtype}{bool} state) \{}
-\DoxyCodeLine{102         \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}} = state;}
-\DoxyCodeLine{103         \textcolor{keyword}{auto} renderer = \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>getRenderer();}
+\DoxyCodeLine{100     \textcolor{keyword}{auto} renderer = \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>getRenderer();}
+\DoxyCodeLine{101     renderer-\/>setRoundedBorderRadius(10);}
+\DoxyCodeLine{102     renderer-\/>setTextColor(tgui::Color::White);}
+\DoxyCodeLine{103     renderer-\/>setBorderColor(tgui::Color::White);}
 \DoxyCodeLine{104 }
-\DoxyCodeLine{105         \textcolor{keywordflow}{if} (state) \{}
-\DoxyCodeLine{106             \textcolor{comment}{// ON state colors (green)}}
-\DoxyCodeLine{107             renderer-\/>setBackgroundColor(tgui::Color(0, 180, 0));}
-\DoxyCodeLine{108             renderer-\/>setBackgroundColorHover(tgui::Color(80, 220, 80));}
-\DoxyCodeLine{109             renderer-\/>setBackgroundColorDown(tgui::Color(100, 255, 100));}
-\DoxyCodeLine{110         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{111             \textcolor{comment}{// OFF state colors (red)}}
-\DoxyCodeLine{112             renderer-\/>setBackgroundColor(tgui::Color(120, 0, 0));}
-\DoxyCodeLine{113             renderer-\/>setBackgroundColorHover(tgui::Color(180, 60, 60));}
-\DoxyCodeLine{114             renderer-\/>setBackgroundColorDown(tgui::Color(255, 100, 100));}
-\DoxyCodeLine{115         \}}
-\DoxyCodeLine{116     \});}
-\DoxyCodeLine{117 \}}
+\DoxyCodeLine{105     \textcolor{comment}{// Default OFF (red) colors}}
+\DoxyCodeLine{106     renderer-\/>setBackgroundColor(tgui::Color(120, 0, 0));}
+\DoxyCodeLine{107     renderer-\/>setBackgroundColorHover(tgui::Color(180, 60, 60));}
+\DoxyCodeLine{108     renderer-\/>setBackgroundColorDown(tgui::Color(255, 100, 100));}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     gui.add(\mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}});}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{comment}{// Change toggle button color based on state (green for ON, red for OFF)}}
+\DoxyCodeLine{115     \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>onToggle([\textcolor{keyword}{this}](\textcolor{keywordtype}{bool} state) \{}
+\DoxyCodeLine{116         \mbox{\hyperlink{classMenuBar_aed948287d4d9c211fb074983c6552267}{liveMode}} = state;}
+\DoxyCodeLine{117         \textcolor{keyword}{auto} renderer = \mbox{\hyperlink{classMenuBar_a010db27d07e59fc0b97d5f5cdaa87c83}{liveToggle}}-\/>getRenderer();}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} (state) \{}
+\DoxyCodeLine{120             \textcolor{comment}{// ON state colors (green)}}
+\DoxyCodeLine{121             renderer-\/>setBackgroundColor(tgui::Color(0, 180, 0));}
+\DoxyCodeLine{122             renderer-\/>setBackgroundColorHover(tgui::Color(80, 220, 80));}
+\DoxyCodeLine{123             renderer-\/>setBackgroundColorDown(tgui::Color(100, 255, 100));}
+\DoxyCodeLine{124         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{125             \textcolor{comment}{// OFF state colors (red)}}
+\DoxyCodeLine{126             renderer-\/>setBackgroundColor(tgui::Color(120, 0, 0));}
+\DoxyCodeLine{127             renderer-\/>setBackgroundColorHover(tgui::Color(180, 60, 60));}
+\DoxyCodeLine{128             renderer-\/>setBackgroundColorDown(tgui::Color(255, 100, 100));}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130     \});}
+\DoxyCodeLine{131 \}}
 
 \end{DoxyCode}
 
@@ -409,8 +404,7 @@ References live\+Mode, and live\+Toggle.
 
 Referenced by Menu\+Bar().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -443,37 +437,37 @@ The menu includes File, View, Create Object, and Simulation categories with thei
 \end{DoxyParams}
 
 
-Definition at line 28 of file Menu\+Bar.\+cpp.
+Definition at line 42 of file Menu\+Bar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{28                                     \{}
-\DoxyCodeLine{29     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}} = tgui::MenuBar::create();}
-\DoxyCodeLine{30     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setSize(\textcolor{stringliteral}{"100\%"}, 20);}
-\DoxyCodeLine{31     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setPosition(0, \textcolor{stringliteral}{"100\% -\/ 20"});  \textcolor{comment}{// Bottom of the window}}
-\DoxyCodeLine{32     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setInvertedMenuDirection(\textcolor{keyword}{true}); \textcolor{comment}{// Menus open upward}}
-\DoxyCodeLine{33     gui.add(\mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}});}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{comment}{// File menu and items}}
-\DoxyCodeLine{36     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"File"});}
-\DoxyCodeLine{37     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Open"});}
-\DoxyCodeLine{38     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save"});}
-\DoxyCodeLine{39     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save2Image"});}
-\DoxyCodeLine{40     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Close"});}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42     \textcolor{comment}{// View menu and items}}
-\DoxyCodeLine{43     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"View"});}
-\DoxyCodeLine{44     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ResetView"});}
-\DoxyCodeLine{45     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ClearView"});}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47     \textcolor{comment}{// Create object menu and items}}
-\DoxyCodeLine{48     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"Create object"});}
-\DoxyCodeLine{49     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"Create object"}, \textcolor{stringliteral}{"WMR"});}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{comment}{// Simulation menu and items}}
-\DoxyCodeLine{52     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"Simulation"});}
-\DoxyCodeLine{53     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"Simulation"}, \textcolor{stringliteral}{"A*"});}
-\DoxyCodeLine{54 \}}
+\DoxyCodeLine{42                                     \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}} = tgui::MenuBar::create();}
+\DoxyCodeLine{44     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setSize(\textcolor{stringliteral}{"100\%"}, 20);}
+\DoxyCodeLine{45     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setPosition(0, \textcolor{stringliteral}{"100\% -\/ 20"});  \textcolor{comment}{// Bottom of the window}}
+\DoxyCodeLine{46     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>setInvertedMenuDirection(\textcolor{keyword}{true}); \textcolor{comment}{// Menus open upward}}
+\DoxyCodeLine{47     gui.add(\mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}});}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// File menu and items}}
+\DoxyCodeLine{50     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"File"});}
+\DoxyCodeLine{51     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Open"});}
+\DoxyCodeLine{52     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save"});}
+\DoxyCodeLine{53     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Save2Image"});}
+\DoxyCodeLine{54     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"File"}, \textcolor{stringliteral}{"Close"});}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// View menu and items}}
+\DoxyCodeLine{57     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"View"});}
+\DoxyCodeLine{58     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ResetView"});}
+\DoxyCodeLine{59     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"View"}, \textcolor{stringliteral}{"ClearView"});}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// Create object menu and items}}
+\DoxyCodeLine{62     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"Create object"});}
+\DoxyCodeLine{63     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"Create object"}, \textcolor{stringliteral}{"WMR"});}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{// Simulation menu and items}}
+\DoxyCodeLine{66     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenu(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{67     \mbox{\hyperlink{classMenuBar_acf82a956cd78d9bb937f21f9cd4653d3}{menuBar}}-\/>addMenuItem(\textcolor{stringliteral}{"Simulation"}, \textcolor{stringliteral}{"A*"});}
+\DoxyCodeLine{68 \}}
 
 \end{DoxyCode}
 
@@ -484,8 +478,7 @@ References menu\+Bar.
 
 Referenced by Menu\+Bar().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -513,14 +506,14 @@ Updates the coordinate label text.
 \end{DoxyParams}
 
 
-Definition at line 181 of file Menu\+Bar.\+cpp.
+Definition at line 195 of file Menu\+Bar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{181                                                      \{}
-\DoxyCodeLine{182     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}})}
-\DoxyCodeLine{183         \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setText(text);}
-\DoxyCodeLine{184 \}}
+\DoxyCodeLine{195                                                      \{}
+\DoxyCodeLine{196     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}})}
+\DoxyCodeLine{197         \mbox{\hyperlink{classMenuBar_a8eb0ec82e3eb957ca2901a094dd16ac1}{coordLabel}}-\/>setText(text);}
+\DoxyCodeLine{198 \}}
 
 \end{DoxyCode}
 
@@ -531,8 +524,7 @@ References coord\+Label.
 
 Referenced by Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -554,7 +546,7 @@ Label to show mouse position in grid coordinates.
 
 
 
-Definition at line 85 of file Menu\+Bar.\+hpp.
+Definition at line 99 of file Menu\+Bar.\+hpp.
 
 
 
@@ -572,7 +564,7 @@ Indicates whether live mode is active.
 
 
 
-Definition at line 88 of file Menu\+Bar.\+hpp.
+Definition at line 102 of file Menu\+Bar.\+hpp.
 
 
 
@@ -590,7 +582,7 @@ Toggle button to activate/deactivate live mode.
 
 
 
-Definition at line 86 of file Menu\+Bar.\+hpp.
+Definition at line 100 of file Menu\+Bar.\+hpp.
 
 
 
@@ -608,7 +600,7 @@ Pointer to the T\+G\+UI \mbox{\hyperlink{classMenuBar}{Menu\+Bar}} widget.
 
 
 
-Definition at line 84 of file Menu\+Bar.\+hpp.
+Definition at line 98 of file Menu\+Bar.\+hpp.
 
 
 

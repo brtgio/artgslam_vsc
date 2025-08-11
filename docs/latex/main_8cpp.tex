@@ -31,43 +31,43 @@ Main entry point for the A\+R\+TG S\+L\+AM visualization node.
 
 Initializes R\+OS and S\+F\+ML window, then runs the visualization loop. 
 
-Definition at line 9 of file main.\+cpp.
+Definition at line 23 of file main.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{10 \{}
-\DoxyCodeLine{11     \textcolor{comment}{// Initialize ROS node with a descriptive name}}
-\DoxyCodeLine{12     ros::init(argc, argv, \textcolor{stringliteral}{"artgslam\_vsc\_node"});}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \textcolor{comment}{// Create an SFML window for rendering the visualizer}}
-\DoxyCodeLine{15     sf::RenderWindow window(sf::VideoMode(1024, 768), \textcolor{stringliteral}{"ARTG SLAM Visualizer"});}
-\DoxyCodeLine{16     window.setFramerateLimit(60);  \textcolor{comment}{// Cap frame rate at 60 FPS for smooth rendering}}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18     \textcolor{comment}{// Instantiate MapViewer, which handles:}}
-\DoxyCodeLine{19     \textcolor{comment}{//  -\/ Map rendering and overlays}}
-\DoxyCodeLine{20     \textcolor{comment}{//  -\/ Simulation and live data updates}}
-\DoxyCodeLine{21     \textcolor{comment}{//  -\/ ROS topic subscriptions and publishing}}
-\DoxyCodeLine{22     \textcolor{comment}{//  -\/ User input and camera control}}
-\DoxyCodeLine{23     \mbox{\hyperlink{classMapViewer}{MapViewer}} mapViewer(window);}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25     \textcolor{comment}{// Main loop: run while ROS is active and window is open}}
-\DoxyCodeLine{26     \textcolor{keywordflow}{while} (ros::ok() \&\& mapViewer.isRunning())}
-\DoxyCodeLine{27     \{}
-\DoxyCodeLine{28         \textcolor{comment}{// Process user events (keyboard, mouse, window events)}}
-\DoxyCodeLine{29         mapViewer.processEvent();}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31         \textcolor{comment}{// Update application state (map updates, robot pose, live mode, etc.)}}
-\DoxyCodeLine{32         mapViewer.update();}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         \textcolor{comment}{// Render the current frame to the window}}
-\DoxyCodeLine{35         mapViewer.render();}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37         \textcolor{comment}{// Handle incoming ROS messages and callbacks}}
-\DoxyCodeLine{38         ros::spinOnce();}
-\DoxyCodeLine{39     \}}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{42 \}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{comment}{// Initialize ROS node with a descriptive name}}
+\DoxyCodeLine{26     ros::init(argc, argv, \textcolor{stringliteral}{"artgslam\_vsc\_node"});}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Create an SFML window for rendering the visualizer}}
+\DoxyCodeLine{29     sf::RenderWindow window(sf::VideoMode(1024, 768), \textcolor{stringliteral}{"ARTG SLAM Visualizer"});}
+\DoxyCodeLine{30     window.setFramerateLimit(60);  \textcolor{comment}{// Cap frame rate at 60 FPS for smooth rendering}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Instantiate MapViewer, which handles:}}
+\DoxyCodeLine{33     \textcolor{comment}{//  -\/ Map rendering and overlays}}
+\DoxyCodeLine{34     \textcolor{comment}{//  -\/ Simulation and live data updates}}
+\DoxyCodeLine{35     \textcolor{comment}{//  -\/ ROS topic subscriptions and publishing}}
+\DoxyCodeLine{36     \textcolor{comment}{//  -\/ User input and camera control}}
+\DoxyCodeLine{37     \mbox{\hyperlink{classMapViewer}{MapViewer}} mapViewer(window);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// Main loop: run while ROS is active and window is open}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{while} (ros::ok() \&\& mapViewer.isRunning())}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{comment}{// Process user events (keyboard, mouse, window events)}}
+\DoxyCodeLine{43         mapViewer.processEvent();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{comment}{// Update application state (map updates, robot pose, live mode, etc.)}}
+\DoxyCodeLine{46         mapViewer.update();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{comment}{// Render the current frame to the window}}
+\DoxyCodeLine{49         mapViewer.render();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{comment}{// Handle incoming ROS messages and callbacks}}
+\DoxyCodeLine{52         ros::spinOnce();}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{56 \}}
 
 \end{DoxyCode}
 

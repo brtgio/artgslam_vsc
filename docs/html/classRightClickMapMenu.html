@@ -88,7 +88,8 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRightClickMapMenu__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRightClickMapMenu__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -175,7 +176,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages a contextual right-click menu displayed on top of a map. Allows users to set the start and goal positions or clear the grid through TGUI buttons. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00017">17</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00031">31</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a99fb3feef15efd62845960340c4ca0fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a99fb3feef15efd62845960340c4ca0fa">&#9670;&nbsp;</a></span>RightClickMapMenu()</h2>
@@ -231,15 +232,15 @@ Private Attributes</h2></td></tr>
 <p>&lt; Load and configure GUI widgets</p>
 <p>&lt; Connect button event handlers</p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00015">15</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    : <a class="code" href="classRightClickMapMenu.html#a59a2bf99b62db3804b2cfe1c02da80f9">gui</a>(guiRef), <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>(mapRef), <a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>(livemapRef)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;📦 RightClickMapMenu: loading...&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ad63b3f74c4414abe368d6580ea5ae099">setupWidgets</a>();    <span class="comment">/**&lt; Load and configure GUI widgets */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classRightClickMapMenu.html#add5bb68773931eb8ba5cd455e6847dba">connectSignals</a>();  <span class="comment">/**&lt; Connect button event handlers */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">29</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    : <a class="code" href="classRightClickMapMenu.html#a59a2bf99b62db3804b2cfe1c02da80f9">gui</a>(guiRef), <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>(mapRef), <a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>(livemapRef)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;📦 RightClickMapMenu: loading...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ad63b3f74c4414abe368d6580ea5ae099">setupWidgets</a>();    <span class="comment">/**&lt; Load and configure GUI widgets */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classRightClickMapMenu.html#add5bb68773931eb8ba5cd455e6847dba">connectSignals</a>();  <span class="comment">/**&lt; Connect button event handlers */</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -270,72 +271,72 @@ Private Attributes</h2></td></tr>
 <p>Connects button press signals to their respective logic functions.</p>
 <p>Handles setting start/goal points, clearing points, and other button actions. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">159</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>) {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a>) {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>.<a class="code" href="classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e">getIsActive</a>()) {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                    livemap.setStart(gridIndex_copy.x, gridIndex_copy.y);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;📍 Start set on LiveMap.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                    gridmap.setStart(gridIndex_copy.x, gridIndex_copy.y);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;📍 Start set on GridMap.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a466a6a944afb768947c4e2499094f76a">startIndex</a> = <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;⚠️ Start is already active. Clear it first.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            }</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        });</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>) {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a>) {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>.<a class="code" href="classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e">getIsActive</a>()) {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    <a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>.<a class="code" href="classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e">setGoal</a>(<a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.x, <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.y);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;🎯 Goal set on LiveMap.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>.<a class="code" href="classGridMap.html#a063197bc2b493578f0da0905a2e7dd90">setGoal</a>(<a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.x, <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.y);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;🎯 Goal set on GridMap.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                }</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a9c50be9ab97beb51517f4822b26e5507">goalIndex</a> = <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;⚠️ Goal is already active. Clear it first.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        });</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>) {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a>) {</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>.<a class="code" href="classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9">clearSetPoints</a>(<a class="code" href="classRightClickMapMenu.html#a466a6a944afb768947c4e2499094f76a">startIndex</a>);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a>) {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>.<a class="code" href="classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9">clearSetPoints</a>(<a class="code" href="classRightClickMapMenu.html#a9c50be9ab97beb51517f4822b26e5507">goalIndex</a>);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a> = <span class="keyword">false</span>;</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">173</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>) {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a>) {</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>.<a class="code" href="classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e">getIsActive</a>()) {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    livemap.setStart(gridIndex_copy.x, gridIndex_copy.y);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;📍 Start set on LiveMap.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    gridmap.setStart(gridIndex_copy.x, gridIndex_copy.y);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;📍 Start set on GridMap.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a466a6a944afb768947c4e2499094f76a">startIndex</a> = <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;⚠️ Start is already active. Clear it first.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        });</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a>) {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>.<a class="code" href="classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e">getIsActive</a>()) {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                    <a class="code" href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">livemap</a>.<a class="code" href="classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e">setGoal</a>(<a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.x, <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.y);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;🎯 Goal set on LiveMap.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>.<a class="code" href="classGridMap.html#a063197bc2b493578f0da0905a2e7dd90">setGoal</a>(<a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.x, <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>.y);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;🎯 Goal set on GridMap.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a9c50be9ab97beb51517f4822b26e5507">goalIndex</a> = <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a>;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;⚠️ Goal is already active. Clear it first.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            }</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;🧹 Start and Goal cleared.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        });</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>) {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;🧼 Clear View button pressed (no action assigned).&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        });</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        });</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>) {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a>) {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>.<a class="code" href="classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9">clearSetPoints</a>(<a class="code" href="classRightClickMapMenu.html#a466a6a944afb768947c4e2499094f76a">startIndex</a>);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a>) {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                <a class="code" href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">gridmap</a>.<a class="code" href="classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9">clearSetPoints</a>(<a class="code" href="classRightClickMapMenu.html#a9c50be9ab97beb51517f4822b26e5507">goalIndex</a>);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            }</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;🧹 Start and Goal cleared.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        });</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>) {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;🧼 Clear View button pressed (no action assigned).&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <a class="code" href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">hide</a>();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        });</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00087">clear</a>, <a class="el" href="GridMap_8cpp_source.html#l00198">GridMap::clearSetPoints()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00088">clearView</a>, <a class="el" href="LiveMap_8hpp_source.html#l00091">LiveMap::getIsActive()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00086">goal</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00096">goalIndex</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00093">gridIndex_copy</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00079">gridmap</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00106">hide()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00098">isGoalActive</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00099">isStartActive</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00080">livemap</a>, <a class="el" href="GridMap_8cpp_source.html#l00096">GridMap::setGoal()</a>, <a class="el" href="LiveMap_8cpp_source.html#l00183">LiveMap::setGoal()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00085">start</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00095">startIndex</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00101">clear</a>, <a class="el" href="GridMap_8cpp_source.html#l00212">GridMap::clearSetPoints()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00102">clearView</a>, <a class="el" href="LiveMap_8hpp_source.html#l00105">LiveMap::getIsActive()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00100">goal</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00110">goalIndex</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00107">gridIndex_copy</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00093">gridmap</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00120">hide()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00112">isGoalActive</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00113">isStartActive</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00094">livemap</a>, <a class="el" href="GridMap_8cpp_source.html#l00110">GridMap::setGoal()</a>, <a class="el" href="LiveMap_8cpp_source.html#l00197">LiveMap::setGoal()</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00099">start</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00109">startIndex</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00015">MapViewer::MapViewer()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00015">RightClickMapMenu()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00029">MapViewer::MapViewer()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">RightClickMapMenu()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -386,20 +387,20 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if point is inside menu bounds, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00143">143</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    sf::Vector2f pos = <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;getAbsolutePosition();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    sf::Vector2f size = <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;getSize();</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    sf::FloatRect bounds(pos.x, pos.y, size.x, size.y);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> bounds.contains(point);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00157">157</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    sf::Vector2f pos = <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;getAbsolutePosition();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    sf::Vector2f size = <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;getSize();</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    sf::FloatRect bounds(pos.x, pos.y, size.x, size.y);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> bounds.contains(point);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00083">panel</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00097">panel</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00123">MapViewer::processEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00137">MapViewer::processEvent()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -428,17 +429,17 @@ Private Attributes</h2></td></tr>
 <p>Hides the context menu. </p>
 <p>Hides the right-click menu. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00106">106</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00120">120</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00083">panel</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00090">visible</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00097">panel</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00104">visible</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -475,10 +476,10 @@ Private Attributes</h2></td></tr>
 <p>Returns true if both the start and goal have been set by the user. </p>
 <p>Used to determine when path planning can begin. </p><dl class="section return"><dt>Returns</dt><dd>True if start and goal are active. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00075">75</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a> &amp;&amp; <a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00089">89</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">isGoalActive</a> &amp;&amp; <a class="code" href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">isStartActive</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00098">isGoalActive</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00099">isStartActive</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00112">isGoalActive</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00113">isStartActive</a>.</p>
 
 </div>
 </div>
@@ -502,14 +503,14 @@ Private Attributes</h2></td></tr>
 <dd>
 true if visible, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00132">132</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00146">146</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00090">visible</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00104">visible</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00123">MapViewer::processEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00137">MapViewer::processEvent()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -540,63 +541,63 @@ true if visible, false otherwise. </dd></dl>
 <p>Retrieves the ROS package path to locate the GUI form file, loads widgets into a container, then retrieves and styles the individual buttons. Hides the panel by default. </p>
 <p>&lt; Hide panel initially</p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">29</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::string package_path = ros::package::getPath(<span class="stringliteral">&quot;artgslam_vsc&quot;</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string formPath = package_path + <span class="stringliteral">&quot;/assets/forms/Right_Click_Menu.txt&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a> = tgui::Group::create();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a>-&gt;loadWidgetsFromFile(formPath);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a59a2bf99b62db3804b2cfe1c02da80f9">gui</a>.add(<a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a> = <a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a>-&gt;get&lt;tgui::ChildWindow&gt;(<span class="stringliteral">&quot;ChildWindow1&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;❌ &#39;ChildWindow1&#39; widget not found in form.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">auto</span> layout = <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;get&lt;tgui::VerticalLayout&gt;(<span class="stringliteral">&quot;VerticalLayout1&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (!layout) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;❌ &#39;VerticalLayout1&#39; widget not found in panel.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>     = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;start&quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>      = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;goal&quot;</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>     = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;Clear&quot;</span>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a> = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;ClearView&quot;</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a> || !<a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a> || !<a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a> || !<a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;⚠️ One or more buttons not found in layout.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keyword">auto</span> applyHoverStyle = [](tgui::Button::Ptr btn) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keyword">auto</span> renderer = btn-&gt;getRenderer();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                renderer-&gt;setBackgroundColor(sf::Color::Transparent);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                renderer-&gt;setBackgroundColorHover(sf::Color(0, 120, 215)); <span class="comment">// Windows 10 blue</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                renderer-&gt;setTextColor(sf::Color::Black);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                renderer-&gt;setTextColorHover(sf::Color::White);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                renderer-&gt;setBorderColor(sf::Color::Transparent);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                renderer-&gt;setBorderColorHover(sf::Color(0, 120, 215));</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                renderer-&gt;setBorders({1, 1, 1, 1}); <span class="comment">// 1-pixel border</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            };</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">43</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string package_path = ros::package::getPath(<span class="stringliteral">&quot;artgslam_vsc&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::string formPath = package_path + <span class="stringliteral">&quot;/assets/forms/Right_Click_Menu.txt&quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a> = tgui::Group::create();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a>-&gt;loadWidgetsFromFile(formPath);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a59a2bf99b62db3804b2cfe1c02da80f9">gui</a>.add(<a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a> = <a class="code" href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">container</a>-&gt;get&lt;tgui::ChildWindow&gt;(<span class="stringliteral">&quot;ChildWindow1&quot;</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;❌ &#39;ChildWindow1&#39; widget not found in form.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">auto</span> layout = <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;get&lt;tgui::VerticalLayout&gt;(<span class="stringliteral">&quot;VerticalLayout1&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (!layout) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;❌ &#39;VerticalLayout1&#39; widget not found in panel.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>     = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;start&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>      = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;goal&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>     = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;Clear&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a> = layout-&gt;get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;ClearView&quot;</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<span class="keyword">false</span>); <span class="comment">/**&lt; Hide panel initially */</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> tgui::Exception&amp; e) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;❌ Failed to load TGUI form: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a> || !<a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a> || !<a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a> || !<a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;⚠️ One or more buttons not found in layout.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">auto</span> applyHoverStyle = [](tgui::Button::Ptr btn) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keyword">auto</span> renderer = btn-&gt;getRenderer();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                renderer-&gt;setBackgroundColor(sf::Color::Transparent);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                renderer-&gt;setBackgroundColorHover(sf::Color(0, 120, 215)); <span class="comment">// Windows 10 blue</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                renderer-&gt;setTextColor(sf::Color::Black);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                renderer-&gt;setTextColorHover(sf::Color::White);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                renderer-&gt;setBorderColor(sf::Color::Transparent);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                renderer-&gt;setBorderColorHover(sf::Color(0, 120, 215));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                renderer-&gt;setBorders({1, 1, 1, 1}); <span class="comment">// 1-pixel border</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            };</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">start</a>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">goal</a>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">clear</a>);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            applyHoverStyle(<a class="code" href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">clearView</a>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<span class="keyword">false</span>); <span class="comment">/**&lt; Hide panel initially */</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> tgui::Exception&amp; e) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;❌ Failed to load TGUI form: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00087">clear</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00088">clearView</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00082">container</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00086">goal</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00078">gui</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00083">panel</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00085">start</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00101">clear</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00102">clearView</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00096">container</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00100">goal</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00092">gui</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00097">panel</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00099">start</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00015">RightClickMapMenu()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">RightClickMapMenu()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -632,17 +633,17 @@ true if visible, false otherwise. </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00119">119</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<a class="code" href="classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb">show</a>);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a> = <a class="code" href="classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb">show</a>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00133">133</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<a class="code" href="classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb">show</a>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a> = <a class="code" href="classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb">show</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00083">panel</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00090">show()</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00090">visible</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00097">panel</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00104">show()</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00104">visible</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00123">MapViewer::processEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00137">MapViewer::processEvent()</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -706,22 +707,22 @@ true if visible, false otherwise. </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00090">90</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a> = gridIndex;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;🟢 Selected index: (&quot;</span> &lt;&lt; gridIndex.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; gridIndex.y &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setPosition(x, y);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8cpp_source.html#l00104">104</a> of file <a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">gridIndex_copy</a> = gridIndex;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;🟢 Selected index: (&quot;</span> &lt;&lt; gridIndex.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; gridIndex.y &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setPosition(x, y);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">panel</a>-&gt;setVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">visible</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00093">gridIndex_copy</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00083">panel</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00090">visible</a>.</p>
+<p class="reference">References <a class="el" href="RightClickMapMenu_8hpp_source.html#l00107">gridIndex_copy</a>, <a class="el" href="RightClickMapMenu_8hpp_source.html#l00097">panel</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00104">visible</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00123">MapViewer::processEvent()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00119">setVisible()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00137">MapViewer::processEvent()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00133">setVisible()</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -755,9 +756,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Clears the map. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00087">87</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00101">101</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -783,9 +784,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Clears overlays (visited cells, path, etc.) </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00088">88</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00102">102</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -811,9 +812,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Main container for the popup menu. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00082">82</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00096">96</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -839,9 +840,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Sets the goal position. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00086">86</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00100">100</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -867,9 +868,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Current goal cell index. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00096">96</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00110">110</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>.</p>
 
 </div>
 </div>
@@ -895,9 +896,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Corresponding cell index. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00093">93</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00107">107</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00090">show()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00104">show()</a>.</p>
 
 </div>
 </div>
@@ -923,9 +924,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Reference to the static grid map. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00079">79</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00093">93</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>.</p>
 
 </div>
 </div>
@@ -951,9 +952,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>GUI reference (owned externally) </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00078">78</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00092">92</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -979,9 +980,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Flag: goal has been set. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00098">98</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00112">112</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00075">isSet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00089">isSet()</a>.</p>
 
 </div>
 </div>
@@ -1007,9 +1008,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Flag: start has been set. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00099">99</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00113">113</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00075">isSet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8hpp_source.html#l00089">isSet()</a>.</p>
 
 </div>
 </div>
@@ -1035,9 +1036,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Reference to the live map. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00080">80</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00094">94</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>.</p>
 
 </div>
 </div>
@@ -1063,9 +1064,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Panel that acts as the context menu window. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00083">83</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00097">97</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00143">containsPoint()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00106">hide()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00119">setVisible()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00090">show()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00157">containsPoint()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00120">hide()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00133">setVisible()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00104">show()</a>.</p>
 
 </div>
 </div>
@@ -1091,9 +1092,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Sets the start position. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00085">85</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00099">99</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00029">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00043">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -1119,9 +1120,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Current start cell index. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00095">95</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00109">109</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00159">connectSignals()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00173">connectSignals()</a>.</p>
 
 </div>
 </div>
@@ -1147,9 +1148,9 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Visibility flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00090">90</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00104">104</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00106">hide()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00132">isVisible()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00119">setVisible()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00090">show()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RightClickMapMenu_8cpp_source.html#l00120">hide()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00146">isVisible()</a>, <a class="el" href="RightClickMapMenu_8cpp_source.html#l00133">setVisible()</a>, and <a class="el" href="RightClickMapMenu_8cpp_source.html#l00104">show()</a>.</p>
 
 </div>
 </div>
@@ -1175,7 +1176,7 @@ true if visible, false otherwise. </dd></dl>
 
 <p>Click position in world coordinates. </p>
 
-<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00092">92</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RightClickMapMenu_8hpp_source.html#l00106">106</a> of file <a class="el" href="RightClickMapMenu_8hpp_source.html">RightClickMapMenu.hpp</a>.</p>
 
 </div>
 </div>
@@ -1184,32 +1185,32 @@ true if visible, false otherwise. </dd></dl>
 <li>src/<a class="el" href="RightClickMapMenu_8cpp_source.html">RightClickMapMenu.cpp</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassLiveMap_html_ae9af41b07f81f3dc2e021d5dd683093e"><div class="ttname"><a href="classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e">LiveMap::getIsActive</a></div><div class="ttdeci">bool getIsActive() const</div><div class="ttdoc">Returns whether live mode is currently active.</div><div class="ttdef"><b>Definition:</b> <a href="LiveMap_8hpp_source.html#l00091">LiveMap.hpp:91</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_add5bb68773931eb8ba5cd455e6847dba"><div class="ttname"><a href="classRightClickMapMenu.html#add5bb68773931eb8ba5cd455e6847dba">RightClickMapMenu::connectSignals</a></div><div class="ttdeci">void connectSignals()</div><div class="ttdoc">Connects internal widget signals to their callbacks (e.g., button clicks).</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00159">RightClickMapMenu.cpp:159</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a2c5b4eeacd87606b754a6d190252acef"><div class="ttname"><a href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">RightClickMapMenu::hide</a></div><div class="ttdeci">void hide()</div><div class="ttdoc">Hides the context menu.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00106">RightClickMapMenu.cpp:106</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a9c50be9ab97beb51517f4822b26e5507"><div class="ttname"><a href="classRightClickMapMenu.html#a9c50be9ab97beb51517f4822b26e5507">RightClickMapMenu::goalIndex</a></div><div class="ttdeci">sf::Vector2i goalIndex</div><div class="ttdoc">Current goal cell index.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00096">RightClickMapMenu.hpp:96</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_ac5ce28e1ee05e5bb113689d8c84fcd1e"><div class="ttname"><a href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">RightClickMapMenu::gridmap</a></div><div class="ttdeci">GridMap &amp; gridmap</div><div class="ttdoc">Reference to the static grid map.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00079">RightClickMapMenu.hpp:79</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a38c1ebd3ddf44f583568d15ff139e944"><div class="ttname"><a href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">RightClickMapMenu::goal</a></div><div class="ttdeci">tgui::Button::Ptr goal</div><div class="ttdoc">Sets the goal position.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00086">RightClickMapMenu.hpp:86</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_ab3ff13cf99561af2e4f5718ede32e276"><div class="ttname"><a href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">RightClickMapMenu::clear</a></div><div class="ttdeci">tgui::Button::Ptr clear</div><div class="ttdoc">Clears the map.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00087">RightClickMapMenu.hpp:87</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a2c389f8e854b983986ca183a29674614"><div class="ttname"><a href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">RightClickMapMenu::start</a></div><div class="ttdeci">tgui::Button::Ptr start</div><div class="ttdoc">Sets the start position.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00085">RightClickMapMenu.hpp:85</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_ad63b3f74c4414abe368d6580ea5ae099"><div class="ttname"><a href="classRightClickMapMenu.html#ad63b3f74c4414abe368d6580ea5ae099">RightClickMapMenu::setupWidgets</a></div><div class="ttdeci">void setupWidgets()</div><div class="ttdoc">Sets up the menu layout and widgets (start, goal, clear, etc.).</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00029">RightClickMapMenu.cpp:29</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a5f76b1e682cc592524393ab31d193e40"><div class="ttname"><a href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">RightClickMapMenu::livemap</a></div><div class="ttdeci">LiveMap &amp; livemap</div><div class="ttdoc">Reference to the live map.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00080">RightClickMapMenu.hpp:80</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a9ee56d58aef7faed414a9a0479341202"><div class="ttname"><a href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">RightClickMapMenu::visible</a></div><div class="ttdeci">bool visible</div><div class="ttdoc">Visibility flag.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00090">RightClickMapMenu.hpp:90</a></div></div>
-<div class="ttc" id="aclassGridMap_html_a063197bc2b493578f0da0905a2e7dd90"><div class="ttname"><a href="classGridMap.html#a063197bc2b493578f0da0905a2e7dd90">GridMap::setGoal</a></div><div class="ttdeci">void setGoal(int i, int j)</div><div class="ttdoc">Set the goal point in the grid (stored as ASCII 'g').</div><div class="ttdef"><b>Definition:</b> <a href="GridMap_8cpp_source.html#l00096">GridMap.cpp:96</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a13b3908ba7cd92f931fd6652c2f54550"><div class="ttname"><a href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">RightClickMapMenu::clearView</a></div><div class="ttdeci">tgui::Button::Ptr clearView</div><div class="ttdoc">Clears overlays (visited cells, path, etc.)</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00088">RightClickMapMenu.hpp:88</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a2d270a0a0c7566d7cd7dad30496523b3"><div class="ttname"><a href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">RightClickMapMenu::isStartActive</a></div><div class="ttdeci">bool isStartActive</div><div class="ttdoc">Flag: start has been set.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00099">RightClickMapMenu.hpp:99</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a59a2bf99b62db3804b2cfe1c02da80f9"><div class="ttname"><a href="classRightClickMapMenu.html#a59a2bf99b62db3804b2cfe1c02da80f9">RightClickMapMenu::gui</a></div><div class="ttdeci">tgui::Gui &amp; gui</div><div class="ttdoc">GUI reference (owned externally)</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00078">RightClickMapMenu.hpp:78</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a6f125c644664f10ea03f1598e5942548"><div class="ttname"><a href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">RightClickMapMenu::isGoalActive</a></div><div class="ttdeci">bool isGoalActive</div><div class="ttdoc">Flag: goal has been set.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00098">RightClickMapMenu.hpp:98</a></div></div>
-<div class="ttc" id="aclassLiveMap_html_a347e694d1d773cd4b6dae3619ece738e"><div class="ttname"><a href="classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e">LiveMap::setGoal</a></div><div class="ttdeci">void setGoal(int i, int j)</div><div class="ttdoc">Sets a special goal cell in the grid (value = 'g')</div><div class="ttdef"><b>Definition:</b> <a href="LiveMap_8cpp_source.html#l00183">LiveMap.cpp:183</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_ababfdc07b2ddbe48e55a727d985de136"><div class="ttname"><a href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">RightClickMapMenu::gridIndex_copy</a></div><div class="ttdeci">sf::Vector2i gridIndex_copy</div><div class="ttdoc">Corresponding cell index.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00093">RightClickMapMenu.hpp:93</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_afc98486aefc667efc9bdf5e20ccaf645"><div class="ttname"><a href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">RightClickMapMenu::container</a></div><div class="ttdeci">tgui::Group::Ptr container</div><div class="ttdoc">Main container for the popup menu.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00082">RightClickMapMenu.hpp:82</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a110c0ae970ef0e259c3102faae2f5afb"><div class="ttname"><a href="classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb">RightClickMapMenu::show</a></div><div class="ttdeci">void show(float x, float y, const sf::Vector2i &amp;gridIndex)</div><div class="ttdoc">Displays the context menu at the given screen coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00090">RightClickMapMenu.cpp:90</a></div></div>
-<div class="ttc" id="aclassGridMap_html_a3d6043e9e2cd951f5df2958b9d13b3e9"><div class="ttname"><a href="classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9">GridMap::clearSetPoints</a></div><div class="ttdeci">void clearSetPoints(sf::Vector2i cellIndex)</div><div class="ttdoc">Clear start or goal markers from a cell.</div><div class="ttdef"><b>Definition:</b> <a href="GridMap_8cpp_source.html#l00198">GridMap.cpp:198</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_ae1528d1c5936d3bffed595ff8bcb9087"><div class="ttname"><a href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">RightClickMapMenu::panel</a></div><div class="ttdeci">tgui::ChildWindow::Ptr panel</div><div class="ttdoc">Panel that acts as the context menu window.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00083">RightClickMapMenu.hpp:83</a></div></div>
-<div class="ttc" id="aclassRightClickMapMenu_html_a466a6a944afb768947c4e2499094f76a"><div class="ttname"><a href="classRightClickMapMenu.html#a466a6a944afb768947c4e2499094f76a">RightClickMapMenu::startIndex</a></div><div class="ttdeci">sf::Vector2i startIndex</div><div class="ttdoc">Current start cell index.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00095">RightClickMapMenu.hpp:95</a></div></div>
+<div class="ttc" id="aclassLiveMap_html_ae9af41b07f81f3dc2e021d5dd683093e"><div class="ttname"><a href="classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e">LiveMap::getIsActive</a></div><div class="ttdeci">bool getIsActive() const</div><div class="ttdoc">Returns whether live mode is currently active.</div><div class="ttdef"><b>Definition:</b> <a href="LiveMap_8hpp_source.html#l00105">LiveMap.hpp:105</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_add5bb68773931eb8ba5cd455e6847dba"><div class="ttname"><a href="classRightClickMapMenu.html#add5bb68773931eb8ba5cd455e6847dba">RightClickMapMenu::connectSignals</a></div><div class="ttdeci">void connectSignals()</div><div class="ttdoc">Connects internal widget signals to their callbacks (e.g., button clicks).</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00173">RightClickMapMenu.cpp:173</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a2c5b4eeacd87606b754a6d190252acef"><div class="ttname"><a href="classRightClickMapMenu.html#a2c5b4eeacd87606b754a6d190252acef">RightClickMapMenu::hide</a></div><div class="ttdeci">void hide()</div><div class="ttdoc">Hides the context menu.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00120">RightClickMapMenu.cpp:120</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a9c50be9ab97beb51517f4822b26e5507"><div class="ttname"><a href="classRightClickMapMenu.html#a9c50be9ab97beb51517f4822b26e5507">RightClickMapMenu::goalIndex</a></div><div class="ttdeci">sf::Vector2i goalIndex</div><div class="ttdoc">Current goal cell index.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00110">RightClickMapMenu.hpp:110</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_ac5ce28e1ee05e5bb113689d8c84fcd1e"><div class="ttname"><a href="classRightClickMapMenu.html#ac5ce28e1ee05e5bb113689d8c84fcd1e">RightClickMapMenu::gridmap</a></div><div class="ttdeci">GridMap &amp; gridmap</div><div class="ttdoc">Reference to the static grid map.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00093">RightClickMapMenu.hpp:93</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a38c1ebd3ddf44f583568d15ff139e944"><div class="ttname"><a href="classRightClickMapMenu.html#a38c1ebd3ddf44f583568d15ff139e944">RightClickMapMenu::goal</a></div><div class="ttdeci">tgui::Button::Ptr goal</div><div class="ttdoc">Sets the goal position.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00100">RightClickMapMenu.hpp:100</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_ab3ff13cf99561af2e4f5718ede32e276"><div class="ttname"><a href="classRightClickMapMenu.html#ab3ff13cf99561af2e4f5718ede32e276">RightClickMapMenu::clear</a></div><div class="ttdeci">tgui::Button::Ptr clear</div><div class="ttdoc">Clears the map.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00101">RightClickMapMenu.hpp:101</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a2c389f8e854b983986ca183a29674614"><div class="ttname"><a href="classRightClickMapMenu.html#a2c389f8e854b983986ca183a29674614">RightClickMapMenu::start</a></div><div class="ttdeci">tgui::Button::Ptr start</div><div class="ttdoc">Sets the start position.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00099">RightClickMapMenu.hpp:99</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_ad63b3f74c4414abe368d6580ea5ae099"><div class="ttname"><a href="classRightClickMapMenu.html#ad63b3f74c4414abe368d6580ea5ae099">RightClickMapMenu::setupWidgets</a></div><div class="ttdeci">void setupWidgets()</div><div class="ttdoc">Sets up the menu layout and widgets (start, goal, clear, etc.).</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00043">RightClickMapMenu.cpp:43</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a5f76b1e682cc592524393ab31d193e40"><div class="ttname"><a href="classRightClickMapMenu.html#a5f76b1e682cc592524393ab31d193e40">RightClickMapMenu::livemap</a></div><div class="ttdeci">LiveMap &amp; livemap</div><div class="ttdoc">Reference to the live map.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00094">RightClickMapMenu.hpp:94</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a9ee56d58aef7faed414a9a0479341202"><div class="ttname"><a href="classRightClickMapMenu.html#a9ee56d58aef7faed414a9a0479341202">RightClickMapMenu::visible</a></div><div class="ttdeci">bool visible</div><div class="ttdoc">Visibility flag.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00104">RightClickMapMenu.hpp:104</a></div></div>
+<div class="ttc" id="aclassGridMap_html_a063197bc2b493578f0da0905a2e7dd90"><div class="ttname"><a href="classGridMap.html#a063197bc2b493578f0da0905a2e7dd90">GridMap::setGoal</a></div><div class="ttdeci">void setGoal(int i, int j)</div><div class="ttdoc">Set the goal point in the grid (stored as ASCII 'g').</div><div class="ttdef"><b>Definition:</b> <a href="GridMap_8cpp_source.html#l00110">GridMap.cpp:110</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a13b3908ba7cd92f931fd6652c2f54550"><div class="ttname"><a href="classRightClickMapMenu.html#a13b3908ba7cd92f931fd6652c2f54550">RightClickMapMenu::clearView</a></div><div class="ttdeci">tgui::Button::Ptr clearView</div><div class="ttdoc">Clears overlays (visited cells, path, etc.)</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00102">RightClickMapMenu.hpp:102</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a2d270a0a0c7566d7cd7dad30496523b3"><div class="ttname"><a href="classRightClickMapMenu.html#a2d270a0a0c7566d7cd7dad30496523b3">RightClickMapMenu::isStartActive</a></div><div class="ttdeci">bool isStartActive</div><div class="ttdoc">Flag: start has been set.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00113">RightClickMapMenu.hpp:113</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a59a2bf99b62db3804b2cfe1c02da80f9"><div class="ttname"><a href="classRightClickMapMenu.html#a59a2bf99b62db3804b2cfe1c02da80f9">RightClickMapMenu::gui</a></div><div class="ttdeci">tgui::Gui &amp; gui</div><div class="ttdoc">GUI reference (owned externally)</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00092">RightClickMapMenu.hpp:92</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a6f125c644664f10ea03f1598e5942548"><div class="ttname"><a href="classRightClickMapMenu.html#a6f125c644664f10ea03f1598e5942548">RightClickMapMenu::isGoalActive</a></div><div class="ttdeci">bool isGoalActive</div><div class="ttdoc">Flag: goal has been set.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00112">RightClickMapMenu.hpp:112</a></div></div>
+<div class="ttc" id="aclassLiveMap_html_a347e694d1d773cd4b6dae3619ece738e"><div class="ttname"><a href="classLiveMap.html#a347e694d1d773cd4b6dae3619ece738e">LiveMap::setGoal</a></div><div class="ttdeci">void setGoal(int i, int j)</div><div class="ttdoc">Sets a special goal cell in the grid (value = 'g')</div><div class="ttdef"><b>Definition:</b> <a href="LiveMap_8cpp_source.html#l00197">LiveMap.cpp:197</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_ababfdc07b2ddbe48e55a727d985de136"><div class="ttname"><a href="classRightClickMapMenu.html#ababfdc07b2ddbe48e55a727d985de136">RightClickMapMenu::gridIndex_copy</a></div><div class="ttdeci">sf::Vector2i gridIndex_copy</div><div class="ttdoc">Corresponding cell index.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00107">RightClickMapMenu.hpp:107</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_afc98486aefc667efc9bdf5e20ccaf645"><div class="ttname"><a href="classRightClickMapMenu.html#afc98486aefc667efc9bdf5e20ccaf645">RightClickMapMenu::container</a></div><div class="ttdeci">tgui::Group::Ptr container</div><div class="ttdoc">Main container for the popup menu.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00096">RightClickMapMenu.hpp:96</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a110c0ae970ef0e259c3102faae2f5afb"><div class="ttname"><a href="classRightClickMapMenu.html#a110c0ae970ef0e259c3102faae2f5afb">RightClickMapMenu::show</a></div><div class="ttdeci">void show(float x, float y, const sf::Vector2i &amp;gridIndex)</div><div class="ttdoc">Displays the context menu at the given screen coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8cpp_source.html#l00104">RightClickMapMenu.cpp:104</a></div></div>
+<div class="ttc" id="aclassGridMap_html_a3d6043e9e2cd951f5df2958b9d13b3e9"><div class="ttname"><a href="classGridMap.html#a3d6043e9e2cd951f5df2958b9d13b3e9">GridMap::clearSetPoints</a></div><div class="ttdeci">void clearSetPoints(sf::Vector2i cellIndex)</div><div class="ttdoc">Clear start or goal markers from a cell.</div><div class="ttdef"><b>Definition:</b> <a href="GridMap_8cpp_source.html#l00212">GridMap.cpp:212</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_ae1528d1c5936d3bffed595ff8bcb9087"><div class="ttname"><a href="classRightClickMapMenu.html#ae1528d1c5936d3bffed595ff8bcb9087">RightClickMapMenu::panel</a></div><div class="ttdeci">tgui::ChildWindow::Ptr panel</div><div class="ttdoc">Panel that acts as the context menu window.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00097">RightClickMapMenu.hpp:97</a></div></div>
+<div class="ttc" id="aclassRightClickMapMenu_html_a466a6a944afb768947c4e2499094f76a"><div class="ttname"><a href="classRightClickMapMenu.html#a466a6a944afb768947c4e2499094f76a">RightClickMapMenu::startIndex</a></div><div class="ttdeci">sf::Vector2i startIndex</div><div class="ttdoc">Current start cell index.</div><div class="ttdef"><b>Definition:</b> <a href="RightClickMapMenu_8hpp_source.html#l00109">RightClickMapMenu.hpp:109</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 25 2025 05:03:07 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 11 2025 22:33:49 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

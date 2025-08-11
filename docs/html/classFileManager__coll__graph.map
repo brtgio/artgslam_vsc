@@ -1,5 +1,6 @@
 <map id="FileManager" name="FileManager">
-<area shape="rect" id="node1" title="Manages file input/output operations for grid map visualization." alt="" coords="34,784,169,935"/>
-<area shape="rect" id="node2" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="32,439,171,721"/>
-<area shape="rect" id="node3" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="5,5,197,376"/>
+<area shape="rect" id="node1" title="Manages file input/output operations for grid map visualization." alt="" coords="102,843,237,993"/>
+<area shape="rect" id="node2" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="5,468,144,751"/>
+<area shape="rect" id="node3" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="72,5,264,376"/>
+<area shape="rect" id="node4" href="$classLiveMap.html" title="This class manages live map creation in &quot;live mode&quot;, by dynamically updating the map from incoming RO..." alt="" coords="168,439,360,780"/>
 </map>

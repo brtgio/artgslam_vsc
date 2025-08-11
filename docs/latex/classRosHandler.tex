@@ -11,8 +11,7 @@ Handles R\+OS communication\+:
 
 
 
-Collaboration diagram for Ros\+Handler\+:
-\nopagebreak
+Collaboration diagram for Ros\+Handler\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -88,7 +87,7 @@ Handles R\+OS communication\+:
 \item Provides access to velocities and sonar points 
 \end{DoxyItemize}
 
-Definition at line 26 of file Ros\+Handler.\+hpp.
+Definition at line 40 of file Ros\+Handler.\+hpp.
 
 
 
@@ -107,45 +106,44 @@ Constructs a \mbox{\hyperlink{classRosHandler}{Ros\+Handler}} object.
 
 Initializes R\+OS parameters for joystick axes and scales, sets up publishers and subscribers for velocity commands, joystick inputs, sonar data, and R\+AM usage monitoring. Also initializes timers for periodic memory usage publishing. 
 
-Definition at line 11 of file Ros\+Handler.\+cpp.
+Definition at line 25 of file Ros\+Handler.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{12 : \mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}}(1), \mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}}(0), \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}}(0.5), \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}}(0.5)}
-\DoxyCodeLine{13 \{}
-\DoxyCodeLine{14     \textcolor{comment}{// Read joystick axis parameters from ROS parameter server or use defaults}}
-\DoxyCodeLine{15     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"axis\_linear"}, \mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}}, \mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}});}
-\DoxyCodeLine{16     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"axis\_angular"}, \mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}}, \mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}});}
-\DoxyCodeLine{17     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"scale\_angular"}, \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}}, \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}});}
-\DoxyCodeLine{18     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"scale\_linear"}, \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}}, \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}});}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20     \textcolor{comment}{// Publisher for velocity commands to the wheeled mobile robot using ROSARIA}}
-\DoxyCodeLine{21     \textcolor{comment}{// Tested with Adept Mobile Robots Amigobot}}
-\DoxyCodeLine{22     \mbox{\hyperlink{classRosHandler_a95acb32a156a782ede7ae938bb5664d2}{vel\_pub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.advertise<geometry\_msgs::Twist>(\textcolor{stringliteral}{"RosAria/cmd\_vel"}, 1);}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24     \textcolor{comment}{// Subscribe to joystick inputs}}
-\DoxyCodeLine{25     \mbox{\hyperlink{classRosHandler_a7ccc3328e2b262f28bb05d049a215df6}{joy\_sub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.subscribe<sensor\_msgs::Joy>(\textcolor{stringliteral}{"joy"}, 10, \&\mbox{\hyperlink{classRosHandler_a91c1e4b44d2a18c34132abfb48fb3079}{RosHandler::joyCallback}}, \textcolor{keyword}{this});}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27     \textcolor{comment}{// Subscribe to sonar data published on the ROS topic "sonarFilterdata\_bag"}}
-\DoxyCodeLine{28     \mbox{\hyperlink{classRosHandler_aaf330235d816ba3a468ba89313510b1d}{sonar\_sub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.subscribe(\textcolor{stringliteral}{"sonarFilterdata\_bag"}, 1000, \&\mbox{\hyperlink{classRosHandler_aea6fd461c46de62b9b598e01bf321089}{RosHandler::sonarPointReceiver}}, \textcolor{keyword}{this});}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30     \textcolor{comment}{// Initialize last joystick input time for synchronizing robot movement (testing pending)}}
-\DoxyCodeLine{31     \mbox{\hyperlink{classRosHandler_a34f994fb8d28489badde4550b3696b85}{last\_joy\_time}} = ros::Time::now();}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{comment}{// Publisher for RAM usage data (in kilobytes) for monitoring memory usage}}
-\DoxyCodeLine{34     \mbox{\hyperlink{classRosHandler_a425e76c03bc9e041582838990e4a3dde}{ram\_pub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.advertise<std\_msgs::Int32>(\textcolor{stringliteral}{"ram\_usage\_kb"}, 10);}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \textcolor{comment}{// Timer to periodically publish RAM usage every 1 second}}
-\DoxyCodeLine{37     \mbox{\hyperlink{classRosHandler_acfa24c5b90b25360002a0a43b896ecc3}{ram\_timer}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.createTimer(ros::Duration(1.0), \&\mbox{\hyperlink{classRosHandler_aaf98b42cceb1fcadd1640be227bb5fff}{RosHandler::publishMemoryUsage}}, \textcolor{keyword}{this});}
-\DoxyCodeLine{38 \}}
+\DoxyCodeLine{26 : \mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}}(1), \mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}}(0), \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}}(0.5), \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}}(0.5)}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{comment}{// Read joystick axis parameters from ROS parameter server or use defaults}}
+\DoxyCodeLine{29     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"axis\_linear"}, \mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}}, \mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}});}
+\DoxyCodeLine{30     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"axis\_angular"}, \mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}}, \mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}});}
+\DoxyCodeLine{31     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"scale\_angular"}, \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}}, \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}});}
+\DoxyCodeLine{32     \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.param(\textcolor{stringliteral}{"scale\_linear"}, \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}}, \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}});}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{comment}{// Publisher for velocity commands to the wheeled mobile robot using ROSARIA}}
+\DoxyCodeLine{35     \textcolor{comment}{// Tested with Adept Mobile Robots Amigobot}}
+\DoxyCodeLine{36     \mbox{\hyperlink{classRosHandler_a95acb32a156a782ede7ae938bb5664d2}{vel\_pub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.advertise<geometry\_msgs::Twist>(\textcolor{stringliteral}{"RosAria/cmd\_vel"}, 1);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{// Subscribe to joystick inputs}}
+\DoxyCodeLine{39     \mbox{\hyperlink{classRosHandler_a7ccc3328e2b262f28bb05d049a215df6}{joy\_sub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.subscribe<sensor\_msgs::Joy>(\textcolor{stringliteral}{"joy"}, 10, \&\mbox{\hyperlink{classRosHandler_a91c1e4b44d2a18c34132abfb48fb3079}{RosHandler::joyCallback}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{// Subscribe to sonar data published on the ROS topic "sonarFilterdata\_bag"}}
+\DoxyCodeLine{42     \mbox{\hyperlink{classRosHandler_aaf330235d816ba3a468ba89313510b1d}{sonar\_sub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.subscribe(\textcolor{stringliteral}{"sonarFilterdata\_bag"}, 1000, \&\mbox{\hyperlink{classRosHandler_aea6fd461c46de62b9b598e01bf321089}{RosHandler::sonarPointReceiver}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{// Initialize last joystick input time for synchronizing robot movement (testing pending)}}
+\DoxyCodeLine{45     \mbox{\hyperlink{classRosHandler_a34f994fb8d28489badde4550b3696b85}{last\_joy\_time}} = ros::Time::now();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Publisher for RAM usage data (in kilobytes) for monitoring memory usage}}
+\DoxyCodeLine{48     \mbox{\hyperlink{classRosHandler_a425e76c03bc9e041582838990e4a3dde}{ram\_pub}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.advertise<std\_msgs::Int32>(\textcolor{stringliteral}{"ram\_usage\_kb"}, 10);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// Timer to periodically publish RAM usage every 1 second}}
+\DoxyCodeLine{51     \mbox{\hyperlink{classRosHandler_acfa24c5b90b25360002a0a43b896ecc3}{ram\_timer}} = \mbox{\hyperlink{classRosHandler_a267a1c43994738774bd51526519d442d}{nh}}.createTimer(ros::Duration(1.0), \&\mbox{\hyperlink{classRosHandler_aaf98b42cceb1fcadd1640be227bb5fff}{RosHandler::publishMemoryUsage}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{52 \}}
 
 \end{DoxyCode}
 
 
 References a\+\_\+scale, angular, joy\+\_\+sub, joy\+Callback(), l\+\_\+scale, last\+\_\+joy\+\_\+time, linear, nh, publish\+Memory\+Usage(), ram\+\_\+pub, ram\+\_\+timer, sonar\+\_\+sub, sonar\+Point\+Receiver(), and vel\+\_\+pub.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -166,11 +164,11 @@ Current robot angular velocity for animation purposes
 \end{DoxyReturn}
 
 
-Definition at line 38 of file Ros\+Handler.\+hpp.
+Definition at line 52 of file Ros\+Handler.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{38 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_abec8a81f19f9a882ae6aa9d1b89865a1}{current\_angular\_velocity}}; \}}
+\DoxyCodeLine{52 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_abec8a81f19f9a882ae6aa9d1b89865a1}{current\_angular\_velocity}}; \}}
 
 \end{DoxyCode}
 
@@ -181,8 +179,7 @@ References current\+\_\+angular\+\_\+velocity.
 
 Referenced by Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -200,11 +197,11 @@ Time since last joystick update
 \end{DoxyReturn}
 
 
-Definition at line 41 of file Ros\+Handler.\+hpp.
+Definition at line 55 of file Ros\+Handler.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{41 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_af50a5cfa9709a9fe1b8cdca9da9575f8}{last\_dt}}; \}}
+\DoxyCodeLine{55 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_af50a5cfa9709a9fe1b8cdca9da9575f8}{last\_dt}}; \}}
 
 \end{DoxyCode}
 
@@ -215,8 +212,7 @@ References last\+\_\+dt.
 
 Referenced by Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -234,11 +230,11 @@ Current robot linear velocity for animation purposes
 \end{DoxyReturn}
 
 
-Definition at line 35 of file Ros\+Handler.\+hpp.
+Definition at line 49 of file Ros\+Handler.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{35 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_ae3c7be2915af458f6d4d1fddf24eb166}{current\_linear\_velocity}}; \}}
+\DoxyCodeLine{49 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_ae3c7be2915af458f6d4d1fddf24eb166}{current\_linear\_velocity}}; \}}
 
 \end{DoxyCode}
 
@@ -249,8 +245,7 @@ References current\+\_\+linear\+\_\+velocity.
 
 Referenced by Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -279,30 +274,29 @@ Memory usage in kilobytes, or -\/1 if reading failed.
 \end{DoxyReturn}
 
 
-Definition at line 109 of file Ros\+Handler.\+cpp.
+Definition at line 123 of file Ros\+Handler.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{109                                          \{}
-\DoxyCodeLine{110     std::ifstream status(\textcolor{stringliteral}{"/proc/self/status"});}
-\DoxyCodeLine{111     std::string line;}
-\DoxyCodeLine{112     \textcolor{keywordflow}{while} (std::getline(status, line)) \{}
-\DoxyCodeLine{113         \textcolor{keywordflow}{if} (line.rfind(\textcolor{stringliteral}{"VmRSS:"}, 0) == 0) \{ \textcolor{comment}{// Line starts with "VmRSS:"}}
-\DoxyCodeLine{114             \textcolor{keywordtype}{long} kb;}
-\DoxyCodeLine{115             sscanf(line.c\_str(), \textcolor{stringliteral}{"VmRSS: \%ld kB"}, \&kb);}
-\DoxyCodeLine{116             \textcolor{keywordflow}{return} kb;}
-\DoxyCodeLine{117         \}}
-\DoxyCodeLine{118     \}}
-\DoxyCodeLine{119     \textcolor{keywordflow}{return} -\/1; \textcolor{comment}{// Return -\/1 if memory info could not be read}}
-\DoxyCodeLine{120 \}}
+\DoxyCodeLine{123                                          \{}
+\DoxyCodeLine{124     std::ifstream status(\textcolor{stringliteral}{"/proc/self/status"});}
+\DoxyCodeLine{125     std::string line;}
+\DoxyCodeLine{126     \textcolor{keywordflow}{while} (std::getline(status, line)) \{}
+\DoxyCodeLine{127         \textcolor{keywordflow}{if} (line.rfind(\textcolor{stringliteral}{"VmRSS:"}, 0) == 0) \{ \textcolor{comment}{// Line starts with "VmRSS:"}}
+\DoxyCodeLine{128             \textcolor{keywordtype}{long} kb;}
+\DoxyCodeLine{129             sscanf(line.c\_str(), \textcolor{stringliteral}{"VmRSS: \%ld kB"}, \&kb);}
+\DoxyCodeLine{130             \textcolor{keywordflow}{return} kb;}
+\DoxyCodeLine{131         \}}
+\DoxyCodeLine{132     \}}
+\DoxyCodeLine{133     \textcolor{keywordflow}{return} -\/1; \textcolor{comment}{// Return -\/1 if memory info could not be read}}
+\DoxyCodeLine{134 \}}
 
 \end{DoxyCode}
 
 
 Referenced by publish\+Memory\+Usage().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -326,13 +320,13 @@ const reference to a vector containing sonar points.
 \end{DoxyReturn}
 
 
-Definition at line 45 of file Ros\+Handler.\+cpp.
+Definition at line 59 of file Ros\+Handler.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{46 \{}
-\DoxyCodeLine{47     \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_a53adb29db62dcf4d502fab239a356dc8}{sonarPoints}};}
-\DoxyCodeLine{48 \}}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} \mbox{\hyperlink{classRosHandler_a53adb29db62dcf4d502fab239a356dc8}{sonarPoints}};}
+\DoxyCodeLine{62 \}}
 
 \end{DoxyCode}
 
@@ -343,8 +337,7 @@ References sonar\+Points.
 
 Referenced by Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -377,33 +370,33 @@ Processes joystick inputs to compute linear and angular velocities, publishes ve
 \end{DoxyParams}
 
 
-Definition at line 59 of file Ros\+Handler.\+cpp.
+Definition at line 73 of file Ros\+Handler.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{60 \{}
-\DoxyCodeLine{61     \textcolor{comment}{// Calculate time elapsed since last joystick message for potential synchronization}}
-\DoxyCodeLine{62     ros::Time now = ros::Time::now();}
-\DoxyCodeLine{63     ros::Duration delta = now -\/ \mbox{\hyperlink{classRosHandler_a34f994fb8d28489badde4550b3696b85}{last\_joy\_time}};}
-\DoxyCodeLine{64     \mbox{\hyperlink{classRosHandler_a34f994fb8d28489badde4550b3696b85}{last\_joy\_time}} = now;}
-\DoxyCodeLine{65     \mbox{\hyperlink{classRosHandler_af50a5cfa9709a9fe1b8cdca9da9575f8}{last\_dt}} = delta.toSec();}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67     \textcolor{comment}{// Create velocity command based on joystick input and scale parameters}}
-\DoxyCodeLine{68     geometry\_msgs::Twist twist;}
-\DoxyCodeLine{69     twist.angular.z = \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}} * joy-\/>axes[\mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}}];}
-\DoxyCodeLine{70     twist.linear.x = \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}} * joy-\/>axes[\mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}}];}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72     \textcolor{comment}{// Store current velocities for external access}}
-\DoxyCodeLine{73     \mbox{\hyperlink{classRosHandler_ae3c7be2915af458f6d4d1fddf24eb166}{current\_linear\_velocity}} = twist.linear.x;}
-\DoxyCodeLine{74     \mbox{\hyperlink{classRosHandler_abec8a81f19f9a882ae6aa9d1b89865a1}{current\_angular\_velocity}} = twist.angular.z;}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76     \textcolor{comment}{// Publish velocity command to control the robot}}
-\DoxyCodeLine{77     \mbox{\hyperlink{classRosHandler_a95acb32a156a782ede7ae938bb5664d2}{vel\_pub}}.publish(twist);}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79     \textcolor{comment}{// Log current velocities for debugging}}
-\DoxyCodeLine{80     ROS\_INFO\_STREAM(\textcolor{stringliteral}{"[JOY] Linear Velocity: "} << twist.linear.x }
-\DoxyCodeLine{81                     << \textcolor{stringliteral}{" | Angular Velocity: "} << twist.angular.z);}
-\DoxyCodeLine{82 \}}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     \textcolor{comment}{// Calculate time elapsed since last joystick message for potential synchronization}}
+\DoxyCodeLine{76     ros::Time now = ros::Time::now();}
+\DoxyCodeLine{77     ros::Duration delta = now -\/ \mbox{\hyperlink{classRosHandler_a34f994fb8d28489badde4550b3696b85}{last\_joy\_time}};}
+\DoxyCodeLine{78     \mbox{\hyperlink{classRosHandler_a34f994fb8d28489badde4550b3696b85}{last\_joy\_time}} = now;}
+\DoxyCodeLine{79     \mbox{\hyperlink{classRosHandler_af50a5cfa9709a9fe1b8cdca9da9575f8}{last\_dt}} = delta.toSec();}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{comment}{// Create velocity command based on joystick input and scale parameters}}
+\DoxyCodeLine{82     geometry\_msgs::Twist twist;}
+\DoxyCodeLine{83     twist.angular.z = \mbox{\hyperlink{classRosHandler_ac03af162ad1920c23cd78ee35c60e83a}{a\_scale}} * joy-\/>axes[\mbox{\hyperlink{classRosHandler_ad79150fbed6a83c1dcfea4d59017c130}{angular}}];}
+\DoxyCodeLine{84     twist.linear.x = \mbox{\hyperlink{classRosHandler_ad185dea899dcf86dfc9c828e3bb05c63}{l\_scale}} * joy-\/>axes[\mbox{\hyperlink{classRosHandler_aedb5a034771d901b9259fed58f67a724}{linear}}];}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{// Store current velocities for external access}}
+\DoxyCodeLine{87     \mbox{\hyperlink{classRosHandler_ae3c7be2915af458f6d4d1fddf24eb166}{current\_linear\_velocity}} = twist.linear.x;}
+\DoxyCodeLine{88     \mbox{\hyperlink{classRosHandler_abec8a81f19f9a882ae6aa9d1b89865a1}{current\_angular\_velocity}} = twist.angular.z;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{comment}{// Publish velocity command to control the robot}}
+\DoxyCodeLine{91     \mbox{\hyperlink{classRosHandler_a95acb32a156a782ede7ae938bb5664d2}{vel\_pub}}.publish(twist);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{comment}{// Log current velocities for debugging}}
+\DoxyCodeLine{94     ROS\_INFO\_STREAM(\textcolor{stringliteral}{"[JOY] Linear Velocity: "} << twist.linear.x }
+\DoxyCodeLine{95                     << \textcolor{stringliteral}{" | Angular Velocity: "} << twist.angular.z);}
+\DoxyCodeLine{96 \}}
 
 \end{DoxyCode}
 
@@ -414,8 +407,7 @@ References a\+\_\+scale, angular, current\+\_\+angular\+\_\+velocity, current\+\
 
 Referenced by Ros\+Handler().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -448,15 +440,15 @@ Publishes the memory usage (in KB) to a R\+OS topic for monitoring.
 \end{DoxyParams}
 
 
-Definition at line 129 of file Ros\+Handler.\+cpp.
+Definition at line 143 of file Ros\+Handler.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{129                                                                \{}
-\DoxyCodeLine{130     std\_msgs::Int32 msg;}
-\DoxyCodeLine{131     msg.data = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classRosHandler_ac1e035daa32ccbcca02a9c55b5fc2da4}{getMemoryUsageKB}}());}
-\DoxyCodeLine{132     \mbox{\hyperlink{classRosHandler_a425e76c03bc9e041582838990e4a3dde}{ram\_pub}}.publish(msg);}
-\DoxyCodeLine{133 \}}
+\DoxyCodeLine{143                                                                \{}
+\DoxyCodeLine{144     std\_msgs::Int32 msg;}
+\DoxyCodeLine{145     msg.data = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classRosHandler_ac1e035daa32ccbcca02a9c55b5fc2da4}{getMemoryUsageKB}}());}
+\DoxyCodeLine{146     \mbox{\hyperlink{classRosHandler_a425e76c03bc9e041582838990e4a3dde}{ram\_pub}}.publish(msg);}
+\DoxyCodeLine{147 \}}
 
 \end{DoxyCode}
 
@@ -467,16 +459,14 @@ References get\+Memory\+Usage\+K\+B(), and ram\+\_\+pub.
 
 Referenced by Ros\+Handler().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classRosHandler_aaf98b42cceb1fcadd1640be227bb5fff_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -509,19 +499,19 @@ Adds received sonar point to internal buffer and logs the coordinates.
 \end{DoxyParams}
 
 
-Definition at line 91 of file Ros\+Handler.\+cpp.
+Definition at line 105 of file Ros\+Handler.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{92 \{}
-\DoxyCodeLine{93     \textcolor{comment}{// Append new sonar point to vector}}
-\DoxyCodeLine{94     \mbox{\hyperlink{classRosHandler_a53adb29db62dcf4d502fab239a356dc8}{sonarPoints}}.push\_back(*msg);}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     \textcolor{comment}{// Log received sonar point coordinates}}
-\DoxyCodeLine{97     ROS\_INFO\_STREAM(\textcolor{stringliteral}{"[SONAR] Point received -\/> X: "} << msg-\/>x}
-\DoxyCodeLine{98                     << \textcolor{stringliteral}{" | Y: "} << msg-\/>y}
-\DoxyCodeLine{99                     << \textcolor{stringliteral}{" | Z: "} << msg-\/>z);}
-\DoxyCodeLine{100 \}}
+\DoxyCodeLine{106 \{}
+\DoxyCodeLine{107     \textcolor{comment}{// Append new sonar point to vector}}
+\DoxyCodeLine{108     \mbox{\hyperlink{classRosHandler_a53adb29db62dcf4d502fab239a356dc8}{sonarPoints}}.push\_back(*msg);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{comment}{// Log received sonar point coordinates}}
+\DoxyCodeLine{111     ROS\_INFO\_STREAM(\textcolor{stringliteral}{"[SONAR] Point received -\/> X: "} << msg-\/>x}
+\DoxyCodeLine{112                     << \textcolor{stringliteral}{" | Y: "} << msg-\/>y}
+\DoxyCodeLine{113                     << \textcolor{stringliteral}{" | Z: "} << msg-\/>z);}
+\DoxyCodeLine{114 \}}
 
 \end{DoxyCode}
 
@@ -532,8 +522,7 @@ References sonar\+Points.
 
 Referenced by Ros\+Handler().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -555,7 +544,7 @@ Linear and angular velocity scaling factors.
 
 
 
-Definition at line 48 of file Ros\+Handler.\+hpp.
+Definition at line 62 of file Ros\+Handler.\+hpp.
 
 
 
@@ -573,7 +562,7 @@ Raw joystick axis indices.
 
 
 
-Definition at line 47 of file Ros\+Handler.\+hpp.
+Definition at line 61 of file Ros\+Handler.\+hpp.
 
 
 
@@ -591,7 +580,7 @@ Current angular velocity.
 
 
 
-Definition at line 53 of file Ros\+Handler.\+hpp.
+Definition at line 67 of file Ros\+Handler.\+hpp.
 
 
 
@@ -609,7 +598,7 @@ Current linear velocity.
 
 
 
-Definition at line 52 of file Ros\+Handler.\+hpp.
+Definition at line 66 of file Ros\+Handler.\+hpp.
 
 
 
@@ -627,7 +616,7 @@ Subscriber for joystick messages.
 
 
 
-Definition at line 60 of file Ros\+Handler.\+hpp.
+Definition at line 74 of file Ros\+Handler.\+hpp.
 
 
 
@@ -641,7 +630,7 @@ Referenced by Ros\+Handler().
 
 
 
-Definition at line 48 of file Ros\+Handler.\+hpp.
+Definition at line 62 of file Ros\+Handler.\+hpp.
 
 
 
@@ -659,7 +648,7 @@ Time since last joystick message.
 
 
 
-Definition at line 54 of file Ros\+Handler.\+hpp.
+Definition at line 68 of file Ros\+Handler.\+hpp.
 
 
 
@@ -677,7 +666,7 @@ Timestamp of last joystick message received.
 
 
 
-Definition at line 55 of file Ros\+Handler.\+hpp.
+Definition at line 69 of file Ros\+Handler.\+hpp.
 
 
 
@@ -691,7 +680,7 @@ Referenced by joy\+Callback(), and Ros\+Handler().
 
 
 
-Definition at line 47 of file Ros\+Handler.\+hpp.
+Definition at line 61 of file Ros\+Handler.\+hpp.
 
 
 
@@ -709,7 +698,7 @@ R\+OS node handle.
 
 
 
-Definition at line 44 of file Ros\+Handler.\+hpp.
+Definition at line 58 of file Ros\+Handler.\+hpp.
 
 
 
@@ -727,7 +716,7 @@ Publisher for R\+AM usage info.
 
 
 
-Definition at line 63 of file Ros\+Handler.\+hpp.
+Definition at line 77 of file Ros\+Handler.\+hpp.
 
 
 
@@ -745,7 +734,7 @@ Timer to trigger R\+AM publishing.
 
 
 
-Definition at line 64 of file Ros\+Handler.\+hpp.
+Definition at line 78 of file Ros\+Handler.\+hpp.
 
 
 
@@ -763,7 +752,7 @@ Subscriber for sonar point messages.
 
 
 
-Definition at line 59 of file Ros\+Handler.\+hpp.
+Definition at line 73 of file Ros\+Handler.\+hpp.
 
 
 
@@ -781,7 +770,7 @@ Points from sonar sensor.
 
 
 
-Definition at line 51 of file Ros\+Handler.\+hpp.
+Definition at line 65 of file Ros\+Handler.\+hpp.
 
 
 
@@ -799,7 +788,7 @@ Publisher for velocity commands.
 
 
 
-Definition at line 58 of file Ros\+Handler.\+hpp.
+Definition at line 72 of file Ros\+Handler.\+hpp.
 
 
 

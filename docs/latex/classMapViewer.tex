@@ -74,7 +74,7 @@ bool \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astar\+A
 \doxysubsection{Detailed Description}
 This is the main class. It manages mouse/keyboard events and G\+UI integration. It also coordinates the rendering and simulation components of the application. 
 
-Definition at line 21 of file Map\+Viewer.\+hpp.
+Definition at line 35 of file Map\+Viewer.\+hpp.
 
 
 
@@ -123,44 +123,44 @@ $<$ Update start and goal points
 
 $<$ Start A$\ast$ animation
 
-Definition at line 15 of file Map\+Viewer.\+cpp.
+Definition at line 29 of file Map\+Viewer.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16     : \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}(win)                           \textcolor{comment}{// Store reference to SFML window}}
-\DoxyCodeLine{17     , \mbox{\hyperlink{classMapViewer_a8e2f5f670442383da6eccfce9fb4fcf8}{view}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView())        \textcolor{comment}{// Initialize default camera view}}
-\DoxyCodeLine{18     , \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}(win)                            \textcolor{comment}{// Initialize GUI with window reference}}
-\DoxyCodeLine{19     , \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}(win, 0.1f, 50.0f, \mbox{\hyperlink{classMapViewer_a8e2f5f670442383da6eccfce9fb4fcf8}{view}})  \textcolor{comment}{// Initialize ViewController with parameters}}
-\DoxyCodeLine{20     , \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}(1000, 0.1, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}})           \textcolor{comment}{// Initialize GridMap with size, resolution, controller}}
-\DoxyCodeLine{21     , \mbox{\hyperlink{classMapViewer_a47703a31e757f57157b8b5eb42cbfc29}{manager}}(\mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}})                         \textcolor{comment}{// FileManager with reference to GridMap}}
-\DoxyCodeLine{22     , \mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}(\mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}})                           \textcolor{comment}{// MenuBar with GUI reference}}
-\DoxyCodeLine{23     , \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}()                       \textcolor{comment}{// ROS data handler for sensors and velocity}}
-\DoxyCodeLine{24     , \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}()                              \textcolor{comment}{// Wheeled Mobile Robot model}}
-\DoxyCodeLine{25     , \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}(1000, 0.1, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}})      \textcolor{comment}{// LiveMap with same size and resolution}}
-\DoxyCodeLine{26     , \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}(\mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}, \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}, \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}})           \textcolor{comment}{// Right-\/click menu with GUI, map, and livemap refs}}
-\DoxyCodeLine{27     , \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}(\mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}})                       \textcolor{comment}{// A* pathfinding simulator with GridMap}}
-\DoxyCodeLine{28 \{}
-\DoxyCodeLine{29     \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_add5bb68773931eb8ba5cd455e6847dba}{connectSignals}}();  \textcolor{comment}{/**< Connect right-\/click menu event callbacks */}}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31     \textcolor{comment}{// Set callback functions for menu bar actions}}
-\DoxyCodeLine{32     \mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a431f81a34ec89382bfaf5054cf518109}{setCallbacks}}(}
-\DoxyCodeLine{33         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_a47703a31e757f57157b8b5eb42cbfc29}{manager}}.\mbox{\hyperlink{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385}{loadDialog}}(); \},              \textcolor{comment}{/**< Load map file dialog */}}
-\DoxyCodeLine{34         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_a47703a31e757f57157b8b5eb42cbfc29}{manager}}.\mbox{\hyperlink{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f}{saveDialog}}(); \},              \textcolor{comment}{/**< Save map file dialog */}}
-\DoxyCodeLine{35         [\textcolor{keyword}{this}]() \{ \textcolor{comment}{/* TODO: Implement image saving functionality */} \},}
-\DoxyCodeLine{36         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_aa35ba831e3a0b7f15673727a287c4fce}{running}} = \textcolor{keyword}{false}; \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.close(); \},   \textcolor{comment}{/**< Exit application */}}
-\DoxyCodeLine{37         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f}{reset}}(); \},                \textcolor{comment}{/**< Reset camera view */}}
-\DoxyCodeLine{38         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a3b0d08933b5ed6a07b081177ada50f01}{clearGridMap}}(); \},                \textcolor{comment}{/**< Clear the grid map */}}
-\DoxyCodeLine{39         [\textcolor{keyword}{this}]() \{                                        \textcolor{comment}{/**< Open robot creator tool */}}
-\DoxyCodeLine{40             \mbox{\hyperlink{classRobotCreator}{RobotCreator}} creator(\mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}});}
-\DoxyCodeLine{41             creator.run();}
-\DoxyCodeLine{42         \},}
-\DoxyCodeLine{43         [\textcolor{keyword}{this}]() \{                                        \textcolor{comment}{/**< Run A* pathfinding animation */}}
-\DoxyCodeLine{44             \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_afaaae98c48d75edf9479adf38d68affe}{updatemap}}();  \textcolor{comment}{/**< Update start and goal points */}}
-\DoxyCodeLine{45             \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_addce30fb4dd4735c1e0275b93324b2cc}{start}}();      \textcolor{comment}{/**< Start A* animation */}}
-\DoxyCodeLine{46             \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{47         \}}
-\DoxyCodeLine{48     );}
-\DoxyCodeLine{49 \}}
+\DoxyCodeLine{30     : \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}(win)                           \textcolor{comment}{// Store reference to SFML window}}
+\DoxyCodeLine{31     , \mbox{\hyperlink{classMapViewer_a8e2f5f670442383da6eccfce9fb4fcf8}{view}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView())        \textcolor{comment}{// Initialize default camera view}}
+\DoxyCodeLine{32     , \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}(win)                            \textcolor{comment}{// Initialize GUI with window reference}}
+\DoxyCodeLine{33     , \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}(win, 0.4f, 50.0f, \mbox{\hyperlink{classMapViewer_a8e2f5f670442383da6eccfce9fb4fcf8}{view}})  \textcolor{comment}{// Initialize ViewController with parameters}}
+\DoxyCodeLine{34     , \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}(1000, 0.4f, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}})           \textcolor{comment}{// Initialize GridMap with size, resolution, controller}}
+\DoxyCodeLine{35     , \mbox{\hyperlink{classMapViewer_a47703a31e757f57157b8b5eb42cbfc29}{manager}}(\mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}},\mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}})                 \textcolor{comment}{// FileManager with reference to GridMap}}
+\DoxyCodeLine{36     , \mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}(\mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}})                           \textcolor{comment}{// MenuBar with GUI reference}}
+\DoxyCodeLine{37     , \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}()                       \textcolor{comment}{// ROS data handler for sensors and velocity}}
+\DoxyCodeLine{38     , \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}()                              \textcolor{comment}{// Wheeled Mobile Robot model}}
+\DoxyCodeLine{39     , \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}(1000, 0.4f, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}})      \textcolor{comment}{// LiveMap with same size and resolution}}
+\DoxyCodeLine{40     , \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}(\mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}, \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}, \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}})           \textcolor{comment}{// Right-\/click menu with GUI, map, and livemap refs}}
+\DoxyCodeLine{41     , \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}(\mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}})                       \textcolor{comment}{// A* pathfinding simulator with GridMap}}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_add5bb68773931eb8ba5cd455e6847dba}{connectSignals}}();  \textcolor{comment}{/**< Connect right-\/click menu event callbacks */}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// Set callback functions for menu bar actions}}
+\DoxyCodeLine{46     \mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a431f81a34ec89382bfaf5054cf518109}{setCallbacks}}(}
+\DoxyCodeLine{47         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_a47703a31e757f57157b8b5eb42cbfc29}{manager}}.\mbox{\hyperlink{classFileManager_ae8a61fd55c9a1b8ac7804420015f3385}{loadDialog}}(); \},              \textcolor{comment}{/**< Load map file dialog */}}
+\DoxyCodeLine{48         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_a47703a31e757f57157b8b5eb42cbfc29}{manager}}.\mbox{\hyperlink{classFileManager_aebbfa817fd1a8055c738128a22fe0f6f}{saveDialog}}(); \},              \textcolor{comment}{/**< Save map file dialog */}}
+\DoxyCodeLine{49         [\textcolor{keyword}{this}]() \{ \textcolor{comment}{/* TODO: Implement image saving functionality */} \},}
+\DoxyCodeLine{50         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_aa35ba831e3a0b7f15673727a287c4fce}{running}} = \textcolor{keyword}{false}; \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.close(); \},   \textcolor{comment}{/**< Exit application */}}
+\DoxyCodeLine{51         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a3ef5b86c4b69837a4d90b3a16f84379f}{reset}}(); \},                \textcolor{comment}{/**< Reset camera view */}}
+\DoxyCodeLine{52         [\textcolor{keyword}{this}]() \{ \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a3b0d08933b5ed6a07b081177ada50f01}{clearGridMap}}(); \},                \textcolor{comment}{/**< Clear the grid map */}}
+\DoxyCodeLine{53         [\textcolor{keyword}{this}]() \{                                        \textcolor{comment}{/**< Open robot creator tool */}}
+\DoxyCodeLine{54             \mbox{\hyperlink{classRobotCreator}{RobotCreator}} creator(\mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}});}
+\DoxyCodeLine{55             creator.run();}
+\DoxyCodeLine{56         \},}
+\DoxyCodeLine{57         [\textcolor{keyword}{this}]() \{                                        \textcolor{comment}{/**< Run A* pathfinding animation */}}
+\DoxyCodeLine{58             \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_afaaae98c48d75edf9479adf38d68affe}{updatemap}}();  \textcolor{comment}{/**< Update start and goal points */}}
+\DoxyCodeLine{59             \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_addce30fb4dd4735c1e0275b93324b2cc}{start}}();      \textcolor{comment}{/**< Start A* animation */}}
+\DoxyCodeLine{60             \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62     );}
+\DoxyCodeLine{63 \}}
 
 \end{DoxyCode}
 
@@ -197,13 +197,13 @@ true if the application is running and window is open, false otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 218 of file Map\+Viewer.\+cpp.
+Definition at line 232 of file Map\+Viewer.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{219 \{}
-\DoxyCodeLine{220     \textcolor{keywordflow}{return} \mbox{\hyperlink{classMapViewer_aa35ba831e3a0b7f15673727a287c4fce}{running}} \&\& \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.isOpen();}
-\DoxyCodeLine{221 \}}
+\DoxyCodeLine{233 \{}
+\DoxyCodeLine{234     \textcolor{keywordflow}{return} \mbox{\hyperlink{classMapViewer_aa35ba831e3a0b7f15673727a287c4fce}{running}} \&\& \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.isOpen();}
+\DoxyCodeLine{235 \}}
 
 \end{DoxyCode}
 
@@ -214,8 +214,7 @@ References running, and window.
 
 Referenced by main().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -240,42 +239,42 @@ $<$ Forward event to view controller
 
 $<$ Close window and exit
 
-Definition at line 123 of file Map\+Viewer.\+cpp.
+Definition at line 137 of file Map\+Viewer.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{124 \{}
-\DoxyCodeLine{125     sf::Event event;}
-\DoxyCodeLine{126     \textcolor{keywordflow}{while} (\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.pollEvent(event)) \{}
-\DoxyCodeLine{127         \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.handleEvent(event);        \textcolor{comment}{/**< Forward event to GUI system */}}
-\DoxyCodeLine{128         \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_ac54a72b053247207a1ee00cd07e3cb0e}{handleEvent}}(event); \textcolor{comment}{/**< Forward event to view controller */}}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{130         \textcolor{keywordflow}{if} (event.type == sf::Event::Closed) \{}
-\DoxyCodeLine{131             \mbox{\hyperlink{classMapViewer_aa35ba831e3a0b7f15673727a287c4fce}{running}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{132             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.close();            \textcolor{comment}{/**< Close window and exit */}}
-\DoxyCodeLine{133         \}}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135         \textcolor{keywordflow}{if} (event.type == sf::Event::MouseButtonPressed) \{}
-\DoxyCodeLine{136             \textcolor{keyword}{const} \textcolor{keywordtype}{int} gridSize = \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a5dc821c5c3cb7883e62148573d75c57f}{getMapSize}}();}
-\DoxyCodeLine{137             \textcolor{keyword}{const} sf::Vector2i cell = \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a6a75b71784feee666c971a20b5785aec}{getHoveredCell}}(gridSize);}
-\DoxyCodeLine{138             \textcolor{keyword}{const} sf::Vector2i pixelPos = sf::Mouse::getPosition(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});}
-\DoxyCodeLine{139             \textcolor{keyword}{const} sf::Vector2f pixelPosF(pixelPos);}
-\DoxyCodeLine{140 }
-\DoxyCodeLine{141             \textcolor{keywordflow}{if} (event.mouseButton.button == sf::Mouse::Right) \{}
-\DoxyCodeLine{142                 \textcolor{comment}{// Show context menu at mouse position for right-\/click}}
-\DoxyCodeLine{143                 \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a110c0ae970ef0e259c3102faae2f5afb}{show}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(pixelPos.x),}
-\DoxyCodeLine{144                             \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(pixelPos.y),}
-\DoxyCodeLine{145                             cell);}
-\DoxyCodeLine{146                 \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a6c027dd38cb5355f667fb8447abbca1f}{setVisible}}(\textcolor{keyword}{true});}
-\DoxyCodeLine{147             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.mouseButton.button == sf::Mouse::Left) \{}
-\DoxyCodeLine{148                 \textcolor{comment}{// Hide menu if click is outside of the menu area}}
-\DoxyCodeLine{149                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a4ed94d4b642e38a5af97e05395565c6b}{isVisible}}() \&\& !\mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a87f03273425aa850fb7552ed1d21ab21}{containsPoint}}(pixelPosF)) \{}
-\DoxyCodeLine{150                     \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a6c027dd38cb5355f667fb8447abbca1f}{setVisible}}(\textcolor{keyword}{false});}
-\DoxyCodeLine{151                 \}}
-\DoxyCodeLine{152             \}}
-\DoxyCodeLine{153         \}}
-\DoxyCodeLine{154     \}}
-\DoxyCodeLine{155 \}}
+\DoxyCodeLine{138 \{}
+\DoxyCodeLine{139     sf::Event event;}
+\DoxyCodeLine{140     \textcolor{keywordflow}{while} (\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.pollEvent(event)) \{}
+\DoxyCodeLine{141         \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.handleEvent(event);        \textcolor{comment}{/**< Forward event to GUI system */}}
+\DoxyCodeLine{142         \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_ac54a72b053247207a1ee00cd07e3cb0e}{handleEvent}}(event); \textcolor{comment}{/**< Forward event to view controller */}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} (event.type == sf::Event::Closed) \{}
+\DoxyCodeLine{145             \mbox{\hyperlink{classMapViewer_aa35ba831e3a0b7f15673727a287c4fce}{running}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{146             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.close();            \textcolor{comment}{/**< Close window and exit */}}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         \textcolor{keywordflow}{if} (event.type == sf::Event::MouseButtonPressed) \{}
+\DoxyCodeLine{150             \textcolor{keyword}{const} \textcolor{keywordtype}{int} gridSize = \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a5dc821c5c3cb7883e62148573d75c57f}{getMapSize}}();}
+\DoxyCodeLine{151             \textcolor{keyword}{const} sf::Vector2i cell = \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a6a75b71784feee666c971a20b5785aec}{getHoveredCell}}(gridSize);}
+\DoxyCodeLine{152             \textcolor{keyword}{const} sf::Vector2i pixelPos = sf::Mouse::getPosition(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});}
+\DoxyCodeLine{153             \textcolor{keyword}{const} sf::Vector2f pixelPosF(pixelPos);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155             \textcolor{keywordflow}{if} (event.mouseButton.button == sf::Mouse::Right) \{}
+\DoxyCodeLine{156                 \textcolor{comment}{// Show context menu at mouse position for right-\/click}}
+\DoxyCodeLine{157                 \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a110c0ae970ef0e259c3102faae2f5afb}{show}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(pixelPos.x),}
+\DoxyCodeLine{158                             \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(pixelPos.y),}
+\DoxyCodeLine{159                             cell);}
+\DoxyCodeLine{160                 \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a6c027dd38cb5355f667fb8447abbca1f}{setVisible}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{161             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (event.mouseButton.button == sf::Mouse::Left) \{}
+\DoxyCodeLine{162                 \textcolor{comment}{// Hide menu if click is outside of the menu area}}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a4ed94d4b642e38a5af97e05395565c6b}{isVisible}}() \&\& !\mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a87f03273425aa850fb7552ed1d21ab21}{containsPoint}}(pixelPosF)) \{}
+\DoxyCodeLine{164                     \mbox{\hyperlink{classMapViewer_a862a2da3d239d98858137233dd4a8cf4}{r\_menu}}.\mbox{\hyperlink{classRightClickMapMenu_a6c027dd38cb5355f667fb8447abbca1f}{setVisible}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{165                 \}}
+\DoxyCodeLine{166             \}}
+\DoxyCodeLine{167         \}}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{169 \}}
 
 \end{DoxyCode}
 
@@ -286,16 +285,14 @@ References Right\+Click\+Map\+Menu\+::contains\+Point(), controller, View\+Contr
 
 Referenced by main().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classMapViewer_abcde24a9cc11f7e9ea3e6ef0d7ed6063_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -326,58 +323,58 @@ $<$ Draw live sensor data map
 
 $<$ Draw stored occupancy grid
 
-Definition at line 163 of file Map\+Viewer.\+cpp.
+Definition at line 177 of file Map\+Viewer.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{164 \{}
-\DoxyCodeLine{165     \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.clear(sf::Color::Black);       \textcolor{comment}{/**< Clear window with black background */}}
-\DoxyCodeLine{166     \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a8eaa9725daebdd8f73efba9fb0bbaee6}{applyView}}();                \textcolor{comment}{/**< Apply current camera transform (zoom, pan) */}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168     \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a2a830a80bbb229b763e72ec8d29d48b6}{drawGrid}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});           \textcolor{comment}{/**< Draw grid lines */}}
-\DoxyCodeLine{169     \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a59766cfd8ec65083a66af156324cc173}{drawAxes}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});           \textcolor{comment}{/**< Draw X and Y axes */}}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171     \textcolor{comment}{// Draw live map or stored grid map based on live mode status}}
-\DoxyCodeLine{172     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}{getLiveMode}}()) \{}
-\DoxyCodeLine{173         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& gridLive = \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_af9c68de338a34ee872aac401122c10bb}{getGrid}}();}
-\DoxyCodeLine{174         \textcolor{keywordflow}{if} (gridLive.empty() || gridLive[0].empty()) \{}
-\DoxyCodeLine{175             std::cout << \textcolor{stringliteral}{"Live grid is empty!"} << std::endl;}
-\DoxyCodeLine{176             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.setView(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView());}
-\DoxyCodeLine{177             \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.draw();}
-\DoxyCodeLine{178             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.display();}
-\DoxyCodeLine{179             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{180         \}}
-\DoxyCodeLine{181         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_a0157071646700aba0cbb45a6767b7487}{drawLiveMap}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});       \textcolor{comment}{/**< Draw live sensor data map */}}
-\DoxyCodeLine{182     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{183         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& gridMap = \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_abed9c97e44c2302a1586de01ed369c10}{getGrid}}();}
-\DoxyCodeLine{184         \textcolor{keywordflow}{if} (gridMap.empty() || gridMap[0].empty()) \{}
-\DoxyCodeLine{185             std::cout << \textcolor{stringliteral}{"Grid map is empty!"} << std::endl;}
-\DoxyCodeLine{186             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.setView(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView());}
-\DoxyCodeLine{187             \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.draw();}
-\DoxyCodeLine{188             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.display();}
-\DoxyCodeLine{189             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{190         \}}
-\DoxyCodeLine{191         \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a0242886063d0cd50d5982a0c419be8b6}{draw}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a4371bcfa79ff09f98c5f49914e2a854d}{getPixelsPerMeter}}()); \textcolor{comment}{/**< Draw stored occupancy grid */}}
-\DoxyCodeLine{192     \}}
-\DoxyCodeLine{193 }
-\DoxyCodeLine{194     \textcolor{comment}{// Draw A* algorithm visualization while animating}}
-\DoxyCodeLine{195     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}}) \{}
-\DoxyCodeLine{196         \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a6f489a0d3464a6c8263b47d009c25d04}{draw}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}, 50.0f, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_ae16abf87a7514af7eda581ac04d23ec3}{getMetersPerCell}}());}
-\DoxyCodeLine{197     \}}
-\DoxyCodeLine{198 }
-\DoxyCodeLine{199     \textcolor{comment}{// Draw the final path found by A* (if any)}}
-\DoxyCodeLine{200     \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a12450d3a3c4d1baf327aec5e45abece3}{drawFoundPath}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}, 50.0f, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_ae16abf87a7514af7eda581ac04d23ec3}{getMetersPerCell}}());}
-\DoxyCodeLine{201 }
-\DoxyCodeLine{202     \textcolor{comment}{// Draw robot’s current pose and orientation}}
-\DoxyCodeLine{203     \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_a90cf366f26eedefd4d9f2fcc038fc8f4}{draw}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});}
-\DoxyCodeLine{204 }
-\DoxyCodeLine{205     \textcolor{comment}{// Draw GUI elements on top (using default view)}}
-\DoxyCodeLine{206     \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.setView(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView());}
-\DoxyCodeLine{207     \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.draw();}
-\DoxyCodeLine{208 }
-\DoxyCodeLine{209     \textcolor{comment}{// Display everything on screen}}
-\DoxyCodeLine{210     \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.display();}
-\DoxyCodeLine{211 \}}
+\DoxyCodeLine{178 \{}
+\DoxyCodeLine{179     \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.clear(sf::Color::Black);       \textcolor{comment}{/**< Clear window with black background */}}
+\DoxyCodeLine{180     \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a8eaa9725daebdd8f73efba9fb0bbaee6}{applyView}}();                \textcolor{comment}{/**< Apply current camera transform (zoom, pan) */}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a2a830a80bbb229b763e72ec8d29d48b6}{drawGrid}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});           \textcolor{comment}{/**< Draw grid lines */}}
+\DoxyCodeLine{183     \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a59766cfd8ec65083a66af156324cc173}{drawAxes}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});           \textcolor{comment}{/**< Draw X and Y axes */}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{comment}{// Draw live map or stored grid map based on live mode status}}
+\DoxyCodeLine{186     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}{getLiveMode}}()) \{}
+\DoxyCodeLine{187         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& gridLive = \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_af9c68de338a34ee872aac401122c10bb}{getGrid}}();}
+\DoxyCodeLine{188         \textcolor{keywordflow}{if} (gridLive.empty() || gridLive[0].empty()) \{}
+\DoxyCodeLine{189             std::cout << \textcolor{stringliteral}{"Live grid is empty!"} << std::endl;}
+\DoxyCodeLine{190             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.setView(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView());}
+\DoxyCodeLine{191             \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.draw();}
+\DoxyCodeLine{192             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.display();}
+\DoxyCodeLine{193             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_a0157071646700aba0cbb45a6767b7487}{drawLiveMap}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});       \textcolor{comment}{/**< Draw live sensor data map */}}
+\DoxyCodeLine{196     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{197         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& gridMap = \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_abed9c97e44c2302a1586de01ed369c10}{getGrid}}();}
+\DoxyCodeLine{198         \textcolor{keywordflow}{if} (gridMap.empty() || gridMap[0].empty()) \{}
+\DoxyCodeLine{199             std::cout << \textcolor{stringliteral}{"Grid map is empty!"} << std::endl;}
+\DoxyCodeLine{200             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.setView(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView());}
+\DoxyCodeLine{201             \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.draw();}
+\DoxyCodeLine{202             \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.display();}
+\DoxyCodeLine{203             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{204         \}}
+\DoxyCodeLine{205         \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a0242886063d0cd50d5982a0c419be8b6}{draw}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a4371bcfa79ff09f98c5f49914e2a854d}{getPixelsPerMeter}}()); \textcolor{comment}{/**< Draw stored occupancy grid */}}
+\DoxyCodeLine{206     \}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208     \textcolor{comment}{// Draw A* algorithm visualization while animating}}
+\DoxyCodeLine{209     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}}) \{}
+\DoxyCodeLine{210         \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a6f489a0d3464a6c8263b47d009c25d04}{draw}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}, 50.0f, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_ae16abf87a7514af7eda581ac04d23ec3}{getMetersPerCell}}());}
+\DoxyCodeLine{211     \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{comment}{// Draw the final path found by A* (if any)}}
+\DoxyCodeLine{214     \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a12450d3a3c4d1baf327aec5e45abece3}{drawFoundPath}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}, 50.0f, \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_ae16abf87a7514af7eda581ac04d23ec3}{getMetersPerCell}}());}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     \textcolor{comment}{// Draw robot’s current pose and orientation}}
+\DoxyCodeLine{217     \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_a90cf366f26eedefd4d9f2fcc038fc8f4}{draw}}(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}});}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219     \textcolor{comment}{// Draw GUI elements on top (using default view)}}
+\DoxyCodeLine{220     \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.setView(\mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.getDefaultView());}
+\DoxyCodeLine{221     \mbox{\hyperlink{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}{gui}}.draw();}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{comment}{// Display everything on screen}}
+\DoxyCodeLine{224     \mbox{\hyperlink{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}{window}}.display();}
+\DoxyCodeLine{225 \}}
 
 \end{DoxyCode}
 
@@ -388,16 +385,14 @@ References View\+Controller\+::apply\+View(), astar\+Animating, a\+Starsim, cont
 
 Referenced by main().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classMapViewer_a7eaeb9b44dd34c1865462914957a6aac_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -420,68 +415,68 @@ Updates mouse position and grid cell info, live mode sensor data, A$\ast$ animat
 
 $<$ Clear live occupancy grid
 
-Definition at line 57 of file Map\+Viewer.\+cpp.
+Definition at line 71 of file Map\+Viewer.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{58 \{}
-\DoxyCodeLine{59     \textcolor{keywordtype}{int} gridSize = \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a5dc821c5c3cb7883e62148573d75c57f}{getMapSize}}();}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61     \textcolor{comment}{// Get the grid cell currently under the mouse cursor}}
-\DoxyCodeLine{62     sf::Vector2i \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}} = \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a6a75b71784feee666c971a20b5785aec}{getHoveredCell}}(gridSize);}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64     \textcolor{comment}{// Get mouse position in world coordinates (meters)}}
-\DoxyCodeLine{65     sf::Vector2f worldPos = \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a718f7ee25b1eb61d7eb7a1d023fbc059}{getMouseWorldPosition}}();}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67     \textcolor{comment}{// Prepare coordinate status string with fixed precision}}
-\DoxyCodeLine{68     std::ostringstream oss;}
-\DoxyCodeLine{69     oss << std::fixed << std::setprecision(2)}
-\DoxyCodeLine{70         << \textcolor{stringliteral}{"Mouse: ("} << worldPos.x << \textcolor{stringliteral}{", "} << worldPos.y << \textcolor{stringliteral}{") m"};}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.x != -\/1 \&\& \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.y != -\/1) \{}
-\DoxyCodeLine{73         oss << \textcolor{stringliteral}{" | Grid: ("} << \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.x << \textcolor{stringliteral}{", "} << \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.y << \textcolor{stringliteral}{")"};}
-\DoxyCodeLine{74     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{75         oss << \textcolor{stringliteral}{" | Out of bounds"};}
-\DoxyCodeLine{76     \}}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73     \textcolor{keywordtype}{int} gridSize = \mbox{\hyperlink{classMapViewer_a8a21125504c29dc3b94137460e8f64d7}{map}}.\mbox{\hyperlink{classGridMap_a5dc821c5c3cb7883e62148573d75c57f}{getMapSize}}();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{// Get the grid cell currently under the mouse cursor}}
+\DoxyCodeLine{76     sf::Vector2i \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}} = \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a6a75b71784feee666c971a20b5785aec}{getHoveredCell}}(gridSize);}
 \DoxyCodeLine{77 }
-\DoxyCodeLine{78     \textcolor{comment}{// Update coordinate display in status bar}}
-\DoxyCodeLine{79     \mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a94cba4067d873ac499fe9f0327ba22dc}{updateCoordinates}}(oss.str());}
+\DoxyCodeLine{78     \textcolor{comment}{// Get mouse position in world coordinates (meters)}}
+\DoxyCodeLine{79     sf::Vector2f worldPos = \mbox{\hyperlink{classMapViewer_aabace2533bf42cbc87333584fd3b35dd}{controller}}.\mbox{\hyperlink{classViewController_a718f7ee25b1eb61d7eb7a1d023fbc059}{getMouseWorldPosition}}();}
 \DoxyCodeLine{80 }
-\DoxyCodeLine{81     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/ Live Mode: real-\/time sensor updates -\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{82     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}{getLiveMode}}()) \{}
-\DoxyCodeLine{83         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_acb6cab34d7e2ae63d41ffcbdfbeece2e}{clearPoints}}();  \textcolor{comment}{/**< Clear existing sonar points */}}
-\DoxyCodeLine{84         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90}{clearGrid}}();    \textcolor{comment}{/**< Clear live occupancy grid */}}
+\DoxyCodeLine{81     \textcolor{comment}{// Prepare coordinate status string with fixed precision}}
+\DoxyCodeLine{82     std::ostringstream oss;}
+\DoxyCodeLine{83     oss << std::fixed << std::setprecision(2)}
+\DoxyCodeLine{84         << \textcolor{stringliteral}{"Mouse: ("} << worldPos.x << \textcolor{stringliteral}{", "} << worldPos.y << \textcolor{stringliteral}{") m"};}
 \DoxyCodeLine{85 }
-\DoxyCodeLine{86         \textcolor{comment}{// Update robot velocity from ROS data}}
-\DoxyCodeLine{87         \textcolor{keywordtype}{double} v = \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_affab703b7eb05afb33b68c7276616c39}{getLinearVelocity}}();}
-\DoxyCodeLine{88         \textcolor{keywordtype}{double} w = \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_a42df3df8aa66d76424ea3e7b14ad4710}{getAngularVelocity}}();}
-\DoxyCodeLine{89         \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a}{setVelocity}}(v, w);}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91         \textcolor{comment}{// Add sonar points to live map}}
-\DoxyCodeLine{92         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& sonar = \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_a7aba64be62c8bfd3480b3cd7a082a85d}{getSonarPoints}}();}
-\DoxyCodeLine{93         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : sonar) \{}
-\DoxyCodeLine{94             \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_a0a1bc92b03f9d2204553db4ed225c410}{addPoint}}(p.x, p.y);}
-\DoxyCodeLine{95         \}}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97         \textcolor{comment}{// Update live map grid with sonar points}}
-\DoxyCodeLine{98         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_af35f553cf7473ec20650328b423ddddf}{updateGridFromPoints}}();}
-\DoxyCodeLine{99     \}}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/ A* Animation: step-\/by-\/step simulation -\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{102     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}}) \{}
-\DoxyCodeLine{103         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a281c6749b8bc907e5be4902545aed4dd}{isFinished}}()) \{}
-\DoxyCodeLine{104             \textcolor{keywordtype}{bool} continueAnim = \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a0c3d34d32a97828112f6ee453e75121b}{step}}();}
-\DoxyCodeLine{105             \textcolor{keywordflow}{if} (!continueAnim) \{}
-\DoxyCodeLine{106                 \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{107             \}}
-\DoxyCodeLine{108         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{109             \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{110         \}}
-\DoxyCodeLine{111     \}}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113     \textcolor{comment}{// Update robot model position using ROS delta time}}
-\DoxyCodeLine{114     \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_a2ea87f3299c071e959f15bec87420f4d}{update}}(\mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_af7228ab05a94f94465a8f0afea118377}{getLastDeltaTime}}());}
-\DoxyCodeLine{115 \}}
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.x != -\/1 \&\& \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.y != -\/1) \{}
+\DoxyCodeLine{87         oss << \textcolor{stringliteral}{" | Grid: ("} << \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.x << \textcolor{stringliteral}{", "} << \mbox{\hyperlink{classMapViewer_a6303805bb0d876b546f536c25eeddbe3}{gridIndex}}.y << \textcolor{stringliteral}{")"};}
+\DoxyCodeLine{88     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{89         oss << \textcolor{stringliteral}{" | Out of bounds"};}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{// Update coordinate display in status bar}}
+\DoxyCodeLine{93     \mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a94cba4067d873ac499fe9f0327ba22dc}{updateCoordinates}}(oss.str());}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/ Live Mode: real-\/time sensor updates -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_a9c05c317e1fc86cc7e2d12989f615f63}{menu}}.\mbox{\hyperlink{classMenuBar_a355bc5c82c36caf2693d65907ff92e64}{getLiveMode}}()) \{}
+\DoxyCodeLine{97         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_acb6cab34d7e2ae63d41ffcbdfbeece2e}{clearPoints}}();  \textcolor{comment}{/**< Clear existing sonar points */}}
+\DoxyCodeLine{98         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_aba698035fef23107bc3aa1abc7c2dd90}{clearGrid}}();    \textcolor{comment}{/**< Clear live occupancy grid */}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         \textcolor{comment}{// Update robot velocity from ROS data}}
+\DoxyCodeLine{101         \textcolor{keywordtype}{double} v = \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_affab703b7eb05afb33b68c7276616c39}{getLinearVelocity}}();}
+\DoxyCodeLine{102         \textcolor{keywordtype}{double} w = \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_a42df3df8aa66d76424ea3e7b14ad4710}{getAngularVelocity}}();}
+\DoxyCodeLine{103         \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_aefb8cacc4cf6bb5a77f76bbbb6d6048a}{setVelocity}}(v, w);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         \textcolor{comment}{// Add sonar points to live map}}
+\DoxyCodeLine{106         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& sonar = \mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_a7aba64be62c8bfd3480b3cd7a082a85d}{getSonarPoints}}();}
+\DoxyCodeLine{107         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : sonar) \{}
+\DoxyCodeLine{108             \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_a0a1bc92b03f9d2204553db4ed225c410}{addPoint}}(p.x, p.y);}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         \textcolor{comment}{// Update live map grid with sonar points}}
+\DoxyCodeLine{112         \mbox{\hyperlink{classMapViewer_a3e50360d71cf86de70b3fcc34576f0d8}{livemap}}.\mbox{\hyperlink{classLiveMap_af35f553cf7473ec20650328b423ddddf}{updateGridFromPoints}}();}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/ A* Animation: step-\/by-\/step simulation -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}}) \{}
+\DoxyCodeLine{117         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a281c6749b8bc907e5be4902545aed4dd}{isFinished}}()) \{}
+\DoxyCodeLine{118             \textcolor{keywordtype}{bool} continueAnim = \mbox{\hyperlink{classMapViewer_ac4ac43e8dfb1575fcef9f3d9b8c5778f}{aStarsim}}.\mbox{\hyperlink{classAStar_a0c3d34d32a97828112f6ee453e75121b}{step}}();}
+\DoxyCodeLine{119             \textcolor{keywordflow}{if} (!continueAnim) \{}
+\DoxyCodeLine{120                 \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{121             \}}
+\DoxyCodeLine{122         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{123             \mbox{\hyperlink{classMapViewer_ace6fe3a5af91f4843160984f8dba06aa}{astarAnimating}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{124         \}}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{comment}{// Update robot model position using ROS delta time}}
+\DoxyCodeLine{128     \mbox{\hyperlink{classMapViewer_a9dc0bdfe51f8f294ba8ae3fff9b03bd3}{wmr}}.\mbox{\hyperlink{classUnicicleWmr_a2ea87f3299c071e959f15bec87420f4d}{update}}(\mbox{\hyperlink{classMapViewer_a649bd521e6177a94c4a64c752e9b7f0b}{roshandler}}.\mbox{\hyperlink{classRosHandler_af7228ab05a94f94465a8f0afea118377}{getLastDeltaTime}}());}
+\DoxyCodeLine{129 \}}
 
 \end{DoxyCode}
 
@@ -500,8 +495,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{classMapViewer_a323a6ee85f1257b6e7c758ebf3d694bd_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -523,7 +517,7 @@ Indicates whether the A$\ast$ animation is currently running.
 
 
 
-Definition at line 43 of file Map\+Viewer.\+hpp.
+Definition at line 57 of file Map\+Viewer.\+hpp.
 
 
 
@@ -541,7 +535,7 @@ A$\ast$ algorithm instance for path planning and animation.
 
 
 
-Definition at line 36 of file Map\+Viewer.\+hpp.
+Definition at line 50 of file Map\+Viewer.\+hpp.
 
 
 
@@ -559,7 +553,7 @@ Manages zoom, panning, grid drawing, and coordinate conversions.
 
 
 
-Definition at line 31 of file Map\+Viewer.\+hpp.
+Definition at line 45 of file Map\+Viewer.\+hpp.
 
 
 
@@ -577,7 +571,7 @@ Current hovered grid cell.
 
 
 
-Definition at line 40 of file Map\+Viewer.\+hpp.
+Definition at line 54 of file Map\+Viewer.\+hpp.
 
 
 
@@ -595,7 +589,7 @@ Temporary copy of a selected grid index.
 
 
 
-Definition at line 41 of file Map\+Viewer.\+hpp.
+Definition at line 55 of file Map\+Viewer.\+hpp.
 
 \mbox{\Hypertarget{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}\label{classMapViewer_adaed2d2c192ecd7210618ef27f52bf7c}} 
 \index{MapViewer@{MapViewer}!gui@{gui}}
@@ -609,7 +603,7 @@ G\+UI system for handling menus and widgets.
 
 
 
-Definition at line 26 of file Map\+Viewer.\+hpp.
+Definition at line 40 of file Map\+Viewer.\+hpp.
 
 
 
@@ -627,7 +621,7 @@ Handles live mapping mode based on R\+OS data.
 
 
 
-Definition at line 34 of file Map\+Viewer.\+hpp.
+Definition at line 48 of file Map\+Viewer.\+hpp.
 
 
 
@@ -645,7 +639,7 @@ Manages file loading/saving.
 
 
 
-Definition at line 29 of file Map\+Viewer.\+hpp.
+Definition at line 43 of file Map\+Viewer.\+hpp.
 
 
 
@@ -663,7 +657,7 @@ Represents and stores the occupancy grid.
 
 
 
-Definition at line 32 of file Map\+Viewer.\+hpp.
+Definition at line 46 of file Map\+Viewer.\+hpp.
 
 
 
@@ -681,7 +675,7 @@ Instance of the custom menu bar.
 
 
 
-Definition at line 28 of file Map\+Viewer.\+hpp.
+Definition at line 42 of file Map\+Viewer.\+hpp.
 
 
 
@@ -699,7 +693,7 @@ Context menu for selecting start and goal positions.
 
 
 
-Definition at line 35 of file Map\+Viewer.\+hpp.
+Definition at line 49 of file Map\+Viewer.\+hpp.
 
 
 
@@ -717,7 +711,7 @@ Handles communication with R\+OS (publishing/subscribing)
 
 
 
-Definition at line 30 of file Map\+Viewer.\+hpp.
+Definition at line 44 of file Map\+Viewer.\+hpp.
 
 
 
@@ -735,7 +729,7 @@ Indicates whether the main loop is running.
 
 
 
-Definition at line 38 of file Map\+Viewer.\+hpp.
+Definition at line 52 of file Map\+Viewer.\+hpp.
 
 
 
@@ -753,7 +747,7 @@ S\+F\+ML camera view.
 
 
 
-Definition at line 25 of file Map\+Viewer.\+hpp.
+Definition at line 39 of file Map\+Viewer.\+hpp.
 
 \mbox{\Hypertarget{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}\label{classMapViewer_ac512be0bc3962603425efdcb19b4a52a}} 
 \index{MapViewer@{MapViewer}!window@{window}}
@@ -767,7 +761,7 @@ Reference to the S\+F\+ML window for rendering.
 
 
 
-Definition at line 23 of file Map\+Viewer.\+hpp.
+Definition at line 37 of file Map\+Viewer.\+hpp.
 
 
 
@@ -785,7 +779,7 @@ Simulated unicycle W\+MR (Wheeled Mobile Robot)
 
 
 
-Definition at line 33 of file Map\+Viewer.\+hpp.
+Definition at line 47 of file Map\+Viewer.\+hpp.
 
 
 
@@ -803,7 +797,7 @@ World coordinates (floating point)
 
 
 
-Definition at line 39 of file Map\+Viewer.\+hpp.
+Definition at line 53 of file Map\+Viewer.\+hpp.
 
 
 

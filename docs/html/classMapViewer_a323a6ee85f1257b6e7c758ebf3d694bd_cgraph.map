@@ -1,7 +1,7 @@
 <map id="MapViewer::update" name="MapViewer::update">
 <area shape="rect" id="node1" title="Manages logic updates and user interaction." alt="" coords="5,411,153,437"/>
 <area shape="rect" id="node2" href="$classLiveMap.html#a0a1bc92b03f9d2204553db4ed225c410" title="Adds a single point (in real&#45;world coordinates) to the internal point buffer." alt="" coords="245,5,388,32"/>
-<area shape="rect" id="node3" href="$classLiveMap.html#aba698035fef23107bc3aa1abc7c2dd90" title="Clears the occupancy grid (sets all cells to 0)" alt="" coords="695,81,839,108"/>
+<area shape="rect" id="node3" href="$classLiveMap.html#aba698035fef23107bc3aa1abc7c2dd90" title="Clears the occupancy grid (sets all cells to 0)" alt="" coords="723,81,867,108"/>
 <area shape="rect" id="node4" href="$classLiveMap.html#acb6cab34d7e2ae63d41ffcbdfbeece2e" title="Clears all stored real&#45;world points." alt="" coords="238,157,395,184"/>
 <area shape="rect" id="node5" href="$classRosHandler.html#a42df3df8aa66d76424ea3e7b14ad4710" title=" " alt="" coords="202,208,431,235"/>
 <area shape="rect" id="node6" href="$classViewController.html#a6a75b71784feee666c971a20b5785aec" title="Returns the grid cell index hovered by the mouse." alt="" coords="203,259,430,285"/>
@@ -17,12 +17,12 @@
 <area shape="rect" id="node22" href="$classUnicicleWmr.html#a2ea87f3299c071e959f15bec87420f4d" title="Updates the robot&#39;s position and orientation using its velocity." alt="" coords="237,781,396,808"/>
 <area shape="rect" id="node23" href="$classMenuBar.html#a94cba4067d873ac499fe9f0327ba22dc" title="Updates the label showing the current grid coordinates of the mouse." alt="" coords="211,832,422,859"/>
 <area shape="rect" id="node24" href="$classLiveMap.html#af35f553cf7473ec20650328b423ddddf" title="Updates the grid from the internal point buffer." alt="" coords="201,107,432,133"/>
-<area shape="rect" id="node16" href="$classNode.html#ad4e8dcafa398a8613bc3ed8681f31933" title="Returns the total estimated cost (f&#45;cost) of the node: f = g + h." alt="" coords="514,629,613,656"/>
-<area shape="rect" id="node17" href="$classAStar.html#ad334648b94a68f85318faee06bdad851" title="Returns the valid neighbor cells of a given node." alt="" coords="487,680,639,707"/>
-<area shape="rect" id="node19" href="$classGridMap.html#a22d7a74bbf3b6a4663860f76e9cd4019" title="Query cell status." alt="" coords="485,731,641,757"/>
-<area shape="rect" id="node20" href="$classAStar.html#aa9a1a3a53f000075f201cf6373e8c912" title="Octile distance heuristic (better suited for 8&#45;connected grids)." alt="" coords="484,781,643,808"/>
-<area shape="rect" id="node21" href="$classAStar.html#afbd7e300de5b7e171633d4be1982ce07" title="Reconstructs the final path from the goal node by tracing the parent map." alt="" coords="480,832,647,859"/>
-<area shape="rect" id="node18" href="$classAStar.html#a07010836e7ee9f2b37854031b872cc52" title="Checks if the given cell coordinates are within the grid bounds." alt="" coords="699,680,834,707"/>
-<area shape="rect" id="node25" href="$classLiveMap.html#aca9414f3b6a8d57ec31f8a35fb1bb5d2" title="Fills the grid using the given grid indices, marking cells as occupied (1)" alt="" coords="499,107,628,133"/>
-<area shape="rect" id="node26" href="$classLiveMap.html#a4c5f9a45946eb1fc48e3b50b28da724a" title="Converts real&#45;world coordinates to grid indices." alt="" coords="495,157,631,184"/>
+<area shape="rect" id="node16" href="$classNode.html#ad4e8dcafa398a8613bc3ed8681f31933" title="Returns the total estimated cost (f&#45;cost) of the node: f = g + h." alt="" coords="528,629,627,656"/>
+<area shape="rect" id="node17" href="$classAStar.html#ad334648b94a68f85318faee06bdad851" title="Returns the valid neighbor cells of a given node." alt="" coords="501,680,653,707"/>
+<area shape="rect" id="node19" href="$classGridMap.html#a22d7a74bbf3b6a4663860f76e9cd4019" title="Query cell status." alt="" coords="499,731,655,757"/>
+<area shape="rect" id="node20" href="$classAStar.html#ab2c50db1e384318e1ae2f41aa48fe92f" title=" " alt="" coords="480,781,675,808"/>
+<area shape="rect" id="node21" href="$classAStar.html#afbd7e300de5b7e171633d4be1982ce07" title="Reconstructs the final path from the goal node by tracing the parent map." alt="" coords="494,832,661,859"/>
+<area shape="rect" id="node18" href="$classAStar.html#a07010836e7ee9f2b37854031b872cc52" title="Checks if the given cell coordinates are within the grid bounds." alt="" coords="727,680,862,707"/>
+<area shape="rect" id="node25" href="$classLiveMap.html#aca9414f3b6a8d57ec31f8a35fb1bb5d2" title="Fills the grid using the given grid indices, marking cells as occupied (1)" alt="" coords="513,107,642,133"/>
+<area shape="rect" id="node26" href="$classLiveMap.html#a4c5f9a45946eb1fc48e3b50b28da724a" title="Converts real&#45;world coordinates to grid indices." alt="" coords="509,157,645,184"/>
 </map>

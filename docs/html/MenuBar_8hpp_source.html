@@ -79,110 +79,124 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="MenuBar_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;TGUI/Widgets/MenuBar.hpp&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;TGUI/Widgets/Label.hpp&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;TGUI/Widgets/ToggleButton.hpp&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;TGUI/Backend/SFML-Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;TGUI/TGUI.hpp&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * @class MenuBar</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @brief Manages the menu bar located at the bottom of the screen.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Provides options for file handling, view controls, robot creation, and live mode toggle.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classMenuBar.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMenuBar.html">MenuBar</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">     * @brief Constructor: initializes and places the menu elements within the given GUI.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object where menu elements will be placed.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classMenuBar.html#ab409cdcb7c1a05013f4ec78a0b3ddaa5">MenuBar</a>(tgui::Gui&amp; gui);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">     * @brief Sets the callback functions for each menu option:</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">     * - onOpen: Open a map file</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">     * - onSave: Save current map state</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">     * - onSaveImage: Export current map as an image</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">     * - onClose: Exit or close the application</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">     * - onResetView: Reset camera view</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">     * - onClearView: Clear the current grid/map</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">     * - onCreateRobot: Trigger robot creation interface</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     * - onSimulation: Start or stop the simulation</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     * </span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     * @param onOpen Callback for &quot;Open&quot; menu option</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     * @param onSave Callback for &quot;Save&quot; menu option</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">     * @param onSaveImage Callback for &quot;Save Image&quot; menu option</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">     * @param onClose Callback for &quot;Close&quot; menu option</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     * @param onResetView Callback for &quot;Reset View&quot; menu option</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     * @param onClearView Callback for &quot;Clear View&quot; menu option</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * @param onCreateRobot Callback for &quot;Create Robot&quot; menu option</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     * @param onSimulation Callback for &quot;Simulation&quot; menu option</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a431f81a34ec89382bfaf5054cf518109">setCallbacks</a>(</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onOpen,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onSave,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onSaveImage,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onClose,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onResetView,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onClearView,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onCreateRobot,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onSimulation</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     * @brief Updates the label showing the current grid coordinates of the mouse.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     * @param text The text to display (usually formatted coordinates)</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a94cba4067d873ac499fe9f0327ba22dc">updateCoordinates</a>(<span class="keyword">const</span> std::string&amp; text);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">     * @brief Returns whether live mode is currently enabled.</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     * @return true if live mode is active, false otherwise.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64">   63</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64">getLiveMode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">liveMode</a>; };</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">     * @brief Helper to set up the main menu bar structure and entries.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a960511444212d092307581bb43e28e9f">setupMenu</a>(tgui::Gui&amp; gui);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     * @brief Helper to set up the label that shows mouse grid coordinates.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a00fceb6edf16b945279408d034b77eb1">setupCordLable</a>(tgui::Gui&amp; gui);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">     * @brief Helper to set up the toggle button for live mode (ROS streaming).</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#aa755e1a4c2d8ed9f66febe5397fed657">setupliveToggle</a>(tgui::Gui&amp; gui);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classMenuBar.html#acf82a956cd78d9bb937f21f9cd4653d3">   84</a></span>&#160;    tgui::MenuBar::Ptr <a class="code" href="classMenuBar.html#acf82a956cd78d9bb937f21f9cd4653d3">menuBar</a>;           <span class="comment">///&lt; Pointer to the TGUI MenuBar widget</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classMenuBar.html#a8eb0ec82e3eb957ca2901a094dd16ac1">   85</a></span>&#160;<span class="comment"></span>    tgui::Label::Ptr <a class="code" href="classMenuBar.html#a8eb0ec82e3eb957ca2901a094dd16ac1">coordLabel</a>;          <span class="comment">///&lt; Label to show mouse position in grid coordinates</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83">   86</a></span>&#160;<span class="comment"></span>    tgui::ToggleButton::Ptr <a class="code" href="classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83">liveToggle</a>;   <span class="comment">///&lt; Toggle button to activate/deactivate live mode</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">   88</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">liveMode</a> = <span class="keyword">false</span>;                <span class="comment">///&lt; Indicates whether live mode is active</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/* </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * -----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Copyright (c) 2025 Gilberto Ramos Valenzuela</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  This file is part of the Artgslam Visualizer project.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  Licensed for personal, academic, and non-commercial use only.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  Commercial use of the complete application &quot;Artgslam Visualizer&quot; is prohibited</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  without explicit permission from the copyright holder.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  For full license details, see the LICENSE.txt file distributed with this software.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * -----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;TGUI/Widgets/MenuBar.hpp&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;TGUI/Widgets/Label.hpp&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;TGUI/Widgets/ToggleButton.hpp&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;TGUI/Backend/SFML-Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;TGUI/TGUI.hpp&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> * @class MenuBar</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @brief Manages the menu bar located at the bottom of the screen.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * Provides options for file handling, view controls, robot creation, and live mode toggle.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classMenuBar.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMenuBar.html">MenuBar</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     * @brief Constructor: initializes and places the menu elements within the given GUI.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object where menu elements will be placed.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classMenuBar.html#ab409cdcb7c1a05013f4ec78a0b3ddaa5">MenuBar</a>(tgui::Gui&amp; gui);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     * @brief Sets the callback functions for each menu option:</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     * - onOpen: Open a map file</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * - onSave: Save current map state</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     * - onSaveImage: Export current map as an image</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     * - onClose: Exit or close the application</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     * - onResetView: Reset camera view</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     * - onClearView: Clear the current grid/map</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     * - onCreateRobot: Trigger robot creation interface</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     * - onSimulation: Start or stop the simulation</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     * </span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     * @param onOpen Callback for &quot;Open&quot; menu option</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">     * @param onSave Callback for &quot;Save&quot; menu option</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">     * @param onSaveImage Callback for &quot;Save Image&quot; menu option</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">     * @param onClose Callback for &quot;Close&quot; menu option</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     * @param onResetView Callback for &quot;Reset View&quot; menu option</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     * @param onClearView Callback for &quot;Clear View&quot; menu option</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     * @param onCreateRobot Callback for &quot;Create Robot&quot; menu option</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     * @param onSimulation Callback for &quot;Simulation&quot; menu option</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a431f81a34ec89382bfaf5054cf518109">setCallbacks</a>(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onOpen,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onSave,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onSaveImage,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onClose,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onResetView,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onClearView,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onCreateRobot,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        std::function&lt;<span class="keywordtype">void</span>()&gt; onSimulation</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     * @brief Updates the label showing the current grid coordinates of the mouse.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     * @param text The text to display (usually formatted coordinates)</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a94cba4067d873ac499fe9f0327ba22dc">updateCoordinates</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     * @brief Returns whether live mode is currently enabled.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     * @return true if live mode is active, false otherwise.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64">   77</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64">getLiveMode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">liveMode</a>; };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     * @brief Helper to set up the main menu bar structure and entries.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a960511444212d092307581bb43e28e9f">setupMenu</a>(tgui::Gui&amp; gui);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">     * @brief Helper to set up the label that shows mouse grid coordinates.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#a00fceb6edf16b945279408d034b77eb1">setupCordLable</a>(tgui::Gui&amp; gui);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">     * @brief Helper to set up the toggle button for live mode (ROS streaming).</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">     * @param gui Reference to the TGUI GUI object.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMenuBar.html#aa755e1a4c2d8ed9f66febe5397fed657">setupliveToggle</a>(tgui::Gui&amp; gui);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classMenuBar.html#acf82a956cd78d9bb937f21f9cd4653d3">   98</a></span>&#160;    tgui::MenuBar::Ptr <a class="code" href="classMenuBar.html#acf82a956cd78d9bb937f21f9cd4653d3">menuBar</a>;           <span class="comment">///&lt; Pointer to the TGUI MenuBar widget</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classMenuBar.html#a8eb0ec82e3eb957ca2901a094dd16ac1">   99</a></span>&#160;<span class="comment"></span>    tgui::Label::Ptr <a class="code" href="classMenuBar.html#a8eb0ec82e3eb957ca2901a094dd16ac1">coordLabel</a>;          <span class="comment">///&lt; Label to show mouse position in grid coordinates</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83">  100</a></span>&#160;<span class="comment"></span>    tgui::ToggleButton::Ptr <a class="code" href="classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83">liveToggle</a>;   <span class="comment">///&lt; Toggle button to activate/deactivate live mode</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">  102</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">liveMode</a> = <span class="keyword">false</span>;                <span class="comment">///&lt; Indicates whether live mode is active</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"></span>};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassMenuBar_html"><div class="ttname"><a href="classMenuBar.html">MenuBar</a></div><div class="ttdoc">Manages the menu bar located at the bottom of the screen. Provides options for file handling,...</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00014">MenuBar.hpp:14</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a8eb0ec82e3eb957ca2901a094dd16ac1"><div class="ttname"><a href="classMenuBar.html#a8eb0ec82e3eb957ca2901a094dd16ac1">MenuBar::coordLabel</a></div><div class="ttdeci">tgui::Label::Ptr coordLabel</div><div class="ttdoc">Label to show mouse position in grid coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00085">MenuBar.hpp:85</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a010db27d07e59fc0b97d5f5cdaa87c83"><div class="ttname"><a href="classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83">MenuBar::liveToggle</a></div><div class="ttdeci">tgui::ToggleButton::Ptr liveToggle</div><div class="ttdoc">Toggle button to activate/deactivate live mode.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00086">MenuBar.hpp:86</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a431f81a34ec89382bfaf5054cf518109"><div class="ttname"><a href="classMenuBar.html#a431f81a34ec89382bfaf5054cf518109">MenuBar::setCallbacks</a></div><div class="ttdeci">void setCallbacks(std::function&lt; void()&gt; onOpen, std::function&lt; void()&gt; onSave, std::function&lt; void()&gt; onSaveImage, std::function&lt; void()&gt; onClose, std::function&lt; void()&gt; onResetView, std::function&lt; void()&gt; onClearView, std::function&lt; void()&gt; onCreateRobot, std::function&lt; void()&gt; onSimulation)</div><div class="ttdoc">Sets the callback functions for each menu option:</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00133">MenuBar.cpp:133</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_acf82a956cd78d9bb937f21f9cd4653d3"><div class="ttname"><a href="classMenuBar.html#acf82a956cd78d9bb937f21f9cd4653d3">MenuBar::menuBar</a></div><div class="ttdeci">tgui::MenuBar::Ptr menuBar</div><div class="ttdoc">Pointer to the TGUI MenuBar widget.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00084">MenuBar.hpp:84</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a00fceb6edf16b945279408d034b77eb1"><div class="ttname"><a href="classMenuBar.html#a00fceb6edf16b945279408d034b77eb1">MenuBar::setupCordLable</a></div><div class="ttdeci">void setupCordLable(tgui::Gui &amp;gui)</div><div class="ttdoc">Helper to set up the label that shows mouse grid coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00063">MenuBar.cpp:63</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a355bc5c82c36caf2693d65907ff92e64"><div class="ttname"><a href="classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64">MenuBar::getLiveMode</a></div><div class="ttdeci">bool getLiveMode() const</div><div class="ttdoc">Returns whether live mode is currently enabled.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00063">MenuBar.hpp:63</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a94cba4067d873ac499fe9f0327ba22dc"><div class="ttname"><a href="classMenuBar.html#a94cba4067d873ac499fe9f0327ba22dc">MenuBar::updateCoordinates</a></div><div class="ttdeci">void updateCoordinates(const std::string &amp;text)</div><div class="ttdoc">Updates the label showing the current grid coordinates of the mouse.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00181">MenuBar.cpp:181</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_a960511444212d092307581bb43e28e9f"><div class="ttname"><a href="classMenuBar.html#a960511444212d092307581bb43e28e9f">MenuBar::setupMenu</a></div><div class="ttdeci">void setupMenu(tgui::Gui &amp;gui)</div><div class="ttdoc">Helper to set up the main menu bar structure and entries.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00028">MenuBar.cpp:28</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_ab409cdcb7c1a05013f4ec78a0b3ddaa5"><div class="ttname"><a href="classMenuBar.html#ab409cdcb7c1a05013f4ec78a0b3ddaa5">MenuBar::MenuBar</a></div><div class="ttdeci">MenuBar(tgui::Gui &amp;gui)</div><div class="ttdoc">Constructor: initializes and places the menu elements within the given GUI.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00014">MenuBar.cpp:14</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_aed948287d4d9c211fb074983c6552267"><div class="ttname"><a href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">MenuBar::liveMode</a></div><div class="ttdeci">bool liveMode</div><div class="ttdoc">Indicates whether live mode is active.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00088">MenuBar.hpp:88</a></div></div>
-<div class="ttc" id="aclassMenuBar_html_aa755e1a4c2d8ed9f66febe5397fed657"><div class="ttname"><a href="classMenuBar.html#aa755e1a4c2d8ed9f66febe5397fed657">MenuBar::setupliveToggle</a></div><div class="ttdeci">void setupliveToggle(tgui::Gui &amp;gui)</div><div class="ttdoc">Helper to set up the toggle button for live mode (ROS streaming).</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00080">MenuBar.cpp:80</a></div></div>
+<div class="ttc" id="aclassMenuBar_html"><div class="ttname"><a href="classMenuBar.html">MenuBar</a></div><div class="ttdoc">Manages the menu bar located at the bottom of the screen. Provides options for file handling,...</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00028">MenuBar.hpp:28</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a8eb0ec82e3eb957ca2901a094dd16ac1"><div class="ttname"><a href="classMenuBar.html#a8eb0ec82e3eb957ca2901a094dd16ac1">MenuBar::coordLabel</a></div><div class="ttdeci">tgui::Label::Ptr coordLabel</div><div class="ttdoc">Label to show mouse position in grid coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00099">MenuBar.hpp:99</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a010db27d07e59fc0b97d5f5cdaa87c83"><div class="ttname"><a href="classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83">MenuBar::liveToggle</a></div><div class="ttdeci">tgui::ToggleButton::Ptr liveToggle</div><div class="ttdoc">Toggle button to activate/deactivate live mode.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00100">MenuBar.hpp:100</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a431f81a34ec89382bfaf5054cf518109"><div class="ttname"><a href="classMenuBar.html#a431f81a34ec89382bfaf5054cf518109">MenuBar::setCallbacks</a></div><div class="ttdeci">void setCallbacks(std::function&lt; void()&gt; onOpen, std::function&lt; void()&gt; onSave, std::function&lt; void()&gt; onSaveImage, std::function&lt; void()&gt; onClose, std::function&lt; void()&gt; onResetView, std::function&lt; void()&gt; onClearView, std::function&lt; void()&gt; onCreateRobot, std::function&lt; void()&gt; onSimulation)</div><div class="ttdoc">Sets the callback functions for each menu option:</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00147">MenuBar.cpp:147</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_acf82a956cd78d9bb937f21f9cd4653d3"><div class="ttname"><a href="classMenuBar.html#acf82a956cd78d9bb937f21f9cd4653d3">MenuBar::menuBar</a></div><div class="ttdeci">tgui::MenuBar::Ptr menuBar</div><div class="ttdoc">Pointer to the TGUI MenuBar widget.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00098">MenuBar.hpp:98</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a00fceb6edf16b945279408d034b77eb1"><div class="ttname"><a href="classMenuBar.html#a00fceb6edf16b945279408d034b77eb1">MenuBar::setupCordLable</a></div><div class="ttdeci">void setupCordLable(tgui::Gui &amp;gui)</div><div class="ttdoc">Helper to set up the label that shows mouse grid coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00077">MenuBar.cpp:77</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a355bc5c82c36caf2693d65907ff92e64"><div class="ttname"><a href="classMenuBar.html#a355bc5c82c36caf2693d65907ff92e64">MenuBar::getLiveMode</a></div><div class="ttdeci">bool getLiveMode() const</div><div class="ttdoc">Returns whether live mode is currently enabled.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00077">MenuBar.hpp:77</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a94cba4067d873ac499fe9f0327ba22dc"><div class="ttname"><a href="classMenuBar.html#a94cba4067d873ac499fe9f0327ba22dc">MenuBar::updateCoordinates</a></div><div class="ttdeci">void updateCoordinates(const std::string &amp;text)</div><div class="ttdoc">Updates the label showing the current grid coordinates of the mouse.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00195">MenuBar.cpp:195</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_a960511444212d092307581bb43e28e9f"><div class="ttname"><a href="classMenuBar.html#a960511444212d092307581bb43e28e9f">MenuBar::setupMenu</a></div><div class="ttdeci">void setupMenu(tgui::Gui &amp;gui)</div><div class="ttdoc">Helper to set up the main menu bar structure and entries.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00042">MenuBar.cpp:42</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_ab409cdcb7c1a05013f4ec78a0b3ddaa5"><div class="ttname"><a href="classMenuBar.html#ab409cdcb7c1a05013f4ec78a0b3ddaa5">MenuBar::MenuBar</a></div><div class="ttdeci">MenuBar(tgui::Gui &amp;gui)</div><div class="ttdoc">Constructor: initializes and places the menu elements within the given GUI.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00028">MenuBar.cpp:28</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_aed948287d4d9c211fb074983c6552267"><div class="ttname"><a href="classMenuBar.html#aed948287d4d9c211fb074983c6552267">MenuBar::liveMode</a></div><div class="ttdeci">bool liveMode</div><div class="ttdoc">Indicates whether live mode is active.</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8hpp_source.html#l00102">MenuBar.hpp:102</a></div></div>
+<div class="ttc" id="aclassMenuBar_html_aa755e1a4c2d8ed9f66febe5397fed657"><div class="ttname"><a href="classMenuBar.html#aa755e1a4c2d8ed9f66febe5397fed657">MenuBar::setupliveToggle</a></div><div class="ttdeci">void setupliveToggle(tgui::Gui &amp;gui)</div><div class="ttdoc">Helper to set up the toggle button for live mode (ROS streaming).</div><div class="ttdef"><b>Definition:</b> <a href="MenuBar_8cpp_source.html#l00094">MenuBar.cpp:94</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 25 2025 05:03:07 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 11 2025 22:33:49 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

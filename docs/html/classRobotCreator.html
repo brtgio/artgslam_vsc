@@ -170,7 +170,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages a GUI window for creating and configuring a Unicycle Wheeled Mobile Robot (WMR). Allows user input for robot parameters like width, height, and color, then applies these to the robot model. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00019">19</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00033">33</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1a9bc9afc3c2e9aa6ca3555a11b99846"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a9bc9afc3c2e9aa6ca3555a11b99846">&#9670;&nbsp;</a></span>RobotCreator() <span class="overload">[1/3]</span></h2>
@@ -214,25 +214,25 @@ Private Attributes</h2></td></tr>
 <p>&lt; Link widget variables to GUI elements</p>
 <p>&lt; Setup button callbacks</p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00013">13</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    : <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>(sf::VideoMode(400, 250), <span class="stringliteral">&quot;Robot Creator&quot;</span>),</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>(<a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>), <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>(wmrRef)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// Load form file path from ROS package</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::string package_path = ros::package::getPath(<span class="stringliteral">&quot;artgslam_vsc&quot;</span>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string formPath = package_path + <span class="stringliteral">&quot;/assets/forms/createRobot.txt&quot;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.loadWidgetsFromFile(formPath);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> tgui::Exception&amp; e) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error loading GUI form: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classRobotCreator.html#a09f323f248be0eb2dba7388050e81c6a">setupWidgets</a>();   <span class="comment">/**&lt; Link widget variables to GUI elements */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classRobotCreator.html#a22c9b7970700b0c482682aa4db5c13bd">setupCallbacks</a>(); <span class="comment">/**&lt; Setup button callbacks */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00027">27</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    : <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>(sf::VideoMode(400, 250), <span class="stringliteral">&quot;Robot Creator&quot;</span>),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>(<a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>), <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>(wmrRef)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// Load form file path from ROS package</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string package_path = ros::package::getPath(<span class="stringliteral">&quot;artgslam_vsc&quot;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::string formPath = package_path + <span class="stringliteral">&quot;/assets/forms/createRobot.txt&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.loadWidgetsFromFile(formPath);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> tgui::Exception&amp; e) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error loading GUI form: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classRobotCreator.html#a09f323f248be0eb2dba7388050e81c6a">setupWidgets</a>();   <span class="comment">/**&lt; Link widget variables to GUI elements */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classRobotCreator.html#a22c9b7970700b0c482682aa4db5c13bd">setupCallbacks</a>(); <span class="comment">/**&lt; Setup button callbacks */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00061">gui</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00075">gui</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -341,25 +341,25 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Corresponding sf::Color object. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00209">209</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;{</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    std::string h = hex;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">if</span> (h.empty()) <span class="keywordflow">return</span> sf::Color::White;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> (h[0] == <span class="charliteral">&#39;#&#39;</span>) h = h.substr(1);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span> (h.length() == 3)</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        h = {h[0], h[0], h[1], h[1], h[2], h[2]};</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> r = std::stoul(h.substr(0, 2), <span class="keyword">nullptr</span>, 16);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> g = std::stoul(h.substr(2, 2), <span class="keyword">nullptr</span>, 16);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = std::stoul(h.substr(4, 2), <span class="keyword">nullptr</span>, 16);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> sf::Color(r, g, b);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00223">223</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;{</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    std::string h = hex;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">if</span> (h.empty()) <span class="keywordflow">return</span> sf::Color::White;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">if</span> (h[0] == <span class="charliteral">&#39;#&#39;</span>) h = h.substr(1);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (h.length() == 3)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        h = {h[0], h[0], h[1], h[1], h[2], h[2]};</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> r = std::stoul(h.substr(0, 2), <span class="keyword">nullptr</span>, 16);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> g = std::stoul(h.substr(2, 2), <span class="keyword">nullptr</span>, 16);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = std::stoul(h.substr(4, 2), <span class="keyword">nullptr</span>, 16);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">return</span> sf::Color(r, g, b);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -389,14 +389,14 @@ Private Attributes</h2></td></tr>
 <p>Checks if the window is still open.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if the window is open, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00170">170</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.isOpen();</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00184">184</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;{</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.isOpen();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00060">windowRobotCreator</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00074">windowRobotCreator</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00036">run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00050">run()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -448,14 +448,14 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if valid float format, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00181">181</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span> (str.empty()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::regex floatRegex(R<span class="stringliteral">&quot;(^-?\d+(\.\d+)?$)&quot;);</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">return</span> std::regex_match(str, floatRegex);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00195">195</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;{</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span> (str.empty()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::regex floatRegex(R<span class="stringliteral">&quot;(^-?\d+(\.\d+)?$)&quot;);</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">return</span> std::regex_match(str, floatRegex);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -507,14 +507,14 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if valid hex color format, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00194">194</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::regex hexShort(R<span class="stringliteral">&quot;(#([A-Fa-f0-9]{3}))&quot;);</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">const</span> std::regex hexLong(R<span class="stringliteral">&quot;(#([A-Fa-f0-9]{6}))&quot;);</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">return</span> std::regex_match(str, hexShort) || std::regex_match(str, hexLong);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00208">208</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::regex hexShort(R<span class="stringliteral">&quot;(#([A-Fa-f0-9]{3}))&quot;);</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">const</span> std::regex hexLong(R<span class="stringliteral">&quot;(#([A-Fa-f0-9]{6}))&quot;);</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">return</span> std::regex_match(str, hexShort) || std::regex_match(str, hexLong);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -572,21 +572,21 @@ Private Attributes</h2></td></tr>
 <p>Processes all window events.</p>
 <p>Polls and handles SFML window events and delegates event handling to TGUI. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00051">51</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sf::Event event;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.pollEvent(event))</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.handleEvent(event);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> (event.type == sf::Event::Closed)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.close();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00065">65</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    sf::Event event;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.pollEvent(event))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.handleEvent(event);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (event.type == sf::Event::Closed)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.close();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00061">gui</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00060">windowRobotCreator</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00075">gui</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00074">windowRobotCreator</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00036">run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00050">run()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -615,16 +615,16 @@ Private Attributes</h2></td></tr>
 <p>Renders the GUI window and widgets. </p>
 <p>Clears the window and draws the GUI. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00074">74</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.clear(sf::Color::White);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.draw();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.display();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00088">88</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.clear(sf::Color::White);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.draw();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.display();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00061">gui</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00060">windowRobotCreator</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00075">gui</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00074">windowRobotCreator</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00036">run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00050">run()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -657,19 +657,19 @@ Private Attributes</h2></td></tr>
 <p>&lt; Update logic (currently unused)</p>
 <p>&lt; Render the GUI</p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00036">36</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="classRobotCreator.html#a55c3f93cf65404a5c334c6a4be5ab67e">isRunning</a>())</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classRobotCreator.html#a296898214fd76575c63de36ae1c5481f">processEvents</a>(); <span class="comment">/**&lt; Handle input and window events */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classRobotCreator.html#a3b1852ea68b66abab751226c1cb6820f">update</a>();        <span class="comment">/**&lt; Update logic (currently unused) */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classRobotCreator.html#ad774a314cafeb9eee4187a295b5739d1">render</a>();        <span class="comment">/**&lt; Render the GUI */</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00050">50</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">while</span> (<a class="code" href="classRobotCreator.html#a55c3f93cf65404a5c334c6a4be5ab67e">isRunning</a>())</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classRobotCreator.html#a296898214fd76575c63de36ae1c5481f">processEvents</a>(); <span class="comment">/**&lt; Handle input and window events */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="classRobotCreator.html#a3b1852ea68b66abab751226c1cb6820f">update</a>();        <span class="comment">/**&lt; Update logic (currently unused) */</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classRobotCreator.html#ad774a314cafeb9eee4187a295b5739d1">render</a>();        <span class="comment">/**&lt; Render the GUI */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8cpp_source.html#l00170">isRunning()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00051">processEvents()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00074">render()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00066">update()</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8cpp_source.html#l00184">isRunning()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00065">processEvents()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00088">render()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00080">update()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00015">MapViewer::MapViewer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00029">MapViewer::MapViewer()</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -709,65 +709,65 @@ Private Attributes</h2></td></tr>
 <li>Validates input and creates robot on create button press. </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00110">110</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a> || !<a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    });</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        std::string widthStr  = <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>-&gt;getText().toStdString();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        std::string heightStr = <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a>-&gt;getText().toStdString();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        std::string colorStr  = <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>-&gt;getText().toStdString();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">bool</span> valid = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c">isValidFloat</a>(widthStr)) {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c">isValidFloat</a>(heightStr)) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#aa5bdc5e505359a51e82ce26aa1a8de37">isValidHexColor</a>(colorStr)) {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span> (!valid) {</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Invalid input. Please check the fields.\n&quot;</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        }</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordtype">float</span> width  = std::stof(widthStr);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">float</span> height = std::stof(heightStr);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        sf::Color color = <a class="code" href="classRobotCreator.html#afbf5db42204804796c234a32d1a9e4bd">hexToColor</a>(colorStr);</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00124">124</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a> || !<a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    });</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a>-&gt;onPress([<span class="keyword">this</span>]() {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        std::string widthStr  = <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>-&gt;getText().toStdString();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        std::string heightStr = <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a>-&gt;getText().toStdString();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        std::string colorStr  = <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>-&gt;getText().toStdString();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">bool</span> valid = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c">isValidFloat</a>(widthStr)) {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c">isValidFloat</a>(heightStr)) {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>.<a class="code" href="classUnicicleWmr.html#abc29ba63976fdf56362558b301fd85f3">setDimensions</a>(width, height);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>.<a class="code" href="classUnicicleWmr.html#a01d4d8ad0a8317e63f1a1eddd389069a">setColor</a>(color);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>.<a class="code" href="classUnicicleWmr.html#a67da598341ba850b0a1958cacb7031fa">setRobotActive</a>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Robot created:\n&quot;</span>;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Width: &quot;</span> &lt;&lt; width &lt;&lt; <span class="stringliteral">&quot;, Height: &quot;</span> &lt;&lt; height &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Color RGB: (&quot;</span> </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                  &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(color.r) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                  &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(color.g) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                  &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(color.b) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.close();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    });</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#aa5bdc5e505359a51e82ce26aa1a8de37">isValidHexColor</a>(colorStr)) {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>-&gt;setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">if</span> (!valid) {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Invalid input. Please check the fields.\n&quot;</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordtype">float</span> width  = std::stof(widthStr);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordtype">float</span> height = std::stof(heightStr);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        sf::Color color = <a class="code" href="classRobotCreator.html#afbf5db42204804796c234a32d1a9e4bd">hexToColor</a>(colorStr);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>.<a class="code" href="classUnicicleWmr.html#abc29ba63976fdf56362558b301fd85f3">setDimensions</a>(width, height);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>.<a class="code" href="classUnicicleWmr.html#a01d4d8ad0a8317e63f1a1eddd389069a">setColor</a>(color);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">wmr</a>.<a class="code" href="classUnicicleWmr.html#a67da598341ba850b0a1958cacb7031fa">setRobotActive</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Robot created:\n&quot;</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Width: &quot;</span> &lt;&lt; width &lt;&lt; <span class="stringliteral">&quot;, Height: &quot;</span> &lt;&lt; height &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Color RGB: (&quot;</span> </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                  &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(color.r) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                  &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(color.g) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                  &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(color.b) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <a class="code" href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">windowRobotCreator</a>.close();</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    });</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00067">colorBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00071">createButton</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00066">heightBox</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00209">hexToColor()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00181">isValidFloat()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00194">isValidHexColor()</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00070">resetButton</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00102">UnicicleWmr::setColor()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00115">UnicicleWmr::setDimensions()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00057">UnicicleWmr::setRobotActive()</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00065">widthBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00060">windowRobotCreator</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00062">wmr</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00081">colorBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00085">createButton</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00080">heightBox</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00223">hexToColor()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00195">isValidFloat()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00208">isValidHexColor()</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00084">resetButton</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00116">UnicicleWmr::setColor()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00129">UnicicleWmr::setDimensions()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">UnicicleWmr::setRobotActive()</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00079">widthBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00074">windowRobotCreator</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00076">wmr</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00013">RobotCreator()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00027">RobotCreator()</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -803,29 +803,29 @@ Private Attributes</h2></td></tr>
 <p>Initializes and sets up all GUI widgets (EditBoxes, Buttons) </p>
 <p>Retrieves and validates GUI widgets from the loaded form. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00084">84</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>  = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::EditBox&gt;(<span class="stringliteral">&quot;widthBox&quot;</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a> = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::EditBox&gt;(<span class="stringliteral">&quot;heightBox&quot;</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>  = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::EditBox&gt;(<span class="stringliteral">&quot;colorBox&quot;</span>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a>  = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;Button1&quot;</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a> = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;Button2&quot;</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a> || !<a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a> || !<a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a> || !<a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a> || !<a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;[ERROR] One or more widgets could not be found.\n&quot;</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// Optional: set input validators (commented out)</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// widthBox-&gt;setInputValidator(R&quot;(^-?\d*\.?\d+$)&quot;);</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// heightBox-&gt;setInputValidator(R&quot;(^-?\d*\.?\d+$)&quot;);</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00098">98</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a>  = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::EditBox&gt;(<span class="stringliteral">&quot;widthBox&quot;</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a> = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::EditBox&gt;(<span class="stringliteral">&quot;heightBox&quot;</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a>  = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::EditBox&gt;(<span class="stringliteral">&quot;colorBox&quot;</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a>  = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;Button1&quot;</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a> = <a class="code" href="classRobotCreator.html#a45146043791bc6757d667693ece10080">gui</a>.get&lt;tgui::Button&gt;(<span class="stringliteral">&quot;Button2&quot;</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">widthBox</a> || !<a class="code" href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">heightBox</a> || !<a class="code" href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">colorBox</a> || !<a class="code" href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">resetButton</a> || !<a class="code" href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">createButton</a>)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;[ERROR] One or more widgets could not be found.\n&quot;</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">// Optional: set input validators (commented out)</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// widthBox-&gt;setInputValidator(R&quot;(^-?\d*\.?\d+$)&quot;);</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// heightBox-&gt;setInputValidator(R&quot;(^-?\d*\.?\d+$)&quot;);</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00067">colorBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00071">createButton</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00061">gui</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00066">heightBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00070">resetButton</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00065">widthBox</a>.</p>
+<p class="reference">References <a class="el" href="RobotCreator_8hpp_source.html#l00081">colorBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00085">createButton</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00075">gui</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00080">heightBox</a>, <a class="el" href="RobotCreator_8hpp_source.html#l00084">resetButton</a>, and <a class="el" href="RobotCreator_8hpp_source.html#l00079">widthBox</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00013">RobotCreator()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00027">RobotCreator()</a>.</p>
 <div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
@@ -854,12 +854,12 @@ Private Attributes</h2></td></tr>
 <p>Updates internal state and GUI elements each frame. </p>
 <p>Placeholder for future update logic. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00066">66</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// Currently no update logic</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8cpp_source.html#l00080">80</a> of file <a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Currently no update logic</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00036">run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00050">run()</a>.</p>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -893,9 +893,9 @@ Private Attributes</h2></td></tr>
 
 <p>Input for robot color (hexadecimal string) </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00067">67</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00081">81</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -921,9 +921,9 @@ Private Attributes</h2></td></tr>
 
 <p>Applies parameters and creates/configures the robot. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00071">71</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00085">85</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -949,9 +949,9 @@ Private Attributes</h2></td></tr>
 
 <p>TGUI GUI manager attached to the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00061">61</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00075">75</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00051">processEvents()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00074">render()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00013">RobotCreator()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00065">processEvents()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00088">render()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00027">RobotCreator()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -977,9 +977,9 @@ Private Attributes</h2></td></tr>
 
 <p>Input for robot height. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00066">66</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00080">80</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -1006,9 +1006,9 @@ Private Attributes</h2></td></tr>
 <p>Buttons for user actions. </p>
 <p>Resets all input fields to default </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00070">70</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00084">84</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -1035,9 +1035,9 @@ Private Attributes</h2></td></tr>
 <p>GUI widgets for robot parameters input. </p>
 <p>Input for robot width </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00065">65</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00079">79</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00084">setupWidgets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00098">setupWidgets()</a>.</p>
 
 </div>
 </div>
@@ -1063,9 +1063,9 @@ Private Attributes</h2></td></tr>
 
 <p>SFML window for robot creation GUI. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00060">60</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00074">74</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00170">isRunning()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00051">processEvents()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00074">render()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00184">isRunning()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00065">processEvents()</a>, <a class="el" href="RobotCreator_8cpp_source.html#l00088">render()</a>, and <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>.</p>
 
 </div>
 </div>
@@ -1091,9 +1091,9 @@ Private Attributes</h2></td></tr>
 
 <p>Reference to the robot being configured. </p>
 
-<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00062">62</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RobotCreator_8hpp_source.html#l00076">76</a> of file <a class="el" href="RobotCreator_8hpp_source.html">RobotCreator.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">setupCallbacks()</a>.</p>
 
 </div>
 </div>
@@ -1102,29 +1102,29 @@ Private Attributes</h2></td></tr>
 <li>src/<a class="el" href="RobotCreator_8cpp_source.html">RobotCreator.cpp</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassRobotCreator_html_a09f323f248be0eb2dba7388050e81c6a"><div class="ttname"><a href="classRobotCreator.html#a09f323f248be0eb2dba7388050e81c6a">RobotCreator::setupWidgets</a></div><div class="ttdeci">void setupWidgets()</div><div class="ttdoc">Initializes and sets up all GUI widgets (EditBoxes, Buttons)</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00084">RobotCreator.cpp:84</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a3b1852ea68b66abab751226c1cb6820f"><div class="ttname"><a href="classRobotCreator.html#a3b1852ea68b66abab751226c1cb6820f">RobotCreator::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Updates internal state and GUI elements each frame.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00066">RobotCreator.cpp:66</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_ad3e31369423de1445e90d87c8001b554"><div class="ttname"><a href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">RobotCreator::resetButton</a></div><div class="ttdeci">tgui::Button::Ptr resetButton</div><div class="ttdoc">Buttons for user actions.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00070">RobotCreator.hpp:70</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a55c3f93cf65404a5c334c6a4be5ab67e"><div class="ttname"><a href="classRobotCreator.html#a55c3f93cf65404a5c334c6a4be5ab67e">RobotCreator::isRunning</a></div><div class="ttdeci">bool isRunning() const</div><div class="ttdoc">Returns true if the creation window is currently open and running.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00170">RobotCreator.cpp:170</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a296898214fd76575c63de36ae1c5481f"><div class="ttname"><a href="classRobotCreator.html#a296898214fd76575c63de36ae1c5481f">RobotCreator::processEvents</a></div><div class="ttdeci">void processEvents()</div><div class="ttdoc">Handles user input events like keyboard and mouse.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00051">RobotCreator.cpp:51</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_adf59c2f30c9de4121ab6fe3bd7fc90b3"><div class="ttname"><a href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">RobotCreator::createButton</a></div><div class="ttdeci">tgui::Button::Ptr createButton</div><div class="ttdoc">Applies parameters and creates/configures the robot.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00071">RobotCreator.hpp:71</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a12e37b30cb7ba1d1fa1d793c3382a8ac"><div class="ttname"><a href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">RobotCreator::heightBox</a></div><div class="ttdeci">tgui::EditBox::Ptr heightBox</div><div class="ttdoc">Input for robot height.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00066">RobotCreator.hpp:66</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a67da598341ba850b0a1958cacb7031fa"><div class="ttname"><a href="classUnicicleWmr.html#a67da598341ba850b0a1958cacb7031fa">UnicicleWmr::setRobotActive</a></div><div class="ttdeci">void setRobotActive(bool active)</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00057">UnicicleWmr.hpp:57</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_ac02889de32c4fcadacce1584e6b1c559"><div class="ttname"><a href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">RobotCreator::colorBox</a></div><div class="ttdeci">tgui::EditBox::Ptr colorBox</div><div class="ttdoc">Input for robot color (hexadecimal string)</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00067">RobotCreator.hpp:67</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_ad774a314cafeb9eee4187a295b5739d1"><div class="ttname"><a href="classRobotCreator.html#ad774a314cafeb9eee4187a295b5739d1">RobotCreator::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">Renders the GUI window and widgets.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00074">RobotCreator.cpp:74</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a42997b6e44f42b8f6ade64f7a77858fd"><div class="ttname"><a href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">RobotCreator::windowRobotCreator</a></div><div class="ttdeci">sf::RenderWindow windowRobotCreator</div><div class="ttdoc">SFML window for robot creation GUI.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00060">RobotCreator.hpp:60</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a8acaa474e35e35627269867ded5eba96"><div class="ttname"><a href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">RobotCreator::widthBox</a></div><div class="ttdeci">tgui::EditBox::Ptr widthBox</div><div class="ttdoc">GUI widgets for robot parameters input.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00065">RobotCreator.hpp:65</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a4f93cda60d2e9f311ca66f8249d63028"><div class="ttname"><a href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">RobotCreator::wmr</a></div><div class="ttdeci">UnicicleWmr &amp; wmr</div><div class="ttdoc">Reference to the robot being configured.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00062">RobotCreator.hpp:62</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a45146043791bc6757d667693ece10080"><div class="ttname"><a href="classRobotCreator.html#a45146043791bc6757d667693ece10080">RobotCreator::gui</a></div><div class="ttdeci">tgui::Gui gui</div><div class="ttdoc">TGUI GUI manager attached to the window.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00061">RobotCreator.hpp:61</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a22c9b7970700b0c482682aa4db5c13bd"><div class="ttname"><a href="classRobotCreator.html#a22c9b7970700b0c482682aa4db5c13bd">RobotCreator::setupCallbacks</a></div><div class="ttdeci">void setupCallbacks()</div><div class="ttdoc">Connects callbacks for button presses and other GUI events.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00110">RobotCreator.cpp:110</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a01d4d8ad0a8317e63f1a1eddd389069a"><div class="ttname"><a href="classUnicicleWmr.html#a01d4d8ad0a8317e63f1a1eddd389069a">UnicicleWmr::setColor</a></div><div class="ttdeci">void setColor(sf::Color color)</div><div class="ttdoc">Sets the color used for drawing the robot.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00102">UnicicleWmr.cpp:102</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_a4b0809b3fe7dd98ecc52697273cb473c"><div class="ttname"><a href="classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c">RobotCreator::isValidFloat</a></div><div class="ttdeci">bool isValidFloat(const std::string &amp;str)</div><div class="ttdoc">Helper function to check if a string represents a valid floating-point number.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00181">RobotCreator.cpp:181</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_abc29ba63976fdf56362558b301fd85f3"><div class="ttname"><a href="classUnicicleWmr.html#abc29ba63976fdf56362558b301fd85f3">UnicicleWmr::setDimensions</a></div><div class="ttdeci">void setDimensions(float width, float height)</div><div class="ttdoc">Updates the robot's dimensions and resizes the SFML shape accordingly.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00115">UnicicleWmr.cpp:115</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_aa5bdc5e505359a51e82ce26aa1a8de37"><div class="ttname"><a href="classRobotCreator.html#aa5bdc5e505359a51e82ce26aa1a8de37">RobotCreator::isValidHexColor</a></div><div class="ttdeci">bool isValidHexColor(const std::string &amp;str)</div><div class="ttdoc">Helper function to validate if a string is a valid hexadecimal color code.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00194">RobotCreator.cpp:194</a></div></div>
-<div class="ttc" id="aclassRobotCreator_html_afbf5db42204804796c234a32d1a9e4bd"><div class="ttname"><a href="classRobotCreator.html#afbf5db42204804796c234a32d1a9e4bd">RobotCreator::hexToColor</a></div><div class="ttdeci">sf::Color hexToColor(const std::string &amp;hex)</div><div class="ttdoc">Converts a hexadecimal color string to an SFML Color object.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00209">RobotCreator.cpp:209</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a09f323f248be0eb2dba7388050e81c6a"><div class="ttname"><a href="classRobotCreator.html#a09f323f248be0eb2dba7388050e81c6a">RobotCreator::setupWidgets</a></div><div class="ttdeci">void setupWidgets()</div><div class="ttdoc">Initializes and sets up all GUI widgets (EditBoxes, Buttons)</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00098">RobotCreator.cpp:98</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a3b1852ea68b66abab751226c1cb6820f"><div class="ttname"><a href="classRobotCreator.html#a3b1852ea68b66abab751226c1cb6820f">RobotCreator::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Updates internal state and GUI elements each frame.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00080">RobotCreator.cpp:80</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_ad3e31369423de1445e90d87c8001b554"><div class="ttname"><a href="classRobotCreator.html#ad3e31369423de1445e90d87c8001b554">RobotCreator::resetButton</a></div><div class="ttdeci">tgui::Button::Ptr resetButton</div><div class="ttdoc">Buttons for user actions.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00084">RobotCreator.hpp:84</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a55c3f93cf65404a5c334c6a4be5ab67e"><div class="ttname"><a href="classRobotCreator.html#a55c3f93cf65404a5c334c6a4be5ab67e">RobotCreator::isRunning</a></div><div class="ttdeci">bool isRunning() const</div><div class="ttdoc">Returns true if the creation window is currently open and running.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00184">RobotCreator.cpp:184</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a296898214fd76575c63de36ae1c5481f"><div class="ttname"><a href="classRobotCreator.html#a296898214fd76575c63de36ae1c5481f">RobotCreator::processEvents</a></div><div class="ttdeci">void processEvents()</div><div class="ttdoc">Handles user input events like keyboard and mouse.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00065">RobotCreator.cpp:65</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_adf59c2f30c9de4121ab6fe3bd7fc90b3"><div class="ttname"><a href="classRobotCreator.html#adf59c2f30c9de4121ab6fe3bd7fc90b3">RobotCreator::createButton</a></div><div class="ttdeci">tgui::Button::Ptr createButton</div><div class="ttdoc">Applies parameters and creates/configures the robot.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00085">RobotCreator.hpp:85</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a12e37b30cb7ba1d1fa1d793c3382a8ac"><div class="ttname"><a href="classRobotCreator.html#a12e37b30cb7ba1d1fa1d793c3382a8ac">RobotCreator::heightBox</a></div><div class="ttdeci">tgui::EditBox::Ptr heightBox</div><div class="ttdoc">Input for robot height.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00080">RobotCreator.hpp:80</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a67da598341ba850b0a1958cacb7031fa"><div class="ttname"><a href="classUnicicleWmr.html#a67da598341ba850b0a1958cacb7031fa">UnicicleWmr::setRobotActive</a></div><div class="ttdeci">void setRobotActive(bool active)</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00070">UnicicleWmr.hpp:70</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_ac02889de32c4fcadacce1584e6b1c559"><div class="ttname"><a href="classRobotCreator.html#ac02889de32c4fcadacce1584e6b1c559">RobotCreator::colorBox</a></div><div class="ttdeci">tgui::EditBox::Ptr colorBox</div><div class="ttdoc">Input for robot color (hexadecimal string)</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00081">RobotCreator.hpp:81</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_ad774a314cafeb9eee4187a295b5739d1"><div class="ttname"><a href="classRobotCreator.html#ad774a314cafeb9eee4187a295b5739d1">RobotCreator::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">Renders the GUI window and widgets.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00088">RobotCreator.cpp:88</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a42997b6e44f42b8f6ade64f7a77858fd"><div class="ttname"><a href="classRobotCreator.html#a42997b6e44f42b8f6ade64f7a77858fd">RobotCreator::windowRobotCreator</a></div><div class="ttdeci">sf::RenderWindow windowRobotCreator</div><div class="ttdoc">SFML window for robot creation GUI.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00074">RobotCreator.hpp:74</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a8acaa474e35e35627269867ded5eba96"><div class="ttname"><a href="classRobotCreator.html#a8acaa474e35e35627269867ded5eba96">RobotCreator::widthBox</a></div><div class="ttdeci">tgui::EditBox::Ptr widthBox</div><div class="ttdoc">GUI widgets for robot parameters input.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00079">RobotCreator.hpp:79</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a4f93cda60d2e9f311ca66f8249d63028"><div class="ttname"><a href="classRobotCreator.html#a4f93cda60d2e9f311ca66f8249d63028">RobotCreator::wmr</a></div><div class="ttdeci">UnicicleWmr &amp; wmr</div><div class="ttdoc">Reference to the robot being configured.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00076">RobotCreator.hpp:76</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a45146043791bc6757d667693ece10080"><div class="ttname"><a href="classRobotCreator.html#a45146043791bc6757d667693ece10080">RobotCreator::gui</a></div><div class="ttdeci">tgui::Gui gui</div><div class="ttdoc">TGUI GUI manager attached to the window.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8hpp_source.html#l00075">RobotCreator.hpp:75</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a22c9b7970700b0c482682aa4db5c13bd"><div class="ttname"><a href="classRobotCreator.html#a22c9b7970700b0c482682aa4db5c13bd">RobotCreator::setupCallbacks</a></div><div class="ttdeci">void setupCallbacks()</div><div class="ttdoc">Connects callbacks for button presses and other GUI events.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00124">RobotCreator.cpp:124</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a01d4d8ad0a8317e63f1a1eddd389069a"><div class="ttname"><a href="classUnicicleWmr.html#a01d4d8ad0a8317e63f1a1eddd389069a">UnicicleWmr::setColor</a></div><div class="ttdeci">void setColor(sf::Color color)</div><div class="ttdoc">Sets the color used for drawing the robot.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00116">UnicicleWmr.cpp:116</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_a4b0809b3fe7dd98ecc52697273cb473c"><div class="ttname"><a href="classRobotCreator.html#a4b0809b3fe7dd98ecc52697273cb473c">RobotCreator::isValidFloat</a></div><div class="ttdeci">bool isValidFloat(const std::string &amp;str)</div><div class="ttdoc">Helper function to check if a string represents a valid floating-point number.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00195">RobotCreator.cpp:195</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_abc29ba63976fdf56362558b301fd85f3"><div class="ttname"><a href="classUnicicleWmr.html#abc29ba63976fdf56362558b301fd85f3">UnicicleWmr::setDimensions</a></div><div class="ttdeci">void setDimensions(float width, float height)</div><div class="ttdoc">Updates the robot's dimensions and resizes the SFML shape accordingly.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00129">UnicicleWmr.cpp:129</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_aa5bdc5e505359a51e82ce26aa1a8de37"><div class="ttname"><a href="classRobotCreator.html#aa5bdc5e505359a51e82ce26aa1a8de37">RobotCreator::isValidHexColor</a></div><div class="ttdeci">bool isValidHexColor(const std::string &amp;str)</div><div class="ttdoc">Helper function to validate if a string is a valid hexadecimal color code.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00208">RobotCreator.cpp:208</a></div></div>
+<div class="ttc" id="aclassRobotCreator_html_afbf5db42204804796c234a32d1a9e4bd"><div class="ttname"><a href="classRobotCreator.html#afbf5db42204804796c234a32d1a9e4bd">RobotCreator::hexToColor</a></div><div class="ttdeci">sf::Color hexToColor(const std::string &amp;hex)</div><div class="ttdoc">Converts a hexadecimal color string to an SFML Color object.</div><div class="ttdef"><b>Definition:</b> <a href="RobotCreator_8cpp_source.html#l00223">RobotCreator.cpp:223</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 25 2025 05:03:07 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 11 2025 22:33:49 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

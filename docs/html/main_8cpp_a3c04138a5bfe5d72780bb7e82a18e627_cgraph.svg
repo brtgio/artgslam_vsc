@@ -775,9 +775,9 @@ var sectionId = 'dynsection-1';
 <!-- Node44 -->
 <g id="node44" class="node">
 <title>Node44</title>
-<g id="a_node44"><a xlink:href="classAStar.html#aa9a1a3a53f000075f201cf6373e8c912" target="_top" xlink:title="Octile distance heuristic (better suited for 8&#45;connected grids).">
-<polygon fill="white" stroke="black" points="490.5,-114.5 490.5,-133.5 609.5,-133.5 609.5,-114.5 490.5,-114.5"/>
-<text text-anchor="middle" x="550" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">AStar::octileHeuristic</text>
+<g id="a_node44"><a xlink:href="classAStar.html#ab2c50db1e384318e1ae2f41aa48fe92f" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="477,-114.5 477,-133.5 623,-133.5 623,-114.5 477,-114.5"/>
+<text text-anchor="middle" x="550" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">AStar::manhattanHeuristic</text>
 </a>
 </g>
 </g>

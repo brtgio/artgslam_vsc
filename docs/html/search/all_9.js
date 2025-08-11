@@ -10,6 +10,7 @@ var searchData=
   ['livemap_2ehpp_131',['LiveMap.hpp',['../LiveMap_8hpp.html',1,'']]],
   ['livemode_132',['liveMode',['../classMenuBar.html#aed948287d4d9c211fb074983c6552267',1,'MenuBar']]],
   ['livetoggle_133',['liveToggle',['../classMenuBar.html#a010db27d07e59fc0b97d5f5cdaa87c83',1,'MenuBar']]],
-  ['loaddialog_134',['loadDialog',['../classFileManager.html#ae8a61fd55c9a1b8ac7804420015f3385',1,'FileManager']]],
-  ['loadedfilename_135',['loadedFilename',['../classFileManager.html#aefa3ce55286133118c0abe06a18ef735',1,'FileManager']]]
+  ['lmap_134',['lmap',['../classFileManager.html#a03eaf5473e033d5287a6fea188de7bbc',1,'FileManager']]],
+  ['loaddialog_135',['loadDialog',['../classFileManager.html#ae8a61fd55c9a1b8ac7804420015f3385',1,'FileManager']]],
+  ['loadedfilename_136',['loadedFilename',['../classFileManager.html#aefa3ce55286133118c0abe06a18ef735',1,'FileManager']]]
 ];

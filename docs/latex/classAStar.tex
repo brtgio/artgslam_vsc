@@ -64,6 +64,8 @@ double \mbox{\hyperlink{classAStar_a329f2b1d1ccd42d46e057d351679560d}{euclidean\
 \begin{DoxyCompactList}\small\item\em Euclidean distance heuristic. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classAStar_aa9a1a3a53f000075f201cf6373e8c912}{octile\+Heuristic}} (int x1, int y1, int x2, int y2)
 \begin{DoxyCompactList}\small\item\em Octile distance heuristic (better suited for 8-\/connected grids). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAStar_ab2c50db1e384318e1ae2f41aa48fe92f}{manhattan\+Heuristic}} (int x1, int y1, int x2, int y2)
+\item 
 bool \mbox{\hyperlink{classAStar_a07010836e7ee9f2b37854031b872cc52}{is\+Valid\+Cell}} (int x, int y) const
 \begin{DoxyCompactList}\small\item\em Checks if the given cell coordinates are within the grid bounds. \end{DoxyCompactList}\item 
 std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{classAStar_ad334648b94a68f85318faee06bdad851}{get\+Neighbors}} (const \mbox{\hyperlink{classNode}{Node}} \&node) const
@@ -108,7 +110,7 @@ std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{classAStar_a156f0521f82be
 \doxysubsection{Detailed Description}
 This class handles the A$\ast$ algorithm for path planning. It receives start and goal coordinates from the \mbox{\hyperlink{classGridMap}{Grid\+Map}}, performs the algorithm step-\/by-\/step, and supports animation and path retrieval. 
 
-Definition at line 13 of file A\+Star.\+hpp.
+Definition at line 27 of file A\+Star.\+hpp.
 
 
 
@@ -151,18 +153,18 @@ c\+Goal&Goal cell. \\
 \end{DoxyEnumFields}
 
 
-Definition at line 17 of file A\+Star.\+hpp.
+Definition at line 31 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{17                      \{}
-\DoxyCodeLine{18         cStart,     \textcolor{comment}{///< Start cell}}
-\DoxyCodeLine{19 \textcolor{comment}{}        cEmpty,     \textcolor{comment}{///< Unvisited cell}}
-\DoxyCodeLine{20 \textcolor{comment}{}        cObstacle,  \textcolor{comment}{///< Obstacle cell}}
-\DoxyCodeLine{21 \textcolor{comment}{}        cClose,     \textcolor{comment}{///< Closed/visited cell}}
-\DoxyCodeLine{22 \textcolor{comment}{}        cPath,      \textcolor{comment}{///< Final path cell}}
-\DoxyCodeLine{23 \textcolor{comment}{}        cGoal       \textcolor{comment}{///< Goal cell}}
-\DoxyCodeLine{24 \textcolor{comment}{}    \};}
+\DoxyCodeLine{31                      \{}
+\DoxyCodeLine{32         cStart,     \textcolor{comment}{///< Start cell}}
+\DoxyCodeLine{33 \textcolor{comment}{}        cEmpty,     \textcolor{comment}{///< Unvisited cell}}
+\DoxyCodeLine{34 \textcolor{comment}{}        cObstacle,  \textcolor{comment}{///< Obstacle cell}}
+\DoxyCodeLine{35 \textcolor{comment}{}        cClose,     \textcolor{comment}{///< Closed/visited cell}}
+\DoxyCodeLine{36 \textcolor{comment}{}        cPath,      \textcolor{comment}{///< Final path cell}}
+\DoxyCodeLine{37 \textcolor{comment}{}        cGoal       \textcolor{comment}{///< Goal cell}}
+\DoxyCodeLine{38 \textcolor{comment}{}    \};}
 
 \end{DoxyCode}
 
@@ -187,43 +189,42 @@ Constructor initializes A$\ast$ algorithm with a reference to the map.
 \end{DoxyParams}
 It prepares all necessary data structures to manage the pathfinding. 
 
-Definition at line 11 of file Astar.\+cpp.
+Definition at line 26 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{12     : \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}(mapRef) \textcolor{comment}{// Reference to the occupancy grid map}}
-\DoxyCodeLine{13 \{}
-\DoxyCodeLine{14     \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}} = \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}.\mbox{\hyperlink{classGridMap_a5dc821c5c3cb7883e62148573d75c57f}{getMapSize}}(); \textcolor{comment}{// Map width (assuming square map)}}
-\DoxyCodeLine{15     \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}} = \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{comment}{// Initialize stateMap with all cells empty}}
-\DoxyCodeLine{18     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<State>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa35b7f7718b60c87d2f7127d9a30377b9}{State::cEmpty}}));}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20     \textcolor{comment}{// Initialize closed list with false flags (unvisited)}}
-\DoxyCodeLine{21     \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<bool>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \textcolor{keyword}{false}));}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{comment}{// Initialize parent map with invalid parent indices}}
-\DoxyCodeLine{24     \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<sf::Vector2i>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \{-\/1, -\/1\}));}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{comment}{// Initialize gScores to infinity (unexplored)}}
-\DoxyCodeLine{27     \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<float>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, std::numeric\_limits<float>::infinity()));}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29     \textcolor{comment}{// Initialize start and goal indices as invalid}}
-\DoxyCodeLine{30     \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} = \{-\/1, -\/1\};}
-\DoxyCodeLine{31     \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}} = \{-\/1, -\/1\};}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{false}; \textcolor{comment}{// No path found yet}}
-\DoxyCodeLine{34     \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{false};  \textcolor{comment}{// Algorithm not finished yet}}
-\DoxyCodeLine{35     \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}.clear(); \textcolor{comment}{// Clear any previous path}}
-\DoxyCodeLine{36 \}}
+\DoxyCodeLine{27     : \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}(mapRef) \textcolor{comment}{// Reference to the occupancy grid map}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}} = \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}.\mbox{\hyperlink{classGridMap_a5dc821c5c3cb7883e62148573d75c57f}{getMapSize}}(); \textcolor{comment}{// Map width (assuming square map)}}
+\DoxyCodeLine{30     \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}} = \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Initialize stateMap with all cells empty}}
+\DoxyCodeLine{33     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<State>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa35b7f7718b60c87d2f7127d9a30377b9}{State::cEmpty}}));}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// Initialize closed list with false flags (unvisited)}}
+\DoxyCodeLine{36     \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<bool>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \textcolor{keyword}{false}));}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{// Initialize parent map with invalid parent indices}}
+\DoxyCodeLine{39     \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<sf::Vector2i>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \{-\/1, -\/1\}));}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{// Initialize gScores to infinity (unexplored)}}
+\DoxyCodeLine{42     \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}.resize(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<float>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, std::numeric\_limits<float>::infinity()));}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{// Initialize start and goal indices as invalid}}
+\DoxyCodeLine{45     \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} = \{-\/1, -\/1\};}
+\DoxyCodeLine{46     \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}} = \{-\/1, -\/1\};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{false}; \textcolor{comment}{// No path found yet}}
+\DoxyCodeLine{49     \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{false};  \textcolor{comment}{// Algorithm not finished yet}}
+\DoxyCodeLine{50     \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}.clear(); \textcolor{comment}{// Clear any previous path}}
+\DoxyCodeLine{51 \}}
 
 \end{DoxyCode}
 
 
 References c\+Empty, closed\+List, final\+Path, finished, Grid\+Map\+::get\+Map\+Size(), goal\+Index, g\+Score, height, map, parent\+Map, path\+Found, start\+Index, state\+Map, and width.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -258,47 +259,47 @@ Can be used for animated A$\ast$ visualizations.
 \end{DoxyParams}
 
 
-Definition at line 247 of file Astar.\+cpp.
+Definition at line 278 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{247                                                                                         \{}
-\DoxyCodeLine{248     \textcolor{keywordtype}{float} cellSize = metersPerCell * pixelsPerMeter;}
-\DoxyCodeLine{249     \textcolor{keywordtype}{float} offsetX = -\/(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}} / 2.f) * cellSize;}
-\DoxyCodeLine{250     \textcolor{keywordtype}{float} offsetY = -\/(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}} / 2.f) * cellSize;}
-\DoxyCodeLine{251 }
-\DoxyCodeLine{252     sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));}
-\DoxyCodeLine{253     cellShape.setOutlineThickness(0);}
-\DoxyCodeLine{254 }
-\DoxyCodeLine{255     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}; ++y) \{}
-\DoxyCodeLine{256         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}; ++x) \{}
-\DoxyCodeLine{257             \textcolor{keywordflow}{switch} (\mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[y][x]) \{}
-\DoxyCodeLine{258                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daab6c8f732832f3bf155809fa49bdc9696}{State::cStart}}:}
-\DoxyCodeLine{259                     cellShape.setFillColor(sf::Color::Red);}
-\DoxyCodeLine{260                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{261                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa35b7f7718b60c87d2f7127d9a30377b9}{State::cEmpty}}:}
-\DoxyCodeLine{262                     \textcolor{keywordflow}{continue}; \textcolor{comment}{// Skip empty cells}}
-\DoxyCodeLine{263                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daae7bd6483b910043cae3fef7c8c356570}{State::cObstacle}}:}
-\DoxyCodeLine{264                     cellShape.setFillColor(sf::Color::Black);}
-\DoxyCodeLine{265                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{266                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa0c1c39aabc78cf846a186d036305cb46}{State::cClose}}:}
-\DoxyCodeLine{267                     cellShape.setFillColor(sf::Color(100, 149, 237, 180)); \textcolor{comment}{// Light blue, semi-\/transparent}}
-\DoxyCodeLine{268                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{269                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaffc0a369ed29715363fe1a62507f46be}{State::cPath}}:}
-\DoxyCodeLine{270                     cellShape.setFillColor(sf::Color::Yellow);}
-\DoxyCodeLine{271                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{272                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaf1df3e602b5e1a30d8c6c8a820a6a7d0}{State::cGoal}}:}
-\DoxyCodeLine{273                     cellShape.setFillColor(sf::Color::Green);}
-\DoxyCodeLine{274                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{275                 \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{276                     \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{277             \}}
-\DoxyCodeLine{278 }
-\DoxyCodeLine{279             cellShape.setPosition(offsetX + x * cellSize, offsetY + y * cellSize);}
-\DoxyCodeLine{280             target.draw(cellShape);}
-\DoxyCodeLine{281         \}}
-\DoxyCodeLine{282     \}}
-\DoxyCodeLine{283 \}}
+\DoxyCodeLine{278                                                                                         \{}
+\DoxyCodeLine{279     \textcolor{keywordtype}{float} cellSize = metersPerCell * pixelsPerMeter;}
+\DoxyCodeLine{280     \textcolor{keywordtype}{float} offsetX = -\/(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}} / 2.f) * cellSize;}
+\DoxyCodeLine{281     \textcolor{keywordtype}{float} offsetY = -\/(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}} / 2.f) * cellSize;}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283     sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));}
+\DoxyCodeLine{284     cellShape.setOutlineThickness(0);}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}; ++y) \{}
+\DoxyCodeLine{287         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}; ++x) \{}
+\DoxyCodeLine{288             \textcolor{keywordflow}{switch} (\mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[y][x]) \{}
+\DoxyCodeLine{289                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daab6c8f732832f3bf155809fa49bdc9696}{State::cStart}}:}
+\DoxyCodeLine{290                     cellShape.setFillColor(sf::Color::Red);}
+\DoxyCodeLine{291                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{292                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa35b7f7718b60c87d2f7127d9a30377b9}{State::cEmpty}}:}
+\DoxyCodeLine{293                     \textcolor{keywordflow}{continue}; \textcolor{comment}{// Skip empty cells}}
+\DoxyCodeLine{294                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daae7bd6483b910043cae3fef7c8c356570}{State::cObstacle}}:}
+\DoxyCodeLine{295                     cellShape.setFillColor(sf::Color::Black);}
+\DoxyCodeLine{296                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{297                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa0c1c39aabc78cf846a186d036305cb46}{State::cClose}}:}
+\DoxyCodeLine{298                     cellShape.setFillColor(sf::Color(100, 149, 237, 180)); \textcolor{comment}{// Light blue, semi-\/transparent}}
+\DoxyCodeLine{299                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{300                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaffc0a369ed29715363fe1a62507f46be}{State::cPath}}:}
+\DoxyCodeLine{301                     cellShape.setFillColor(sf::Color::Yellow);}
+\DoxyCodeLine{302                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{303                 \textcolor{keywordflow}{case} \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaf1df3e602b5e1a30d8c6c8a820a6a7d0}{State::cGoal}}:}
+\DoxyCodeLine{304                     cellShape.setFillColor(sf::Color::Green);}
+\DoxyCodeLine{305                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{306                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{307                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{308             \}}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310             cellShape.setPosition(offsetX + x * cellSize, offsetY + y * cellSize);}
+\DoxyCodeLine{311             target.draw(cellShape);}
+\DoxyCodeLine{312         \}}
+\DoxyCodeLine{313     \}}
+\DoxyCodeLine{314 \}}
 
 \end{DoxyCode}
 
@@ -309,8 +310,7 @@ References c\+Close, c\+Empty, c\+Goal, c\+Obstacle, c\+Path, c\+Start, height, 
 
 Referenced by Map\+Viewer\+::render().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -340,30 +340,30 @@ Draws the final path found by the algorithm.
 \end{DoxyParams}
 
 
-Definition at line 291 of file Astar.\+cpp.
+Definition at line 322 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{291                                                                                                  \{}
-\DoxyCodeLine{292     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}.empty()) \textcolor{keywordflow}{return}; \textcolor{comment}{// No path to draw}}
-\DoxyCodeLine{293 }
-\DoxyCodeLine{294     \textcolor{keywordtype}{float} cellSize = metersPerCell * pixelsPerMeter;}
-\DoxyCodeLine{295     \textcolor{keywordtype}{float} offsetX = -\/(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}} / 2.f) * cellSize;}
-\DoxyCodeLine{296     \textcolor{keywordtype}{float} offsetY = -\/(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}} / 2.f) * cellSize;}
-\DoxyCodeLine{297 }
-\DoxyCodeLine{298     sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));}
-\DoxyCodeLine{299     cellShape.setFillColor(sf::Color::Yellow);}
-\DoxyCodeLine{300 }
-\DoxyCodeLine{301     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& pos : \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}) \{}
-\DoxyCodeLine{302         \textcolor{keywordflow}{if} (pos == \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} || pos == \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}) \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{303 }
-\DoxyCodeLine{304         \textcolor{keywordtype}{float} x = offsetX + pos.x * cellSize;}
-\DoxyCodeLine{305         \textcolor{keywordtype}{float} y = offsetY + pos.y * cellSize;}
-\DoxyCodeLine{306         cellShape.setPosition(x, y);}
-\DoxyCodeLine{307 }
-\DoxyCodeLine{308         target.draw(cellShape);}
-\DoxyCodeLine{309     \}}
-\DoxyCodeLine{310 \}}
+\DoxyCodeLine{322                                                                                                  \{}
+\DoxyCodeLine{323     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}.empty()) \textcolor{keywordflow}{return}; \textcolor{comment}{// No path to draw}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{keywordtype}{float} cellSize = metersPerCell * pixelsPerMeter;}
+\DoxyCodeLine{326     \textcolor{keywordtype}{float} offsetX = -\/(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}} / 2.f) * cellSize;}
+\DoxyCodeLine{327     \textcolor{keywordtype}{float} offsetY = -\/(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}} / 2.f) * cellSize;}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329     sf::RectangleShape cellShape(sf::Vector2f(cellSize, cellSize));}
+\DoxyCodeLine{330     cellShape.setFillColor(sf::Color::Blue);}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& pos : \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}) \{}
+\DoxyCodeLine{333         \textcolor{keywordflow}{if} (pos == \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} || pos == \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335         \textcolor{keywordtype}{float} x = offsetX + pos.x * cellSize;}
+\DoxyCodeLine{336         \textcolor{keywordtype}{float} y = offsetY + pos.y * cellSize;}
+\DoxyCodeLine{337         cellShape.setPosition(x, y);}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339         target.draw(cellShape);}
+\DoxyCodeLine{340     \}}
+\DoxyCodeLine{341 \}}
 
 \end{DoxyCode}
 
@@ -374,8 +374,7 @@ References final\+Path, goal\+Index, height, start\+Index, and width.
 
 Referenced by Map\+Viewer\+::render().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -411,17 +410,17 @@ Vector of cell positions along the path.
 \end{DoxyReturn}
 
 
-Definition at line 193 of file Astar.\+cpp.
+Definition at line 224 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{193                                       \{}
-\DoxyCodeLine{194     \mbox{\hyperlink{classAStar_addce30fb4dd4735c1e0275b93324b2cc}{start}}();}
-\DoxyCodeLine{195     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}}) \{}
-\DoxyCodeLine{196         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classAStar_a0c3d34d32a97828112f6ee453e75121b}{step}}()) \textcolor{keywordflow}{break};}
-\DoxyCodeLine{197     \}}
-\DoxyCodeLine{198     \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} ? \mbox{\hyperlink{classAStar_afbd7e300de5b7e171633d4be1982ce07}{reconstructPath}}(\mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}}) : std::vector<sf::Vector2i>\{\};}
-\DoxyCodeLine{199 \}}
+\DoxyCodeLine{224                                       \{}
+\DoxyCodeLine{225     \mbox{\hyperlink{classAStar_addce30fb4dd4735c1e0275b93324b2cc}{start}}();}
+\DoxyCodeLine{226     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}}) \{}
+\DoxyCodeLine{227         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classAStar_a0c3d34d32a97828112f6ee453e75121b}{step}}()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{228     \}}
+\DoxyCodeLine{229     \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} ? \mbox{\hyperlink{classAStar_afbd7e300de5b7e171633d4be1982ce07}{reconstructPath}}(\mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}}) : std::vector<sf::Vector2i>\{\};}
+\DoxyCodeLine{230 \}}
 
 \end{DoxyCode}
 
@@ -448,11 +447,11 @@ Returns the current node being evaluated (useful for debugging or animation).
 
 
 
-Definition at line 64 of file A\+Star.\+hpp.
+Definition at line 78 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{64 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}; \}}
+\DoxyCodeLine{78 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}; \}}
 
 \end{DoxyCode}
 
@@ -469,7 +468,7 @@ References current\+Node.
 
 Returns the valid neighbor cells of a given node. 
 
-Returns valid neighbors around a node in 8 directions.
+Returns valid neighbors around a node in 4 directions.
 
 
 \begin{DoxyParams}{Parameters}
@@ -481,29 +480,31 @@ Vector of neighbor cell coordinates.
 \end{DoxyReturn}
 
 
-Definition at line 43 of file Astar.\+cpp.
+Definition at line 58 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{43                                                                 \{}
-\DoxyCodeLine{44     \textcolor{comment}{// Directions: N, NE, E, SE, S, SW, W, NW}}
-\DoxyCodeLine{45     \textcolor{keyword}{static} \textcolor{keyword}{const} std::vector<sf::Vector2i> directions = \{}
-\DoxyCodeLine{46         \{ 0, -\/1\}, \{ 1, -\/1\}, \{ 1,  0\}, \{ 1,  1\},}
-\DoxyCodeLine{47         \{ 0,  1\}, \{-\/1,  1\}, \{-\/1,  0\}, \{-\/1, -\/1\}}
-\DoxyCodeLine{48     \};}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50     std::vector<sf::Vector2i> neighbors;}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& dir : directions) \{}
-\DoxyCodeLine{53         \textcolor{keywordtype}{int} nx = node.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}} + dir.x;}
-\DoxyCodeLine{54         \textcolor{keywordtype}{int} ny = node.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}} + dir.y;}
-\DoxyCodeLine{55         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a07010836e7ee9f2b37854031b872cc52}{isValidCell}}(nx, ny)) \{}
-\DoxyCodeLine{56             neighbors.emplace\_back(nx, ny);}
-\DoxyCodeLine{57         \}}
-\DoxyCodeLine{58     \}}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60     \textcolor{keywordflow}{return} neighbors;}
-\DoxyCodeLine{61 \}}
+\DoxyCodeLine{58                                                                 \{}
+\DoxyCodeLine{59     \textcolor{comment}{// Directions: N, E, S, W}}
+\DoxyCodeLine{60     \textcolor{keyword}{static} \textcolor{keyword}{const} std::vector<sf::Vector2i> directions = \{}
+\DoxyCodeLine{61         \{ 0, -\/1\}, \textcolor{comment}{// North}}
+\DoxyCodeLine{62         \{ 1,  0\}, \textcolor{comment}{// East}}
+\DoxyCodeLine{63         \{ 0,  1\}, \textcolor{comment}{// South}}
+\DoxyCodeLine{64         \{-\/1,  0\}  \textcolor{comment}{// West}}
+\DoxyCodeLine{65     \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     std::vector<sf::Vector2i> neighbors;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& dir : directions) \{}
+\DoxyCodeLine{70         \textcolor{keywordtype}{int} nx = node.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}} + dir.x;}
+\DoxyCodeLine{71         \textcolor{keywordtype}{int} ny = node.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}} + dir.y;}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a07010836e7ee9f2b37854031b872cc52}{isValidCell}}(nx, ny)) \{}
+\DoxyCodeLine{73             neighbors.emplace\_back(nx, ny);}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} neighbors;}
+\DoxyCodeLine{78 \}}
 
 \end{DoxyCode}
 
@@ -514,16 +515,14 @@ References is\+Valid\+Cell(), Node\+::x, and Node\+::y.
 
 Referenced by step().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=331pt]{classAStar_ad334648b94a68f85318faee06bdad851_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -542,11 +541,11 @@ Returns the current internal state map used for visualization.
 
 
 
-Definition at line 67 of file A\+Star.\+hpp.
+Definition at line 81 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{67 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}; \}}
+\DoxyCodeLine{81 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}; \}}
 
 \end{DoxyCode}
 
@@ -565,11 +564,11 @@ Returns whether the algorithm has finished executing.
 
 
 
-Definition at line 58 of file A\+Star.\+hpp.
+Definition at line 72 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{58 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}}; \}}
+\DoxyCodeLine{72 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}}; \}}
 
 \end{DoxyCode}
 
@@ -580,8 +579,7 @@ References finished.
 
 Referenced by Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -600,11 +598,11 @@ Returns whether a path was found from start to goal.
 
 
 
-Definition at line 61 of file A\+Star.\+hpp.
+Definition at line 75 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{61 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}}; \}}
+\DoxyCodeLine{75 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}}; \}}
 
 \end{DoxyCode}
 
@@ -623,13 +621,13 @@ Checks if the given cell coordinates are within the grid bounds.
 
 
 
-Definition at line 105 of file A\+Star.\+hpp.
+Definition at line 123 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{105                                          \{}
-\DoxyCodeLine{106         \textcolor{keywordflow}{return} x >= 0 \&\& x < width \&\& y >= 0 \&\& y < \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}};}
-\DoxyCodeLine{107     \}}
+\DoxyCodeLine{123                                          \{}
+\DoxyCodeLine{124         \textcolor{keywordflow}{return} x >= 0 \&\& x < width \&\& y >= 0 \&\& y < \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}};}
+\DoxyCodeLine{125     \}}
 
 \end{DoxyCode}
 
@@ -640,12 +638,40 @@ References height.
 
 Referenced by get\+Neighbors().
 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAStar_a07010836e7ee9f2b37854031b872cc52_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAStar_ab2c50db1e384318e1ae2f41aa48fe92f}\label{classAStar_ab2c50db1e384318e1ae2f41aa48fe92f}} 
+\index{AStar@{AStar}!manhattanHeuristic@{manhattanHeuristic}}
+\index{manhattanHeuristic@{manhattanHeuristic}!AStar@{AStar}}
+\doxysubsubsection{\texorpdfstring{manhattanHeuristic()}{manhattanHeuristic()}}
+{\footnotesize\ttfamily double A\+Star\+::manhattan\+Heuristic (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 118 of file A\+Star.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118                                                             \{}
+\DoxyCodeLine{119             \textcolor{keywordflow}{return} std::abs(x1 -\/ x2) + std::abs(y1 -\/ y2);}
+\DoxyCodeLine{120     \}}
+
+\end{DoxyCode}
+
+
+Referenced by step().
+
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classAStar_a07010836e7ee9f2b37854031b872cc52_icgraph}
+\includegraphics[width=350pt]{classAStar_ab2c50db1e384318e1ae2f41aa48fe92f_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classAStar_aa9a1a3a53f000075f201cf6373e8c912}\label{classAStar_aa9a1a3a53f000075f201cf6373e8c912}} 
@@ -660,20 +686,20 @@ Octile distance heuristic (better suited for 8-\/connected grids).
 
 
 
-Definition at line 98 of file A\+Star.\+hpp.
+Definition at line 112 of file A\+Star.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{98                                                            \{}
-\DoxyCodeLine{99         \textcolor{keywordtype}{int} dx = std::abs(x2 -\/ x1);}
-\DoxyCodeLine{100         \textcolor{keywordtype}{int} dy = std::abs(y2 -\/ y1);}
-\DoxyCodeLine{101         \textcolor{keywordflow}{return} std::max(dx, dy) + (std::sqrt(2.0) -\/ 1.0) * std::min(dx, dy);}
-\DoxyCodeLine{102     \}}
+\DoxyCodeLine{112                                                            \{}
+\DoxyCodeLine{113         \textcolor{keywordtype}{int} dx = std::abs(x2 -\/ x1);}
+\DoxyCodeLine{114         \textcolor{keywordtype}{int} dy = std::abs(y2 -\/ y1);}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} std::max(dx, dy) + (std::sqrt(2.0) -\/ 1.0) * std::min(dx, dy);}
+\DoxyCodeLine{116     \}}
 
 \end{DoxyCode}
 
 
-Referenced by start(), and step().
+Referenced by start().
 
 Here is the caller graph for this function\+:
 \nopagebreak
@@ -705,22 +731,22 @@ Vector of cell positions representing the path.
 \end{DoxyReturn}
 
 
-Definition at line 228 of file Astar.\+cpp.
+Definition at line 259 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{228                                                                       \{}
-\DoxyCodeLine{229     std::vector<sf::Vector2i> path;}
-\DoxyCodeLine{230     sf::Vector2i current = \{endNode.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}, endNode.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}\};}
-\DoxyCodeLine{231 }
-\DoxyCodeLine{232     \textcolor{keywordflow}{while} (current != sf::Vector2i(-\/1, -\/1)) \{}
-\DoxyCodeLine{233         path.push\_back(current);}
-\DoxyCodeLine{234         current = \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}[current.y][current.x];}
-\DoxyCodeLine{235     \}}
-\DoxyCodeLine{236 }
-\DoxyCodeLine{237     std::reverse(path.begin(), path.end());}
-\DoxyCodeLine{238     \textcolor{keywordflow}{return} path;}
-\DoxyCodeLine{239 \}}
+\DoxyCodeLine{259                                                                       \{}
+\DoxyCodeLine{260     std::vector<sf::Vector2i> path;}
+\DoxyCodeLine{261     sf::Vector2i current = \{endNode.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}, endNode.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}\};}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263     \textcolor{keywordflow}{while} (current != sf::Vector2i(-\/1, -\/1)) \{}
+\DoxyCodeLine{264         path.push\_back(current);}
+\DoxyCodeLine{265         current = \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}[current.y][current.x];}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268     std::reverse(path.begin(), path.end());}
+\DoxyCodeLine{269     \textcolor{keywordflow}{return} path;}
+\DoxyCodeLine{270 \}}
 
 \end{DoxyCode}
 
@@ -731,8 +757,7 @@ References parent\+Map, Node\+::x, and Node\+::y.
 
 Referenced by find\+Path(), and step().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -755,40 +780,40 @@ Prepares internal structures and sets start/goal positions.
 
 Resets all data structures and prepares the start node. 
 
-Definition at line 67 of file Astar.\+cpp.
+Definition at line 85 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{67                   \{}
-\DoxyCodeLine{68     \textcolor{comment}{// Verify start and goal points are set}}
-\DoxyCodeLine{69     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x == -\/1 || \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x == -\/1) \{}
-\DoxyCodeLine{70         std::cerr << \textcolor{stringliteral}{"Start or Goal not set properly.\(\backslash\)n"};}
-\DoxyCodeLine{71         \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{72         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{73     \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75     \textcolor{comment}{// Reset all pathfinding structures}}
-\DoxyCodeLine{76     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<State>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa35b7f7718b60c87d2f7127d9a30377b9}{State::cEmpty}}));}
-\DoxyCodeLine{77     \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<bool>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \textcolor{keyword}{false}));}
-\DoxyCodeLine{78     \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<sf::Vector2i>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \{-\/1, -\/1\}));}
-\DoxyCodeLine{79     \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<float>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, std::numeric\_limits<float>::infinity()));}
-\DoxyCodeLine{80     \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}} = \{\}; \textcolor{comment}{// Clear priority queue}}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82     \textcolor{comment}{// Mark start and goal on stateMap}}
-\DoxyCodeLine{83     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y][\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daab6c8f732832f3bf155809fa49bdc9696}{State::cStart}};}
-\DoxyCodeLine{84     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[\mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y][\mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaf1df3e602b5e1a30d8c6c8a820a6a7d0}{State::cGoal}};}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86     \textcolor{comment}{// Initialize the start node}}
-\DoxyCodeLine{87     \mbox{\hyperlink{classNode}{Node}} startNode(\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x, \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y);}
-\DoxyCodeLine{88     startNode.gCost = 0;}
-\DoxyCodeLine{89     startNode.hCost = \mbox{\hyperlink{classAStar_aa9a1a3a53f000075f201cf6373e8c912}{octileHeuristic}}(\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x, \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y);}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91     \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.push(startNode);}
-\DoxyCodeLine{92     \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y][\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x] = 0.0f;}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94     \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{95     \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{96 \}}
+\DoxyCodeLine{85                   \{}
+\DoxyCodeLine{86     \textcolor{comment}{// Verify start and goal points are set}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x == -\/1 || \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x == -\/1) \{}
+\DoxyCodeLine{88         std::cerr << \textcolor{stringliteral}{"Start or Goal not set properly.\(\backslash\)n"};}
+\DoxyCodeLine{89         \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{comment}{// Reset all pathfinding structures}}
+\DoxyCodeLine{94     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<State>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa35b7f7718b60c87d2f7127d9a30377b9}{State::cEmpty}}));}
+\DoxyCodeLine{95     \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<bool>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \textcolor{keyword}{false}));}
+\DoxyCodeLine{96     \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<sf::Vector2i>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, \{-\/1, -\/1\}));}
+\DoxyCodeLine{97     \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}.assign(\mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}, std::vector<float>(\mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}, std::numeric\_limits<float>::infinity()));}
+\DoxyCodeLine{98     \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}} = \{\}; \textcolor{comment}{// Clear priority queue}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{comment}{// Mark start and goal on stateMap}}
+\DoxyCodeLine{101     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y][\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daab6c8f732832f3bf155809fa49bdc9696}{State::cStart}};}
+\DoxyCodeLine{102     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[\mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y][\mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaf1df3e602b5e1a30d8c6c8a820a6a7d0}{State::cGoal}};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{comment}{// Initialize the start node}}
+\DoxyCodeLine{105     \mbox{\hyperlink{classNode}{Node}} startNode(\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x, \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y);}
+\DoxyCodeLine{106     startNode.gCost = 0;}
+\DoxyCodeLine{107     startNode.hCost = \mbox{\hyperlink{classAStar_aa9a1a3a53f000075f201cf6373e8c912}{octileHeuristic}}(\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x, \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.push(startNode);}
+\DoxyCodeLine{110     \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.y][\mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}}.x] = 0.0f;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{113     \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{114 \}}
 
 \end{DoxyCode}
 
@@ -799,16 +824,14 @@ References c\+Empty, c\+Goal, closed\+List, c\+Start, finished, Node\+::g\+Cost,
 
 Referenced by find\+Path(), and Map\+Viewer\+::\+Map\+Viewer().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=306pt]{classAStar_addce30fb4dd4735c1e0275b93324b2cc_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -834,101 +857,112 @@ true if more steps are needed; false if finished.
 \end{DoxyReturn}
 
 
-Definition at line 102 of file Astar.\+cpp.
+Definition at line 120 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{102                  \{}
-\DoxyCodeLine{103     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}}) \{}
-\DoxyCodeLine{104         std::cout << \textcolor{stringliteral}{"[DEBUG] finished == true, exiting step().\(\backslash\)n"};}
-\DoxyCodeLine{105         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{106     \}}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.empty()) \{}
-\DoxyCodeLine{109         \textcolor{comment}{// No nodes left to explore, path not found}}
-\DoxyCodeLine{110         \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{111         \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{112         std::cout << \textcolor{stringliteral}{"[DEBUG] openList empty, no path found.\(\backslash\)n"};}
-\DoxyCodeLine{113         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{114     \}}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116     \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}} = \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.top();}
-\DoxyCodeLine{117     \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.pop();}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{119     std::cout << \textcolor{stringliteral}{"[DEBUG] Processing node ("} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}} << \textcolor{stringliteral}{", "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}} }
-\DoxyCodeLine{120               << \textcolor{stringliteral}{") gCost: "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} }
-\DoxyCodeLine{121               << \textcolor{stringliteral}{", hCost: "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}} }
-\DoxyCodeLine{122               << \textcolor{stringliteral}{", fCost: "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}() << \textcolor{stringliteral}{"\(\backslash\)n"};}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}][\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}]) \{}
-\DoxyCodeLine{125         std::cout << \textcolor{stringliteral}{"[DEBUG] Node already closed, skipping.\(\backslash\)n"};}
-\DoxyCodeLine{126         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{127     \}}
-\DoxyCodeLine{128 }
-\DoxyCodeLine{129     \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}][\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}] = \textcolor{keyword}{true};}
-\DoxyCodeLine{130     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}][\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa0c1c39aabc78cf846a186d036305cb46}{State::cClose}};}
-\DoxyCodeLine{131 }
-\DoxyCodeLine{132     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}} == \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x \&\& \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}} == \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y) \{}
-\DoxyCodeLine{133         \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{134         \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{135         \mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}} = \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}};}
-\DoxyCodeLine{136 }
-\DoxyCodeLine{137         std::cout << \textcolor{stringliteral}{"[DEBUG] Goal node reached.\(\backslash\)n"};}
-\DoxyCodeLine{138 }
-\DoxyCodeLine{139         \textcolor{comment}{// Mark the path cells (except start/goal)}}
-\DoxyCodeLine{140         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& pos : \mbox{\hyperlink{classAStar_afbd7e300de5b7e171633d4be1982ce07}{reconstructPath}}(\mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}})) \{}
-\DoxyCodeLine{141             \textcolor{keywordflow}{if} (pos != \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} \&\& pos != \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}) \{}
-\DoxyCodeLine{142                 \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[pos.y][pos.x] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaffc0a369ed29715363fe1a62507f46be}{State::cPath}};}
-\DoxyCodeLine{143                 std::cout << \textcolor{stringliteral}{"[DEBUG] Marking path cell ("} << pos.x << \textcolor{stringliteral}{", "} << pos.y << \textcolor{stringliteral}{").\(\backslash\)n"};}
-\DoxyCodeLine{144             \}}
-\DoxyCodeLine{145         \}}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147         \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}} = \mbox{\hyperlink{classAStar_afbd7e300de5b7e171633d4be1982ce07}{reconstructPath}}(\mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}});}
-\DoxyCodeLine{148         std::cout << \textcolor{stringliteral}{"Path to goal reached\(\backslash\)n"};}
-\DoxyCodeLine{149         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{150     \}}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152     \textcolor{comment}{// Explore neighbors}}
-\DoxyCodeLine{153     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& neighborPos : \mbox{\hyperlink{classAStar_ad334648b94a68f85318faee06bdad851}{getNeighbors}}(\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}})) \{}
-\DoxyCodeLine{154         \textcolor{keywordtype}{int} nx = neighborPos.x;}
-\DoxyCodeLine{155         \textcolor{keywordtype}{int} ny = neighborPos.y;}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{157         \textcolor{keywordtype}{int} occupancy = \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}.\mbox{\hyperlink{classGridMap_a22d7a74bbf3b6a4663860f76e9cd4019}{isOccupied}}(nx, ny);}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159         std::cout << \textcolor{stringliteral}{"[DEBUG] Neighbor ("} << nx << \textcolor{stringliteral}{", "} << ny << \textcolor{stringliteral}{") occupancy: "} << occupancy}
-\DoxyCodeLine{160                   << \textcolor{stringliteral}{", closed: "} << \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[ny][nx]}
-\DoxyCodeLine{161                   << \textcolor{stringliteral}{", current gScore: "} << \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[ny][nx] << \textcolor{stringliteral}{"\(\backslash\)n"};}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[ny][nx] || occupancy == 1) \{}
-\DoxyCodeLine{164             std::cout << \textcolor{stringliteral}{"[DEBUG] Neighbor discarded.\(\backslash\)n"};}
-\DoxyCodeLine{165             \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{166         \}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168         \textcolor{keywordtype}{float} tentativeG = \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} + \mbox{\hyperlink{classAStar_aa9a1a3a53f000075f201cf6373e8c912}{octileHeuristic}}(\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}, \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}, nx, ny);}
-\DoxyCodeLine{169 }
-\DoxyCodeLine{170         std::cout << \textcolor{stringliteral}{"[DEBUG] tentativeG for ("} << nx << \textcolor{stringliteral}{", "} << ny << \textcolor{stringliteral}{"): "} << tentativeG << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{120                  \{}
+\DoxyCodeLine{121     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}}) \{}
+\DoxyCodeLine{122         std::cout << \textcolor{stringliteral}{"[DEBUG] Pathfinding finished; skipping step.\(\backslash\)n"};}
+\DoxyCodeLine{123         sleep(1);}
+\DoxyCodeLine{124         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.empty()) \{}
+\DoxyCodeLine{128         \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{129         \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{130         std::cout << \textcolor{stringliteral}{"[DEBUG] Open list empty — no path found.\(\backslash\)n"};}
+\DoxyCodeLine{131         sleep(1);}
+\DoxyCodeLine{132         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}} = \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.top();}
+\DoxyCodeLine{136     \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.pop();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     std::cout << \textcolor{stringliteral}{"\(\backslash\)n[STEP] Expanding node ("} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}} << \textcolor{stringliteral}{", "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}} << \textcolor{stringliteral}{") "}}
+\DoxyCodeLine{139               << \textcolor{stringliteral}{"gCost: "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} << \textcolor{stringliteral}{", hCost: "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}} }
+\DoxyCodeLine{140               << \textcolor{stringliteral}{", fCost: "} << \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}() << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{141     sleep(1);}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}][\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}]) \{}
+\DoxyCodeLine{144         std::cout << \textcolor{stringliteral}{"[DEBUG] Node already closed, skipping.\(\backslash\)n"};}
+\DoxyCodeLine{145         sleep(1);}
+\DoxyCodeLine{146         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}][\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}] = \textcolor{keyword}{true};}
+\DoxyCodeLine{150     \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}][\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daa0c1c39aabc78cf846a186d036305cb46}{State::cClose}};}
+\DoxyCodeLine{151     std::cout << \textcolor{stringliteral}{"[DEBUG] Marked node as closed.\(\backslash\)n"};}
+\DoxyCodeLine{152     sleep(1);}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}} == \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x \&\& \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}} == \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y) \{}
+\DoxyCodeLine{155         \mbox{\hyperlink{classAStar_aa3c1ec2b5ef9cab60c9060280482299f}{finished}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{156         \mbox{\hyperlink{classAStar_a71dbff5c3f8a425a2af6eeeaa672f89a}{pathFound}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{157         \mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}} = \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}};}
+\DoxyCodeLine{158         std::cout << \textcolor{stringliteral}{"[SUCCESS] Goal reached!\(\backslash\)n"};}
+\DoxyCodeLine{159         sleep(1);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}} = \mbox{\hyperlink{classAStar_afbd7e300de5b7e171633d4be1982ce07}{reconstructPath}}(\mbox{\hyperlink{classAStar_a4c85a588212ce96ad9d96319ae7df093}{goalNode}});}
+\DoxyCodeLine{162         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& pos : \mbox{\hyperlink{classAStar_a156f0521f82be755d4ab75824e900f98}{finalPath}}) \{}
+\DoxyCodeLine{163             \textcolor{keywordflow}{if} (pos != \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} \&\& pos != \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}) \{}
+\DoxyCodeLine{164                 \mbox{\hyperlink{classAStar_aa2a168cbf8e781a92a5d4c8e5cc8cf91}{stateMap}}[pos.y][pos.x] = \mbox{\hyperlink{classAStar_a631bb69ac99c1139087a436fa6f567daaffc0a369ed29715363fe1a62507f46be}{State::cPath}};}
+\DoxyCodeLine{165                 std::cout << \textcolor{stringliteral}{"[PATH] Marking ("} << pos.x << \textcolor{stringliteral}{", "} << pos.y << \textcolor{stringliteral}{") on path.\(\backslash\)n"};}
+\DoxyCodeLine{166                 sleep(1);}
+\DoxyCodeLine{167             \}}
+\DoxyCodeLine{168         \}}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{170     \}}
 \DoxyCodeLine{171 }
-\DoxyCodeLine{172         \textcolor{keywordflow}{if} (tentativeG < \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[ny][nx]) \{}
-\DoxyCodeLine{173             std::cout << \textcolor{stringliteral}{"[DEBUG] Updating gScore and parent for ("} << nx << \textcolor{stringliteral}{", "} << ny << \textcolor{stringliteral}{").\(\backslash\)n"};}
-\DoxyCodeLine{174             \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[ny][nx] = tentativeG;}
-\DoxyCodeLine{175             \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}[ny][nx] = \{\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}, \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}\};}
-\DoxyCodeLine{176 }
-\DoxyCodeLine{177             \mbox{\hyperlink{classNode}{Node}} neighbor(nx, ny);}
-\DoxyCodeLine{178             neighbor.gCost = tentativeG;}
-\DoxyCodeLine{179             neighbor.hCost = \mbox{\hyperlink{classAStar_aa9a1a3a53f000075f201cf6373e8c912}{octileHeuristic}}(nx, ny, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y);}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{181             \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.push(neighbor);}
-\DoxyCodeLine{182             std::cout << \textcolor{stringliteral}{"[DEBUG] Neighbor ("} << nx << \textcolor{stringliteral}{", "} << ny << \textcolor{stringliteral}{") added to openList.\(\backslash\)n"};}
-\DoxyCodeLine{183         \}}
-\DoxyCodeLine{184     \}}
-\DoxyCodeLine{185 }
-\DoxyCodeLine{186     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{187 \}}
+\DoxyCodeLine{172     std::cout << \textcolor{stringliteral}{"[DEBUG] Checking neighbors...\(\backslash\)n"};}
+\DoxyCodeLine{173     sleep(1);}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& neighborPos : \mbox{\hyperlink{classAStar_ad334648b94a68f85318faee06bdad851}{getNeighbors}}(\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}})) \{}
+\DoxyCodeLine{176         \textcolor{keywordtype}{int} nx = neighborPos.x;}
+\DoxyCodeLine{177         \textcolor{keywordtype}{int} ny = neighborPos.y;}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{keywordtype}{int} occupancy = \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}.\mbox{\hyperlink{classGridMap_a22d7a74bbf3b6a4663860f76e9cd4019}{isOccupied}}(nx, ny);}
+\DoxyCodeLine{180         std::cout << \textcolor{stringliteral}{"  Neighbor ("} << nx << \textcolor{stringliteral}{", "} << ny << \textcolor{stringliteral}{"), Occupancy: "} << occupancy}
+\DoxyCodeLine{181                   << \textcolor{stringliteral}{", Closed: "} << \mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[ny][nx]}
+\DoxyCodeLine{182                   << \textcolor{stringliteral}{", gScore: "} << \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[ny][nx] << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{183         sleep(1);}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a48b8a8ee4d3f1ce23ba400b3bf7a8460}{closedList}}[ny][nx] || occupancy == 1) \{}
+\DoxyCodeLine{186             std::cout << \textcolor{stringliteral}{"  [SKIP] Blocked or already closed.\(\backslash\)n"};}
+\DoxyCodeLine{187             sleep(1);}
+\DoxyCodeLine{188             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{189         \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191         \textcolor{keywordtype}{float} tentativeG = \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} + 1.0f;}
+\DoxyCodeLine{192         std::cout << \textcolor{stringliteral}{"  Tentative gCost: "} << tentativeG << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{193         sleep(1);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195         \textcolor{keywordflow}{if} (tentativeG < \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[ny][nx]) \{}
+\DoxyCodeLine{196             std::cout << \textcolor{stringliteral}{"  [UPDATE] Better path found, updating.\(\backslash\)n"};}
+\DoxyCodeLine{197             sleep(1);}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199             \mbox{\hyperlink{classAStar_a2fcf869c6d26c8fe3e7307c41ae71ccc}{gScore}}[ny][nx] = tentativeG;}
+\DoxyCodeLine{200             \mbox{\hyperlink{classAStar_a909401ba38e1c0e7fa8558afb0aecead}{parentMap}}[ny][nx] = \{\mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}, \mbox{\hyperlink{classAStar_a815b9739cf913bf5e7c623b481606b39}{currentNode}}.\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}\};}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202             \mbox{\hyperlink{classNode}{Node}} neighbor(nx, ny);}
+\DoxyCodeLine{203             neighbor.gCost = tentativeG;}
+\DoxyCodeLine{204             neighbor.hCost = \mbox{\hyperlink{classAStar_ab2c50db1e384318e1ae2f41aa48fe92f}{manhattanHeuristic}}(nx, ny, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.x, \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}}.y);}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206             \mbox{\hyperlink{classAStar_adbdcb17d14ce03c2f0f6c1e4df674d2d}{openList}}.push(neighbor);}
+\DoxyCodeLine{207             std::cout << \textcolor{stringliteral}{"  Neighbor added to open list with fCost: "} << neighbor.fCost() << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{208             sleep(1);}
+\DoxyCodeLine{209         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{210             std::cout << \textcolor{stringliteral}{"  [NO UPDATE] Current path is better or equal, skipping.\(\backslash\)n"};}
+\DoxyCodeLine{211             sleep(1);}
+\DoxyCodeLine{212         \}}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{216 \}}
 
 \end{DoxyCode}
 
 
-References c\+Close, closed\+List, c\+Path, current\+Node, Node\+::f\+Cost(), final\+Path, finished, Node\+::g\+Cost, get\+Neighbors(), goal\+Index, goal\+Node, g\+Score, Node\+::h\+Cost, Grid\+Map\+::is\+Occupied(), map, octile\+Heuristic(), open\+List, parent\+Map, path\+Found, reconstruct\+Path(), start\+Index, state\+Map, Node\+::x, and Node\+::y.
+References c\+Close, closed\+List, c\+Path, current\+Node, Node\+::f\+Cost(), final\+Path, finished, Node\+::g\+Cost, get\+Neighbors(), goal\+Index, goal\+Node, g\+Score, Node\+::h\+Cost, Grid\+Map\+::is\+Occupied(), manhattan\+Heuristic(), map, open\+List, parent\+Map, path\+Found, reconstruct\+Path(), start\+Index, state\+Map, Node\+::x, and Node\+::y.
 
 
 
@@ -942,8 +976,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{classAStar_a0c3d34d32a97828112f6ee453e75121b_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -964,28 +997,28 @@ Updates the start and goal positions by scanning the map for \textquotesingle{}s
 
 Should be called if the \mbox{\hyperlink{classGridMap}{Grid\+Map}} is modified (e.\+g., new obstacles). 
 
-Definition at line 204 of file Astar.\+cpp.
+Definition at line 235 of file Astar.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{204                       \{}
-\DoxyCodeLine{205     \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} = \{-\/1, -\/1\};}
-\DoxyCodeLine{206     \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}} = \{-\/1, -\/1\};}
-\DoxyCodeLine{207 }
-\DoxyCodeLine{208     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& grid = \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}.\mbox{\hyperlink{classGridMap_abed9c97e44c2302a1586de01ed369c10}{getGrid}}();}
-\DoxyCodeLine{209     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}; ++y) \{}
-\DoxyCodeLine{210         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}; ++x) \{}
-\DoxyCodeLine{211             \textcolor{keywordtype}{int} cell = grid[y][x];}
-\DoxyCodeLine{212             \textcolor{keywordflow}{if} (cell == \textcolor{charliteral}{'s'}) \{}
-\DoxyCodeLine{213                 \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} = \{x, y\};}
-\DoxyCodeLine{214                 std::cout << \textcolor{stringliteral}{"Updated startIndex: "} << x << \textcolor{stringliteral}{", "} << y << \textcolor{stringliteral}{"\(\backslash\)n"};}
-\DoxyCodeLine{215             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (cell == \textcolor{charliteral}{'g'}) \{}
-\DoxyCodeLine{216                 \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}} = \{x, y\};}
-\DoxyCodeLine{217                 std::cout << \textcolor{stringliteral}{"Updated goalIndex: "} << x << \textcolor{stringliteral}{", "} << y << \textcolor{stringliteral}{"\(\backslash\)n"};}
-\DoxyCodeLine{218             \}}
-\DoxyCodeLine{219         \}}
-\DoxyCodeLine{220     \}}
-\DoxyCodeLine{221 \}}
+\DoxyCodeLine{235                       \{}
+\DoxyCodeLine{236     \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} = \{-\/1, -\/1\};}
+\DoxyCodeLine{237     \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}} = \{-\/1, -\/1\};}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& grid = \mbox{\hyperlink{classAStar_a7424ef556caf4cddbee993260e4dd28a}{map}}.\mbox{\hyperlink{classGridMap_abed9c97e44c2302a1586de01ed369c10}{getGrid}}();}
+\DoxyCodeLine{240     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < \mbox{\hyperlink{classAStar_ac7d15682c3d736be2e80a9ff9b41f226}{height}}; ++y) \{}
+\DoxyCodeLine{241         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classAStar_af187ce122e4f5bcfdf6dbc23bafa6bfa}{width}}; ++x) \{}
+\DoxyCodeLine{242             \textcolor{keywordtype}{int} cell = grid[y][x];}
+\DoxyCodeLine{243             \textcolor{keywordflow}{if} (cell == \textcolor{charliteral}{'s'}) \{}
+\DoxyCodeLine{244                 \mbox{\hyperlink{classAStar_a1f5986299363d5bde70734a5811072e2}{startIndex}} = \{x, y\};}
+\DoxyCodeLine{245                 std::cout << \textcolor{stringliteral}{"Updated startIndex: "} << x << \textcolor{stringliteral}{", "} << y << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{246             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (cell == \textcolor{charliteral}{'g'}) \{}
+\DoxyCodeLine{247                 \mbox{\hyperlink{classAStar_ab1729a2613cbdc04741bfdbce190fb5e}{goalIndex}} = \{x, y\};}
+\DoxyCodeLine{248                 std::cout << \textcolor{stringliteral}{"Updated goalIndex: "} << x << \textcolor{stringliteral}{", "} << y << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{249             \}}
+\DoxyCodeLine{250         \}}
+\DoxyCodeLine{251     \}}
+\DoxyCodeLine{252 \}}
 
 \end{DoxyCode}
 
@@ -996,16 +1029,14 @@ References Grid\+Map\+::get\+Grid(), goal\+Index, height, map, start\+Index, and
 
 Referenced by Map\+Viewer\+::\+Map\+Viewer().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=320pt]{classAStar_afaaae98c48d75edf9479adf38d68affe_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1027,7 +1058,7 @@ Tracks visited nodes.
 
 
 
-Definition at line 86 of file A\+Star.\+hpp.
+Definition at line 100 of file A\+Star.\+hpp.
 
 
 
@@ -1045,7 +1076,7 @@ Referenced by A\+Star(), start(), and step().
 
 
 
-Definition at line 81 of file A\+Star.\+hpp.
+Definition at line 95 of file A\+Star.\+hpp.
 
 
 
@@ -1063,7 +1094,7 @@ Final path from start to goal.
 
 
 
-Definition at line 90 of file A\+Star.\+hpp.
+Definition at line 104 of file A\+Star.\+hpp.
 
 
 
@@ -1081,7 +1112,7 @@ True if the algorithm has completed.
 
 
 
-Definition at line 77 of file A\+Star.\+hpp.
+Definition at line 91 of file A\+Star.\+hpp.
 
 
 
@@ -1099,7 +1130,7 @@ Goal position (grid indices)
 
 
 
-Definition at line 80 of file A\+Star.\+hpp.
+Definition at line 94 of file A\+Star.\+hpp.
 
 
 
@@ -1117,7 +1148,7 @@ Target goal node.
 
 
 
-Definition at line 82 of file A\+Star.\+hpp.
+Definition at line 96 of file A\+Star.\+hpp.
 
 
 
@@ -1135,7 +1166,7 @@ Cost from start to each cell.
 
 
 
-Definition at line 87 of file A\+Star.\+hpp.
+Definition at line 101 of file A\+Star.\+hpp.
 
 
 
@@ -1153,7 +1184,7 @@ Grid height.
 
 
 
-Definition at line 75 of file A\+Star.\+hpp.
+Definition at line 89 of file A\+Star.\+hpp.
 
 
 
@@ -1171,7 +1202,7 @@ Reference to the associated occupancy grid map.
 
 
 
-Definition at line 70 of file A\+Star.\+hpp.
+Definition at line 84 of file A\+Star.\+hpp.
 
 
 
@@ -1189,7 +1220,7 @@ Priority queue for open nodes.
 
 
 
-Definition at line 85 of file A\+Star.\+hpp.
+Definition at line 99 of file A\+Star.\+hpp.
 
 
 
@@ -1207,7 +1238,7 @@ For path reconstruction.
 
 
 
-Definition at line 88 of file A\+Star.\+hpp.
+Definition at line 102 of file A\+Star.\+hpp.
 
 
 
@@ -1225,7 +1256,7 @@ True if a valid path was found.
 
 
 
-Definition at line 76 of file A\+Star.\+hpp.
+Definition at line 90 of file A\+Star.\+hpp.
 
 
 
@@ -1243,7 +1274,7 @@ Start position (grid indices)
 
 
 
-Definition at line 79 of file A\+Star.\+hpp.
+Definition at line 93 of file A\+Star.\+hpp.
 
 
 
@@ -1261,7 +1292,7 @@ State of each cell for visualization.
 
 
 
-Definition at line 89 of file A\+Star.\+hpp.
+Definition at line 103 of file A\+Star.\+hpp.
 
 
 
@@ -1279,7 +1310,7 @@ Grid width.
 
 
 
-Definition at line 74 of file A\+Star.\+hpp.
+Definition at line 88 of file A\+Star.\+hpp.
 
 
 

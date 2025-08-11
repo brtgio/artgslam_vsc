@@ -1,6 +1,6 @@
 <map id="RightClickMapMenu" name="RightClickMapMenu">
-<area shape="rect" id="node1" title="Manages a contextual right&#45;click menu displayed on top of a map. Allows users to set the start and go..." alt="" coords="79,887,257,1272"/>
-<area shape="rect" id="node2" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="5,490,144,773"/>
+<area shape="rect" id="node1" title="Manages a contextual right&#45;click menu displayed on top of a map. Allows users to set the start and go..." alt="" coords="79,843,257,1228"/>
+<area shape="rect" id="node2" href="$classGridMap.html" title="Handles the creation and management of map data." alt="" coords="5,468,144,751"/>
 <area shape="rect" id="node3" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="72,5,264,376"/>
-<area shape="rect" id="node4" href="$classLiveMap.html" title="This class manages live map creation in &quot;live mode&quot;, by dynamically updating the map from incoming RO..." alt="" coords="168,439,360,824"/>
+<area shape="rect" id="node4" href="$classLiveMap.html" title="This class manages live map creation in &quot;live mode&quot;, by dynamically updating the map from incoming RO..." alt="" coords="168,439,360,780"/>
 </map>

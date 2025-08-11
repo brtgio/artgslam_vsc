@@ -1,0 +1,5 @@
+<map id="LiveMap::getRealX" name="LiveMap::getRealX">
+<area shape="rect" id="node1" title="Getters for real&#45;world x coordinates." alt="" coords="460,5,604,32"/>
+<area shape="rect" id="node2" href="$classFileManager.html#aebbfa817fd1a8055c738128a22fe0f6f" title="Opens a file dialog to save the current data (coordinates)." alt="" coords="229,5,412,32"/>
+<area shape="rect" id="node3" href="$classMapViewer.html#a6690a879cd4af2058afccd2920c03c0d" title="Constructor." alt="" coords="5,5,181,32"/>
+</map>

@@ -80,7 +80,7 @@ bool \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{
 \doxysubsection{Detailed Description}
 Manages a contextual right-\/click menu displayed on top of a map. Allows users to set the start and goal positions or clear the grid through T\+G\+UI buttons. 
 
-Definition at line 17 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 31 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -121,24 +121,23 @@ $<$ Load and configure G\+UI widgets
 
 $<$ Connect button event handlers
 
-Definition at line 15 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 29 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16     : \mbox{\hyperlink{classRightClickMapMenu_a59a2bf99b62db3804b2cfe1c02da80f9}{gui}}(guiRef), \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}(mapRef), \mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}(livemapRef)}
-\DoxyCodeLine{17 \{}
-\DoxyCodeLine{18     std::cout << \textcolor{stringliteral}{"📦 RightClickMapMenu: loading..."} << std::endl;}
-\DoxyCodeLine{19     \mbox{\hyperlink{classRightClickMapMenu_ad63b3f74c4414abe368d6580ea5ae099}{setupWidgets}}();    \textcolor{comment}{/**< Load and configure GUI widgets */}}
-\DoxyCodeLine{20     \mbox{\hyperlink{classRightClickMapMenu_add5bb68773931eb8ba5cd455e6847dba}{connectSignals}}();  \textcolor{comment}{/**< Connect button event handlers */}}
-\DoxyCodeLine{21 \}}
+\DoxyCodeLine{30     : \mbox{\hyperlink{classRightClickMapMenu_a59a2bf99b62db3804b2cfe1c02da80f9}{gui}}(guiRef), \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}(mapRef), \mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}(livemapRef)}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     std::cout << \textcolor{stringliteral}{"📦 RightClickMapMenu: loading..."} << std::endl;}
+\DoxyCodeLine{33     \mbox{\hyperlink{classRightClickMapMenu_ad63b3f74c4414abe368d6580ea5ae099}{setupWidgets}}();    \textcolor{comment}{/**< Load and configure GUI widgets */}}
+\DoxyCodeLine{34     \mbox{\hyperlink{classRightClickMapMenu_add5bb68773931eb8ba5cd455e6847dba}{connectSignals}}();  \textcolor{comment}{/**< Connect button event handlers */}}
+\DoxyCodeLine{35 \}}
 
 \end{DoxyCode}
 
 
 References connect\+Signals(), and setup\+Widgets().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -162,71 +161,71 @@ Connects button press signals to their respective logic functions.
 
 Handles setting start/goal points, clearing points, and other button actions. 
 
-Definition at line 159 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 173 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{160 \{}
-\DoxyCodeLine{161     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}}) \{}
-\DoxyCodeLine{162         \mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}}-\/>onPress([\textcolor{keyword}{this}]() \{}
-\DoxyCodeLine{163             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}}) \{}
-\DoxyCodeLine{164                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}.\mbox{\hyperlink{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}{getIsActive}}()) \{}
-\DoxyCodeLine{165                     livemap.setStart(gridIndex\_copy.x, gridIndex\_copy.y);}
-\DoxyCodeLine{166                     std::cout << \textcolor{stringliteral}{"📍 Start set on LiveMap."} << std::endl;}
-\DoxyCodeLine{167                 \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{168                     gridmap.setStart(gridIndex\_copy.x, gridIndex\_copy.y);}
-\DoxyCodeLine{169                     std::cout << \textcolor{stringliteral}{"📍 Start set on GridMap."} << std::endl;}
-\DoxyCodeLine{170                 \}}
-\DoxyCodeLine{171                 \mbox{\hyperlink{classRightClickMapMenu_a466a6a944afb768947c4e2499094f76a}{startIndex}} = \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}};}
-\DoxyCodeLine{172                 \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{173             \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{174                 std::cout << \textcolor{stringliteral}{"⚠️ Start is already active. Clear it first."} << std::endl;}
-\DoxyCodeLine{175             \}}
-\DoxyCodeLine{176             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
-\DoxyCodeLine{177         \});}
-\DoxyCodeLine{178     \}}
-\DoxyCodeLine{179 }
-\DoxyCodeLine{180     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}}) \{}
-\DoxyCodeLine{181         \mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}}-\/>onPress([\textcolor{keyword}{this}]() \{}
-\DoxyCodeLine{182             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}}) \{}
-\DoxyCodeLine{183                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}.\mbox{\hyperlink{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}{getIsActive}}()) \{}
-\DoxyCodeLine{184                     \mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}.\mbox{\hyperlink{classLiveMap_a347e694d1d773cd4b6dae3619ece738e}{setGoal}}(\mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.x, \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.y);}
-\DoxyCodeLine{185                     std::cout << \textcolor{stringliteral}{"🎯 Goal set on LiveMap."} << std::endl;}
-\DoxyCodeLine{186                 \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{187                     \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}.\mbox{\hyperlink{classGridMap_a063197bc2b493578f0da0905a2e7dd90}{setGoal}}(\mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.x, \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.y);}
-\DoxyCodeLine{188                     std::cout << \textcolor{stringliteral}{"🎯 Goal set on GridMap."} << std::endl;}
-\DoxyCodeLine{189                 \}}
-\DoxyCodeLine{190                 \mbox{\hyperlink{classRightClickMapMenu_a9c50be9ab97beb51517f4822b26e5507}{goalIndex}} = \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}};}
-\DoxyCodeLine{191                 \mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{192             \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{193                 std::cout << \textcolor{stringliteral}{"⚠️ Goal is already active. Clear it first."} << std::endl;}
-\DoxyCodeLine{194             \}}
-\DoxyCodeLine{195             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
-\DoxyCodeLine{196         \});}
-\DoxyCodeLine{197     \}}
-\DoxyCodeLine{198 }
-\DoxyCodeLine{199     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}}) \{}
-\DoxyCodeLine{200         \mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}}-\/>onPress([\textcolor{keyword}{this}]() \{}
-\DoxyCodeLine{201             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}}) \{}
-\DoxyCodeLine{202                 \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}.\mbox{\hyperlink{classGridMap_a3d6043e9e2cd951f5df2958b9d13b3e9}{clearSetPoints}}(\mbox{\hyperlink{classRightClickMapMenu_a466a6a944afb768947c4e2499094f76a}{startIndex}});}
-\DoxyCodeLine{203                 \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{204             \}}
-\DoxyCodeLine{205             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}}) \{}
-\DoxyCodeLine{206                 \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}.\mbox{\hyperlink{classGridMap_a3d6043e9e2cd951f5df2958b9d13b3e9}{clearSetPoints}}(\mbox{\hyperlink{classRightClickMapMenu_a9c50be9ab97beb51517f4822b26e5507}{goalIndex}});}
-\DoxyCodeLine{207                 \mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{174 \{}
+\DoxyCodeLine{175     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}}) \{}
+\DoxyCodeLine{176         \mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}}-\/>onPress([\textcolor{keyword}{this}]() \{}
+\DoxyCodeLine{177             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}}) \{}
+\DoxyCodeLine{178                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}.\mbox{\hyperlink{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}{getIsActive}}()) \{}
+\DoxyCodeLine{179                     livemap.setStart(gridIndex\_copy.x, gridIndex\_copy.y);}
+\DoxyCodeLine{180                     std::cout << \textcolor{stringliteral}{"📍 Start set on LiveMap."} << std::endl;}
+\DoxyCodeLine{181                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{182                     gridmap.setStart(gridIndex\_copy.x, gridIndex\_copy.y);}
+\DoxyCodeLine{183                     std::cout << \textcolor{stringliteral}{"📍 Start set on GridMap."} << std::endl;}
+\DoxyCodeLine{184                 \}}
+\DoxyCodeLine{185                 \mbox{\hyperlink{classRightClickMapMenu_a466a6a944afb768947c4e2499094f76a}{startIndex}} = \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}};}
+\DoxyCodeLine{186                 \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{187             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{188                 std::cout << \textcolor{stringliteral}{"⚠️ Start is already active. Clear it first."} << std::endl;}
+\DoxyCodeLine{189             \}}
+\DoxyCodeLine{190             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
+\DoxyCodeLine{191         \});}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}}) \{}
+\DoxyCodeLine{195         \mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}}-\/>onPress([\textcolor{keyword}{this}]() \{}
+\DoxyCodeLine{196             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}}) \{}
+\DoxyCodeLine{197                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}.\mbox{\hyperlink{classLiveMap_ae9af41b07f81f3dc2e021d5dd683093e}{getIsActive}}()) \{}
+\DoxyCodeLine{198                     \mbox{\hyperlink{classRightClickMapMenu_a5f76b1e682cc592524393ab31d193e40}{livemap}}.\mbox{\hyperlink{classLiveMap_a347e694d1d773cd4b6dae3619ece738e}{setGoal}}(\mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.x, \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.y);}
+\DoxyCodeLine{199                     std::cout << \textcolor{stringliteral}{"🎯 Goal set on LiveMap."} << std::endl;}
+\DoxyCodeLine{200                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{201                     \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}.\mbox{\hyperlink{classGridMap_a063197bc2b493578f0da0905a2e7dd90}{setGoal}}(\mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.x, \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}}.y);}
+\DoxyCodeLine{202                     std::cout << \textcolor{stringliteral}{"🎯 Goal set on GridMap."} << std::endl;}
+\DoxyCodeLine{203                 \}}
+\DoxyCodeLine{204                 \mbox{\hyperlink{classRightClickMapMenu_a9c50be9ab97beb51517f4822b26e5507}{goalIndex}} = \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}};}
+\DoxyCodeLine{205                 \mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{206             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{207                 std::cout << \textcolor{stringliteral}{"⚠️ Goal is already active. Clear it first."} << std::endl;}
 \DoxyCodeLine{208             \}}
-\DoxyCodeLine{209             std::cout << \textcolor{stringliteral}{"🧹 Start and Goal cleared."} << std::endl;}
-\DoxyCodeLine{210             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
-\DoxyCodeLine{211         \});}
-\DoxyCodeLine{212     \}}
-\DoxyCodeLine{213 }
-\DoxyCodeLine{214     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}}) \{}
-\DoxyCodeLine{215         \mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}}-\/>onPress([\textcolor{keyword}{this}]() \{}
-\DoxyCodeLine{216             std::cout << \textcolor{stringliteral}{"🧼 Clear View button pressed (no action assigned)."} << std::endl;}
-\DoxyCodeLine{217             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
-\DoxyCodeLine{218         \});}
-\DoxyCodeLine{219     \}}
-\DoxyCodeLine{220 \}}
+\DoxyCodeLine{209             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
+\DoxyCodeLine{210         \});}
+\DoxyCodeLine{211     \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}}) \{}
+\DoxyCodeLine{214         \mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}}-\/>onPress([\textcolor{keyword}{this}]() \{}
+\DoxyCodeLine{215             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}}) \{}
+\DoxyCodeLine{216                 \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}.\mbox{\hyperlink{classGridMap_a3d6043e9e2cd951f5df2958b9d13b3e9}{clearSetPoints}}(\mbox{\hyperlink{classRightClickMapMenu_a466a6a944afb768947c4e2499094f76a}{startIndex}});}
+\DoxyCodeLine{217                 \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}}) \{}
+\DoxyCodeLine{220                 \mbox{\hyperlink{classRightClickMapMenu_ac5ce28e1ee05e5bb113689d8c84fcd1e}{gridmap}}.\mbox{\hyperlink{classGridMap_a3d6043e9e2cd951f5df2958b9d13b3e9}{clearSetPoints}}(\mbox{\hyperlink{classRightClickMapMenu_a9c50be9ab97beb51517f4822b26e5507}{goalIndex}});}
+\DoxyCodeLine{221                 \mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{222             \}}
+\DoxyCodeLine{223             std::cout << \textcolor{stringliteral}{"🧹 Start and Goal cleared."} << std::endl;}
+\DoxyCodeLine{224             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
+\DoxyCodeLine{225         \});}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}}) \{}
+\DoxyCodeLine{229         \mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}}-\/>onPress([\textcolor{keyword}{this}]() \{}
+\DoxyCodeLine{230             std::cout << \textcolor{stringliteral}{"🧼 Clear View button pressed (no action assigned)."} << std::endl;}
+\DoxyCodeLine{231             \mbox{\hyperlink{classRightClickMapMenu_a2c5b4eeacd87606b754a6d190252acef}{hide}}();}
+\DoxyCodeLine{232         \});}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 \}}
 
 \end{DoxyCode}
 
@@ -237,16 +236,14 @@ References clear, Grid\+Map\+::clear\+Set\+Points(), clear\+View, Live\+Map\+::g
 
 Referenced by Map\+Viewer\+::\+Map\+Viewer(), and Right\+Click\+Map\+Menu().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classRightClickMapMenu_add5bb68773931eb8ba5cd455e6847dba_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -283,19 +280,19 @@ true if point is inside menu bounds, false otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 143 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 157 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{144 \{}
-\DoxyCodeLine{145     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147     sf::Vector2f pos = \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>getAbsolutePosition();}
-\DoxyCodeLine{148     sf::Vector2f size = \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>getSize();}
-\DoxyCodeLine{149     sf::FloatRect bounds(pos.x, pos.y, size.x, size.y);}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{151     \textcolor{keywordflow}{return} bounds.contains(point);}
-\DoxyCodeLine{152 \}}
+\DoxyCodeLine{158 \{}
+\DoxyCodeLine{159     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     sf::Vector2f pos = \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>getAbsolutePosition();}
+\DoxyCodeLine{162     sf::Vector2f size = \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>getSize();}
+\DoxyCodeLine{163     sf::FloatRect bounds(pos.x, pos.y, size.x, size.y);}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \textcolor{keywordflow}{return} bounds.contains(point);}
+\DoxyCodeLine{166 \}}
 
 \end{DoxyCode}
 
@@ -306,8 +303,7 @@ References panel.
 
 Referenced by Map\+Viewer\+::process\+Event().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -326,16 +322,16 @@ Hides the context menu.
 
 Hides the right-\/click menu. 
 
-Definition at line 106 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 120 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{107 \{}
-\DoxyCodeLine{108     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \{}
-\DoxyCodeLine{109         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\textcolor{keyword}{false});}
-\DoxyCodeLine{110         \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{111     \}}
-\DoxyCodeLine{112 \}}
+\DoxyCodeLine{121 \{}
+\DoxyCodeLine{122     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \{}
+\DoxyCodeLine{123         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{124         \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126 \}}
 
 \end{DoxyCode}
 
@@ -346,8 +342,7 @@ References panel, and visible.
 
 Referenced by connect\+Signals().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -369,11 +364,11 @@ True if start and goal are active.
 \end{DoxyReturn}
 
 
-Definition at line 75 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 89 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{75 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}} \&\& \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}}; \}}
+\DoxyCodeLine{89 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classRightClickMapMenu_a6f125c644664f10ea03f1598e5942548}{isGoalActive}} \&\& \mbox{\hyperlink{classRightClickMapMenu_a2d270a0a0c7566d7cd7dad30496523b3}{isStartActive}}; \}}
 
 \end{DoxyCode}
 
@@ -397,13 +392,13 @@ true if visible, false otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 132 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 146 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{133 \{}
-\DoxyCodeLine{134     \textcolor{keywordflow}{return} \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}};}
-\DoxyCodeLine{135 \}}
+\DoxyCodeLine{147 \{}
+\DoxyCodeLine{148     \textcolor{keywordflow}{return} \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}};}
+\DoxyCodeLine{149 \}}
 
 \end{DoxyCode}
 
@@ -414,8 +409,7 @@ References visible.
 
 Referenced by Map\+Viewer\+::process\+Event().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -436,62 +430,62 @@ Loads G\+UI widgets from external T\+G\+UI form and applies styles.
 
 Retrieves the R\+OS package path to locate the G\+UI form file, loads widgets into a container, then retrieves and styles the individual buttons. Hides the panel by default. $<$ Hide panel initially
 
-Definition at line 29 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 43 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{30 \{}
-\DoxyCodeLine{31     std::string package\_path = ros::package::getPath(\textcolor{stringliteral}{"artgslam\_vsc"});}
-\DoxyCodeLine{32     std::string formPath = package\_path + \textcolor{stringliteral}{"/assets/forms/Right\_Click\_Menu.txt"};}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34     \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{35         \mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}} = tgui::Group::create();}
-\DoxyCodeLine{36         \mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}}-\/>loadWidgetsFromFile(formPath);}
-\DoxyCodeLine{37         \mbox{\hyperlink{classRightClickMapMenu_a59a2bf99b62db3804b2cfe1c02da80f9}{gui}}.add(\mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}});}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}} = \mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}}-\/>get<tgui::ChildWindow>(\textcolor{stringliteral}{"ChildWindow1"});}
-\DoxyCodeLine{40         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \{}
-\DoxyCodeLine{41             std::cerr << \textcolor{stringliteral}{"❌ 'ChildWindow1' widget not found in form."} << std::endl;}
-\DoxyCodeLine{42             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{43         \}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45         \textcolor{keyword}{auto} layout = \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>get<tgui::VerticalLayout>(\textcolor{stringliteral}{"VerticalLayout1"});}
-\DoxyCodeLine{46         \textcolor{keywordflow}{if} (!layout) \{}
-\DoxyCodeLine{47             std::cerr << \textcolor{stringliteral}{"❌ 'VerticalLayout1' widget not found in panel."} << std::endl;}
-\DoxyCodeLine{48             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{49         \}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51         \mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}}     = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"start"});}
-\DoxyCodeLine{52         \mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}}      = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"goal"});}
-\DoxyCodeLine{53         \mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}}     = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"Clear"});}
-\DoxyCodeLine{54         \mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}} = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"ClearView"});}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}} || !\mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}} || !\mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}} || !\mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}}) \{}
-\DoxyCodeLine{57             std::cerr << \textcolor{stringliteral}{"⚠️ One or more buttons not found in layout."} << std::endl;}
-\DoxyCodeLine{58         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{59             \textcolor{keyword}{auto} applyHoverStyle = [](tgui::Button::Ptr btn) \{}
-\DoxyCodeLine{60                 \textcolor{keyword}{auto} renderer = btn-\/>getRenderer();}
-\DoxyCodeLine{61                 renderer-\/>setBackgroundColor(sf::Color::Transparent);}
-\DoxyCodeLine{62                 renderer-\/>setBackgroundColorHover(sf::Color(0, 120, 215)); \textcolor{comment}{// Windows 10 blue}}
-\DoxyCodeLine{63                 renderer-\/>setTextColor(sf::Color::Black);}
-\DoxyCodeLine{64                 renderer-\/>setTextColorHover(sf::Color::White);}
-\DoxyCodeLine{65                 renderer-\/>setBorderColor(sf::Color::Transparent);}
-\DoxyCodeLine{66                 renderer-\/>setBorderColorHover(sf::Color(0, 120, 215));}
-\DoxyCodeLine{67                 renderer-\/>setBorders(\{1, 1, 1, 1\}); \textcolor{comment}{// 1-\/pixel border}}
-\DoxyCodeLine{68             \};}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     std::string package\_path = ros::package::getPath(\textcolor{stringliteral}{"artgslam\_vsc"});}
+\DoxyCodeLine{46     std::string formPath = package\_path + \textcolor{stringliteral}{"/assets/forms/Right\_Click\_Menu.txt"};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{49         \mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}} = tgui::Group::create();}
+\DoxyCodeLine{50         \mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}}-\/>loadWidgetsFromFile(formPath);}
+\DoxyCodeLine{51         \mbox{\hyperlink{classRightClickMapMenu_a59a2bf99b62db3804b2cfe1c02da80f9}{gui}}.add(\mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}} = \mbox{\hyperlink{classRightClickMapMenu_afc98486aefc667efc9bdf5e20ccaf645}{container}}-\/>get<tgui::ChildWindow>(\textcolor{stringliteral}{"ChildWindow1"});}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \{}
+\DoxyCodeLine{55             std::cerr << \textcolor{stringliteral}{"❌ 'ChildWindow1' widget not found in form."} << std::endl;}
+\DoxyCodeLine{56             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keyword}{auto} layout = \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>get<tgui::VerticalLayout>(\textcolor{stringliteral}{"VerticalLayout1"});}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (!layout) \{}
+\DoxyCodeLine{61             std::cerr << \textcolor{stringliteral}{"❌ 'VerticalLayout1' widget not found in panel."} << std::endl;}
+\DoxyCodeLine{62             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}}     = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"start"});}
+\DoxyCodeLine{66         \mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}}      = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"goal"});}
+\DoxyCodeLine{67         \mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}}     = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"Clear"});}
+\DoxyCodeLine{68         \mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}} = layout-\/>get<tgui::Button>(\textcolor{stringliteral}{"ClearView"});}
 \DoxyCodeLine{69 }
-\DoxyCodeLine{70             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}});}
-\DoxyCodeLine{71             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}});}
-\DoxyCodeLine{72             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}});}
-\DoxyCodeLine{73             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}});}
-\DoxyCodeLine{74         \}}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\textcolor{keyword}{false}); \textcolor{comment}{/**< Hide panel initially */}}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} tgui::Exception\& e) \{}
-\DoxyCodeLine{79         std::cerr << \textcolor{stringliteral}{"❌ Failed to load TGUI form: "} << e.what() << std::endl;}
-\DoxyCodeLine{80     \}}
-\DoxyCodeLine{81 \}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}} || !\mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}} || !\mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}} || !\mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}}) \{}
+\DoxyCodeLine{71             std::cerr << \textcolor{stringliteral}{"⚠️ One or more buttons not found in layout."} << std::endl;}
+\DoxyCodeLine{72         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{73             \textcolor{keyword}{auto} applyHoverStyle = [](tgui::Button::Ptr btn) \{}
+\DoxyCodeLine{74                 \textcolor{keyword}{auto} renderer = btn-\/>getRenderer();}
+\DoxyCodeLine{75                 renderer-\/>setBackgroundColor(sf::Color::Transparent);}
+\DoxyCodeLine{76                 renderer-\/>setBackgroundColorHover(sf::Color(0, 120, 215)); \textcolor{comment}{// Windows 10 blue}}
+\DoxyCodeLine{77                 renderer-\/>setTextColor(sf::Color::Black);}
+\DoxyCodeLine{78                 renderer-\/>setTextColorHover(sf::Color::White);}
+\DoxyCodeLine{79                 renderer-\/>setBorderColor(sf::Color::Transparent);}
+\DoxyCodeLine{80                 renderer-\/>setBorderColorHover(sf::Color(0, 120, 215));}
+\DoxyCodeLine{81                 renderer-\/>setBorders(\{1, 1, 1, 1\}); \textcolor{comment}{// 1-\/pixel border}}
+\DoxyCodeLine{82             \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_a2c389f8e854b983986ca183a29674614}{start}});}
+\DoxyCodeLine{85             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_a38c1ebd3ddf44f583568d15ff139e944}{goal}});}
+\DoxyCodeLine{86             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_ab3ff13cf99561af2e4f5718ede32e276}{clear}});}
+\DoxyCodeLine{87             applyHoverStyle(\mbox{\hyperlink{classRightClickMapMenu_a13b3908ba7cd92f931fd6652c2f54550}{clearView}});}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\textcolor{keyword}{false}); \textcolor{comment}{/**< Hide panel initially */}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} tgui::Exception\& e) \{}
+\DoxyCodeLine{93         std::cerr << \textcolor{stringliteral}{"❌ Failed to load TGUI form: "} << e.what() << std::endl;}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 \}}
 
 \end{DoxyCode}
 
@@ -502,8 +496,7 @@ References clear, clear\+View, container, goal, gui, panel, and start.
 
 Referenced by Right\+Click\+Map\+Menu().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -529,16 +522,16 @@ Explicitly sets the visibility of the menu.
 \end{DoxyParams}
 
 
-Definition at line 119 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 133 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{120 \{}
-\DoxyCodeLine{121     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \{}
-\DoxyCodeLine{122         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\mbox{\hyperlink{classRightClickMapMenu_a110c0ae970ef0e259c3102faae2f5afb}{show}});}
-\DoxyCodeLine{123         \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}} = \mbox{\hyperlink{classRightClickMapMenu_a110c0ae970ef0e259c3102faae2f5afb}{show}};}
-\DoxyCodeLine{124     \}}
-\DoxyCodeLine{125 \}}
+\DoxyCodeLine{134 \{}
+\DoxyCodeLine{135     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \{}
+\DoxyCodeLine{136         \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\mbox{\hyperlink{classRightClickMapMenu_a110c0ae970ef0e259c3102faae2f5afb}{show}});}
+\DoxyCodeLine{137         \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}} = \mbox{\hyperlink{classRightClickMapMenu_a110c0ae970ef0e259c3102faae2f5afb}{show}};}
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{139 \}}
 
 \end{DoxyCode}
 
@@ -549,16 +542,14 @@ References panel, show(), and visible.
 
 Referenced by Map\+Viewer\+::process\+Event().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classRightClickMapMenu_a6c027dd38cb5355f667fb8447abbca1f_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -594,21 +585,21 @@ Shows the right-\/click menu at specified screen coordinates with a selected gri
 \end{DoxyParams}
 
 
-Definition at line 90 of file Right\+Click\+Map\+Menu.\+cpp.
+Definition at line 104 of file Right\+Click\+Map\+Menu.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{91 \{}
-\DoxyCodeLine{92     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \textcolor{keywordflow}{return};}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94     \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}} = gridIndex;}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     std::cout << \textcolor{stringliteral}{"🟢 Selected index: ("} << gridIndex.x << \textcolor{stringliteral}{", "} << gridIndex.y << \textcolor{stringliteral}{")"} << std::endl;}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98     \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setPosition(x, y);}
-\DoxyCodeLine{99     \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\textcolor{keyword}{true});}
-\DoxyCodeLine{100     \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{101 \}}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \mbox{\hyperlink{classRightClickMapMenu_ababfdc07b2ddbe48e55a727d985de136}{gridIndex\_copy}} = gridIndex;}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     std::cout << \textcolor{stringliteral}{"🟢 Selected index: ("} << gridIndex.x << \textcolor{stringliteral}{", "} << gridIndex.y << \textcolor{stringliteral}{")"} << std::endl;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setPosition(x, y);}
+\DoxyCodeLine{113     \mbox{\hyperlink{classRightClickMapMenu_ae1528d1c5936d3bffed595ff8bcb9087}{panel}}-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{114     \mbox{\hyperlink{classRightClickMapMenu_a9ee56d58aef7faed414a9a0479341202}{visible}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{115 \}}
 
 \end{DoxyCode}
 
@@ -619,8 +610,7 @@ References grid\+Index\+\_\+copy, panel, and visible.
 
 Referenced by Map\+Viewer\+::process\+Event(), and set\+Visible().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -642,7 +632,7 @@ Clears the map.
 
 
 
-Definition at line 87 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 101 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -660,7 +650,7 @@ Clears overlays (visited cells, path, etc.)
 
 
 
-Definition at line 88 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 102 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -678,7 +668,7 @@ Main container for the popup menu.
 
 
 
-Definition at line 82 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 96 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -696,7 +686,7 @@ Sets the goal position.
 
 
 
-Definition at line 86 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 100 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -714,7 +704,7 @@ Current goal cell index.
 
 
 
-Definition at line 96 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 110 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -732,7 +722,7 @@ Corresponding cell index.
 
 
 
-Definition at line 93 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 107 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -750,7 +740,7 @@ Reference to the static grid map.
 
 
 
-Definition at line 79 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 93 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -768,7 +758,7 @@ G\+UI reference (owned externally)
 
 
 
-Definition at line 78 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 92 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -786,7 +776,7 @@ Flag\+: goal has been set.
 
 
 
-Definition at line 98 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 112 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -804,7 +794,7 @@ Flag\+: start has been set.
 
 
 
-Definition at line 99 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 113 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -822,7 +812,7 @@ Reference to the live map.
 
 
 
-Definition at line 80 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 94 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -840,7 +830,7 @@ Panel that acts as the context menu window.
 
 
 
-Definition at line 83 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 97 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -858,7 +848,7 @@ Sets the start position.
 
 
 
-Definition at line 85 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 99 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -876,7 +866,7 @@ Current start cell index.
 
 
 
-Definition at line 95 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 109 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -894,7 +884,7 @@ Visibility flag.
 
 
 
-Definition at line 90 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 104 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 
@@ -912,7 +902,7 @@ Click position in world coordinates.
 
 
 
-Definition at line 92 of file Right\+Click\+Map\+Menu.\+hpp.
+Definition at line 106 of file Right\+Click\+Map\+Menu.\+hpp.
 
 
 

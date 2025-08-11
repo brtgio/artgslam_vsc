@@ -1,4 +1,4 @@
 <map id="LiveMap" name="LiveMap">
-<area shape="rect" id="node1" title="This class manages live map creation in &quot;live mode&quot;, by dynamically updating the map from incoming RO..." alt="" coords="5,439,197,824"/>
+<area shape="rect" id="node1" title="This class manages live map creation in &quot;live mode&quot;, by dynamically updating the map from incoming RO..." alt="" coords="5,439,197,780"/>
 <area shape="rect" id="node2" href="$classViewController.html" title="Controls view, zoom, and panning." alt="" coords="5,5,197,376"/>
 </map>

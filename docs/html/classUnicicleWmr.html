@@ -169,7 +169,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simulates a unicycle model robot with position, velocity, and rendering support. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00010">10</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00023">23</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7b774e21097c307a052e676466d6b0b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b774e21097c307a052e676466d6b0b8">&#9670;&nbsp;</a></span>UnicicleWmr()</h2>
@@ -223,19 +223,19 @@ Private Attributes</h2></td></tr>
 </dl>
 <p>Setup the SFML rectangle shape representing the robot with correct size and origin at center</p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00013">13</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    : <a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a>(width_m), <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a>(height_m), <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>(<a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>),</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>(0.f), <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>(0.f), <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>(0.f),</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a>(0.f), <a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a>(0.f),</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a>(sf::Color::Blue)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">    /** Setup the SFML rectangle shape representing the robot with correct size and origin at center */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setSize(sf::Vector2f(<a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>, <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setOrigin(<a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.getSize() / 2.f);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setFillColor(<a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00027">27</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    : <a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a>(width_m), <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a>(height_m), <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>(<a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>(0.f), <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>(0.f), <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>(0.f),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a>(0.f), <a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a>(0.f),</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a>(sf::Color::Blue)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    /** Setup the SFML rectangle shape representing the robot with correct size and origin at center */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setSize(sf::Vector2f(<a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>, <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setOrigin(<a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.getSize() / 2.f);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setFillColor(<a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">height</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00066">pixelsPerMeter</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">robotcolor</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">robotShape</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00069">width</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">height</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">pixelsPerMeter</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00096">robotcolor</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00095">robotShape</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">width</a>.</p>
 
 </div>
 </div>
@@ -273,19 +273,19 @@ Private Attributes</h2></td></tr>
 </dl>
 <p>Convert radians to degrees</p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">46</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">isRobotActive</a>) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setPosition(<a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>, <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setRotation(<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a> * 180.f / 3.14159265f);  <span class="comment">/** Convert radians to degrees */</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setFillColor(<a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        window.draw(<a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">60</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">isRobotActive</a>) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setPosition(<a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>, <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setRotation(<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a> * 180.f / 3.14159265f);  <span class="comment">/** Convert radians to degrees */</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setFillColor(<a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        window.draw(<a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">isRobotActive</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00066">pixelsPerMeter</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">robotcolor</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">robotShape</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00075">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00073">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00074">y</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00099">isRobotActive</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">pixelsPerMeter</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00096">robotcolor</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00095">robotShape</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00088">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00087">y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00163">MapViewer::render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00177">MapViewer::render()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -319,10 +319,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00054">54</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00067">67</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">height</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">height</a>.</p>
 
 </div>
 </div>
@@ -349,10 +349,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00058">58</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">isRobotActive</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00071">71</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">isRobotActive</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">isRobotActive</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00099">isRobotActive</a>.</p>
 
 </div>
 </div>
@@ -379,10 +379,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00050">50</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00063">63</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00075">theta</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00088">theta</a>.</p>
 
 </div>
 </div>
@@ -409,10 +409,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00053">53</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00066">66</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00069">width</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">width</a>.</p>
 
 </div>
 </div>
@@ -439,10 +439,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00048">48</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00061">61</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00073">x</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">x</a>.</p>
 
 </div>
 </div>
@@ -469,10 +469,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00049">49</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00062">62</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00074">y</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00087">y</a>.</p>
 
 </div>
 </div>
@@ -522,13 +522,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00075">75</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classUnicicleWmr.html#afc2d48283645201bac1bf69310b967ed">setPose</a>(<a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>, <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>, <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="classUnicicleWmr.html#aefb8cacc4cf6bb5a77f76bbbb6d6048a">setVelocity</a>(0.f, 0.f);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00089">89</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classUnicicleWmr.html#afc2d48283645201bac1bf69310b967ed">setPose</a>(<a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>, <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>, <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="classUnicicleWmr.html#aefb8cacc4cf6bb5a77f76bbbb6d6048a">setVelocity</a>(0.f, 0.f);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8cpp_source.html#l00090">setPose()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00062">setVelocity()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00075">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00073">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00074">y</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8cpp_source.html#l00104">setPose()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00076">setVelocity()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00088">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00087">y</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -563,14 +563,14 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00102">102</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a> = color;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00116">116</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">robotcolor</a> = color;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">robotcolor</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00096">robotcolor</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">RobotCreator::setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">RobotCreator::setupCallbacks()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -617,17 +617,17 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00115">115</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a> = <a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a> = <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setSize(sf::Vector2f(<a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>, <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>));</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setOrigin(<a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.getSize() / 2.f);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00129">129</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a> = <a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a> = <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setSize(sf::Vector2f(<a class="code" href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">width</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>, <a class="code" href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">height</a> * <a class="code" href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">pixelsPerMeter</a>));</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.setOrigin(<a class="code" href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">robotShape</a>.getSize() / 2.f);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">height</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00066">pixelsPerMeter</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">robotShape</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00069">width</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">height</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">pixelsPerMeter</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00095">robotShape</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">width</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">RobotCreator::setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">RobotCreator::setupCallbacks()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -681,16 +681,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00090">90</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a> = <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a> = <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a> = <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00104">104</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a> = <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a> = <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a> = <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00075">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00073">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00074">y</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00088">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00087">y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00075">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00089">reset()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -725,12 +725,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00057">57</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{ <a class="code" href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">isRobotActive</a> = active; }</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">70</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{ <a class="code" href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">isRobotActive</a> = active; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">isRobotActive</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00099">isRobotActive</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00110">RobotCreator::setupCallbacks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RobotCreator_8cpp_source.html#l00124">RobotCreator::setupCallbacks()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -779,15 +779,15 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00062">62</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a> = <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a> = <a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00076">76</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a> = <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    this-&gt;<a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a> = <a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">angular_omega</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00078">linear_v</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00092">angular_omega</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00091">linear_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00075">reset()</a>, and <a class="el" href="MapViewer_8cpp_source.html#l00057">MapViewer::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00089">reset()</a>, and <a class="el" href="MapViewer_8cpp_source.html#l00071">MapViewer::update()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -830,16 +830,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00032">32</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a> += <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a> * cos(<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>) * dt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a> += <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a> * sin(<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>) * dt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a> += <a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a> * dt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">46</a> of file <a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">x</a> += <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a> * cos(<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>) * dt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">y</a> += <a class="code" href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">linear_v</a> * sin(<a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a>) * dt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">theta</a> += <a class="code" href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">angular_omega</a> * dt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">angular_omega</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00078">linear_v</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00075">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00073">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00074">y</a>.</p>
+<p class="reference">References <a class="el" href="UnicicleWmr_8hpp_source.html#l00092">angular_omega</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00091">linear_v</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00088">theta</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">x</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00087">y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00057">MapViewer::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MapViewer_8cpp_source.html#l00071">MapViewer::update()</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -873,9 +873,9 @@ Private Attributes</h2></td></tr>
 
 <p>Angular velocity (rad/s) </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">79</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00092">92</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00062">setVelocity()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00032">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00076">setVelocity()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">update()</a>.</p>
 
 </div>
 </div>
@@ -901,9 +901,9 @@ Private Attributes</h2></td></tr>
 
 <p>Robot height in meters. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">70</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">83</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8hpp_source.html#l00054">getheight()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00115">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00013">UnicicleWmr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8hpp_source.html#l00067">getheight()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00129">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00027">UnicicleWmr()</a>.</p>
 
 </div>
 </div>
@@ -927,9 +927,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">86</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00099">99</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00058">getRobotActive()</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00057">setRobotActive()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00071">getRobotActive()</a>, and <a class="el" href="UnicicleWmr_8hpp_source.html#l00070">setRobotActive()</a>.</p>
 
 </div>
 </div>
@@ -955,9 +955,9 @@ Private Attributes</h2></td></tr>
 
 <p>Linear velocity (m/s) </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00078">78</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00091">91</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00062">setVelocity()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00032">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00076">setVelocity()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">update()</a>.</p>
 
 </div>
 </div>
@@ -983,9 +983,9 @@ Private Attributes</h2></td></tr>
 
 <p>Conversion factor from meters to pixels. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00066">66</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00079">79</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00115">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00013">UnicicleWmr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00129">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00027">UnicicleWmr()</a>.</p>
 
 </div>
 </div>
@@ -1011,9 +1011,9 @@ Private Attributes</h2></td></tr>
 
 <p>Color of the robot shape. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00083">83</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00096">96</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00102">setColor()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00013">UnicicleWmr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00116">setColor()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00027">UnicicleWmr()</a>.</p>
 
 </div>
 </div>
@@ -1037,9 +1037,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">82</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00095">95</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00115">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00013">UnicicleWmr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00129">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00027">UnicicleWmr()</a>.</p>
 
 </div>
 </div>
@@ -1065,9 +1065,9 @@ Private Attributes</h2></td></tr>
 
 <p>Orientation in radians. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00075">75</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00088">88</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00050">getTheta()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00075">reset()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00090">setPose()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00032">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00063">getTheta()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00089">reset()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00104">setPose()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">update()</a>.</p>
 
 </div>
 </div>
@@ -1093,9 +1093,9 @@ Private Attributes</h2></td></tr>
 
 <p>Robot width in meters. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00069">69</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00082">82</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8hpp_source.html#l00053">getWidth()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00115">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00013">UnicicleWmr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8hpp_source.html#l00066">getWidth()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00129">setDimensions()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00027">UnicicleWmr()</a>.</p>
 
 </div>
 </div>
@@ -1121,9 +1121,9 @@ Private Attributes</h2></td></tr>
 
 <p>X position in meters. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00073">73</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00086">86</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00048">getX()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00075">reset()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00090">setPose()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00032">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00061">getX()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00089">reset()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00104">setPose()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">update()</a>.</p>
 
 </div>
 </div>
@@ -1149,9 +1149,9 @@ Private Attributes</h2></td></tr>
 
 <p>Y position in meters. </p>
 
-<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00074">74</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="UnicicleWmr_8hpp_source.html#l00087">87</a> of file <a class="el" href="UnicicleWmr_8hpp_source.html">UnicicleWmr.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00049">getY()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00075">reset()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00090">setPose()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00032">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="UnicicleWmr_8cpp_source.html#l00060">draw()</a>, <a class="el" href="UnicicleWmr_8hpp_source.html#l00062">getY()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00089">reset()</a>, <a class="el" href="UnicicleWmr_8cpp_source.html#l00104">setPose()</a>, and <a class="el" href="UnicicleWmr_8cpp_source.html#l00046">update()</a>.</p>
 
 </div>
 </div>
@@ -1160,22 +1160,22 @@ Private Attributes</h2></td></tr>
 <li>src/<a class="el" href="UnicicleWmr_8cpp_source.html">UnicicleWmr.cpp</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassUnicicleWmr_html_a547b33adcdd1ee45316703c6a8220a5c"><div class="ttname"><a href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">UnicicleWmr::linear_v</a></div><div class="ttdeci">float linear_v</div><div class="ttdoc">Linear velocity (m/s)</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00078">UnicicleWmr.hpp:78</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a7cd01662e6c190b8e20800a11fa57dea"><div class="ttname"><a href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">UnicicleWmr::height</a></div><div class="ttdeci">float height</div><div class="ttdoc">Robot height in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00070">UnicicleWmr.hpp:70</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_acd4e3e5ae16cb117c315c0a7403457ba"><div class="ttname"><a href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">UnicicleWmr::theta</a></div><div class="ttdeci">float theta</div><div class="ttdoc">Orientation in radians.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00075">UnicicleWmr.hpp:75</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a8b5bc94350e5a6b84c4bc21a3796a3a7"><div class="ttname"><a href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">UnicicleWmr::robotcolor</a></div><div class="ttdeci">sf::Color robotcolor</div><div class="ttdoc">Color of the robot shape.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00083">UnicicleWmr.hpp:83</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a5108c74ec2686c5dd99fd6356056081d"><div class="ttname"><a href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">UnicicleWmr::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">X position in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00073">UnicicleWmr.hpp:73</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a321786b657bacfcbe12f0873d452fc87"><div class="ttname"><a href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">UnicicleWmr::pixelsPerMeter</a></div><div class="ttdeci">float pixelsPerMeter</div><div class="ttdoc">Conversion factor from meters to pixels.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00066">UnicicleWmr.hpp:66</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_aefb8cacc4cf6bb5a77f76bbbb6d6048a"><div class="ttname"><a href="classUnicicleWmr.html#aefb8cacc4cf6bb5a77f76bbbb6d6048a">UnicicleWmr::setVelocity</a></div><div class="ttdeci">void setVelocity(float line_v, float angular_omega)</div><div class="ttdoc">Sets the linear and angular velocity of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00062">UnicicleWmr.cpp:62</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a8f3084ba213280edc3c47dc7731534cc"><div class="ttname"><a href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">UnicicleWmr::robotShape</a></div><div class="ttdeci">sf::RectangleShape robotShape</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00082">UnicicleWmr.hpp:82</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_ae0f77e615a51feb6d1aecc3ee106fdef"><div class="ttname"><a href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">UnicicleWmr::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">Y position in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00074">UnicicleWmr.hpp:74</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a632abed9ba36d75aa390c4eb9bb7fdc4"><div class="ttname"><a href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">UnicicleWmr::width</a></div><div class="ttdeci">float width</div><div class="ttdoc">Robot width in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00069">UnicicleWmr.hpp:69</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a543d04cec6854c6fc56156b19d137c2b"><div class="ttname"><a href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">UnicicleWmr::isRobotActive</a></div><div class="ttdeci">bool isRobotActive</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00086">UnicicleWmr.hpp:86</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_afc2d48283645201bac1bf69310b967ed"><div class="ttname"><a href="classUnicicleWmr.html#afc2d48283645201bac1bf69310b967ed">UnicicleWmr::setPose</a></div><div class="ttdeci">void setPose(float x, float y, float theta)</div><div class="ttdoc">Sets the robot's pose.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00090">UnicicleWmr.cpp:90</a></div></div>
-<div class="ttc" id="aclassUnicicleWmr_html_a90f4027e0f3f45626bfa11dcaec95b2e"><div class="ttname"><a href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">UnicicleWmr::angular_omega</a></div><div class="ttdeci">float angular_omega</div><div class="ttdoc">Angular velocity (rad/s)</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00079">UnicicleWmr.hpp:79</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a547b33adcdd1ee45316703c6a8220a5c"><div class="ttname"><a href="classUnicicleWmr.html#a547b33adcdd1ee45316703c6a8220a5c">UnicicleWmr::linear_v</a></div><div class="ttdeci">float linear_v</div><div class="ttdoc">Linear velocity (m/s)</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00091">UnicicleWmr.hpp:91</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a7cd01662e6c190b8e20800a11fa57dea"><div class="ttname"><a href="classUnicicleWmr.html#a7cd01662e6c190b8e20800a11fa57dea">UnicicleWmr::height</a></div><div class="ttdeci">float height</div><div class="ttdoc">Robot height in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00083">UnicicleWmr.hpp:83</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_acd4e3e5ae16cb117c315c0a7403457ba"><div class="ttname"><a href="classUnicicleWmr.html#acd4e3e5ae16cb117c315c0a7403457ba">UnicicleWmr::theta</a></div><div class="ttdeci">float theta</div><div class="ttdoc">Orientation in radians.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00088">UnicicleWmr.hpp:88</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a8b5bc94350e5a6b84c4bc21a3796a3a7"><div class="ttname"><a href="classUnicicleWmr.html#a8b5bc94350e5a6b84c4bc21a3796a3a7">UnicicleWmr::robotcolor</a></div><div class="ttdeci">sf::Color robotcolor</div><div class="ttdoc">Color of the robot shape.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00096">UnicicleWmr.hpp:96</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a5108c74ec2686c5dd99fd6356056081d"><div class="ttname"><a href="classUnicicleWmr.html#a5108c74ec2686c5dd99fd6356056081d">UnicicleWmr::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">X position in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00086">UnicicleWmr.hpp:86</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a321786b657bacfcbe12f0873d452fc87"><div class="ttname"><a href="classUnicicleWmr.html#a321786b657bacfcbe12f0873d452fc87">UnicicleWmr::pixelsPerMeter</a></div><div class="ttdeci">float pixelsPerMeter</div><div class="ttdoc">Conversion factor from meters to pixels.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00079">UnicicleWmr.hpp:79</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_aefb8cacc4cf6bb5a77f76bbbb6d6048a"><div class="ttname"><a href="classUnicicleWmr.html#aefb8cacc4cf6bb5a77f76bbbb6d6048a">UnicicleWmr::setVelocity</a></div><div class="ttdeci">void setVelocity(float line_v, float angular_omega)</div><div class="ttdoc">Sets the linear and angular velocity of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00076">UnicicleWmr.cpp:76</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a8f3084ba213280edc3c47dc7731534cc"><div class="ttname"><a href="classUnicicleWmr.html#a8f3084ba213280edc3c47dc7731534cc">UnicicleWmr::robotShape</a></div><div class="ttdeci">sf::RectangleShape robotShape</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00095">UnicicleWmr.hpp:95</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_ae0f77e615a51feb6d1aecc3ee106fdef"><div class="ttname"><a href="classUnicicleWmr.html#ae0f77e615a51feb6d1aecc3ee106fdef">UnicicleWmr::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">Y position in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00087">UnicicleWmr.hpp:87</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a632abed9ba36d75aa390c4eb9bb7fdc4"><div class="ttname"><a href="classUnicicleWmr.html#a632abed9ba36d75aa390c4eb9bb7fdc4">UnicicleWmr::width</a></div><div class="ttdeci">float width</div><div class="ttdoc">Robot width in meters.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00082">UnicicleWmr.hpp:82</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a543d04cec6854c6fc56156b19d137c2b"><div class="ttname"><a href="classUnicicleWmr.html#a543d04cec6854c6fc56156b19d137c2b">UnicicleWmr::isRobotActive</a></div><div class="ttdeci">bool isRobotActive</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00099">UnicicleWmr.hpp:99</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_afc2d48283645201bac1bf69310b967ed"><div class="ttname"><a href="classUnicicleWmr.html#afc2d48283645201bac1bf69310b967ed">UnicicleWmr::setPose</a></div><div class="ttdeci">void setPose(float x, float y, float theta)</div><div class="ttdoc">Sets the robot's pose.</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8cpp_source.html#l00104">UnicicleWmr.cpp:104</a></div></div>
+<div class="ttc" id="aclassUnicicleWmr_html_a90f4027e0f3f45626bfa11dcaec95b2e"><div class="ttname"><a href="classUnicicleWmr.html#a90f4027e0f3f45626bfa11dcaec95b2e">UnicicleWmr::angular_omega</a></div><div class="ttdeci">float angular_omega</div><div class="ttdoc">Angular velocity (rad/s)</div><div class="ttdef"><b>Definition:</b> <a href="UnicicleWmr_8hpp_source.html#l00092">UnicicleWmr.hpp:92</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 25 2025 05:03:07 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 11 2025 22:33:49 for artgslam_vsc by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

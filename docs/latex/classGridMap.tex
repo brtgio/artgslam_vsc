@@ -11,8 +11,7 @@ Handles the creation and management of map data.
 
 
 
-Collaboration diagram for Grid\+Map\+:
-\nopagebreak
+Collaboration diagram for Grid\+Map\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -80,7 +79,7 @@ Handles the creation and management of map data.
 
 It stores (x, y) coordinates from sonar readings, converts them into grid cell indices, and fills a 2D occupancy grid. 
 
-Definition at line 13 of file Grid\+Map.\+hpp.
+Definition at line 27 of file Grid\+Map.\+hpp.
 
 
 
@@ -114,15 +113,15 @@ Constructs a \mbox{\hyperlink{classGridMap}{Grid\+Map}} with given size, resolut
 \end{DoxyParams}
 
 
-Definition at line 11 of file Grid\+Map.\+cpp.
+Definition at line 25 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{12     : \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}(size), \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}(resolution), \mbox{\hyperlink{classGridMap_a6ef80c82e1c4e6cdebc24789810d53a2}{controller}}(\mbox{\hyperlink{classGridMap_a6ef80c82e1c4e6cdebc24789810d53a2}{controller}})}
-\DoxyCodeLine{13 \{}
-\DoxyCodeLine{14     \textcolor{comment}{// Initialize the grid with all cells free (0)}}
-\DoxyCodeLine{15     \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.assign(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, 0));}
-\DoxyCodeLine{16 \}}
+\DoxyCodeLine{26     : \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}(size), \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}(resolution), \mbox{\hyperlink{classGridMap_a6ef80c82e1c4e6cdebc24789810d53a2}{controller}}(\mbox{\hyperlink{classGridMap_a6ef80c82e1c4e6cdebc24789810d53a2}{controller}})}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{comment}{// Initialize the grid with all cells free (0)}}
+\DoxyCodeLine{29     \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.assign(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, 0));}
+\DoxyCodeLine{30 \}}
 
 \end{DoxyCode}
 
@@ -157,14 +156,14 @@ Adds a single real-\/world point to internal storage.
 \end{DoxyParams}
 
 
-Definition at line 49 of file Grid\+Map.\+cpp.
+Definition at line 63 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{50 \{}
-\DoxyCodeLine{51     \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}}.push\_back(x);}
-\DoxyCodeLine{52     \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}}.push\_back(y);}
-\DoxyCodeLine{53 \}}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}}.push\_back(x);}
+\DoxyCodeLine{66     \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}}.push\_back(y);}
+\DoxyCodeLine{67 \}}
 
 \end{DoxyCode}
 
@@ -183,13 +182,13 @@ Clear the entire occupancy grid.
 
 Clears all cells in the grid, setting them to free (0). 
 
-Definition at line 189 of file Grid\+Map.\+cpp.
+Definition at line 203 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{190 \{}
-\DoxyCodeLine{191     \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.assign(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, 0));}
-\DoxyCodeLine{192 \}}
+\DoxyCodeLine{204 \{}
+\DoxyCodeLine{205     \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.assign(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, 0));}
+\DoxyCodeLine{206 \}}
 
 \end{DoxyCode}
 
@@ -200,8 +199,7 @@ References grid, and grid\+Size.
 
 Referenced by Map\+Viewer\+::\+Map\+Viewer().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -220,14 +218,14 @@ Clear all stored real-\/world points.
 
 Clears all stored real-\/world points. 
 
-Definition at line 69 of file Grid\+Map.\+cpp.
+Definition at line 83 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{70 \{}
-\DoxyCodeLine{71     \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}}.clear();}
-\DoxyCodeLine{72     \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}}.clear();}
-\DoxyCodeLine{73 \}}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85     \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}}.clear();}
+\DoxyCodeLine{86     \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}}.clear();}
+\DoxyCodeLine{87 \}}
 
 \end{DoxyCode}
 
@@ -255,16 +253,16 @@ Clears a specific grid cell by setting it free (0).
 \end{DoxyParams}
 
 
-Definition at line 198 of file Grid\+Map.\+cpp.
+Definition at line 212 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{199 \{}
-\DoxyCodeLine{200     \textcolor{keywordflow}{if} (cellIndex.x >= 0 \&\& cellIndex.y >= 0 \&\&}
-\DoxyCodeLine{201         cellIndex.y < \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} \&\& cellIndex.x < \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}) \{}
-\DoxyCodeLine{202         \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[cellIndex.y][cellIndex.x] = 0;}
-\DoxyCodeLine{203     \}}
-\DoxyCodeLine{204 \}}
+\DoxyCodeLine{213 \{}
+\DoxyCodeLine{214     \textcolor{keywordflow}{if} (cellIndex.x >= 0 \&\& cellIndex.y >= 0 \&\&}
+\DoxyCodeLine{215         cellIndex.y < \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} \&\& cellIndex.x < \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}) \{}
+\DoxyCodeLine{216         \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[cellIndex.y][cellIndex.x] = 0;}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{218 \}}
 
 \end{DoxyCode}
 
@@ -275,8 +273,7 @@ References grid, and grid\+Size.
 
 Referenced by Right\+Click\+Map\+Menu\+::connect\+Signals().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -310,48 +307,48 @@ Only filled cells are rendered.
 \end{DoxyParams}
 
 
-Definition at line 211 of file Grid\+Map.\+cpp.
+Definition at line 225 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{212 \{}
-\DoxyCodeLine{213     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.empty() || \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[0].empty()) \textcolor{keywordflow}{return};}
-\DoxyCodeLine{214 }
-\DoxyCodeLine{215     \textcolor{keyword}{const} \textcolor{keywordtype}{int} rows = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.size());}
-\DoxyCodeLine{216     \textcolor{keyword}{const} \textcolor{keywordtype}{int} cols = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[0].size());}
-\DoxyCodeLine{217 }
-\DoxyCodeLine{218     \textcolor{keyword}{const} \textcolor{keywordtype}{float} cellSize = \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}} * pixelsPerMeter;}
-\DoxyCodeLine{219 }
-\DoxyCodeLine{220     \textcolor{comment}{// Center the grid rendering around origin (0,0)}}
-\DoxyCodeLine{221     \textcolor{keyword}{const} \textcolor{keywordtype}{float} offsetX = -\/(cols / 2.f) * cellSize;}
-\DoxyCodeLine{222     \textcolor{keyword}{const} \textcolor{keywordtype}{float} offsetY = -\/(rows / 2.f) * cellSize;}
-\DoxyCodeLine{223 }
-\DoxyCodeLine{224     sf::RectangleShape cellShape(\{cellSize, cellSize\});}
-\DoxyCodeLine{225 }
-\DoxyCodeLine{226     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < rows; ++row)}
-\DoxyCodeLine{227     \{}
-\DoxyCodeLine{228         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < cols; ++col)}
-\DoxyCodeLine{229         \{}
-\DoxyCodeLine{230             \textcolor{keyword}{const} \textcolor{keywordtype}{int} val = \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col];}
+\DoxyCodeLine{226 \{}
+\DoxyCodeLine{227     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.empty() || \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[0].empty()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     \textcolor{keyword}{const} \textcolor{keywordtype}{int} rows = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.size());}
+\DoxyCodeLine{230     \textcolor{keyword}{const} \textcolor{keywordtype}{int} cols = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[0].size());}
 \DoxyCodeLine{231 }
-\DoxyCodeLine{232             \textcolor{comment}{// Assign colors based on cell value}}
-\DoxyCodeLine{233             \textcolor{keywordflow}{if} (val == 1)}
-\DoxyCodeLine{234                 cellShape.setFillColor(sf::Color::Yellow); \textcolor{comment}{// obstacle}}
-\DoxyCodeLine{235             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (val == \textcolor{charliteral}{'s'})}
-\DoxyCodeLine{236                 cellShape.setFillColor(sf::Color::Red);    \textcolor{comment}{// start}}
-\DoxyCodeLine{237             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (val == \textcolor{charliteral}{'g'})}
-\DoxyCodeLine{238                 cellShape.setFillColor(sf::Color::Green);  \textcolor{comment}{// goal}}
-\DoxyCodeLine{239             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{240                 \textcolor{keywordflow}{continue}; \textcolor{comment}{// skip free cells}}
-\DoxyCodeLine{241 }
-\DoxyCodeLine{242             \textcolor{keywordtype}{float} x = offsetX + col * cellSize;}
-\DoxyCodeLine{243             \textcolor{keywordtype}{float} y = offsetY + row * cellSize;}
-\DoxyCodeLine{244 }
-\DoxyCodeLine{245             cellShape.setPosition(x, y);}
-\DoxyCodeLine{246             target.draw(cellShape);}
-\DoxyCodeLine{247         \}}
-\DoxyCodeLine{248     \}}
-\DoxyCodeLine{249 \}}
+\DoxyCodeLine{232     \textcolor{keyword}{const} \textcolor{keywordtype}{float} cellSize = \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}} * pixelsPerMeter;}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{comment}{// Center the grid rendering around origin (0,0)}}
+\DoxyCodeLine{235     \textcolor{keyword}{const} \textcolor{keywordtype}{float} offsetX = -\/(cols / 2.f) * cellSize;}
+\DoxyCodeLine{236     \textcolor{keyword}{const} \textcolor{keywordtype}{float} offsetY = -\/(rows / 2.f) * cellSize;}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238     sf::RectangleShape cellShape(\{cellSize, cellSize\});}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < rows; ++row)}
+\DoxyCodeLine{241     \{}
+\DoxyCodeLine{242         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < cols; ++col)}
+\DoxyCodeLine{243         \{}
+\DoxyCodeLine{244             \textcolor{keyword}{const} \textcolor{keywordtype}{int} val = \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col];}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246             \textcolor{comment}{// Assign colors based on cell value}}
+\DoxyCodeLine{247             \textcolor{keywordflow}{if} (val == 1)}
+\DoxyCodeLine{248                 cellShape.setFillColor(sf::Color::Yellow); \textcolor{comment}{// obstacle}}
+\DoxyCodeLine{249             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (val == \textcolor{charliteral}{'s'})}
+\DoxyCodeLine{250                 cellShape.setFillColor(sf::Color::Red);    \textcolor{comment}{// start}}
+\DoxyCodeLine{251             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (val == \textcolor{charliteral}{'g'})}
+\DoxyCodeLine{252                 cellShape.setFillColor(sf::Color::Green);  \textcolor{comment}{// goal}}
+\DoxyCodeLine{253             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{254                 \textcolor{keywordflow}{continue}; \textcolor{comment}{// skip free cells}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256             \textcolor{keywordtype}{float} x = offsetX + col * cellSize;}
+\DoxyCodeLine{257             \textcolor{keywordtype}{float} y = offsetY + row * cellSize;}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259             cellShape.setPosition(x, y);}
+\DoxyCodeLine{260             target.draw(cellShape);}
+\DoxyCodeLine{261         \}}
+\DoxyCodeLine{262     \}}
+\DoxyCodeLine{263 \}}
 
 \end{DoxyCode}
 
@@ -362,8 +359,7 @@ References grid, and grid\+Resolution.
 
 Referenced by Map\+Viewer\+::render().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -395,23 +391,23 @@ Fills grid cells with obstacles based on given grid indices.
 \end{DoxyParams}
 
 
-Definition at line 162 of file Grid\+Map.\+cpp.
+Definition at line 176 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{163 \{}
-\DoxyCodeLine{164     \textcolor{comment}{// Reset grid to free cells}}
-\DoxyCodeLine{165     \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.assign(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, 0));}
-\DoxyCodeLine{166 }
-\DoxyCodeLine{167     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < xGrid.size(); ++i) \{}
-\DoxyCodeLine{168         \textcolor{keywordtype}{int} x = xGrid[i];}
-\DoxyCodeLine{169         \textcolor{keywordtype}{int} y = yGrid[i];}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171         \textcolor{keywordflow}{if} (x >= 0 \&\& x < gridSize \&\& y >= 0 \&\& y < \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}) \{}
-\DoxyCodeLine{172             \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[y][x] = 1; \textcolor{comment}{// Mark obstacle}}
-\DoxyCodeLine{173         \}}
-\DoxyCodeLine{174     \}}
-\DoxyCodeLine{175 \}}
+\DoxyCodeLine{177 \{}
+\DoxyCodeLine{178     \textcolor{comment}{// Reset grid to free cells}}
+\DoxyCodeLine{179     \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}.assign(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, std::vector<int>(\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}, 0));}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < xGrid.size(); ++i) \{}
+\DoxyCodeLine{182         \textcolor{keywordtype}{int} x = xGrid[i];}
+\DoxyCodeLine{183         \textcolor{keywordtype}{int} y = yGrid[i];}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         \textcolor{keywordflow}{if} (x >= 0 \&\& x < gridSize \&\& y >= 0 \&\& y < \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}) \{}
+\DoxyCodeLine{186             \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[y][x] = 1; \textcolor{comment}{// Mark obstacle}}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{188     \}}
+\DoxyCodeLine{189 \}}
 
 \end{DoxyCode}
 
@@ -422,8 +418,7 @@ References grid, and grid\+Size.
 
 Referenced by File\+Manager\+::load\+Dialog().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -460,16 +455,16 @@ Grid column index corresponding to realX.
 \end{DoxyReturn}
 
 
-Definition at line 23 of file Grid\+Map.\+cpp.
+Definition at line 37 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{24 \{}
-\DoxyCodeLine{25     \textcolor{keywordtype}{double} offset = (\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} * \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}) / 2.0; \textcolor{comment}{// Centered origin offset}}
-\DoxyCodeLine{26     \textcolor{keywordtype}{int} j = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor((realX + offset) / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
-\DoxyCodeLine{27     j = std::clamp(j, 0, \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} -\/ 1);}
-\DoxyCodeLine{28     \textcolor{keywordflow}{return} j;}
-\DoxyCodeLine{29 \}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \textcolor{keywordtype}{double} offset = (\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} * \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}) / 2.0; \textcolor{comment}{// Centered origin offset}}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} j = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor((realX + offset) / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
+\DoxyCodeLine{41     j = std::clamp(j, 0, \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} -\/ 1);}
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} j;}
+\DoxyCodeLine{43 \}}
 
 \end{DoxyCode}
 
@@ -506,16 +501,16 @@ Grid row index corresponding to realY.
 \end{DoxyReturn}
 
 
-Definition at line 36 of file Grid\+Map.\+cpp.
+Definition at line 50 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{37 \{}
-\DoxyCodeLine{38     \textcolor{keywordtype}{double} offset = (\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} * \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}) / 2.0; \textcolor{comment}{// Centered origin offset}}
-\DoxyCodeLine{39     \textcolor{keywordtype}{int} i = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor((realY + offset) / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
-\DoxyCodeLine{40     i = std::clamp(i, 0, \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} -\/ 1);}
-\DoxyCodeLine{41     \textcolor{keywordflow}{return} i;}
-\DoxyCodeLine{42 \}}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     \textcolor{keywordtype}{double} offset = (\mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} * \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}) / 2.0; \textcolor{comment}{// Centered origin offset}}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} i = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor((realY + offset) / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
+\DoxyCodeLine{54     i = std::clamp(i, 0, \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} -\/ 1);}
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{56 \}}
 
 \end{DoxyCode}
 
@@ -541,13 +536,13 @@ Reference to grid.
 \end{DoxyReturn}
 
 
-Definition at line 181 of file Grid\+Map.\+cpp.
+Definition at line 195 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{182 \{}
-\DoxyCodeLine{183     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}};}
-\DoxyCodeLine{184 \}}
+\DoxyCodeLine{196 \{}
+\DoxyCodeLine{197     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}};}
+\DoxyCodeLine{198 \}}
 
 \end{DoxyCode}
 
@@ -558,8 +553,7 @@ References grid.
 
 Referenced by Map\+Viewer\+::render(), and A\+Star\+::updatemap().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -581,11 +575,11 @@ Grid size (width or height)
 \end{DoxyReturn}
 
 
-Definition at line 155 of file Grid\+Map.\+hpp.
+Definition at line 169 of file Grid\+Map.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{155 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}; \}}
+\DoxyCodeLine{169 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}}; \}}
 
 \end{DoxyCode}
 
@@ -596,8 +590,7 @@ References grid\+Size.
 
 Referenced by A\+Star\+::\+A\+Star(), Map\+Viewer\+::process\+Event(), and Map\+Viewer\+::update().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -619,11 +612,11 @@ Vector of x coordinates
 \end{DoxyReturn}
 
 
-Definition at line 37 of file Grid\+Map.\+hpp.
+Definition at line 51 of file Grid\+Map.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{37 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}}; \}}
+\DoxyCodeLine{51 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}}; \}}
 
 \end{DoxyCode}
 
@@ -634,8 +627,7 @@ References posX.
 
 Referenced by File\+Manager\+::load\+Dialog(), and File\+Manager\+::save\+Dialog().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -657,11 +649,11 @@ Vector of y coordinates
 \end{DoxyReturn}
 
 
-Definition at line 43 of file Grid\+Map.\+hpp.
+Definition at line 57 of file Grid\+Map.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{43 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}}; \}}
+\DoxyCodeLine{57 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}}; \}}
 
 \end{DoxyCode}
 
@@ -672,8 +664,7 @@ References posY.
 
 Referenced by File\+Manager\+::load\+Dialog(), and File\+Manager\+::save\+Dialog().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -714,26 +705,26 @@ Checks if a grid cell is occupied or special.
 \end{DoxyReturn}
 
 
-Definition at line 113 of file Grid\+Map.\+cpp.
+Definition at line 127 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{114 \{}
-\DoxyCodeLine{115     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == 1) \{}
-\DoxyCodeLine{116         \textcolor{keywordflow}{return} 1; \textcolor{comment}{// Obstacle}}
-\DoxyCodeLine{117     \}}
-\DoxyCodeLine{118     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == 0) \{}
-\DoxyCodeLine{119         \textcolor{keywordflow}{return} 0; \textcolor{comment}{// Free cell}}
-\DoxyCodeLine{120     \}}
-\DoxyCodeLine{121     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == \textcolor{charliteral}{'s'}) \{}
-\DoxyCodeLine{122         \textcolor{keywordflow}{return} \textcolor{charliteral}{'s'}; \textcolor{comment}{// Start}}
-\DoxyCodeLine{123     \}}
-\DoxyCodeLine{124     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == \textcolor{charliteral}{'g'}) \{}
-\DoxyCodeLine{125         \textcolor{keywordflow}{return} \textcolor{charliteral}{'g'}; \textcolor{comment}{// Goal}}
-\DoxyCodeLine{126     \}}
-\DoxyCodeLine{127     \textcolor{comment}{// Default to occupied for unexpected values}}
-\DoxyCodeLine{128     \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{129 \}}
+\DoxyCodeLine{128 \{}
+\DoxyCodeLine{129     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == 1) \{}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} 1; \textcolor{comment}{// Obstacle}}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == 0) \{}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} 0; \textcolor{comment}{// Free cell}}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == \textcolor{charliteral}{'s'}) \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} \textcolor{charliteral}{'s'}; \textcolor{comment}{// Start}}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[j][i] == \textcolor{charliteral}{'g'}) \{}
+\DoxyCodeLine{139         \textcolor{keywordflow}{return} \textcolor{charliteral}{'g'}; \textcolor{comment}{// Goal}}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141     \textcolor{comment}{// Default to occupied for unexpected values}}
+\DoxyCodeLine{142     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{143 \}}
 
 \end{DoxyCode}
 
@@ -744,8 +735,7 @@ References grid.
 
 Referenced by A\+Star\+::step().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -777,19 +767,19 @@ Sets the goal point on the grid if the cell is free.
 \end{DoxyParams}
 
 
-Definition at line 96 of file Grid\+Map.\+cpp.
+Definition at line 110 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{97 \{}
-\DoxyCodeLine{98     std::cout << \textcolor{stringliteral}{"[setGoal] col="} << col << \textcolor{stringliteral}{" row="} << row << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{99     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] == 0) \{}
-\DoxyCodeLine{100         \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] = \textcolor{charliteral}{'g'}; \textcolor{comment}{// Mark cell as goal using ASCII code}}
-\DoxyCodeLine{101         std::cout << \textcolor{stringliteral}{"Goal set: "} << \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] << std::endl;}
-\DoxyCodeLine{102     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{103         std::cout << \textcolor{stringliteral}{"[setGoal] Cell is occupied."} << std::endl;}
-\DoxyCodeLine{104     \}}
-\DoxyCodeLine{105 \}}
+\DoxyCodeLine{111 \{}
+\DoxyCodeLine{112     std::cout << \textcolor{stringliteral}{"[setGoal] col="} << col << \textcolor{stringliteral}{" row="} << row << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] == 0) \{}
+\DoxyCodeLine{114         \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] = \textcolor{charliteral}{'g'}; \textcolor{comment}{// Mark cell as goal using ASCII code}}
+\DoxyCodeLine{115         std::cout << \textcolor{stringliteral}{"Goal set: "} << \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] << std::endl;}
+\DoxyCodeLine{116     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{117         std::cout << \textcolor{stringliteral}{"[setGoal] Cell is occupied."} << std::endl;}
+\DoxyCodeLine{118     \}}
+\DoxyCodeLine{119 \}}
 
 \end{DoxyCode}
 
@@ -800,8 +790,7 @@ References grid.
 
 Referenced by Right\+Click\+Map\+Menu\+::connect\+Signals().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -833,14 +822,14 @@ Replaces stored points with new vectors of real-\/world coordinates.
 \end{DoxyParams}
 
 
-Definition at line 60 of file Grid\+Map.\+cpp.
+Definition at line 74 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{61 \{}
-\DoxyCodeLine{62     \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}} = newX;}
-\DoxyCodeLine{63     \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}} = newY;}
-\DoxyCodeLine{64 \}}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76     \mbox{\hyperlink{classGridMap_a9edfec1eda085cf175b744b2ca224e02}{posX}} = newX;}
+\DoxyCodeLine{77     \mbox{\hyperlink{classGridMap_ab3a3426e535b8651692fd5b15846d58c}{posY}} = newY;}
+\DoxyCodeLine{78 \}}
 
 \end{DoxyCode}
 
@@ -851,8 +840,7 @@ References posX, and posY.
 
 Referenced by File\+Manager\+::load\+Dialog().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -884,19 +872,19 @@ Sets the start point on the grid if the cell is free.
 \end{DoxyParams}
 
 
-Definition at line 80 of file Grid\+Map.\+cpp.
+Definition at line 94 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{81 \{}
-\DoxyCodeLine{82     std::cout << \textcolor{stringliteral}{"[setStart] col="} << col << \textcolor{stringliteral}{" row="} << row << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{83     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] == 0) \{}
-\DoxyCodeLine{84         \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] = \textcolor{charliteral}{'s'}; \textcolor{comment}{// Mark cell as start using ASCII code}}
-\DoxyCodeLine{85         std::cout << \textcolor{stringliteral}{"Start set: "} << \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] << std::endl;}
-\DoxyCodeLine{86     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{87         std::cout << \textcolor{stringliteral}{"[setStart] Cell is occupied."} << std::endl;}
-\DoxyCodeLine{88     \}}
-\DoxyCodeLine{89 \}}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     std::cout << \textcolor{stringliteral}{"[setStart] col="} << col << \textcolor{stringliteral}{" row="} << row << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] == 0) \{}
+\DoxyCodeLine{98         \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] = \textcolor{charliteral}{'s'}; \textcolor{comment}{// Mark cell as start using ASCII code}}
+\DoxyCodeLine{99         std::cout << \textcolor{stringliteral}{"Start set: "} << \mbox{\hyperlink{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}{grid}}[row][col] << std::endl;}
+\DoxyCodeLine{100     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{101         std::cout << \textcolor{stringliteral}{"[setStart] Cell is occupied."} << std::endl;}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103 \}}
 
 \end{DoxyCode}
 
@@ -936,26 +924,26 @@ Converts vectors of real-\/world coordinates to grid indices.
 \end{DoxyParams}
 
 
-Definition at line 138 of file Grid\+Map.\+cpp.
+Definition at line 152 of file Grid\+Map.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{140 \{}
-\DoxyCodeLine{141     \textcolor{keyword}{const} \textcolor{keywordtype}{int} halfGrid = \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} / 2;}
-\DoxyCodeLine{142     \textcolor{keywordtype}{size\_t} n = std::min(x.size(), y.size());}
-\DoxyCodeLine{143 }
-\DoxyCodeLine{144     xGrid.resize(n);}
-\DoxyCodeLine{145     yGrid.resize(n);}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < n; ++i) \{}
-\DoxyCodeLine{148         \textcolor{keywordtype}{int} gx = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(x[i] / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
-\DoxyCodeLine{149         \textcolor{keywordtype}{int} gy = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(y[i] / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{151         \textcolor{comment}{// Translate to centered origin indices}}
-\DoxyCodeLine{152         xGrid[i] = gx + halfGrid;}
-\DoxyCodeLine{153         yGrid[i] = gy + halfGrid;}
-\DoxyCodeLine{154     \}}
-\DoxyCodeLine{155 \}}
+\DoxyCodeLine{154 \{}
+\DoxyCodeLine{155     \textcolor{keyword}{const} \textcolor{keywordtype}{int} halfGrid = \mbox{\hyperlink{classGridMap_aefd9ab48eeed91cdfb37d69342cfd049}{gridSize}} / 2;}
+\DoxyCodeLine{156     \textcolor{keywordtype}{size\_t} n = std::min(x.size(), y.size());}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     xGrid.resize(n);}
+\DoxyCodeLine{159     yGrid.resize(n);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < n; ++i) \{}
+\DoxyCodeLine{162         \textcolor{keywordtype}{int} gx = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(x[i] / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
+\DoxyCodeLine{163         \textcolor{keywordtype}{int} gy = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(y[i] / \mbox{\hyperlink{classGridMap_addcfc29f5d6bf937f8040a501b7aaa8e}{gridResolution}}));}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165         \textcolor{comment}{// Translate to centered origin indices}}
+\DoxyCodeLine{166         xGrid[i] = gx + halfGrid;}
+\DoxyCodeLine{167         yGrid[i] = gy + halfGrid;}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{169 \}}
 
 \end{DoxyCode}
 
@@ -966,8 +954,7 @@ References grid\+Resolution, and grid\+Size.
 
 Referenced by File\+Manager\+::load\+Dialog().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -989,7 +976,7 @@ Reference to view controller (for proper rendering)
 
 
 
-Definition at line 21 of file Grid\+Map.\+hpp.
+Definition at line 35 of file Grid\+Map.\+hpp.
 
 \mbox{\Hypertarget{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}\label{classGridMap_a4c76de811d346a7ada54c4e84827f4f2}} 
 \index{GridMap@{GridMap}!grid@{grid}}
@@ -1003,7 +990,7 @@ Definition at line 21 of file Grid\+Map.\+hpp.
 
 
 
-Definition at line 19 of file Grid\+Map.\+hpp.
+Definition at line 33 of file Grid\+Map.\+hpp.
 
 
 
@@ -1021,7 +1008,7 @@ Size of each cell in meters.
 
 
 
-Definition at line 17 of file Grid\+Map.\+hpp.
+Definition at line 31 of file Grid\+Map.\+hpp.
 
 
 
@@ -1039,7 +1026,7 @@ Number of cells in the grid (map size)
 
 
 
-Definition at line 16 of file Grid\+Map.\+hpp.
+Definition at line 30 of file Grid\+Map.\+hpp.
 
 
 
@@ -1053,7 +1040,7 @@ Referenced by clear\+Grid\+Map(), clear\+Set\+Points(), fill\+Grid(), get\+Cell\
 
 
 
-Definition at line 18 of file Grid\+Map.\+hpp.
+Definition at line 32 of file Grid\+Map.\+hpp.
 
 
 
@@ -1071,7 +1058,7 @@ Real-\/world coordinates from sonar data.
 
 
 
-Definition at line 18 of file Grid\+Map.\+hpp.
+Definition at line 32 of file Grid\+Map.\+hpp.
 
 
 

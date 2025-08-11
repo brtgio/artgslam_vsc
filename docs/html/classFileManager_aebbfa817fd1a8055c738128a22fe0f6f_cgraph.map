@@ -1,7 +1,10 @@
 <map id="FileManager::saveDialog" name="FileManager::saveDialog">
-<area shape="rect" id="node1" title="Opens a file dialog to save the current data (coordinates)." alt="" coords="5,81,188,108"/>
-<area shape="rect" id="node2" href="$classGridMap.html#ad20af94e5a3cc2872a274a732b5e3f72" title="Getters for real&#45;world x coordinates." alt="" coords="249,5,393,32"/>
-<area shape="rect" id="node3" href="$classGridMap.html#af4fe1dc74416535a7463b7e168a326d1" title="Getters for real&#45;world y coordinates." alt="" coords="250,56,393,83"/>
-<area shape="rect" id="node4" href="$classFileManager.html#ae4178789b8d0ae7653db505ba276640a" title="Saves x and y coordinate data to a file." alt="" coords="236,107,407,133"/>
-<area shape="rect" id="node5" href="$tinyfiledialogs_8h.html#a7a17e17150593bf3b04253ea819fc5bc" title=" " alt="" coords="240,157,403,184"/>
+<area shape="rect" id="node1" title="Opens a file dialog to save the current data (coordinates)." alt="" coords="5,157,188,184"/>
+<area shape="rect" id="node2" href="$classLiveMap.html#ae9af41b07f81f3dc2e021d5dd683093e" title="Returns whether live mode is currently active." alt="" coords="242,5,401,32"/>
+<area shape="rect" id="node3" href="$classGridMap.html#ad20af94e5a3cc2872a274a732b5e3f72" title="Getters for real&#45;world x coordinates." alt="" coords="249,56,393,83"/>
+<area shape="rect" id="node4" href="$classLiveMap.html#a67c0957dbfe3d3c375359b039cd3612a" title="Getters for real&#45;world x coordinates." alt="" coords="249,107,393,133"/>
+<area shape="rect" id="node5" href="$classGridMap.html#af4fe1dc74416535a7463b7e168a326d1" title="Getters for real&#45;world y coordinates." alt="" coords="250,157,393,184"/>
+<area shape="rect" id="node6" href="$classLiveMap.html#ac7ca767a14f0376869e63be6e246001e" title="Getters for real&#45;world y coordinates." alt="" coords="250,208,393,235"/>
+<area shape="rect" id="node7" href="$classFileManager.html#ae4178789b8d0ae7653db505ba276640a" title="Saves x and y coordinate data to a file." alt="" coords="236,259,407,285"/>
+<area shape="rect" id="node8" href="$tinyfiledialogs_8h.html#a7a17e17150593bf3b04253ea819fc5bc" title=" " alt="" coords="240,309,403,336"/>
 </map>

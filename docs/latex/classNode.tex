@@ -11,8 +11,7 @@ Represents a node in a grid used for path planning algorithms (e.\+g., A$\ast$).
 
 
 
-Collaboration diagram for Node\+:
-\nopagebreak
+Collaboration diagram for Node\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -52,7 +51,7 @@ float \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{h\+Cost}}
 \doxysubsection{Detailed Description}
 Represents a node in a grid used for path planning algorithms (e.\+g., A$\ast$). Each node corresponds to a cell and holds all relevant data for cost calculation and path reconstruction. 
 
-Definition at line 9 of file Node.\+hpp.
+Definition at line 23 of file Node.\+hpp.
 
 
 
@@ -69,11 +68,11 @@ Default constructor\+: initializes all coordinates and costs to invalid/default 
 
 
 
-Definition at line 17 of file Node.\+hpp.
+Definition at line 31 of file Node.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{17 : \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}(-\/1), \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}(-\/1), \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}(-\/1), \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}(-\/1), \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}}(0), \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}(0) \{\}}
+\DoxyCodeLine{31 : \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}(-\/1), \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}(-\/1), \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}(-\/1), \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}(-\/1), \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}}(0), \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}(0) \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classNode_a23a19f53dfbb18fec58cdac90de3d144}\label{classNode_a23a19f53dfbb18fec58cdac90de3d144}} 
@@ -95,14 +94,14 @@ Constructor with node position.
 \end{DoxyParams}
 
 
-Definition at line 24 of file Node.\+hpp.
+Definition at line 38 of file Node.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{25         : \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}(\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}), \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}(\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}), \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}(-\/1), \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}(-\/1), \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}}(0), \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}(0)}
-\DoxyCodeLine{26     \{}
-\DoxyCodeLine{27         \mbox{\hyperlink{classNode_a7fd6d92dcc86489f111d70c8e322d94c}{parent}} = sf::Vector2i(\mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}, \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}});}
-\DoxyCodeLine{28     \}}
+\DoxyCodeLine{39         : \mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}(\mbox{\hyperlink{classNode_aff1029a518bdc2651007b8856f958364}{x}}), \mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}(\mbox{\hyperlink{classNode_aa3e5b5240023b4528ae85057b3324202}{y}}), \mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}(-\/1), \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}}(-\/1), \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}}(0), \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}(0)}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         \mbox{\hyperlink{classNode_a7fd6d92dcc86489f111d70c8e322d94c}{parent}} = sf::Vector2i(\mbox{\hyperlink{classNode_a4a2efa33b7903fe8e0848f30368c00d0}{parentX}}, \mbox{\hyperlink{classNode_a9a1528a45eddcaab81f12cf2cc3f2a0f}{parentY}});}
+\DoxyCodeLine{42     \}}
 
 \end{DoxyCode}
 
@@ -127,11 +126,11 @@ Sum of g\+Cost and h\+Cost.
 \end{DoxyReturn}
 
 
-Definition at line 41 of file Node.\+hpp.
+Definition at line 55 of file Node.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{41 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} + \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}; \}}
+\DoxyCodeLine{55 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classNode_ac4099dbe7fe9827ceae92ab60606515a}{gCost}} + \mbox{\hyperlink{classNode_a045281c9c96fe17f3b8bf4ed3d8c9ae9}{hCost}}; \}}
 
 \end{DoxyCode}
 
@@ -142,8 +141,7 @@ References g\+Cost, and h\+Cost.
 
 Referenced by operator$>$(), and A\+Star\+::step().
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -170,21 +168,20 @@ true if this node\textquotesingle{}s f\+Cost is greater than the other\textquote
 \end{DoxyReturn}
 
 
-Definition at line 50 of file Node.\+hpp.
+Definition at line 64 of file Node.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{50                                             \{}
-\DoxyCodeLine{51         \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}() > other.\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}();}
-\DoxyCodeLine{52     \}}
+\DoxyCodeLine{64                                             \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}() > other.\mbox{\hyperlink{classNode_ad4e8dcafa398a8613bc3ed8681f31933}{fCost}}();}
+\DoxyCodeLine{66     \}}
 
 \end{DoxyCode}
 
 
 References f\+Cost().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -206,7 +203,7 @@ Cost from the start node to this node.
 
 
 
-Definition at line 33 of file Node.\+hpp.
+Definition at line 47 of file Node.\+hpp.
 
 
 
@@ -224,7 +221,7 @@ Heuristic cost estimate from this node to the goal.
 
 
 
-Definition at line 34 of file Node.\+hpp.
+Definition at line 48 of file Node.\+hpp.
 
 
 
@@ -242,7 +239,7 @@ Parent node position (used for path reconstruction)
 
 
 
-Definition at line 31 of file Node.\+hpp.
+Definition at line 45 of file Node.\+hpp.
 
 
 
@@ -256,7 +253,7 @@ Referenced by Node().
 
 
 
-Definition at line 32 of file Node.\+hpp.
+Definition at line 46 of file Node.\+hpp.
 
 
 
@@ -274,7 +271,7 @@ Redundant storage of parent coordinates.
 
 
 
-Definition at line 32 of file Node.\+hpp.
+Definition at line 46 of file Node.\+hpp.
 
 
 
@@ -288,7 +285,7 @@ Referenced by Node().
 
 
 
-Definition at line 30 of file Node.\+hpp.
+Definition at line 44 of file Node.\+hpp.
 
 
 
@@ -306,7 +303,7 @@ Current node (cell) position in grid coordinates.
 
 
 
-Definition at line 30 of file Node.\+hpp.
+Definition at line 44 of file Node.\+hpp.
 
 
 
