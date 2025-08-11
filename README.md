@@ -75,7 +75,7 @@ roscore
 # In a new terminal, run the Artgslam Visualizer node
 rosrun artgslam_vsc artgslam_vsc_node
 ```
-## Usage 
+
 
 ## 📚 Licenses
 
